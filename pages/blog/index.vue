@@ -52,7 +52,7 @@ export default {
   }),
   methods: {
     getCurrentUser() {
-      $fetch('http://localhost:8000/api/v1/user/my', {
+      $fetch(`${import.meta.env.VITE_API_URL}/user/my`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken
@@ -65,7 +65,7 @@ export default {
       })
     },
     getArticleList() {
-      $fetch('http://localhost:8000/api/v1/article', {
+      $fetch(`${import.meta.env.VITE_API_URL}/article`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken

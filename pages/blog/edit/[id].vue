@@ -39,7 +39,7 @@ export default {
   }),
   methods: {
     getCurrentUser() {
-      $fetch('http://localhost:8000/api/v1/user/my', {
+      $fetch(`${import.meta.env.VITE_API_URL}/user/my`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken
@@ -66,7 +66,7 @@ export default {
       })
     },
     getArticle() {
-      $fetch(`http://localhost:8000/api/v1/article/${useRoute().params.id}`, {
+      $fetch(`${import.meta.env.VITE_API_URL}/article/${useRoute().params.id}`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken
@@ -83,7 +83,7 @@ export default {
       this.article.article = this.editor.getMarkdown();
       this.article.tags = []
 
-      $fetch('http://localhost:8000/api/v1/article/update', {
+      $fetch(`${import.meta.env.VITE_API_URL}/article/update`, {
         method: 'PUT',
         body: this.article,
         headers: {

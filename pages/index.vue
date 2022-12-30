@@ -99,7 +99,7 @@ export default {
       return `url('@/assets/images/gallary/${name}')`
     },
     get_recent_articles() {
-      $fetch('http://localhost:8000/api/v1/article', {
+      $fetch(`${import.meta.env.VITE_API_URL}/article`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken

@@ -40,7 +40,7 @@ export default {
         'username': this.username,
         'password': this.password
       })
-      $fetch("http://localhost:8000/api/v1/auth/login", {
+      $fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
         method: 'POST',
         body: {
           username: this.username,

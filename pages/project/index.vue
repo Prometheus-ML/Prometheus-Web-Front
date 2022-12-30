@@ -38,7 +38,7 @@ export default {
 	}),
 	methods: {
     getProjectList() {
-      $fetch('http://localhost:8000/api/v1/project', {
+      $fetch(`${import.meta.env.VITE_API_URL}/project`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken

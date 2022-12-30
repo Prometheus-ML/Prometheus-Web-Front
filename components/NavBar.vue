@@ -85,7 +85,7 @@ export default {
       this.fold = true
     });
 
-    $fetch('http://localhost:8000/api/v1/user/my', {
+    $fetch(`${import.meta.env.VITE_API_URL}/user/my`, {
       headers: {
         Authorization: useAuth().$state.accessToken
       }

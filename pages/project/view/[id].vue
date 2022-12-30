@@ -76,7 +76,7 @@ export default {
   }),
   methods: {
     getProject() {
-      $fetch(`http://localhost:8000/api/v1/project/${useRoute().params.id}`, {
+      $fetch(`${import.meta.env.VITE_API_URL}/project/${useRoute().params.id}`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken
@@ -91,7 +91,7 @@ export default {
     editProject() {
       this.project.tags = []
 
-      $fetch('http://localhost:8000/api/v1/project/update', {
+      $fetch(`${import.meta.env.VITE_API_URL}/project/update`, {
         method: 'PUT',
         body: this.project,
         headers: {

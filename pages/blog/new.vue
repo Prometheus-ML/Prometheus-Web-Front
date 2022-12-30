@@ -39,7 +39,7 @@
     }),
     methods: {
       getCurrentUser() {
-        $fetch('http://localhost:8000/api/v1/user/my', {
+        $fetch(`${import.meta.env.VITE_API_URL}/user/my`, {
           method: 'GET',
           headers: {
             Authorization: useAuth().$state.accessToken
@@ -79,7 +79,7 @@
         this.article.create_date = this.getDate()
         this.article.writer = this.user.name
 
-        $fetch('http://localhost:8000/api/v1/article/new', {
+        $fetch(`${import.meta.env.VITE_API_URL}/article/new`, {
           method: 'POST',
           body: this.article,
           headers: {

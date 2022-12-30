@@ -66,7 +66,7 @@ export default {
       return member
     },
     getMemberList() {
-      $fetch('http://localhost:8000/api/v1/member', {
+      $fetch(`${import.meta.env.VITE_API_URL}/member`, {
         method: 'GET',
         headers: {
           Authorization: useAuth().$state.accessToken
