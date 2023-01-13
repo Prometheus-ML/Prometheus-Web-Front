@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 749 182">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dc2626;
+      }
+
+      .cls-2 {
+        fill: #f2f2f2;
+        font-family: Ubuntu-Bold, Ubuntu;
+        font-size: 100px;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <g id="_레이어_2-2" data-name="레이어 2">
+    <rect class="cls-1" width="749" height="182"/>
+  </g>
+  <g id="_레이어_1-2" data-name="레이어 1">
+    <text class="cls-2" transform="translate(82.55 129.1)"><tspan x="0" y="0">P</tspan><tspan class="cls-3" x="64.4" y="0">r</tspan><tspan class="cls-4" x="105.6" y="0">ometheus</tspan></text>
+  </g>
+</svg>
