@@ -223,7 +223,7 @@
             />
             <p class="text-sm mb-2">1기 개발부 차장</p>
             <p class="text-xl mb-2">조현우</p>
-            <p class="text-l mb-2">세종대학교 조인공지능학과</p>
+            <p class="text-l mb-2">세종대학교 인공지능학과</p>
           </li>
           <li class="w-64 text-center">
             <img
