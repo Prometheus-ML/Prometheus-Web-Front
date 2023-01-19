@@ -11,7 +11,7 @@
           src="@/assets/images/hackathon.jpeg"
           class="w-full bg-gray-300 mb-5 rounded-md"
         />
-        <div class="container">
+        <div>
           <p class="text-xl mb-2">
             <b>프로메테우스 X STARTUP HACKATHON 2023</b>
           </p>
@@ -111,7 +111,13 @@
               https://www.instagram.com/prometheus_ai_/
             </a>
             <br />
-            ✅ 프로메테우스 해커톤 안내 페이지 : prometheus-ai.net/hackathon
+            ✅ 프로메테우스 해커톤 안내 페이지 :
+            <a
+              href="https://prometheus-ai.net/hackathon"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              https://prometheus-ai.net/hackathon
+            </a>
             <br />
             ✅ 기타 문의사항은 아래 1:1 오픈채팅방을 통해 질문 가능합니다!
             <br />
