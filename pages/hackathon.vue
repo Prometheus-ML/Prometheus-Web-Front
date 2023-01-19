@@ -92,10 +92,10 @@
             📌 지원 방법 <br />
             1. 구글 폼 작성 :
             <a
-              href="https://forms.gle/uVSuXEzgZq7VWL3E6"
+              href="https://aifactory.space/competition/detail/2241"
               class="text-blue-600 dark:text-blue-500 hover:underline"
             >
-              https://forms.gle/uVSuXEzgZq7VWL3E6
+              https://aifactory.space/competition/detail/2241
             </a>
             <br />
             2. 선발 결과 발표 (2월 1일 중 개별 문자 공지) <br />
@@ -150,7 +150,7 @@ export default {
   data: () => ({}),
   methods: {
     openGoogleForm: function () {
-      window.open("https://forms.gle/uVSuXEzgZq7VWL3E6");
+      window.open("https://aifactory.space/competition/detail/2241");
     },
   },
 };
