@@ -133,14 +133,24 @@
             📌 후원사 <br />
             AiFactory, common computer, NeuralWorkslab, KINGSLEY VENTURES <br />
             <br />
+
+            <button
+              type="button"
+              class="w-full focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              @click="applyLink()"
+            >
+              참가 신청
+            </button>
+            <br />
+
+            <button
+              type="button"
+              class="w-full focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              @click="sponsorLink()"
+            >
+              후원사 모집
+            </button>
           </p>
-          <button
-            type="button"
-            class="w-full focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-            @click="openGoogleForm()"
-          >
-            참가신청하기
-          </button>
         </div>
       </div>
     </div>
@@ -155,8 +165,11 @@ export default {
   components: {},
   data: () => ({}),
   methods: {
-    openGoogleForm: function () {
+    applyLink: function () {
       window.open("https://aifactory.space/competition/detail/2241");
+    },
+    sponsorLink: function () {
+      window.open("https://aifactory.space/competition/detail/2242");
     },
   },
 };
