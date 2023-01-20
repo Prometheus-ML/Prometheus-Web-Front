@@ -7,10 +7,27 @@
     </div>
     <div class="container mx-auto pb-16 md:pb-24">
       <div class="grid grid-cols-1 gap-9 lg:grid-cols-2">
-        <img
-          src="@/assets/images/hackathon.jpeg"
-          class="w-full bg-gray-300 mb-5 rounded-md"
-        />
+        <div>
+          <img
+            src="@/assets/images/hackathon.jpeg"
+            class="w-full bg-gray-300 mb-5 rounded-md"
+          />
+          <div class="hidden lg:block">
+            🔥후원사 프로그램 홍보🔥 <br />
+            창업에 관심 있는 대학생, 휴학생 등 예비 창업자 및 초기 창업자를
+            대상으로 창업의 성공의 발판이 될 수 있는 기본기를 다지는 Short Term
+            프로그램인 ‘킹슬리벤처스 샌드백 프로그램’에 참여할 분들을 모집하오니
+            많은 관심과 참여를 부탁 드립니다.
+            <br />
+            <a
+              href="https://www.k-startup.go.kr//web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=163070"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              https://www.k-startup.go.kr//web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=163070
+            </a>
+          </div>
+        </div>
+
         <div>
           <p class="text-xl mb-2">
             <b>프로메테우스 X STARTUP HACKATHON 2023</b>
@@ -90,7 +107,7 @@
             <br />
 
             📌 지원 방법 <br />
-            1. 구글 폼 작성 :
+            1. 신청서 작성 :
             <a
               href="https://aifactory.space/competition/detail/2241"
               class="text-blue-600 dark:text-blue-500 hover:underline"
@@ -151,6 +168,21 @@
               후원사 모집
             </button>
           </p>
+        </div>
+
+        <div class="block lg:hidden">
+          🔥후원사 프로그램 홍보🔥 <br />
+          창업에 관심 있는 대학생, 휴학생 등 예비 창업자 및 초기 창업자를
+          대상으로 창업의 성공의 발판이 될 수 있는 기본기를 다지는 Short Term
+          프로그램인 ‘킹슬리벤처스 샌드백 프로그램’에 참여할 분들을 모집하오니
+          많은 관심과 참여를 부탁 드립니다.
+          <br />
+          <a
+            href="https://www.k-startup.go.kr//web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=163070"
+            class="text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            https://www.k-startup.go.kr//web/contents/bizpbanc-ongoing.do?schM=view&pbancSn=163070
+          </a>
         </div>
       </div>
     </div>
