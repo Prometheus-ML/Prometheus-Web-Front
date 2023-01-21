@@ -109,6 +109,15 @@
             📌 지원 방법 <br />
             1. 신청서 작성 :
             <a
+              href="https://forms.gle/FjRDgpV36tSG1Rr18"
+              class="text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              https://forms.gle/FjRDgpV36tSG1Rr18
+            </a>
+            <br />
+
+            * 인공지능팩토리 프랫폼을 통해서도 지원 가능합니다 :
+            <a
               href="https://aifactory.space/competition/detail/2241"
               class="text-blue-600 dark:text-blue-500 hover:underline"
             >
@@ -198,7 +207,7 @@ export default {
   data: () => ({}),
   methods: {
     applyLink: function () {
-      window.open("https://aifactory.space/competition/detail/2241");
+      window.open("https://forms.gle/FjRDgpV36tSG1Rr18");
     },
     sponsorLink: function () {
       window.open("https://aifactory.space/competition/detail/2242");
