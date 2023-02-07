@@ -73,6 +73,7 @@ export default {
   components: {},
   data: () => ({
     background: false,
+
     fold: true,
     navList: [
       {
@@ -135,7 +136,7 @@ export default {
   },
   computed: {
     is_home() {
-      if (useRouter().name == "home") {
+      if (this.$route.name == "index") {
         return true;
       } else {
         return false;
@@ -146,7 +147,7 @@ export default {
 </script>
 
 <style>
-.nuxt-link-active {
+.router-link-active {
   color: #b91c1c;
 }
 </style>

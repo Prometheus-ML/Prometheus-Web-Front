@@ -1,27 +1,27 @@
 <template>
   <NavBar></NavBar>
-
-  <div class="container mx-auto pt-48">
-    <div>
-    <p class="font-bold text-5xl mb-9">{{ article?.name }}</p>
-    <p class="text-end">{{ article?.writer?.username }} | {{ article?.created_date?.substring(0, 10) }}</p>
+  <div class="container mx-auto pt-40 pb-24">
+    <div class="pb-14">
+      <p class="pb-3 font-medium text-gray-600">
+        <span class="mr-3">{{ article?.created_date?.substring(0, 10) }}</span>
+        <span>{{ article?.writer?.username }}</span>
+      </p>
+      <p class="font-bold text-5xl mb-9">{{ article?.name }}</p>
     </div>
-  </div>
-  <div class="container mx-auto py-24">
-    <div class="mb-9" id="viewer"></div>
-    <ul class="flex mt-5">
-      <li v-for="tag in article?.tag" :key="tag" class="bg-red-100 text-red-900 text-sm px-3 py-1 mr-2">{{ tag }}</li>
-    </ul>
-    <nuxt-link :to="'/blog/edit/'+id" v-if="user?.id == article?.writer.id">
-      <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 mb-4 mr-2 border rounded shadow">
-        Edit
-      </button>
-    </nuxt-link>
-    <nuxt-link :to="'/blog'">
-      <button class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 mb-4 border rounded shadow">
-        List
-      </button>
-    </nuxt-link>
+    <div class="pb-7">
+      <div class="mb-3" id="viewer"></div>
+      <ul v-if="article?.tag" class="flex mt-5">
+        <li v-for="tag in article?.tag" :key="tag" class="bg-red-100 text-red-900 text-sm px-3 py-1 mr-2">{{ tag }}</li>
+      </ul>
+    </div>
+    <div class="flex justify-end gap-x-2">
+      <nuxt-link :to="'/blog/edit/'+id" v-if="user?.id == article?.writer.id" class="bg-white py-2 px-4 border rounded inline-block">
+          수정
+      </nuxt-link>
+      <nuxt-link :to="'/blog'" class="bg-white py-2 px-4 border rounded inline-block">
+          글목록
+      </nuxt-link>
+    </div>
   </div>
 
   <Footer></Footer>

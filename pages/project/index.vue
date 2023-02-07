@@ -3,7 +3,7 @@
 	
 	<div class="container mx-auto pt-48">
 		<div>
-			<p class="font-bold text-7xl mb-9">Project</p>
+			<p class="font-bold text-5xl mb-9">PROJECT</p>
 			<!-- <p class="text-end">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Donec congue tincidunt massa, vel consequat ipsum pharetra nec. <br> Etiam vel congue urna, ut cursus nisi.</p> -->
 		</div>
 	</div>
