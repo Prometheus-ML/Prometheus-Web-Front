@@ -109,6 +109,22 @@
           class="rounded-md inline-block w-full mb-8 bg-center bg-cover bg-[url('@/assets/images/gallary/8.jpeg')]"
           :style="{ height: get_random_height() }"
         ></div>
+        <div
+          class="rounded-md inline-block w-full mb-8 bg-center bg-cover bg-[url('@/assets/images/gallary/9.jpeg')]"
+          :style="{ height: get_random_height() }"
+        ></div>
+        <div
+          class="rounded-md inline-block w-full mb-8 bg-center bg-cover bg-[url('@/assets/images/gallary/10.jpeg')]"
+          :style="{ height: get_random_height() }"
+        ></div>
+        <div
+          class="rounded-md inline-block w-full mb-8 bg-center bg-cover bg-[url('@/assets/images/gallary/11.jpeg')]"
+          :style="{ height: get_random_height() }"
+        ></div>
+        <div
+          class="rounded-md inline-block w-full mb-8 bg-center bg-cover bg-[url('@/assets/images/gallary/12.jpeg')]"
+          :style="{ height: get_random_height() }"
+        ></div>
       </div>
     </div>
   </div>
