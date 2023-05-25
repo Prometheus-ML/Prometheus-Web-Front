@@ -1,27 +1,23 @@
 <template>
-  <NavBar></NavBar>
-
-  <div class="container mx-auto pt-32 md:pt-48">
-    <div>
-      <p class="font-bold text-4xl md:text-6xl mb-9">Recruit</p>
-      <p class="text-left md:text-right text-sm">프로메테우스의 기반을 튼튼히 다지고 함께 성장할 동료를 모집하고 있습니다.</p>
+  <div class="container mx-auto pt-40 pb-24">
+    <div class="mb-14">
+      <p class="font-bold text-4xl md:text-5xl mb-5">지원하기</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">함께 성장해갈 동료를 모집합니다</p>
     </div>
-  </div>
-  <div class="container mx-auto py-16 md:py-24">
-    <div class="flex flex-wrap items-center rounded-md bg-slate-100 md:h-80 p-10">
+
+    <div class="flex flex-wrap items-center rounded bg-slate-100 md:h-80 p-10 mb-20">
       <div class="flex-1 text-center">
         <p class="font-bold text-2xl mb-9">프로메테우스 2기 가입 신청</p>
         <p class="mb-9">프로메테우스는 대학생 최고의 인공지능 커뮤니티가 되기 위해 함께 성장할 동료를 모집하고 있습니다. <br>도전과 열정이 어울리는 당신이라면 대학생 인공지능 단체 프로메테우스와 함께 해주십시오.</p>
-        <a href="#" class="rounded-md px-5 py-2 text-lg text-medium bg-red-100 text-red-900">가입 기간이 종료됐습니다</a> 
+        <a href="#" class="rounded px-5 py-2 text-lg text-medium bg-red-100 text-red-900">가입 기간이 종료됐습니다</a> 
       </div> 
     </div>
-  </div>
-  <div class="container mx-auto py-16 md:py-24">
-    <div class="text-center mb-14 md:mb-20">
-      <p class="font-bold text-4xl md:text-6xl mb-5">모집 개요</p>
+
+    <div class="text-center mb-14">
+      <p class="font-bold text-4xl">모집 개요</p>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-9 ">
-      <div class="w-full bg-slate-100 rounded-md p-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-9 mb-20">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">지원 자격</p>
           <ul class="ml-5 list-disc list-outside">
@@ -30,7 +26,7 @@
           </ul>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded-md p-10">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">활동 내용</p>
           <ul class="ml-5 list-disc list-outside">
@@ -39,41 +35,40 @@
           </ul>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded-md p-10">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">모집 인원</p>
           <p>20명 내외</p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container mx-auto py-16 md:py-24">
-    <div class="text-center mb-14 md:mb-20">
-      <p class="font-bold text-4xl md:text-6xl mb-5">모집 일정</p>
+
+    <div class="text-center mb-14">
+      <p class="font-bold text-4xl mb-5">모집 일정</p>
     </div>
-    <div class="grid grid-cols-1 xl:grid-cols-4 gap-9 ">
-      <div class="w-full bg-slate-100 rounded-md p-10">
+    <div class="grid grid-cols-1 xl:grid-cols-4 gap-9 mb-20">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-5">서류 접수</p>
           <p class="mb-2">서류 면접 설명</p>
           <p class="font-medium">2022.08.10 ~ 2022.08.19</p>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded-md p-10">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-5">서류 결과 통보</p>
           <p class="mb-2">개별 면접 일정 조정 설명</p>
           <p class="font-medium">2022. 08. 20 ~ 2022. 08. 23</p>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded-md p-10">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-5">개별 면접</p>
           <p class="mb-2">개별 면접 설명</p>
           <p class="font-medium">2022. 08. 24 ~ 2022. 08. 25</p>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded-md p-10">
+      <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-5">최종 합격자 발표</p>
           <p class="mb-2">최종 합격자 발표 설명</p>
@@ -81,19 +76,17 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container mx-auto py-16 md:py-24">
+
     <div class="text-center mb-14 md:mb-20">
-      <p class="font-bold text-4xl md:text-6xl mb-5">FAQ</p>
-      <p class="mb-5">자주 묻는 질문</p>
+      <p class="font-bold text-4xl">FAQ</p>
     </div>
     <div class="grid grid-cols-1 gap-5">
-      <div v-for="(item, index) in faq" class="w-full bg-slate-100 rounded-md p-10 cursor-pointer" @click="openFaq(index, !faq[index].on)">
+      <div v-for="(item, index) in faq" class="w-full bg-slate-100 rounded p-10 cursor-pointer" @click="openFaq(index, !faq[index].on)">
         <div>
           <div class="flex justify-between items-center  gap-x-5 font-bold md:text-2xl">
             <p>{{item.title}}</p>
-            <!-- <font-awesome-icon v-if="!item.on"  icon="fa-solid fa-angle-down" /> -->
-            <!-- <font-awesome-icon v-if="item.on" icon="fa-solid fa-angle-up" /> -->
+            <font-awesome-icon v-if="!item.on"  icon="fa-solid fa-angle-down" />
+            <font-awesome-icon v-if="item.on" icon="fa-solid fa-angle-up" />
           </div>
           <p v-if="item.on && Array.isArray(item.value)" class="mt-5">
             <ul class="ml-5 list-disc list-outside">
@@ -105,8 +98,6 @@
       </div>
     </div>
   </div>
-
-  <Footer></Footer>
 </template>
 
 <script>
