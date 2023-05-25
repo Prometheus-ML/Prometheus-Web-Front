@@ -1,6 +1,4 @@
 <template>
-  <NavBar></NavBar>
-
   <div class="container mx-auto pt-48">
     <div>
       <p class="font-bold text-5xl mb-9">{{project.name}}</p>
@@ -9,7 +7,7 @@
   </div>
   <div class="container mx-auto py-24">
     <!-- <div id="controls-carousel" class="relative mb-9" data-carousel="static">
-      <div class="relative h-56 overflow-hidden rounded-md md:h-96">
+      <div class="relative h-56 overflow-hidden rounded md:h-96">
         <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10" data-carousel-item="">
           <img :src="project.img_slide[0]" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
@@ -61,8 +59,6 @@
       <li v-for="tag in project.tag" :key="tag" class="bg-red-100 text-red-900 text-sm px-3 py-1  mr-2">{{ tag }}</li>
     </ul> -->
   </div>
-
-  <Footer></Footer>
 </template>
 
 <script>

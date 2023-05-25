@@ -1,21 +1,16 @@
 <template>
   <nav
     class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-sm"
-    :class="{ 'bg-white': background || !fold }"
+    :class="{ '!bg-white': background || !fold }"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <a href="/" class="flex items-center">
-        <img
-          src="@/assets/logo.png"
-          class="mr-3 h-6 sm:h-9"
-          alt="Prometheus Logo"
-        />
+      <a href="/" class="flex items-center font-bold text-xl text-rose-700">
+        PROMETHEUS
       </a>
       <button
         @click="fold = !fold"
         type="button"
-        class="inline-flex items-center p-2 ml-3 text-sm rounded-lg md:hidden"
-        :class="{ 'text-white': !background && is_home && fold }"
+        class="inline-flex items-center p-2 ml-3 text-base rounded-lg md:hidden"
       >
         <svg
           class="w-6 h-6"
@@ -33,120 +28,93 @@
       </button>
       <div class="w-full md:block md:w-auto" :class="{ hidden: fold }">
         <ul
-          class="flex flex-col md:p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm font-medium md:border-0"
+          class="flex flex-col md:p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
         >
           <li
             v-for="nav in navList"
             :key="nav.path"
-            :class="{ 'md:text-white': !background && is_home }"
           >
-            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-3 md:p-0">{{
+            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0">{{
               nav.name
             }}</nuxt-link>
           </li>
-          <!-- <li>
-            <nuxt-link to="/" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</nuxt-link>
+          <li v-if="user" class="relative" @click="profileMenuOpen = true">
+            <button>{{ user.name }}</button>
+            <div id="profileMenu" v-show="profileMenuOpen" class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white">
+              <ul>
+                <li><nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link></li>
+                <li><nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link></li>
+                <hr>
+                <li><nuxt-link to="/" class="block px-3 py-2">로그아웃</nuxt-link></li>
+              </ul>
+            </div>
           </li>
-          <li>
-            <nuxt-link to="/member" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">MEMBER</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/project" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">PROJECT</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/blog" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">BLOG</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link to="/contact" class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">CONTACT</nuxt-link>
-          </li> -->
         </ul>
       </div>
     </div>
   </nav>
 </template>
 
-<script>
-import { useAuth } from "@/store";
+<script setup>
+import { storeToRefs } from "pinia";
 
-export default {
-  name: "NavBar",
-  components: {},
-  data: () => ({
-    background: false,
-    fold: true,
-    navList: [
-      {
-        path: "/",
-        name: "HOME",
-      },
-      {
-        path: "/member",
-        name: "MEMBER",
-      },
-      {
-        path: "/project",
-        name: "PROJECT",
-      },
-      {
-        path: "/blog",
-        name: "BLOG",
-      },
-      {
-        path: "/recruit",
-        name: "RECRUIT",
-      },
-      {
-        path: "/hackathon",
-        name: "HACKATHON",
-      },
-      {
-        path: "/login",
-        name: "LOGIN",
-      },
-    ],
-  }),
-  mounted() {
-    let parent = this;
-    document.addEventListener("scroll", (e) => {
-      let scrolled = document.scrollingElement.scrollTop;
-      if (scrolled > 5) {
-        parent.background = true;
-      } else {
-        parent.background = false;
-      }
-    });
+const authStore = useAuthStore();
+const { user } = storeToRefs(authStore)
 
-    window.addEventListener("resize", (e) => {
-      this.fold = true;
-    });
-
-    $fetch(`${import.meta.env.VITE_API_URL}/user/my`, {
-      headers: {
-        Authorization: useAuth().$state.accessToken,
-      },
-    })
-      .then((result) => {
-        this.navList.pop({
-          path: "/login",
-          name: "LOGIN",
-        });
-      })
-      .catch((result) => {});
+const profileMenuOpen = ref(false)
+const navList = [
+  {
+    path: "/",
+    name: "홈",
   },
-  computed: {
-    is_home() {
-      if (useRouter().name == "home") {
-        return true;
-      } else {
-        return false;
-      }
-    },
+  {
+    path: "/member",
+    name: "멤버",
   },
-};
+  {
+    path: "/project",
+    name: "프로젝트",
+  },
+  {
+    path: "/blog",
+    name: "블로그",
+  },
+  {
+    path: "/recruit",
+    name: "지원하기",
+  },
+  // {
+  //   path: "/hackathon",
+  //   name: "해커톤",
+  // }
+]
+let background = ref(false)
+let fold = ref(true)
+
+onBeforeMount(async () => {
+  document.addEventListener('mouseup', function(e) {
+    var container = document.getElementById('profileMenu');
+    if (!container?.contains(e.target)) {
+      profileMenuOpen.value = false
+    }
+  })
+
+  document.addEventListener("scroll", (e) => {
+    if (document.scrollingElement.scrollTop > 5) {
+      background.value = true
+    } else {
+      background.value = false
+    }
+  })
+
+  window.addEventListener("resize", (e) => {
+    fold.value = true
+  })
+})
 </script>
 
 <style>
-.nuxt-link-active {
+.router-link-active {
   color: #b91c1c;
 }
 </style>

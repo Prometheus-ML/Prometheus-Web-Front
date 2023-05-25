@@ -1,42 +1,9 @@
 <template>
-  <NavBar></NavBar>
-
-  <div class="container mx-auto pt-48">
-    <div>
-      <p class="font-bold text-7xl mb-9">Member</p>
-      <!-- <p class="text-end">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> Donec congue tincidunt massa, vel consequat ipsum pharetra nec. <br> Etiam vel congue urna, ut cursus nisi.</p> -->
+  <div class="container mx-auto pt-40 pb-24">
+    <div class="mb-14">
+      <p class="font-bold text-4xl md:text-5xl mb-5">멤버</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">프로메테우스의 멤버들</p>
     </div>
-  </div>
-  <div class="container mx-auto py-24">
-    <!-- <ul class="">
-      <li v-for="gen in genList" :key="gen">
-        <div class="flex justify-between p-6 text-3xl">
-          <p>{{gen}}기</p> -->
-    <!-- <font-awesome-icon icon="fa-solid fa-angle-down" /> -->
-    <!-- </div>
-        <hr>
-        <div >
-          <div class="p-16">
-            <ul class="flex flex-wrap justify-center gap-9">
-              <li v-for="member in filterMemberByGen(gen)" :key="member.id" class="w-64 text-center">
-                <div class="w-full pb-[120%] bg-gray-300 mb-5 rounded-md"></div>
-                <p class="text-sm mb-2"><span v-if="member.position != '' && member.position != 'normal'">{{ member.position }}</span></p>
-                <p class="text-xl mb-2">{{ member.name }}</p>
-                <p class="text-l mb-2">{{ member.tech }}</p>
-                <div class="mt-3"> -->
-    <!-- <a v-if="member.homepage" class="mx-2 text-xl" href="#"><font-awesome-icon icon="fa-solid fa-globe" /></a>
-                  <a v-if="member.github" class="mx-2 text-xl" href="#"><font-awesome-icon icon="fa-brands fa-github" /></a>
-                  <a v-if="member.fackbook" class="mx-2 text-xl" href="#"><font-awesome-icon icon="fa-brands fa-facebook" /></a>
-                  <a v-if="member.instagram" class="mx-2 text-xl" href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a>
-                  <a v-if="member.twitter" class="mx-2 text-xl" href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a> -->
-    <!-- </div>
-              </li>
-            </ul>
-          </div>
-          <hr>
-        </div>
-      </li>
-    </ul> -->
 
     <div class="flex justify-between p-6 text-3xl">
       <p>2기</p>
@@ -49,7 +16,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_002.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 홍보부장</p>
             <p class="text-xl mb-2">변가은</p>
@@ -60,7 +27,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_003.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 차장</p>
             <p class="text-xl mb-2">심수민</p>
@@ -69,7 +36,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_001.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 기획부 부원</p>
             <p class="text-xl mb-2">황보률</p>
@@ -78,7 +45,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_004.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">김태윤</p>
@@ -87,7 +54,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_005.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">김종효</p>
@@ -96,7 +63,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_006.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">여신호</p>
@@ -105,7 +72,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_007.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">이성민</p>
@@ -114,7 +81,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_008.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">최지웅</p>
@@ -123,7 +90,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_009.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 부원</p>
             <p class="text-xl mb-2">오유진</p>
@@ -132,7 +99,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_010.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">배윤호</p>
@@ -141,7 +108,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_011.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">연유정</p>
@@ -150,7 +117,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_012.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">김준희</p>
@@ -159,7 +126,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_013.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">권미주</p>
@@ -168,7 +135,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/2_014.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 부원</p>
             <p class="text-xl mb-2">최태은</p>
@@ -192,7 +159,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_001.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">프로메테우스 Founder 1, 2기 대표</p>
             <p class="text-xl mb-2">정승훈</p>
@@ -201,7 +168,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_002.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 총무</p>
             <p class="text-xl mb-2">정회성</p>
@@ -210,7 +177,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_003.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 개발부 부장</p>
             <p class="text-xl mb-2">이혁준</p>
@@ -219,7 +186,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_004.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1기 개발부 차장</p>
             <p class="text-xl mb-2">조현우</p>
@@ -228,7 +195,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_005.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 기획부 부장</p>
             <p class="text-xl mb-2">강동우</p>
@@ -237,7 +204,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_006.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 기획부 차장</p>
             <p class="text-xl mb-2">손수경</p>
@@ -246,7 +213,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_007.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 섭외부 부장</p>
             <p class="text-xl mb-2">이다솔</p>
@@ -255,7 +222,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_008.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 차장</p>
             <p class="text-xl mb-2">정승은</p>
@@ -264,7 +231,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_009.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 개발부 부원</p>
             <p class="text-xl mb-2">조동현</p>
@@ -273,7 +240,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_010.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">김하얀</p>
@@ -282,7 +249,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_011.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">김다정</p>
@@ -291,7 +258,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_012.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">류다윤</p>
@@ -302,7 +269,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_013.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 개발부 부원</p>
             <p class="text-xl mb-2">황영훈</p>
@@ -311,7 +278,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_014.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1기 홍보부 부장</p>
             <p class="text-xl mb-2">김수민</p>
@@ -320,7 +287,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_015.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 기획부 부원</p>
             <p class="text-xl mb-2">김수빈</p>
@@ -329,7 +296,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_016.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 기획부 부원</p>
             <p class="text-xl mb-2">김은비</p>
@@ -338,7 +305,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_017.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">박수연</p>
@@ -347,7 +314,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_018.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 부원</p>
             <p class="text-xl mb-2">박지완</p>
@@ -356,7 +323,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_019.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">서동재</p>
@@ -365,7 +332,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_020.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">서지은</p>
@@ -376,7 +343,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_021.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 부원</p>
             <p class="text-xl mb-2">양지연</p>
@@ -387,7 +354,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_022.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">장지오</p>
@@ -396,7 +363,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_023.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">2기 섭외부 부원</p>
             <p class="text-xl mb-2">정민수</p>
@@ -405,7 +372,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_024.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">김준형</p>
@@ -414,7 +381,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_025.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 개발부 부원</p>
             <p class="text-xl mb-2">김선웅</p>
@@ -423,7 +390,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_026.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2">1, 2기 개발부 부원</p>
             <p class="text-xl mb-2">한재연</p>
@@ -432,7 +399,7 @@
           <li class="w-64 text-center">
             <img
               src="@/assets/images/member/1_027.jpeg"
-              class="w-full bg-gray-300 mb-5 rounded-md"
+              class="w-full bg-gray-300 mb-5 rounded"
             />
             <p class="text-sm mb-2"></p>
             <p class="text-xl mb-2">정지영</p>
@@ -443,8 +410,6 @@
       <hr />
     </div>
   </div>
-
-  <Footer></Footer>
 </template>
 
 <script>
