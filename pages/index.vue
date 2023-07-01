@@ -147,8 +147,7 @@ const recentProjects = ref([
   {
     thumb: "",
     title: "화풍을 바꿔주는 모델 제작 팀",
-    description: "CNN과 GAN에 대한 이해를 바탕으로 특정 물체 혹은 배경에 대해서만 화풍을 바꿔주는 모델을 개발하는 것을 목표로 하는 팀입니다
-"
+    description: "CNN과 GAN에 대한 이해를 바탕으로 특정 물체 혹은 배경에 대해서만 화풍을 바꿔주는 모델을 개발하는 것을 목표로 하는 팀입니다"
   },
   {
     thumb: "",
