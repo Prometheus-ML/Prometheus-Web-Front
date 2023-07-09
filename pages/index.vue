@@ -82,12 +82,18 @@
         <p class="font-bold text-4xl md:text-5xl mb-5">후원사</p>
         <p class="font-medium text-lg text-gray-600 mb-5">프로메테우스는 다음과 같은 후원사의 도움을 받습니다</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-12 justify-items-center items-center px-4 sm:px-8">
+      <div class="grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
+
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
+				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/neuralworkslab.png" />
+				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/aifactory.png" />
+				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/kingsleyventures.png" />
+				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/modulabs.png" />
+				<div></div>
       </div>
     </div>
   </div>
