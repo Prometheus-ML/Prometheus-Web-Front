@@ -87,7 +87,7 @@ const sortMembersByKoreanName = (data) => {
 const importMemberImages = async (data) => {
   const images = await Promise.all(
     data.map(async (member) => {
-      const { default: imagePath } = await import(`@/${member.image}`);
+      const { default: imagePath } = await import(`${member.image}`);
       return {
         ...member,
         image: imagePath,
