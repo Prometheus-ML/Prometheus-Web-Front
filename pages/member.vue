@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<img
-								src="member.image"
+								:src="member.image"
 								class="w-full h-full object-cover rounded-full md:rounded"
 							/>
 						</div>
