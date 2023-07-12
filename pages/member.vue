@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<img
-								:src="member.image"
+								src="member.image"
 								class="w-full h-full object-cover rounded-full md:rounded"
 							/>
 						</div>
@@ -55,7 +55,7 @@
 
 
 <script setup>
-const activeTab = ref('executives');
+const activeTab = ref('2st_gen');
 import executives from '~/assets/data/member/executives.json';
 import operations from '~/assets/data/member/operations.json';
 import firstGenMembers from '~/assets/data/member/first-gen.json';
@@ -73,18 +73,28 @@ const tabs = [
 const setActiveTab = (tab) => {
 	activeTab.value = tab;
 };
+	
+const sortMembersByKoreanName = (data) => {
+  return data.sort((a, b) => {
+    const nameA = a.name;
+    const nameB = b.name;
 
+    // localeCompare 함수를 사용하여 한글 이름을 정렬
+    return nameA.localeCompare(nameB, 'ko');
+  });
+};
+	
 const members = computed(() => {
-      if (activeTab.value === 'executives') {
-        return executives;
-      } else if (activeTab.value === 'operations') {
-        return operations;
-      } else if (activeTab.value === '1st_gen') {
-        return firstGenMembers;
+			if (activeTab.value === 'executives') {
+			  return sortMembersByKoreanName(executives);
+			} else if (activeTab.value === 'operations') {
+			  return sortMembersByKoreanName(operations);
+			} else if (activeTab.value === '1st_gen') {
+        return sortMembersByKoreanName(firstGenMembers);
       } else if (activeTab.value === '2nd_gen') {
-        return secondGenMembers;
+        return sortMembersByKoreanName(secondGenMembers);
       } else if (activeTab.value === '3rd_gen') {
-        return thirdGenMembers;
+        return sortMembersByKoreanName(thirdGenMembers);
       }
       // 기타 탭에 대한 로직 추가
       return [];
