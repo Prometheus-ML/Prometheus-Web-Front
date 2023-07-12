@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<img
-								:style="{backgroundImage : `url(${member.image})`}"
+								:style="blank"
 								class="w-full h-full object-cover rounded-full md:rounded"
 							/>
 						</div>
@@ -61,7 +61,8 @@ import operations from '@/assets/data/member/operations.json';
 import firstGenMembers from '@/assets/data/member/first-gen.json';
 import secondGenMembers from '@/assets/data/member/second-gen.json';
 import thirdGenMembers from '@/assets/data/member/third-gen.json';
-
+import blank from '@/assets/images/member/blank.jpeg';
+	
 const tabs = [
   { key: 'executives', name: '창립멤버' },
   { key: 'operations', name: '운영진' },
@@ -83,25 +84,6 @@ const sortMembersByKoreanName = (data) => {
     return nameA.localeCompare(nameB, 'ko');
   });
 };
-	
-const importMemberImages = async (data) => {
-  const images = await Promise.all(
-    data.map(async (member) => {
-      const { default: imagePath } = await import(`${member.image}`);
-      return {
-        ...member,
-        image: imagePath,
-      };
-    })
-  );
-  memberImages.value = images;
-};
-
-importMemberImages(executives);
-// importMemberImages(operations);
-// importMemberImages(firstGenMembers);
-// importMemberImages(secondGenMembers);
-// importMemberImages(thirdGenMembers);
 	
 const members = computed(() => {
 	if (activeTab.value === 'executives') {
