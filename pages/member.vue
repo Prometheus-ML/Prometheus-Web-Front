@@ -84,14 +84,16 @@ const sortMembersByKoreanName = (data) => {
   });
 };
 	
-const importMemberImages = (data) => {
-  const images = data.map((member) => {
-    const imagePath = require(`${member.image}`);
-    return {
-      ...member,
-      image: imagePath,
-    };
-  });
+const importMemberImages = async (data) => {
+  const images = await Promise.all(
+    data.map(async (member) => {
+      const { default: imagePath } = await import(`@/${member.image}`);
+      return {
+        ...member,
+        image: imagePath,
+      };
+    })
+  );
   memberImages.value = images;
 };
 
