@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<img
-								:src="require('@/assets/images/member/blank.jpeg')"
+								:style="{backgroundImage : `url(${member.image})`}"
 								class="w-full h-full object-cover rounded-full md:rounded"
 							/>
 						</div>
@@ -55,12 +55,12 @@
 
 
 <script setup>
-const activeTab = ref('2st_gen');
-import executives from '~/assets/data/member/executives.json';
-import operations from '~/assets/data/member/operations.json';
-import firstGenMembers from '~/assets/data/member/first-gen.json';
-import secondGenMembers from '~/assets/data/member/second-gen.json';
-import thirdGenMembers from '~/assets/data/member/third-gen.json';
+const activeTab = ref('executives');
+import executives from '@/assets/data/member/executives.json';
+import operations from '@/assets/data/member/operations.json';
+import firstGenMembers from '@/assets/data/member/first-gen.json';
+import secondGenMembers from '@/assets/data/member/second-gen.json';
+import thirdGenMembers from '@/assets/data/member/third-gen.json';
 
 const tabs = [
   { key: 'executives', name: '창립멤버' },
@@ -84,21 +84,41 @@ const sortMembersByKoreanName = (data) => {
   });
 };
 	
+const importMemberImages = (data) => {
+  const images = data.map((member) => {
+    const imagePath = require(`${member.image}`);
+    return {
+      ...member,
+      image: imagePath,
+    };
+  });
+  memberImages.value = images;
+};
+
+importMemberImages(executives);
+// importMemberImages(operations);
+// importMemberImages(firstGenMembers);
+// importMemberImages(secondGenMembers);
+// importMemberImages(thirdGenMembers);
+	
 const members = computed(() => {
-			if (activeTab.value === 'executives') {
-			  return sortMembersByKoreanName(executives);
-			} else if (activeTab.value === 'operations') {
-			  return sortMembersByKoreanName(operations);
-			} else if (activeTab.value === '1st_gen') {
-        return sortMembersByKoreanName(firstGenMembers);
-      } else if (activeTab.value === '2nd_gen') {
-        return sortMembersByKoreanName(secondGenMembers);
-      } else if (activeTab.value === '3rd_gen') {
-        return sortMembersByKoreanName(thirdGenMembers);
-      }
-      // 기타 탭에 대한 로직 추가
-      return [];
+	if (activeTab.value === 'executives') {
+		return sortMembersByKoreanName(executives);
+	} else if (activeTab.value === 'operations') {
+		return sortMembersByKoreanName(operations);
+	} else if (activeTab.value === '1st_gen') {
+		return sortMembersByKoreanName(firstGenMembers);
+	} else if (activeTab.value === '2nd_gen') {
+		return sortMembersByKoreanName(secondGenMembers);
+	} else if (activeTab.value === '3rd_gen') {
+		return sortMembersByKoreanName(thirdGenMembers);
+	}
+	// 기타 탭에 대한 로직 추가
+	return [];
 });
 	
+	
+
+
 
 </script>

@@ -1,6 +1,6 @@
 [
   {
-    "image": "@/assets/images/member/1_001.jpeg",
+    "image": "/images/member/1_001.jpeg",
     "position": "프로메테우스 Founder 1, 2기 대표",
     "name": "정승훈",
     "major": "세종대학교 인공지능학과"
