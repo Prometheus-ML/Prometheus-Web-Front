@@ -4,8 +4,9 @@
       <div>
         <a class="mx-3 text-3xl" href="https://github.com/Prometheus-ML" target="_blank"><font-awesome-icon icon="fa-brands fa-github" /></a>
         <a class="mx-3 text-3xl" href="https://www.instagram.com/prometheus_ai_/" target="_blank"><font-awesome-icon :icon="['fa-brands', 'fa-instagram']" /></a>
+				
       </div>
-      <p class="mt-5">© Prometheus 2022. All rights reserved.</p>
+      <p class="mt-5">© Prometheus 2023. All rights reserved.</p>
     </div>
   </div>
 </template>

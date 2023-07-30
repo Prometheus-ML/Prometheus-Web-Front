@@ -6,7 +6,7 @@
       type="text"
       class="border rounded w-full py-2 px-3 mb-3" 
       placeholder="제목을 입력해주세요"
-      required>
+      required/>
 
     <input 
       v-if="project"
@@ -14,7 +14,7 @@
       type="text"
       class="border rounded w-full py-2 px-3 mb-5" 
       placeholder="간략한 개요를 입력해주세요"
-      required>
+      required/>
 
     <div id="editor" class="mb-5"></div>
 
@@ -33,25 +33,43 @@
       <div class="pb-44 rounded basis-80 bg-contain bg-center bg-no-repeat border border-dashed border-4" :style="{ backgroundImage: 'url(' + useImage(formData?.thumb) + ')' }"></div>
     </div>
 
-    <div class="mb-5">
-      <p class="text-lg font-bold mb-3">태그</p>
-      <input 
-        v-model="tagName"
-        type="text"
-        class="bg-white border rounded w-full p-2 px-3 mb-5" 
-        placeholder="태그 입력 후 엔터를 눌러주세요"
-        @keyup.enter="addTag(tagName)"
-        required>
-      
-      <div class="flex gap-3 flex-wrap">
-        <div class="bg-white py-2 px-4 border rounded inline-block flex items-center gap-x-2" v-for="(tag, index) in formData.tag">
-          <span>#{{ tag.name }}</span>
-          <font-awesome-icon @click="removeTag(index)" class="cursor-pointer" icon="fa-solid fa-xmark" />
-        </div>
-      </div>
-    </div>
-
     <div class="mb-5" v-if="project">
+  		<p class="text-lg font-bold mb-3">참여 멤버</p>
+			<div class="mb-3">
+				<input
+					v-model="searchText"
+					type="text"
+					class="border rounded w-full py-2 px-3 mb-3"
+					placeholder="참여 멤버를 검색하세요"
+				/>
+			</div>
+			<!-- Conditionally render the member divs only when there is search text -->
+			<div v-if="searchText" class="overflow-y-auto border rounded max-h-40">
+				<div
+					v-for="member in filteredMembers"
+					:key="member.id"
+					@click="handleMemberSelection(member)"
+					class="cursor-pointer hover:bg-gray-100 py-1 px-2 rounded"
+				>
+					{{ member.name }}
+				</div>
+			</div>
+		</div>
+		<div v-if="project && formData.members && formData.members.length" class="flex gap-3 flex-wrap mt-4">
+			<div
+				v-for="(member, index) in formData.members"
+				:key="index"
+				class="bg-white py-2 px-4 border rounded inline-block flex items-center gap-x-2"
+			>
+				<span>#{{ member.name }}</span>
+				<button @click="removeMember(index)" class="cursor-pointer" title="Remove">
+					-
+				</button>
+			</div>
+		</div>
+
+		
+    <div v-if="project" class="flex gap-3 flex-wrap mt-4">
       <p class="text-lg font-bold mb-3">외부 링크</p>
       <input 
         v-if="project"
@@ -59,15 +77,15 @@
         type="text"
         class="border rounded w-full py-2 px-3 mb-3" 
         placeholder="홈페이지 링크를 입력해주세요"
-        required>
-
+        required/>
+			
       <input 
         v-if="project"
         v-model="formData.github"
         type="text"
         class="border rounded w-full py-2 px-3 mb-3" 
         placeholder="깃허브 링크를 입력해주세요"
-        required>
+        required/>
 
       <input 
         v-if="project"
@@ -75,7 +93,7 @@
         type="text"
         class="border rounded w-full py-2 px-3 mb-3" 
         placeholder="플레이스토어 링크를 입력해주세요"
-        required>
+        required/>
 
       <input 
         v-if="project"
@@ -83,12 +101,15 @@
         type="text"
         class="border rounded w-full py-2 px-3 mb-3" 
         placeholder="앱스토어 링크를 입력해주세요"
-        required>
+        required/>
 
     </div>
 
     <client-only>
       <div v-if="editMode" class="flex justify-end ">
+				<button @click="del" class="bg-white py-2 px-4 border rounded inline-block">
+         삭제
+        </button>
         <button @click="edit" class="bg-white py-2 px-4 border rounded inline-block">
           수정
         </button>
@@ -120,6 +141,7 @@ const props = defineProps({
 
 let editor = null
 let tagName = ref("")
+const members = ref([])
 
 const project = props.project
 const post = props.post
@@ -196,7 +218,6 @@ async function save() {
     formData.value.content = editor?.getMarkdown();
 
     let url = post ? '/post/new' : '/project/new'
-    formData.value.member ="asd"
     const result = await $api(url, {
       method: 'POST',
       body: formData.value,
@@ -212,7 +233,7 @@ async function edit() {
   try {
     formData.value.content = editor?.getMarkdown();
 
-    let url = post ? '/post/update' : '/project/update'
+    let url = post ? `/post/update/${useRoute().params.id}` : `/project/update/${useRoute().params.id}`
 
     const result = await $api(url, {
       method: 'put',
@@ -224,9 +245,63 @@ async function edit() {
   } catch (error) {
   }
 }
+	
+async function del() {
+	try {
+		let url = post ? '/post/update' : `/project/delete/${useRoute().params.id}`
+		const result = await $api(url, {
+      method: 'delete',
+      body: formData.value,
+    })
+		useRouter().push({ path: '/project' })
+	} catch (error) {
+  }
+}
+	
+const getMembers = async () => {
+  try {
+    const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/show_all_members`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    members.value = response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+	
+const searchText = ref('');
+	
+const filteredMembers = computed(() => {
+  const query = searchText.value.toLowerCase();
+  return members.value.filter((member) => member.name.toLowerCase().includes(query));
+});
+
+const handleMemberSelection = (selectedMember) => {
+  // Check if the selected member already exists in the formData value
+	if(!formData.value.members) formData.value.members=[];
+  if (!formData.value.members.some((member) => member.id === selectedMember.id)) {
+    formData.value.members.push(selectedMember);
+  }
+	console.log(formData.value.members);
+};
+
+const addMemberToList = () => {
+  const name = memberName.value.trim();
+  if (name) {
+    const newMember = { id: Date.now(), name };
+    addMember(newMember); // Call the addMember function with the member object directly
+    memberName.value = '';
+  }
+};
+
+const removeMember = (index) => {
+  formData.value.members.splice(index, 1);
+};
 
 onMounted(async () => {
   editor = await useEditor(formData.value.content)
+	await getMembers();
 })
 
 </script>

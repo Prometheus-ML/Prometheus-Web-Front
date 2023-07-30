@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+
   app: {
     head: {
       charset: 'utf-8',

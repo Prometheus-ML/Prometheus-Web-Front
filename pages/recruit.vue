@@ -19,7 +19,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-9 mb-20">
       <div class="w-full bg-slate-100 rounded p-10">
         <div>
-          <p class="font-bold text-2xl mb-9">지원 자격</p>
+          <p class="font-bold text-2xl mb-9">모집 대상</p>
           <ul class="ml-5 list-disc list-outside">
             <li>새로운 도전에 대한 열정을 지닌 대학생</li>
             <li>다양한 학교의 인재들이 모인 곳에서 동료와 멘토를 찾고싶은 대학생</li>
@@ -46,8 +46,8 @@
       <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">기타</p>
-          <p class="font-medium text-xl mb-2">모집 인원</p>
-          <p>30명 내외</p>
+          <!-- <p class="font-medium text-xl mb-2">모집 인원</p>
+          <p>30명 내외</p> -->
           <br/>
           <p class="font-medium text-xl mb-2">대면 OT</p>
           <p>9/2(토) (장소 추후 공지 예정)</p>
@@ -130,14 +130,14 @@ export default {
           "시험 기간을 제외한 매 달 초 토요일 16:00~18:00에 진행하며 강남 모두의 연구소에서 진행합니다!"
 				]
       },
-      // {
-      //   "title" : "정기모인 외에 프로메테우스에서 진행하는 활동이 있나요?",
-      //   "value" : [
-      //     "프로메테우스는 단순 프로그래밍 동아리는 아닙니다! 스터디와 프로젝트 외에 다양한 인공지능 공모전과 박람회에 참여합니다.",
-      //     "여름방학 기간에 고등학생 대상 프로그래밍 교육봉사를 진행합니다.",
-      //     "매 년 프로메테우스 스타트업 해커톤을 주최합니다."
-      //   ]
-      // }
+      {
+        "title" : "프로그래밍에 대한 공부가 부족해도 지원할 수 있나요?",
+        "value" : [
+          "인공지능을 공부하기 위해서는 파이썬 코드를 읽고 해석할 수 있어야 합니다. 이론적인 내용을 이해하는데는 큰 문제가 없겠지만 실습할 때 기본적인 파이썬 문법을 일일이 알려드리기는 어렵습니다.",
+          "파이썬 코드를 해석할 수 있고, 인공지능을 공부하면서 파이썬에 대한 공부를 병행할 수 있다면 지원하시면 좋습니다!",
+          
+        ]
+      }
     ]
   }),
   methods: {
