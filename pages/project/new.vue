@@ -6,6 +6,12 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
+
+	
+const authStore = useAuthStore();
+const { user } = storeToRefs(authStore);
+
 const project = ref({
   tag: []
 })

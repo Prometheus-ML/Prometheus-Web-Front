@@ -1,11 +1,11 @@
 import 'prismjs/themes/prism.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
-
 import '@toast-ui/editor/dist/toastui-editor.css'
+import Prism from 'prismjs';
 
 export default async (initialValue) => {
   const {Editor} = await import('@toast-ui/editor')
-  const {default: codeSyntaxHighlight} = await import('@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js');
+  const {default:codeSyntaxHighlight} = await import('@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js');
 
   return new Editor({
     el: document.querySelector('#editor'),

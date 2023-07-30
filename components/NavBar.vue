@@ -1,7 +1,7 @@
 <template>
   <nav
-    class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-sm"
-    :class="{ '!bg-white': background || !fold }"
+    class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
+    :class="{ '!bg-gray-50': background || !fold }"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="/" class="flex items-center font-bold text-xl text-rose-700">
@@ -34,21 +34,36 @@
             v-for="nav in navList"
             :key="nav.path"
           >
-            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0">{{
+            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
             }}</nuxt-link>
           </li>
-          <li v-if="user" class="relative" @click="profileMenuOpen = true">
-            <button>{{ user.name }}</button>
-            <div id="profileMenu" v-show="profileMenuOpen" class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white">
-              <ul>
-                <li><nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link></li>
-                <li><nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link></li>
-                <hr>
-                <li><nuxt-link to="/" class="block px-3 py-2">로그아웃</nuxt-link></li>
-              </ul>
-            </div>
-          </li>
+          <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+						<button @click="profileMenuOpen = !profileMenuOpen">
+							{{ user }}
+						</button>
+						<div
+							id="profileMenu"
+							v-show="profileMenuOpen"
+							@mouseenter="profileMenuOpen = true"
+							@mouseleave="profileMenuOpen = false"
+							class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
+						>
+							<div class="py-2">
+								<nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
+							</div>
+							<div class="py-2">
+								<nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
+							</div>
+							<hr>
+							<div class="py-2">
+								<button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
+							</div>
+						</div>
+					</div>
+					<div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+						<nuxt-link to="/login">로그인</nuxt-link>
+					</div>
         </ul>
       </div>
     </div>
@@ -61,6 +76,7 @@ import { storeToRefs } from "pinia";
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
 
+	
 const profileMenuOpen = ref(false)
 const navList = [
   {
@@ -69,7 +85,7 @@ const navList = [
   },
   {
     path: "/member",
-    name: "멤버",
+    name: "소개",
   },
   {
     path: "/project",
@@ -83,10 +99,14 @@ const navList = [
     path: "/recruit",
     name: "지원하기",
   },
-  // {
-  //   path: "/hackathon",
-  //   name: "해커톤",
-  // }
+  {
+    path: "/hackathon",
+    name: "해커톤",
+  },
+	{
+    path: "/support",
+    name: "후원",
+  }
 ]
 let background = ref(false)
 let fold = ref(true)
@@ -111,6 +131,7 @@ onBeforeMount(async () => {
     fold.value = true
   })
 })
+
 </script>
 
 <style>

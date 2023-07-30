@@ -7,10 +7,8 @@
 <script setup>
 onMounted( async () => {
   const authStore = useAuthStore();
-  
-  authStore.fetchUser()
+  await authStore.checkAuth();
 })
-
 </script>
 
 <style>

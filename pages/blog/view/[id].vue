@@ -9,13 +9,15 @@
     </div>
     <div class="pb-7">
       <div class="mb-3" v-show="false" v-html="post?.html"></div>
-      <div class="mb-3" id="viewer"></div>
+      <div class="max-w-screen-md mx-auto mb-5 viewer-container">
+					<div id="viewer" class="rounded"></div>
+				</div>
 
-      <ul v-if="post?.tag" class="flex mt-5">
+      <!-- <ul v-if="post?.tag" class="flex mt-5">
         <li v-for="tag in post?.tag" :key="tag" class="rounded bg-gray-100 text-sm px-3 py-1 mr-2">#{{ tag.name }}</li>
-      </ul>
+      </ul> -->
     </div>
-    <div class="flex justify-end gap-x-2">
+    <div v-if="user" class="flex justify-end gap-x-2 mb-5">
       <nuxt-link :to="'/blog'" class="bg-white py-2 px-4 border rounded inline-block">
           글목록
       </nuxt-link>
@@ -42,23 +44,12 @@ const id = useRoute().params.id
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
 
-let viewer = ref()
+const viewer = ref()
 
 const {data: post, error: postErr} = await useApi(`/post/${id}`, {
   method: 'GET',
 })
 
-async function createViewer(initialValue) {
-  const {default: Viewer} = await import('@toast-ui/editor/dist/toastui-editor-viewer')
-
-  const {default: codeSyntaxHighlight} = await import('@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight-all.js');
-  viewer.value = new Viewer({
-    el: document.querySelector('#viewer'),
-    height: '600px',
-    initialValue: initialValue,
-    plugins: [codeSyntaxHighlight],
-  });
-}
 
 async function deletePost() {
   try {
@@ -72,7 +63,15 @@ async function deletePost() {
 }
 
 onMounted(async () => {
-  createViewer(post.value.content)
+	viewer.value = await useViewer(post.value.content)
 })
 
 </script>
+
+<style>
+.viewer-container img {
+  max-width: 100%; /* 이미지의 최대 너비를 컨테이너에 맞게 조절합니다. */
+  height: auto; /* 이미지 비율을 유지하면서 높이를 자동으로 조절합니다. */
+	margin: auto; /* 이미지를 가로로 중앙에 배치 */
+}
+</style>

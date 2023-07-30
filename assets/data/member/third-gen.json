@@ -1,126 +1,126 @@
 [
   {
-    "image": "/images/member/3_001.jpeg",
+    "image": "@/assets/images/member/3_001.jpeg",
     "position": "",
     "name": "권용우",
     "major": "한양대학교 물리학과"
   },
 	{
-    "image": "/images/member/blank.jpeg",
+    "image": "@/assets/images/member/blank.jpeg",
     "position": "3기 섭외부 차장",
     "name": "김도현",
     "major": "한양대학교 데이터사이언스학부"
   },
 	{
-    "image": "/images/member/3_002.jpeg",
+    "image": "@/assets/images/member/3_002.jpeg",
     "position": "3기 섭외부 부원",
     "name": "김예진",
     "major": "이화여자대학교 인공지능학과"
   },
 	{
-    "image": "/images/member/3_003.jpeg",
+    "image": "@/assets/images/member/3_003.jpeg",
     "position": "3기 기획부 차장",
     "name": "김준석",
     "major": "세종대학교 인공지능학과"
   },
 	{
-    "image": "/images/member/3_004.jpeg",
+    "image": "@/assets/images/member/3_004.jpeg",
     "position": "",
     "name": "남승현",
     "major": "이화여자대학교 컴퓨터공학과"
   },
 	{
-    "image": "/images/member/3_005.jpeg",
+    "image": "@/assets/images/member/3_005.jpeg",
     "position": "3기 개발부 부원",
     "name": "모진호",
     "major": "상명대학교 지능IOT융합전공"
   },
 	{
-    "image": "/images/member/3_006.jpeg",
+    "image": "@/assets/images/member/3_006.jpeg",
     "position": "",
     "name": "박은주",
     "major": "성신여자대학교 융합보안공학과"
   },
 	{
-    "image": "/images/member/3_007.jpeg",
+    "image": "@/assets/images/member/3_007.jpeg",
     "position": "3기 기획부 부원",
     "name": "배아람",
     "major": "경희대학교 경영대학 경영학과"
   },
 	{
-    "image": "/images/member/3_008.jpeg",
+    "image": "@/assets/images/member/3_008.jpeg",
     "position": "",
     "name": "성원희",
     "major": "이화여자대학교 컴퓨터공학과"
   },
 	{
-    "image": "/images/member/3_009.jpeg",
+    "image": "@/assets/images/member/3_009.jpeg",
     "position": "3기 개발부 부원",
     "name": "심하민",
     "major": "고려대학교 전기전자공학부"
   },
 	{
-    "image": "/images/member/3_010.jpeg",
+    "image": "@/assets/images/member/3_010.jpeg",
     "position": "3기 홍보부 차장",
     "name": "안서연",
     "major": "세종대학교 디자인이노베이션학과, 만화애니메이션학과 복수전공"
   },
 	{
-		"image": "/images/member/3_011.jpeg",
+		"image": "@/assets/images/member/3_011.jpeg",
     "position": "",
     "name": "윤선미",
     "major": "성신여자대학교 AI융합학부"
 	},
 	{
-		"image": "/images/member/3_012.jpeg",
+		"image": "@/assets/images/member/3_012.jpeg",
     "position": "",
     "name": "이대헌",
     "major": "한양대학교 자원환경공학과"
 	},
 	{
-		"image": "/images/member/3_013.jpeg",
+		"image": "@/assets/images/member/3_013.jpeg",
     "position": "",
     "name": "이지윤",
     "major": "연세대학교 생명공학과"
 	},
 	{
-		"image": "/images/member/3_014.jpeg",
+		"image": "@/assets/images/member/3_014.jpeg",
     "position": "3기 홍보부 부원",
     "name": "임서연",
     "major": "이화여자대학교 인공지능학과"
 	},
 	{
-		"image": "/images/member/3_015.jpeg",
+		"image": "@/assets/images/member/3_015.jpeg",
     "position": "",
     "name": "임준섭",
     "major": "연세대학교 국어국문학과"
 	},
 	{
-		"image": "/images/member/3_016.jpeg",
+		"image": "@/assets/images/member/3_016.jpeg",
     "position": "",
     "name": "장나래",
     "major": "숙명여자대학교 청정융합에너지공학과"
 	},
 	{
-		"image": "/images/member/3_017.jpeg",
+		"image": "@/assets/images/member/3_017.jpeg",
     "position": "",
     "name": "조우현",
     "major": "연세대학교 컴퓨터과학과"
 	},
 	{
-		"image": "/images/member/3_018.jpeg",
+		"image": "@/assets/images/member/3_018.jpeg",
     "position": "3기 섭외부 차장",
     "name": "진유진",
     "major": "숙명여자대학교 IT공학전공"
 	},
 	{
-		"image": "/images/member/3_019.jpeg",
+		"image": "@/assets/images/member/3_019.jpeg",
     "position": "",
     "name": "최민재",
     "major": "서울대학교 바이오시스템소재학부"
 	},
 	{
-		"image": "/images/member/3_020.jpeg",
+		"image": "@/assets/images/member/3_020.jpeg",
     "position": "",
     "name": "최 환",
     "major": "한국외국어대학교 경제학과"

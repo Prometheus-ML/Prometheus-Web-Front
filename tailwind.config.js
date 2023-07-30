@@ -19,7 +19,7 @@ module.exports = {
         'black-alpha': 'rgba(0, 0, 0, 0.7)'
       },
       wordBreak: {
-        'kepp-all': 'keep-all'
+        'keep-all': 'keep-all'
       }
     },
   },

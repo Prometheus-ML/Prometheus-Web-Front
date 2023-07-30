@@ -1,102 +1,102 @@
 [
   {
-    "image": "/images/member/2_002.jpeg",
+    "image": "@/assets//images/member/2_002.jpeg",
     "position": "2기 홍보부장",
     "name": "변가은",
     "major": "성균관대학교 건축학과, 데이터사이언스 융합전공"
   },
  	{
-    "image": "/images/member/2_003.jpeg",
+    "image": "@/assets//images/member/2_003.jpeg",
     "position": "2기 개발부 차장",
     "name": "심수민",
     "major": "연세대학교 행정학과"
   },
 	{
-    "image": "/images/member/2_001.jpeg",
+    "image": "@/assets//images/member/2_001.jpeg",
     "position": "2기 기획부 부원",
     "name": "황보률",
     "major": "연세대학교 인공지능학과"
   },
 	{
-    "image": "/images/member/2_004.jpeg",
+    "image": "@/assets//images/member/2_004.jpeg",
     "position": "2기 개발부 부원",
     "name": "김태윤",
     "major": "서울대학교 컴퓨터공학부"
   },
 	{
-    "image": "/images/member/2_005.jpeg",
+    "image": "@/assets//images/member/2_005.jpeg",
     "position": "2기 개발부 부원",
     "name": "김종효",
     "major": "성균관대학교 소프트웨어학과"
   },
 	{
-    "image": "/images/member/2_006.jpeg",
+    "image": "@/assets//images/member/2_006.jpeg",
     "position": "",
     "name": "여신호",
     "major": "세종대학교 정보보호학과"
   },
 	{
-    "image": "_nuxtnuxt/assets/images/member/2_007.jpeg",
+    "image": "_nuxtnuxt/assets@/assets//images/member/2_007.jpeg",
     "position": "",
     "name": "이성민",
     "major": "한국외국어대학교 컴퓨터공학부"
   },
 	{
-    "image": "/images/member/2_008.jpeg",
+    "image": "@/assets//images/member/2_008.jpeg",
     "position": "2기 개발부 부원",
     "name": "최지웅",
     "major": "한국외국어대학교 포르투갈어과"
   },
 	{
-    "image": "_nuxtnuxt/assets/images/member/2_009.jpeg",
+    "image": "_nuxtnuxt/assets@/assets//images/member/2_009.jpeg",
     "position": "2기 섭외부 부원",
     "name": "오유진",
     "major": "이화여자대학교 인공지능학과"
   },
 	{
-    "image": "/images/member/2_010.jpeg",
+    "image": "@/assets//images/member/2_010.jpeg",
     "position": "2기 개발부 부원",
     "name": "배윤호",
     "major": "한양대학교 정책학과"
   },
 	{
-    "image": "/images/member/2_011.jpeg",
+    "image": "@/assets//images/member/2_011.jpeg",
     "position": "2기 개발부 부원",
     "name": "연유정",
     "major": "고려대학교 산업경영공학부"
   },
 	{
-    "image": "/images/member/2_012.jpeg",
+    "image": "@/assets//images/member/2_012.jpeg",
     "position": "2기 개발부 부원",
     "name": "김준희",
     "major": "숙명여자대학교 컴퓨터과학전공"
   },
 	{
-    "image": "/images/member/2_013.jpeg",
+    "image": "@/assets//images/member/2_013.jpeg",
     "position": "",
     "name": "권미주",
     "major": "동덕여자대학교 정보통계학과"
   },
 	{
-    "image": "/images/member/2_014.jpeg",
+    "image": "@/assets//images/member/2_014.jpeg",
     "position": "2기 섭외부 부원",
     "name": "최태은",
     "major": "연세대학교 언더우드국제대학, 경제학 전공, 컴퓨터과학 복수전공"
   },
 	{
-    "image": "/images/member/blank.jpeg",
+    "image": "@/assets//images/member/blank.jpeg",
     "position": "",
     "name": "김준희",
     "major": "숙명여자대학교 컴퓨터과학전공"
   },
 	{
-    "image": "/images/member/2_015.jpeg",
+    "image": "@/assets//images/member/2_015.jpeg",
     "position": "2기 섭외부 부원, 3기 개발부 부원",
     "name": "오유진",
     "major": "이화여자대학교 인공지능학과"
   },
 	{
-    "image": "/images/member/2_016.jpeg",
+    "image": "@/assets//images/member/2_016.jpeg",
     "position": "",
     "name": "이성민",
     "major": "한국외국어대학교 컴퓨터공학부"

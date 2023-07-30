@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import {storeToRefs} from 'pinia';	
+	
 export default {
   name: "LoginView",
   components: {},
@@ -64,15 +66,26 @@ export default {
         },
         credentials: 'include'
       })
-        .then((result) => {
+			.then(async (result) => {
 
-          const authStore = useAuthStore();
-  
-          authStore.fetchUser()
-          useRouter().push({ path: "/" });
-        })
-        .catch((result) => {});
+				const authStore = useAuthStore();
+				if(result.message === "Failed") return;
+				authStore.setAccessToken(result.accessToken)
+				await authStore.checkAuth();
+				useRouter().push({ path: "/" });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
     },
   },
+	setup() {
+		onMounted(async () => {
+			const authStore = useAuthStore();
+			const { user } = storeToRefs(authStore);
+			await authStore.checkAuth();
+			if (user.value !== null) navigateTo("/")
+		})
+	}
 };
 </script>
