@@ -12,8 +12,8 @@
 		</div>
 	</div>
 
-  <div class="container mx-auto pt-16 lg:pt-32">
-    <p class="font-bold text-center text-base md:text-2xl mb-20 md:mb-40 text-gray-600">프로메테우스는 인공지능으로 가치 있는 도전과 경험을 하고자 <br> <span class="text-red-700">UP</span>에 대한 열정을 지닌 대학생들이 모인 인공지능 동아리입니다.</p>
+  <div class="container mx-auto pt-8 lg:pt-16">
+    <p class="font-bold text-center text-base lg:text-2xl mb-20 md:mb-40 text-gray-600">프로메테우스는 인공지능으로 가치 있는 도전과 경험을 하고자 <br> <span class="text-red-700">UP</span>에 대한 열정을 지닌 대학생들이 모인 인공지능 동아리입니다.</p>
   </div>
   <img src="@/assets/images/main.svg" alt="" class="w-full">
 
@@ -112,18 +112,37 @@
       </div>
       <div class="grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
 
-        <img class="w-32 sm:w-48 animate-bounce" src="@/assets/images/sponsor/commoncomputer.png" />
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
 				<div></div>
-        <img class="w-32 sm:w-48 animate-bounce" src="@/assets/images/sponsor/neuralworkslab.png" />
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/neuralworkslab.png" />
 				<div></div>
-        <img class="w-32 sm:w-48 animate-bounce" src="@/assets/images/sponsor/aifactory.png" />
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/aifactory.png" />
 				<div></div>
-        <img class="w-32 sm:w-48 animate-bounce" src="@/assets/images/sponsor/kingsleyventures.png" />
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/kingsleyventures.png" />
 				<div></div>
-        <img class="w-32 sm:w-48 animate-bounce" src="@/assets/images/sponsor/modulabs.png" />
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/modulabs.png" />
 				<div></div>
       </div>
     </div>
+		<div class="fixed bottom-4 right-4 flex items-center justify-center">
+			<div
+				class="animate-bounce bg-white p-4 rounded shadow-md"
+				v-if="recruitDiv"
+			>
+				<p class="m-4 text-base lg:text-lg">4기에 지원하세요!</p>
+				<div class="flex justify-center">
+					<NuxtLink
+						to="/recruit"
+						class="text-xs lg:text-base bg-blue-500 hover:bg-indigo-600 px-4 py-2 text-white rounded-md"
+					>
+						지원하러 가기
+					</NuxtLink>
+				</div>
+				<button @click="recruitDiv = false" class="absolute top-0 right-0 mx-1 text-gray-600">
+					×
+				</button>
+			</div>
+		</div>
   </div>
 </template>
 
@@ -150,7 +169,7 @@ const intro = ref([
     summary: "hackathon",
     img: hackathonImage,
     title: "해커톤",
-    desc: "프로메테우스는 대학생 최고의 인공지능 단체가 되기를 꿈꾸고 있습니다. 이에 프로메테우스는 동아리 내부 부원뿐 아니라 외부 대학생들이 참여하는 해커톤을 열어 대학사회에서 인정받는 해커톤으로 자리잡고자 합니다.",
+    desc: "프로메테우스는 인공지능 가치 창출 동아리로서 매년 초 'Prometheus X StartUp Hackathon'을 개최합니다. 인공지능의 활용을 함께 고민하고 소통하여 미래 사회에 힘이 되고자합니다.",
 		hover: false,
   },
   {
@@ -165,6 +184,7 @@ const intro = ref([
 const projectCarousel = ref(null)
 const recentPosts = ref(null)
 const recentProjects = ref(null)
+const recruitDiv = ref(true)
 
 function getRecentProjects() {
   $fetch(`${import.meta.env.VITE_API_URL}/project/show_all_projects`, {
