@@ -38,7 +38,7 @@
               nav.name
             }}</nuxt-link>
           </li>
-          <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+          <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
 						<button @click="profileMenuOpen = !profileMenuOpen">
 							{{ user }}
 						</button>
@@ -63,7 +63,7 @@
 					</div>
 					<div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
 						<nuxt-link to="/login">로그인</nuxt-link>
-					</div>
+					</div> -->
         </ul>
       </div>
     </div>
@@ -88,25 +88,25 @@ const navList = [
     name: "소개",
   },
   {
-    path: "/project",
+    path: "/tproject",
     name: "프로젝트",
   },
   {
-    path: "/blog",
+    path: "/tblog",
     name: "블로그",
   },
   {
     path: "/recruit",
     name: "지원하기",
   },
-  {
-    path: "/hackathon",
-    name: "해커톤",
-  },
-	{
-    path: "/support",
-    name: "후원",
-  }
+	// {
+	// path: "/hackathon",
+	// name: "해커톤",
+	// },
+	// {
+	// path: "/support",
+	// name: "후원",
+	// }
 ]
 let background = ref(false)
 let fold = ref(true)

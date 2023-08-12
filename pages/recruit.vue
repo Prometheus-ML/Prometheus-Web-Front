@@ -9,7 +9,7 @@
       <div class="flex-1 text-center">
         <p class="font-bold text-2xl mb-9">프로메테우스 4기 가입 신청</p>
         <p class="mb-9">프로메테우스는 대학생 최고의 인공지능 커뮤니티가 되기 위해 함께 성장할 동료를 모집하고 있습니다. <br>도전과 열정이 어울리는 당신이라면 대학생 인공지능 단체 프로메테우스와 함께 해주십시오.</p>
-        <a href="#" class="rounded px-5 py-2 text-lg text-medium bg-red-100 text-red-900">COMING SOON</a> 
+        <a href="#" class="rounded px-5 py-2 text-lg text-medium bg-blue-100 text-blue-900">지원하기</a> 
       </div> 
     </div>
 
@@ -101,7 +101,7 @@
       <p class="font-bold text-4xl">FAQ</p>
     </div>
     <div class="grid grid-cols-1 gap-5">
-      <div v-for="(item, index) in faq" :key="index" class="w-full bg-slate-100 rounded p-10 cursor-pointer" @click="openFaq(index, !faq[index].on)">
+      <div v-for="(item, index) in faq" class="w-full bg-slate-100 rounded p-10 cursor-pointer" @click="openFaq(index, !faq[index].on)">
         <div>
           <div class="flex justify-between items-center gap-x-5 font-bold md:text-2xl">
             <p>{{item.title}}</p>
