@@ -9,10 +9,16 @@
       <div class="flex-1 text-center">
         <p class="font-bold text-2xl mb-9">프로메테우스 4기 가입 신청</p>
         <p class="mb-9">프로메테우스는 대학생 최고의 인공지능 커뮤니티가 되기 위해 함께 성장할 동료를 모집하고 있습니다. <br>도전과 열정이 어울리는 당신이라면 대학생 인공지능 단체 프로메테우스와 함께 해주십시오.</p>
-        <a href="#" class="rounded px-5 py-2 text-lg text-medium bg-blue-100 text-blue-900">지원하기</a> 
+        <a href="https://forms.gle/5QoNgoTt4dUKMV5S6" class="rounded px-5 py-2 text-lg text-medium bg-blue-100 text-blue-900 hover:bg-indigo-200 hover:text-white">지원하기</a> 
       </div> 
     </div>
-
+		
+		<div class="grid grid-cols-1 xl:grid-cols-3 gap-9 mb-20">
+			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r1})` }"></div>
+			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r2})` }"></div>
+			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r3})` }"></div>
+		</div>
+		
     <div class="text-center mb-14">
       <p class="font-bold text-4xl">모집 개요</p>
     </div>
@@ -121,6 +127,12 @@
 </template>
 
 <script setup>
+import r1 from '@/asset/images/thumb/r1.png';
+import r2 from '@/asset/images/thumb/r2.png';
+import r3 from '@/asset/images/thumb/r3.png';
+	
+	
+	
 const faq = ref([
   {
     title: '프로메테우스에 가입하기 위한 조건이 있나요?',
@@ -146,6 +158,6 @@ const faq = ref([
 ]);
 
 const openFaq = (index, value) => {
-  faq[index].on = value;
+  faq.value[index].on = value;
 };
 </script>

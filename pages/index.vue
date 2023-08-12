@@ -61,7 +61,7 @@
     <carousel ref="projectCarousel" :items-to-show="3" :wrap-around="true" class="mb-10 sm:mb-20 mx-3" :autoplay="3000">
       <slide v-for="project in recentProjects" :key="project.id">
         <div class="w-full mx-2 sm:mx-5 text-left mb-6 sm:mb-8">
-          <div class="drop-shadow-md w-full rounded-lg bg-center bg-cover pb-[60%] sm:pb-[50%] mb-4 sm:mb-5" :style="{ backgroundImage: 'url(' + useImage(project?.thumb) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+          <div class="drop-shadow-md w-full rounded-lg bg-center bg-cover pb-[60%] sm:pb-[50%] mb-4 sm:mb-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
           <p class="font-bold md:text-lg sm:text-xl mb-2">{{ project?.title }}</p>
           <p class="text-base">{{ project?.description }}</p>
         </div>
@@ -153,11 +153,103 @@ import { useAuth } from "@/store";
 import studyImage from "@/assets/images/study.jpeg"
 import hackathonImage from "@/assets/images/hackathon.jpg"
 import tutoringImage from "@/assets/images/tutoring.jpg"
-import recentProjects from '@/assets/data/projects.json';
 import recentPosts from '@/assets/data/posts.json';
+import thumb_1 from '@/assets/images/thumb/1.png';
+import thumb_2 from '@/assets/images/thumb/2.png';
+import thumb_3 from '@/assets/images/thumb/3.png';
+import thumb_4 from '@/assets/images/thumb/4.png';
+import thumb_5 from '@/assets/images/thumb/5.png';
+import thumb_6 from '@/assets/images/thumb/6.png';
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+
+const recentProjects = ref([
+  {
+    id: 1,
+    title: "라즈베리파이를 활용한 인공지능 자율주행차 제작 프로젝트",
+    thumb: thumb_3,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-29T13:23:38",
+    writer: "string",
+    description: "",
+    content: "d",
+    github: null,
+    appstore: null,
+    updated_date: "2023-07-30T08:03:05"
+  },
+  {
+    id: 2,
+    title: "DACON 수상작 코드 리뷰 및 공모전 참가",
+    thumb: thumb_5,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-30T06:37:54",
+    writer: "admin",
+    description: "",
+    content: "",
+    github: null,
+    appstore: null,
+    updated_date: "2023-08-13T08:09:37"
+  },
+	{
+    id: 3,
+    title: "텍스트로 생성된 이미지의 화풍을 부분별로 자유롭게 바꾸어주는 모델 제작 프로젝트",
+    thumb: thumb_4,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-30T06:37:54",
+    writer: "admin",
+    description: "",
+    content: "",
+    github: null,
+    appstore: null,
+    updated_date: "2023-08-13T08:09:37"
+  },
+	{
+    id: 4,
+    title: "금융 시계열(주식or코인) 모델 제작 프로젝트",
+    thumb: thumb_6,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-30T06:37:54",
+    writer: "admin",
+    description: "",
+    content: "",
+    github: null,
+    appstore: null,
+    updated_date: "2023-07-30T08:09:37"
+  },
+	{
+    id: 5,
+    title: "얼굴의 여러 요소를 바꾸어주는 GAN Image Generator 제작 프로젝트",
+    thumb: thumb_1,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-30T06:37:54",
+    writer: "admin",
+    description: "",
+    content: "",
+    github: null,
+    appstore: null,
+    updated_date: "2023-07-30T08:09:37"
+  },
+	{
+    id: 6,
+    title: "강화학습을 활용한 snake 게임과 오목 구현 프로젝트",
+    thumb: thumb_2,
+    homepage: null,
+    playstore: null,
+    created_date: "2023-07-30T06:37:54",
+    writer: "admin",
+    description: "",
+    content: "",
+    github: null,
+    appstore: null,
+    updated_date: "2023-07-30T08:09:37"
+  }
+])
 
 const intro = ref([
   {
@@ -187,8 +279,7 @@ const projectCarousel = ref(null)
 // const recentPosts = ref(null)
 // const recentProjects = ref(null)
 const recruitDiv = ref(true)
-recentProjects.slice(0, 5);
-recentPosts.slice(0, 4);
+
 // function getRecentProjects() {
 //   $fetch(`${import.meta.env.VITE_API_URL}/project/show_all_projects`, {
 //     method: "GET",
