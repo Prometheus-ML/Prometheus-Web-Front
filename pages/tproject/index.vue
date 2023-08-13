@@ -9,9 +9,9 @@
 				
 					<div class="mb-5 overflow-hidden">
 						<div class="rounded-t-md pb-[60%] p-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
-						<div class="p-4">
-							<p class="truncate overflow-hidden font-bold text-base md:text-lg mb-2 line-clamp-1">{{ project.title }}</p>
-							<p class="truncate text-xs md:text-base overflow-hidden line-clamp-1">{{ project.description }}</p>
+						<div class="h-24 p-4">
+							<p class="font-bold text-sm md:text-base mb-2 line-clamp-1">{{ project.title }}</p>
+							<p class="text-xs md:text-sm line-clamp-2">{{ project.description }}</p>
 						</div>
 					</div>
 

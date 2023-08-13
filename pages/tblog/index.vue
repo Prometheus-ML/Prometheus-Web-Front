@@ -9,9 +9,9 @@
 			<a v-for="post in postList" :key="post.id" :href="post.link" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
 				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
 				<div class="p-4 w-2/3">
-					<p class="truncate overflow-hidden font-bold text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
-					<p class="truncate font-light text-base overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
-					<p class="font-light text-base mb-2"> by {{ post?.writer }}</p>
+					<p class="truncate overflow-hidden font-bold text-xl lg:text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
+					<p class="truncate font-light text-base lg:text-lg overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
+					<p class="font-light text-sm lg:text-base mb-2"> by {{ post?.writer }}</p>
 				</div>
 			</a>
 		</div>
