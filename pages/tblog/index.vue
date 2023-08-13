@@ -6,14 +6,14 @@
     </div>
 		
 		<div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
-			<nuxt-link v-for="post in postList" :key="post.id" :to="'/tblog/view/' + post.id" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
-				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: 'require(`~/assets/images/main.jpeg`)', backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
+			<a v-for="post in postList" :key="post.id" :href="post.link" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
+				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
 				<div class="p-4 w-2/3">
 					<p class="truncate overflow-hidden font-bold text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
 					<p class="truncate font-light text-base overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
 					<p class="font-light text-base mb-2"> by {{ post?.writer }}</p>
 				</div>
-			</nuxt-link>
+			</a>
 		</div>
 
 <!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
@@ -43,8 +43,43 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-import postList from '@/assets/data/posts.json';
+import thumb_11 from '@/assets/images/thumb/11.jpg';
+import thumb_12 from '@/assets/images/thumb/12.png';
+import thumb_13 from '@/assets/images/thumb/13.jpg';
 	
+const postList = ref([
+	{
+		title: "8월 1주차 인공지능 뉴스",
+		thumb: thumb_13,
+		updated_date: "2023-08-05T06:52:49",
+		id: 3,
+		content: "???",
+		created_date: "2023-08-05T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/8-1-8ba6adae7d9a4c7cb81012f0316f27a7"
+	},
+	{
+		title: "7월 4주차 인공지능 뉴스",
+		thumb: thumb_12,
+		updated_date: "2023-07-31T06:52:49",
+		id: 2,
+		content: "???",
+		created_date: "2023-07-31T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/7-4-4a3a2ea23c5f44f0937b1624791a357f"
+	},
+	 {
+		title: "7월 3주차 인공지능 뉴스",
+		thumb: thumb_11,
+		updated_date: "2023-07-23T06:52:49",
+		id: 1,
+		content: "???",
+		created_date: "2023-07-23T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+	},
+
+])
 // const {data: postList, error: postErr} = await useApi('/post/show_all_posts', {
 //   method: 'GET',
 // })

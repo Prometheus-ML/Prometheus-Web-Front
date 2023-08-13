@@ -90,7 +90,7 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10 md:mb-20">
         <nuxt-link :to="`/tblog/view/${post.id}`" v-for="post in recentPosts" :key="post.id">
-          <div class="drop-shadow-md rounded-lg pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: 'url(' + useImage(post?.thumb) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+          <div class="drop-shadow-md rounded-lg pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
           <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p>
           <p class="text-sm md:text-base"> by {{ post?.writer }}</p>
         </nuxt-link>
@@ -153,17 +153,53 @@ import { useAuth } from "@/store";
 import studyImage from "@/assets/images/study.jpeg"
 import hackathonImage from "@/assets/images/hackathon.jpg"
 import tutoringImage from "@/assets/images/tutoring.jpg"
-import recentPosts from '@/assets/data/posts.json';
 import thumb_1 from '@/assets/images/thumb/1.png';
 import thumb_2 from '@/assets/images/thumb/2.png';
 import thumb_3 from '@/assets/images/thumb/3.png';
 import thumb_4 from '@/assets/images/thumb/4.png';
 import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
+import thumb_11 from '@/assets/images/thumb/11.jpg';
+import thumb_12 from '@/assets/images/thumb/12.png';
+import thumb_13 from '@/assets/images/thumb/13.jpg';
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
+const recentPosts = ref([
+	{
+		title: "8월 1주차 인공지능 뉴스",
+		thumb: thumb_13,
+		updated_date: "2023-08-05T06:52:49",
+		id: 3,
+		content: "???",
+		created_date: "2023-08-05T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+	},
+	{
+		title: "7월 4주차 인공지능 뉴스",
+		thumb: thumb_12,
+		updated_date: "2023-07-31T06:52:49",
+		id: 2,
+		content: "???",
+		created_date: "2023-07-31T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+	},
+	 {
+		title: "7월 3주차 인공지능 뉴스",
+		thumb: thumb_11,
+		updated_date: "2023-07-23T06:52:49",
+		id: 1,
+		content: "???",
+		created_date: "2023-07-23T06:52:49",
+		writer: "관리자",
+		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+	},
+
+])
+	
 const recentProjects = ref([
   {
     id: 1,
