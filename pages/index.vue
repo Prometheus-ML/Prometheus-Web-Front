@@ -89,11 +89,11 @@
         <p class="font-bold leading-snug text-3xl md:text-5xl mb-10">멤버들이 말하는 프로메테우스</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10 md:mb-20">
-        <nuxt-link :to="`/tblog/view/${post.id}`" v-for="post in recentPosts" :key="post.id">
+        <a :href="post.link" v-for="post in recentPosts" :key="post.id">
           <div class="drop-shadow-md rounded-lg pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
           <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p>
           <p class="text-sm md:text-base"> by {{ post?.writer }}</p>
-        </nuxt-link>
+        </a>
       </div>
 
       <nuxt-link to="/tblog" class="block text-center font-medium text-sm md:text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
