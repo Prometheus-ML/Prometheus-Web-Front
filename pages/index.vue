@@ -126,7 +126,7 @@
     </div>
 		<div class="fixed bottom-4 right-4 flex items-center justify-center">
 			<div
-				class="bg-white p-4 rounded shadow-md"
+				class="animate-bounce bg-white p-4 rounded shadow-md"
 				v-if="recruitDiv"
 			>
 				<p class="m-4 text-base lg:text-lg">4기에 지원하세요!</p>
