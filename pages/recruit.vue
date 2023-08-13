@@ -13,11 +13,6 @@
       </div> 
     </div>
 		
-		<div class="grid grid-cols-1 xl:grid-cols-3 gap-9 mb-20">
-			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r1})` }"></div>
-			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r2})` }"></div>
-			<div class="rounded-lg bg-center bg-cover" :style="{ backgroundImage: `url(${r3})` }"></div>
-		</div>
 		
     <div class="text-center mb-14">
       <p class="font-bold text-4xl">모집 개요</p>
@@ -127,10 +122,7 @@
 </template>
 
 <script setup>
-import r1 from '@/asset/images/thumb/r1.png';
-import r2 from '@/asset/images/thumb/r2.png';
-import r3 from '@/asset/images/thumb/r3.png';
-	
+
 	
 	
 const faq = ref([
