@@ -1,0 +1,164 @@
+[
+  {
+    "image": "@/assets/images/member/1_001.jpeg",
+    "position": "프로메테우스 Founder 1, 2기 대표",
+    "name": "정승훈",
+    "major": "세종대학교 인공지능학과"
+  },
+	{
+    "image": "@/assets/images/member/1_002.jpeg",
+    "position": "1, 2기 총무",
+    "name": "정회성",
+    "major": "연세대학교 글로벌융합공학부"
+  },
+	{
+    "image": "@/assets/images/member/1_003.jpeg",
+    "position": "1, 2기 개발부 부장",
+    "name": "이혁준",
+    "major": "고려대학교 컴퓨터학과"
+  },
+	{
+    "image": "@/assets/images/member/1_004.jpeg",
+    "position": "1기 개발부 차장",
+    "name": "조현우",
+    "major": "세종대학교 인공지능학과"
+  },
+	{
+    "image": "@/assets/images/member/1_005.jpeg",
+    "position": "1, 2기 기획부 부장",
+    "name": "강동우",
+    "major": "고려대학교 심리학과"
+  },
+	{
+    "image": "@/assets/images/member/1_006.jpeg",
+    "position": "2기 기획부 차장",
+    "name": "손수경",
+    "major": "숙명여자대학교 IT공학전공"
+  },
+	{
+    "image": "@/assets/images/member/1_007.jpeg",
+    "position": "1, 2기 섭외부 부장",
+    "name": "이다솔",
+    "major": "고려대학교 컴퓨터학과"
+  },
+	{
+    "image": "@/assets/images/member/1_008.jpeg",
+    "position": "2기 섭외부 차장",
+    "name": "정승은",
+    "major": "연세대학교 컴퓨터과학과"
+  },
+	{
+    "image": "@/assets/images/member/1_009.jpeg",
+    "position": "1, 2기 개발부 부원",
+    "name": "조동현",
+    "major": "세종대학교 지능기전공학부"
+  },
+	{
+    "image": "@/assets/images/member/1_010.jpeg",
+    "position": "",
+    "name": "김하얀",
+    "major": "고려대학교 심리학부"
+  },
+	{
+    "image": "@/assets/images/member/1_011.jpeg",
+    "position": "",
+    "name": "김다정",
+    "major": "숙명여자대학교 기계공학과"
+  },
+	{
+    "image": "@/assets/images/member/1_012.jpeg",
+    "position": "",
+    "name": "류다윤",
+    "major": "한양대학교 경영학부, 빅데이터융합학부 / KB국민은행 데이터 직무"
+  },
+	{
+    "image": "@/assets/images/member/1_013.jpeg",
+    "position": "2기 개발부 부원",
+    "name": "황영훈",
+    "major": "한양대학교 철학과 / 스타트업 백엔드 인턴"
+  },
+	{
+    "image": "@/assets/images/member/1_014.jpeg",
+    "position": "1기 홍보부 부장",
+    "name": "김수민",
+    "major": "세종대학교 스마트기기공학과"
+  },
+	{
+    "image": "@/assets/images/member/1_015.jpeg",
+    "position": "1, 2기 기획부 부원",
+    "name": "김수빈",
+    "major": "연세대학교 문헌정보학과, 산업공학과"
+  },
+	{
+    "image": "@/assets/images/member/1_016.jpeg",
+    "position": "1, 2기 기획부 부원",
+    "name": "김은비",
+    "major": "한국외국어대학교 컴퓨터전자시스템공학부"
+  },
+	{
+    "image": "@/assets/images/member/1_017.jpeg",
+    "position": "",
+    "name": "박수연",
+    "major": "이화여자대학교 컴퓨터공학과"
+  },
+	{
+    "image": "@/assets/images/member/1_018.jpeg",
+    "position": "2기 섭외부 부원",
+    "name": "박지완",
+    "major": "한국외국어대학교 영어학과"
+  },
+	{
+    "image": "@/assets/images/member/1_019.jpeg",
+    "position": "",
+    "name": "서동재",
+    "major": "서울대학교 수리과학부"
+  },
+	{
+    "image": "@/assets/images/member/1_020.jpeg",
+    "position": "",
+    "name": "서지은",
+    "major": "덕성여자대학교 수학과, 정보통계학과 / LINE 데이터 분석 직무"
+  },
+	{
+    "image": "@/assets/images/member/1_021.jpeg",
+    "position": "2기 섭외부 부원",
+    "name": "양지연",
+    "major": "한양대학교 생체공학과 / 서울대학교 뇌인지과학과 석사 과정"
+  },
+	{
+    "image": "@/assets/images/member/1_022.jpeg",
+    "position": "",
+    "name": "장지오",
+    "major": "KAIST 전산학부"
+  },
+	{
+    "image": "@/assets/images/member/1_023.jpeg",
+    "position": "2기 섭외부 부원",
+    "name": "정민수",
+    "major": "고려대학교 생명공학과"
+  },
+	{
+    "image": "@/assets/images/member/1_024.jpeg",
+    "position": "",
+    "name": "김준형",
+    "major": "상명대학교 컴퓨터과학과"
+  },
+	{
+    "image": "@/assets/images/member/1_025.jpeg",
+    "position": "1, 2기 개발부 부원",
+    "name": "김선웅",
+    "major": "한양대학교 인공지능학과 석사과정"
+  },
+	{
+    "image": "@/assets/images/member/1_026.jpeg",
+    "position": "1, 2기 개발부 부원",
+    "name": "한재연",
+    "major": "한양대학교 수학과 / NAVER 취업"
+  },
+	{
+    "image": "@/assets/images/member/1_027.jpeg",
+    "position": "",
+    "name": "정지영",
+    "major": "고려대학교 신소재공학부"
+  }
+]

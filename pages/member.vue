@@ -2,12 +2,12 @@
   <div class="container mx-auto pt-40 pb-24">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">멤버</p>
-      <p class="font-medium text-gray-600 text-xl mb-5">프로메테우스의 멤버들</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">프로메테우스의 멤버들</p>
     </div>
 
     <!-- 탭 -->
 		<div class="flex justify-center items-center p-6 text-2xl">
-			<div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
+			<div class="flex flex-wrap md:gap-3 text-base md:text-xl justify-center">
 				<div
 					v-for="(tab, index) in tabs"
 					:key="index"
@@ -29,47 +29,25 @@
 		<div>
 			<div class="p-8">
 				<ul class="flex flex-wrap justify-center gap-9">
-					<li v-for="(member, index) in filteredMembers" :key="index" class="w-24 md:w-64 text-center">
-						<div class="relative">
+					<li
+						v-for="(member, index) in members"
+						:key="index"
+						class="w-24 md:w-64 text-center"
+					>
+						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<div
-								class="w-24 h-24 md:w-64 md:h-80 mb-1 rounded flex items-center justify-center"
-								:style="{ backgroundImage: 'url(' + useImage(member?.image) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
-								@mouseenter="member.hover = true"
-								@mouseleave="member.hover = false"
-								@click="toggleMember(member.id)"
-							>
-								<!-- Additional information div displayed on hover -->
-								<div v-if="member.hover || activeMember === member.id" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center">
-									<div class="w-24 h-24 md:w-64 md:h-80 p-2 overflow-y-auto">
-										<p class="text-lg md:text-2xl font-bold text-white mb-1">{{ member.name }}</p>
-										<p class="text-xs md:text-base mb-3 text-gray-50">{{ member.education }}</p>
-
-										
-										<!-- Positions ordered list -->
-										<hr v-if="member.positions.length > 0" class="mb-2">
-										<ol class="text-xs md:text-base font-light text-white mb-2">
-											<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
-										</ol>
-										
-										<!-- History ordered list -->
-										<hr v-if="member.history.length > 0" class="mb-2">
-										<ol class="text-xs md:text-base mb-2 font-light text-white">
-											<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
-										</ol>
-
-									</div>
-								</div>
-							</div>
-							<div class="w-full h-full pb-2 flex items-center justify-center">
-								<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
-							</div>
+								:style="{ backgroundImage : `url(temp)`}" 
+								class="w-full h-full object-cover rounded-full md:rounded"
+							></div>
 						</div>
+						<p class="text-lg md:text-xl mb-2 font-bold">{{ member.name }}</p>
+						<p class="text-sm md:text-base mb-2 font-medium text-gray-600">{{ member.position }}</p>
+						<p class="text-xs md:text-sm mb-2 text-gray-600">{{ member.major }}</p>
 					</li>
-
-
 				</ul>
 			</div>
 		</div>
+
     
     
   </div>
@@ -77,58 +55,35 @@
 
 
 <script setup>
-import blank from '@/assets/images/blank.jpeg';
-
-const members = ref([]);
+const activeTab = ref('1st_gen');
+import executives from '@/assets/data/member/executives.json';
+import operations from '@/assets/data/member/operations.json';
+import firstGenMembers from '@/assets/data/member/first-gen.json';
+import secondGenMembers from '@/assets/data/member/second-gen.json';
+import thirdGenMembers from '@/assets/data/member/third-gen.json';
+import temp from '@/assets/images/member/blank.jpeg';
+	
 const tabs = [
-  { key: 0, name: '창립멤버'},
-  { key: -1, name: '운영진'},
-  { key: 1, name: '1기'},
-  { key: 2, name: '2기'},
-  { key: 3, name: '3기'},
-	{ key: 4, name: '4기'}
+  { key: 'executives', name: '창립멤버', data: executives },
+  { key: 'operations', name: '운영진', data: operations },
+  { key: '1st_gen', name: '1기', data: firstGenMembers },
+  { key: '2nd_gen', name: '2기', data: secondGenMembers },
+  { key: '3rd_gen', name: '3기', data: thirdGenMembers },
 ];
-
-const activeTab = ref(3);
-const activeMember = ref(null);
 	
-	
-const getMembers = async () => {
-	try {
-		const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/show_all_members`, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-		});
-		members.value = response;
-	} catch (error) {
-		console.error(error);
-	}
-};
-	
-const filteredMembers = computed(() => {
-  if (!activeTab.value) {
-    return members.value; // Show all members when no generation is selected
-  }
-	if(activeTab.value == -1) {
-		return members.value.filter((member) => member.executive === true);
-	}
-	
-	return members.value.filter((member) => member.gen === activeTab.value)
-  
-});
-
 const setActiveTab = (tab) => {
-	activeTab.value = activeTab.value === tab? null : tab;
+	activeTab.value = tab;
 };
+
 	
-
-
-function toggleMember(memberId) {
-  activeMember.value = activeMember.value === memberId ? null : memberId;
-}
-
-onMounted(async () => {
-  await getMembers();
+const members = computed(() => {
+  const foundTab = tabs.find(tab => tab.key === activeTab.value);
+  
+  if (foundTab) {
+    return foundTab.data;
+  } else {
+    return null; // 또는 원하는 처리
+  }
 });
-
+	
 </script>

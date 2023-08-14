@@ -46,7 +46,6 @@ import { storeToRefs } from "pinia";
 import thumb_11 from '@/assets/images/thumb/11.jpg';
 import thumb_12 from '@/assets/images/thumb/12.png';
 import thumb_13 from '@/assets/images/thumb/13.jpg';
-	
 const postList = ref([
 	{
 		title: "8월 1주차 인공지능 뉴스",
