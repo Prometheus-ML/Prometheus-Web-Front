@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<div
-								:style="{ backgroundImage : `url(${temp})`, backgroundSize: 'cover', backgroundPosition: 'center'}" 
+								:style="{ backgroundImage : `url(${member.image})`, backgroundSize: 'cover', backgroundPosition: 'center'}" 
 								class="w-full h-full object-cover rounded-full md:rounded"
 							></div>
 						</div>
@@ -61,29 +61,39 @@ import operations from '@/assets/data/member/operations.json';
 import firstGenMembers from '@/assets/data/member/first-gen.json';
 import secondGenMembers from '@/assets/data/member/second-gen.json';
 import thirdGenMembers from '@/assets/data/member/third-gen.json';
-import temp from '@/assets/images/member/blank.jpeg';
 
-	console.log(temp);
-const tabs = [
+const tabs = ref([
   { key: 'executives', name: '창립멤버', data: executives },
   { key: 'operations', name: '운영진', data: operations },
   { key: '1st_gen', name: '1기', data: firstGenMembers },
   { key: '2nd_gen', name: '2기', data: secondGenMembers },
   { key: '3rd_gen', name: '3기', data: thirdGenMembers },
-];
+]);
 
 const setActiveTab = (tab) => {
 	activeTab.value = tab;
 };
-
 	
 const members = computed(() => {
-  const foundTab = tabs.find(tab => tab.key === activeTab.value);
+  const foundTab = tabs.value.find(tab => tab.key === activeTab.value);
   
   if (foundTab) {
     return foundTab.data;
   } else {
     return null; // 또는 원하는 처리
+  }
+});
+	
+async function loadImage(item) {
+  const module = await import(item.image);
+  item.image = module.default;
+}
+
+onMounted(async () => {
+  for (const tab of tabs.value) {
+    for (const item of tab.data) {
+      await loadImage(item);
+    }
   }
 });
 	
