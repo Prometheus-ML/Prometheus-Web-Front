@@ -36,7 +36,7 @@
 					>
 						<div class="w-24 h-24 md:w-64 md:h-80 mb-2 flex items-center justify-center">
 							<div
-								:style="{ backgroundImage : `url(temp)`}" 
+								:style="{ backgroundImage : `url(${temp})`, backgroundSize: 'cover', backgroundPosition: 'center'}" 
 								class="w-full h-full object-cover rounded-full md:rounded"
 							></div>
 						</div>
@@ -62,7 +62,8 @@ import firstGenMembers from '@/assets/data/member/first-gen.json';
 import secondGenMembers from '@/assets/data/member/second-gen.json';
 import thirdGenMembers from '@/assets/data/member/third-gen.json';
 import temp from '@/assets/images/member/blank.jpeg';
-	
+
+	console.log(temp);
 const tabs = [
   { key: 'executives', name: '창립멤버', data: executives },
   { key: 'operations', name: '운영진', data: operations },
@@ -70,7 +71,7 @@ const tabs = [
   { key: '2nd_gen', name: '2기', data: secondGenMembers },
   { key: '3rd_gen', name: '3기', data: thirdGenMembers },
 ];
-	
+
 const setActiveTab = (tab) => {
 	activeTab.value = tab;
 };
