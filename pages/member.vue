@@ -87,6 +87,7 @@ const members = computed(() => {
 async function loadImage(item) {
   const module = await import(item.image);
   item.image = module.default;
+	console.log(item.image);
 }
 
 onMounted(async () => {

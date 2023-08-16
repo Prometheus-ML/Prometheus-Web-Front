@@ -84,7 +84,7 @@ const navList = [
     name: "홈",
   },
   {
-    path: "/member",
+    path: "/tmember",
     name: "소개",
   },
   {
