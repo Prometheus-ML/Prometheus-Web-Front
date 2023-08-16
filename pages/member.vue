@@ -56,18 +56,13 @@
 
 <script setup>
 const activeTab = ref('1st_gen');
-import executives from '@/assets/data/member/executives.json';
-import operations from '@/assets/data/member/operations.json';
-import firstGenMembers from '@/assets/data/member/first-gen.json';
-import secondGenMembers from '@/assets/data/member/second-gen.json';
-import thirdGenMembers from '@/assets/data/member/third-gen.json';
 
 const tabs = ref([
-  { key: 'executives', name: '창립멤버', data: executives },
-  { key: 'operations', name: '운영진', data: operations },
-  { key: '1st_gen', name: '1기', data: firstGenMembers },
-  { key: '2nd_gen', name: '2기', data: secondGenMembers },
-  { key: '3rd_gen', name: '3기', data: thirdGenMembers },
+  { key: 'executives', name: '창립멤버', },
+  { key: 'operations', name: '운영진',  },
+  { key: '1st_gen', name: '1기',  },
+  { key: '2nd_gen', name: '2기',  },
+  { key: '3rd_gen', name: '3기', },
 ]);
 
 const setActiveTab = (tab) => {
@@ -84,18 +79,5 @@ const members = computed(() => {
   }
 });
 	
-async function loadImage(item) {
-  const module = await import(item.image);
-  item.image = module.default;
-	console.log(item.image);
-}
-
-onMounted(async () => {
-  for (const tab of tabs.value) {
-    for (const item of tab.data) {
-      await loadImage(item);
-    }
-  }
-});
 	
 </script>
