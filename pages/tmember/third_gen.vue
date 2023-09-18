@@ -66,10 +66,7 @@ import t17 from "@/assets/images/member/3_017.jpeg";
 import t18 from "@/assets/images/member/3_018.jpeg";
 import t19 from "@/assets/images/member/3_019.jpeg";
 import t20 from "@/assets/images/member/3_020.jpeg";
-<<<<<<< HEAD
 import t21 from "@/assets/images/member/3_021.jpg";
-=======
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
 	
 const tabs = [
   { key: 'executives', name: '창립멤버' },
@@ -95,11 +92,7 @@ const members = [
     major: "한양대학교 물리학과"
   },
   {
-<<<<<<< HEAD
     image: t21,
-=======
-    image: blank,
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
     position: "3기 개발부 차장",
     name: "김도현",
     major: "한양대학교 데이터사이언스학부"

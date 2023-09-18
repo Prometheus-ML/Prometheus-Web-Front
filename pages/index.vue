@@ -124,7 +124,6 @@
 				<div></div>
       </div>
     </div>
-<<<<<<< HEAD
 
     <div class="fixed inset-0 flex items-center justify-center z-50" v-if="popupVisible">
       <div class="relative bg-white p-4 max-w-screen-md mx-auto rounded-lg shadow-lg">
@@ -148,27 +147,6 @@
     </div>
 
 
-=======
-		<div class="fixed bottom-4 right-4 flex items-center justify-center">
-			<div
-				class="animate-bounce bg-white p-4 rounded shadow-md"
-				v-if="recruitDiv"
-			>
-				<p class="m-4 text-base lg:text-lg">4기에 지원하세요!</p>
-				<div class="flex justify-center">
-					<NuxtLink
-						to="/recruit"
-						class="text-xs lg:text-base bg-blue-500 hover:bg-indigo-600 px-4 py-2 text-white rounded-md"
-					>
-						지원하러 가기
-					</NuxtLink>
-				</div>
-				<button @click="recruitDiv = false" class="absolute top-0 right-0 mx-1 text-gray-600">
-					×
-				</button>
-			</div>
-		</div>
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
   </div>
 </template>
 
@@ -188,7 +166,6 @@ import thumb_6 from '@/assets/images/thumb/6.png';
 import thumb_11 from '@/assets/images/thumb/11.jpg';
 import thumb_12 from '@/assets/images/thumb/12.png';
 import thumb_13 from '@/assets/images/thumb/13.jpg';
-<<<<<<< HEAD
 import c_1 from '@/assets/images/codeit/1.jpg';
 import c_2 from '@/assets/images/codeit/2.jpg';
 import c_3 from '@/assets/images/codeit/3.jpg';
@@ -196,19 +173,14 @@ import c_4 from '@/assets/images/codeit/4.jpg';
 import c_5 from '@/assets/images/codeit/5.jpg';
 import c_6 from '@/assets/images/codeit/6.jpg';
 import c_7 from '@/assets/images/codeit/7.jpg';
-=======
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
-<<<<<<< HEAD
 const popupImages = ref([
   c_1, c_2, c_3, c_4, c_5, c_6, c_7
 ]);
 
-=======
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
 const recentPosts = ref([
 	{
 		title: "8월 1주차 인공지능 뉴스",
@@ -397,7 +369,6 @@ function projectCarouselNext() {
 // 	getRecentProjects();
 // })
 
-<<<<<<< HEAD
 const popup = ref(null);
 const popupVisible = ref(true);
 
@@ -407,23 +378,19 @@ const closePopup = () => {
 
 
 
-=======
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
 </script>
 
 <style>
 .carousel__pagination {
   margin: 0;
 }
-<<<<<<< HEAD
+
 html, body {
   overflow-x: hidden;
-}	
+}
 
 </style>
 
 =======
 	
 
-</style>
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa

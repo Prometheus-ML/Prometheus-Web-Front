@@ -91,11 +91,7 @@ const members = [
     image: t2,
     position: "2기 개발부 차장, 3기 개발부 부장",
     name: "심수민",
-<<<<<<< HEAD
     major: "연세대학교 컴퓨터공학과"
-=======
-    major: "연세대학교 행정학과"
->>>>>>> 43c362f966ed56dbed09d0f3dc93652c28394eaa
   },
 	{
     image: t3,
