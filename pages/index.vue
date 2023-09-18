@@ -125,24 +125,35 @@
       </div>
     </div>
 
-    <div class="fixed inset-0 flex items-center justify-center z-50" v-if="popupVisible">
-      <div class="relative bg-white p-4 max-w-screen-md mx-auto rounded-lg shadow-lg">
-        <button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
+    <div>
+      <div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-white p-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg mx-auto rounded-lg shadow-lg mt-24">
+          <!-- 팝업 내용 -->
+          <button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <carousel ref="popup" class="mx-auto my-5" :items-to-show="1" :autoplay="3000">
+            <!-- v-for 디렉티브를 사용하여 이미지 슬라이드 동적 생성 -->
+            <slide v-for="(image, index) in popupImages" :key="index">
+              <!-- 이미지 클래스 변경 -->
+              <img :src="image" :alt="image.alt" class="w-full h-auto" />
+            </slide>
+            <template #addons>
+              <div class="flex justify-center items-center gap-3">
+                <pagination />
+              </div>
+            </template>
+          </carousel>
+        </div>
+      </div>
+      <div class="sm:hidden">
+        <button @click="closePopup" class="absolute top-2 right-2 z-10 text-gray-500 hover:text-red-500 cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <carousel ref="popupImage">
-          <!-- v-for 디렉티브를 사용하여 이미지 슬라이드 동적 생성 -->
-          <slide v-for="(image, index) in popupImages" :key="index">
-            <img :src="image" :alt="image.alt" class="max-w-lg h-auto" /> <!-- 이미지 크기 조절 -->
-          </slide>
-          <template #addons>
-            <div class="flex justify-center items-center gap-3">
-              <pagination />
-            </div>
-          </template>
-        </carousel>
       </div>
     </div>
 
