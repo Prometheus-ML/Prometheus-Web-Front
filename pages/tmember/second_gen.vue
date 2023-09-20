@@ -91,7 +91,7 @@ const members = [
     image: t2,
     position: "2기 개발부 차장, 3기 개발부 부장",
     name: "심수민",
-    major: "연세대학교 컴퓨터공학과"
+    major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t3,
