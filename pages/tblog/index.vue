@@ -46,7 +46,31 @@ import { storeToRefs } from "pinia";
 import thumb_11 from '@/assets/images/thumb/11.jpg';
 import thumb_12 from '@/assets/images/thumb/12.png';
 import thumb_13 from '@/assets/images/thumb/13.jpg';
+import thumb_14 from '@/assets/images/thumb/14.jpeg';
+import thumb_15 from '@/assets/images/thumb/15.jpg';
+import thumb_16 from '@/assets/images/thumb/16.jpg';
 const postList = ref([
+	{
+		title: "8월 3주차 인공지능 뉴스",
+		thumb: thumb_15,
+		updated_date: "2023-08-23T06:52:49",
+		id: 5,
+		content: "???",
+		created_date: "2023-08-23T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/8-3-33f951eb95204172a61bf9f59d42d1b3"
+	},
+	{
+		title: "8월 2주차 인공지능 뉴스",
+		thumb: thumb_14,
+		updated_date: "2023-08-15T06:52:49",
+		id: 4,
+		content: "???",
+		created_date: "2023-08-15T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/8-2-a14459838f1c45e4847e62fdf17131fc"
+	},
+
 	{
 		title: "8월 1주차 인공지능 뉴스",
 		thumb: thumb_13,
@@ -76,6 +100,16 @@ const postList = ref([
 		created_date: "2023-07-23T06:52:49",
 		writer: "관리자",
 		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+	},
+	{
+		title: "킹슬리벤처스 후원 ‘프로메테우스 스타트업 해커톤 2023’ 성황리에 마무리",
+		thumb: thumb_16,
+		updated_date: "2023-02-28T06:52:49",
+		id: 1,
+		content: "???",
+		created_date: "2023-02-28T06:52:49",
+		writer: "킹슬리벤처스",
+		link:"https://www.newswire.co.kr/newsRead.php?no=962341"
 	},
 
 ])

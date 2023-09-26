@@ -117,11 +117,11 @@
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/neuralworkslab.png" />
 				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/aifactory.png" />
-				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/kingsleyventures.png" />
 				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/modulabs.png" />
 				<div></div>
+        <img class="w-32 sm:w-48" src="@/assets/images/sponsor/codeit.png" />
       </div>
     </div>
 
