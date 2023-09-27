@@ -1,5 +1,10 @@
 <template>
   <div class="container mx-auto pt-40 pb-24">
+	<div class="mb-14">
+      <p class="font-bold text-4xl md:text-5xl mb-5">소개</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">VISION</p>
+    </div>
+
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">멤버</p>
       <p class="font-medium text-gray-600 text-xl text-gray-600">프로메테우스의 멤버들</p>

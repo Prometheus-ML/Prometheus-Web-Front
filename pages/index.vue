@@ -125,32 +125,7 @@
       </div>
     </div>
 
-    <div>
-			<div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
-				<div class="relative bg-white p-4 w-[80%] md:w-[35%] lg:w-[40%] mx-auto rounded-lg shadow-lg mt-24">
-					<!-- 팝업 내용 -->
-					<button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-						</svg>
-					</button>
-					<carousel ref="popup" class="mx-auto my-3" :items-to-show="1" :autoplay="3000">
-						<!-- v-for 디렉티브를 사용하여 이미지 슬라이드 동적 생성 -->
-						<slide v-for="(image, index) in popupImages" :key="index">
-							<!-- 이미지 클래스 변경 -->
-							<img :src="image" :alt="image.alt" class="w-full h-auto" />
-						</slide>
-						<template #addons>
-							<div class="flex justify-center items-center gap-3">
-								<pagination />
-							</div>
-						</template>
-					</carousel>
-				</div>
-			</div>
-		</div>
-
-  </div>
+     </div>
 </template>
 
 
@@ -166,25 +141,35 @@ import thumb_3 from '@/assets/images/thumb/3.png';
 import thumb_4 from '@/assets/images/thumb/4.png';
 import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
-import thumb_11 from '@/assets/images/thumb/11.jpg';
-import thumb_12 from '@/assets/images/thumb/12.png';
+import thumb_14 from '@/assets/images/thumb/14.jpeg';
+import thumb_15 from '@/assets/images/thumb/15.jpg';
 import thumb_13 from '@/assets/images/thumb/13.jpg';
-import c_1 from '@/assets/images/codeit/1.jpg';
-import c_2 from '@/assets/images/codeit/2.jpg';
-import c_3 from '@/assets/images/codeit/3.jpg';
-import c_4 from '@/assets/images/codeit/4.jpg';
-import c_5 from '@/assets/images/codeit/5.jpg';
-import c_6 from '@/assets/images/codeit/6.jpg';
-import c_7 from '@/assets/images/codeit/7.jpg';
-	
+
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
-const popupImages = ref([
-  c_1, c_2, c_3, c_4, c_5, c_6, c_7
-]);
-
 const recentPosts = ref([
+{
+		title: "8월 3주차 인공지능 뉴스",
+		thumb: thumb_15,
+		updated_date: "2023-08-23T06:52:49",
+		id: 5,
+		content: "???",
+		created_date: "2023-08-23T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/8-3-33f951eb95204172a61bf9f59d42d1b3"
+	},
+	{
+		title: "8월 2주차 인공지능 뉴스",
+		thumb: thumb_14,
+		updated_date: "2023-08-15T06:52:49",
+		id: 4,
+		content: "???",
+		created_date: "2023-08-15T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/8-2-a14459838f1c45e4847e62fdf17131fc"
+	},
+
 	{
 		title: "8월 1주차 인공지능 뉴스",
 		thumb: thumb_13,
@@ -193,27 +178,7 @@ const recentPosts = ref([
 		content: "???",
 		created_date: "2023-08-05T06:52:49",
 		writer: "관리자",
-		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
-	},
-	{
-		title: "7월 4주차 인공지능 뉴스",
-		thumb: thumb_12,
-		updated_date: "2023-07-31T06:52:49",
-		id: 2,
-		content: "???",
-		created_date: "2023-07-31T06:52:49",
-		writer: "관리자",
-		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
-	},
-	 {
-		title: "7월 3주차 인공지능 뉴스",
-		thumb: thumb_11,
-		updated_date: "2023-07-23T06:52:49",
-		id: 1,
-		content: "???",
-		created_date: "2023-07-23T06:52:49",
-		writer: "관리자",
-		link:"https://mirage-cephalopod-77a.notion.site/7-3-e8dc8b0672e44f47b71703079ccbe0d0"
+		link:"https://mirage-cephalopod-77a.notion.site/8-1-8ba6adae7d9a4c7cb81012f0316f27a7"
 	},
 
 ])
@@ -372,15 +337,6 @@ function projectCarouselNext() {
 // 	getRecentProjects();
 // })
 
-const popup = ref(null);
-const popupVisible = ref(true);
-
-const closePopup = () => {
-  popupVisible.value = false;
-};
-
-
-
 </script>
 
 <style>
@@ -393,7 +349,4 @@ html, body {
 }
 
 </style>
-
-=======
-	
 

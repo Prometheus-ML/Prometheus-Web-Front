@@ -1,6 +1,12 @@
 <template>
   <div class="container mx-auto pt-40 pb-24">
     <div class="mb-14">
+      <p class="font-bold text-4xl md:text-5xl mb-5">소개</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">VISION 프로메테우스는 인공지능으로 가치 있는 도전과 경험을 하고자 '업'\
+        에 대한 열정을 지닌 대학생들이 모인 인공지능 가치 창출 동아리로서 대학사회에 필요한 단체가 되는 것이 목표입니다.
+      </p>
+    </div>
+    <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">멤버</p>
       <p class="font-medium text-gray-600 text-xl text-gray-600">프로메테우스의 멤버들</p>
     </div>
@@ -33,6 +39,7 @@ const tabs = [
   { key: 'first_gen', name: '1기' },
 	{ key: 'second_gen', name: '2기' },
 	{ key: 'third_gen', name: '3기' },
+  { key: 'fourth_gen', name: '4기' },
   // 다른 탭 추가...
 ];
 

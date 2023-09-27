@@ -46,12 +46,11 @@
 
 <script setup>
 import t1 from "@/assets/images/member/1_008.jpeg";
-import t2 from "@/assets/images/member/1_002.jpeg";
+import t2 from "@/assets/images/member/4_026.jpg";
 import t3 from "@/assets/images/member/2_003.jpeg";
-import t4 from "@/assets/images/member/blank.jpeg";
-import t5 from "@/assets/images/member/1_006.jpeg";
+import t4 from "@/assets/images/member/3_021.jpg";
 import t6 from "@/assets/images/member/3_003.jpeg";
-import t7 from "@/assets/images/member/2_014.jpeg";
+import t7 from "@/assets/images/member/2_014.jpg";
 import t8 from "@/assets/images/member/3_018.jpeg";
 import t9 from "@/assets/images/member/2_002.jpeg";
 import t10 from "@/assets/images/member/3_010.jpeg";
@@ -62,6 +61,7 @@ const tabs = [
   { key: 'first_gen', name: '1기' },
 	{ key: 'second_gen', name: '2기' },
 	{ key: 'third_gen', name: '3기' },
+  { key: 'fourth_gen', name: '4기' },
   // 다른 탭 추가...
 ];
 
@@ -82,14 +82,14 @@ const members = [
 	{
     image: t2,
     position: "총무",
-    name: "정회성",
-    major: "연세대학교 글로벌융합공학부"
+    name: "강민수",
+    major: "고려대학교 컴퓨터학과"
   },
 	{
     image: t3,
     position: "개발부 부장",
     name: "심수민",
-    major: "연세대학교 행정학과"
+    major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t4,
@@ -98,14 +98,8 @@ const members = [
     major: "한양대학교 데이터사이언스학부"
   },
 	{
-    image: t5,
-    position: "기획부 부장",
-    name: "손수경",
-    major: "숙명여자대학교 IT공학전공"
-  },
-	{
     image: t6,
-    position: "기획부 차장",
+    position: "기획부 부장",
     name: "김준석",
     major: "세종대학교 인공지능학과"
   },

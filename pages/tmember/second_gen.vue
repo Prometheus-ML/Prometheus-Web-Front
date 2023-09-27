@@ -51,15 +51,13 @@ import t3 from "@/assets/images/member/2_001.jpeg";
 import t4 from "@/assets/images/member/2_004.jpeg";
 import t5 from "@/assets/images/member/2_005.jpeg";
 import t6 from "@/assets/images/member/2_006.jpeg";
-import t7 from "@/assets/images/member/2_007.jpeg";
 import t8 from "@/assets/images/member/2_008.jpeg";
-import t9 from "@/assets/images/member/2_009.jpeg";
 import t10 from "@/assets/images/member/2_010.jpeg";
 import t11 from "@/assets/images/member/2_011.jpeg";
 import t12 from "@/assets/images/member/2_012.jpeg";
 import t13 from "@/assets/images/member/2_013.jpeg";
-import t14 from "@/assets/images/member/2_014.jpeg";
-import t15 from "@/assets/images/blank.jpeg"; // Use appropriate path for blank image
+import t14 from "@/assets/images/member/2_014.jpg";
+import t15 from "@/assets/images/blank.jpeg";
 import t16 from "@/assets/images/member/2_015.jpeg";
 import t17 from "@/assets/images/member/2_016.jpeg";
 
@@ -70,6 +68,7 @@ const tabs = [
   { key: 'first_gen', name: '1기' },
 	{ key: 'second_gen', name: '2기' },
 	{ key: 'third_gen', name: '3기' },
+  { key: 'fourth_gen', name: '4기' },
   // 다른 탭 추가...
 ];
 
@@ -118,22 +117,10 @@ const members = [
     major: "세종대학교 정보보호학과"
   },
 	{
-    image: t7,
-    position: "",
-    name: "이성민",
-    major: "한국외국어대학교 컴퓨터공학부"
-  },
-	{
     image: t8,
     position: "2, 3기 개발부 부원",
     name: "최지웅",
     major: "한국외국어대학교 포르투갈어과"
-  },
-	{
-    image: t9,
-    position: "2기 섭외부 부원",
-    name: "오유진",
-    major: "이화여자대학교 인공지능학과"
   },
 	{
     image: t10,

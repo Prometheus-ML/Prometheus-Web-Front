@@ -79,6 +79,7 @@ const tabs = [
   { key: 'first_gen', name: '1기' },
 	{ key: 'second_gen', name: '2기' },
 	{ key: 'third_gen', name: '3기' },
+  { key: 'fourth_gen', name: '4기' },
   // 다른 탭 추가...
 ];
 

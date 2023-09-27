@@ -53,7 +53,8 @@ import t5 from "@/assets/images/member/1_005.jpeg";
 import t6 from "@/assets/images/member/1_014.jpeg";
 import t7 from "@/assets/images/member/1_024.jpeg";
 import t8 from "@/assets/images/member/1_007.jpeg";
-import t9 from "@/assets/images/member/blank.jpeg";
+import t9 from "@/assets/images/member/4_026.jpg";
+import t10 from "@/assets/images/member/1_008.jpeg";
 
 const tabs = [
   { key: 'executives', name: '창립멤버' },
@@ -61,6 +62,7 @@ const tabs = [
   { key: 'first_gen', name: '1기' },
 	{ key: 'second_gen', name: '2기' },
 	{ key: 'third_gen', name: '3기' },
+  { key: 'fourth_gen', name: '4기' },
   // 다른 탭 추가...
 ];
 
@@ -83,6 +85,12 @@ const members = [
     position: "1, 2기 총무",
     name: "정회성",
     major: "연세대학교 글로벌융합공학부"
+  },
+  {
+    image: t10,
+    position: "2기 섭외부 차장, 3기 대표",
+    name: "정승은",
+    major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t3,
