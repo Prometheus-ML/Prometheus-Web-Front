@@ -187,7 +187,7 @@
       image: t17,
       position: "",
       name: "이민석",
-      major: "연세대학교 컴퓨터과학과"
+      major: "숭실대학교 소프트웨어학부"
     },
     {
       image: t18,
