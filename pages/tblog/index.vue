@@ -1,8 +1,8 @@
 <template>
   <div class="container mx-auto pt-40 pb-24">
     <div class="mb-14">
-      <p class="font-bold text-4xl md:text-5xl mb-5">블로그</p>
-      <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
+      <p class="font-bold text-4xl md:text-5xl mb-5">소식</p>
+      <p class="font-medium text-gray-600 text-xl text-gray-600">프로메테우스 소식</p>
     </div>
 		
 		<div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">

@@ -2,7 +2,7 @@
   <div class="container mx-auto pt-40 pb-24">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">해커톤</p>
-      <p class="font-medium text-gray-600 text-xl mb-5">준비중입니다(예정:1월 22일~)</p>
+      <p class="font-medium text-gray-600 text-xl mb-5">준비중입니다 (일정:1월 말)</p>
     </div>
 
    	<div class="flex justify-center items-center p-6 text-2xl">
