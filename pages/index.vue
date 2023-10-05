@@ -92,7 +92,7 @@
         <a :href="post.link" v-for="post in recentPosts" :key="post.id">
           <div class="drop-shadow-md rounded-lg pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
           <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p>
-          <p class="text-sm md:text-base"> by {{ post?.writer }}</p>
+          <!-- <p class="text-sm md:text-base"> by {{ post?.writer }}</p> -->
         </a>
       </div>
 
@@ -111,7 +111,6 @@
         <p class="font-medium text-base text-gray-600 mb-5">프로메테우스는 다음과 같은 후원사의 도움을 받습니다.</p>
       </div>
       <div class="grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
-
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
 				<div></div>
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/neuralworkslab.png" />
@@ -143,13 +142,23 @@ import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
 import thumb_14 from '@/assets/images/thumb/14.jpeg';
 import thumb_15 from '@/assets/images/thumb/15.jpg';
-import thumb_13 from '@/assets/images/thumb/13.jpg';
+import thumb_17 from '@/assets/images/thumb/17.jpg';
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 const recentPosts = ref([
 {
+		title: "10월 1주차 인공지능 뉴스",
+		thumb: thumb_17,
+		updated_date: "2023-10-03T06:52:49",
+		id: 6,
+		content: "???",
+		created_date: "2023-10-03T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/10-6c63e5842a484508a1a405407456f09e"
+	},
+	{
 		title: "8월 3주차 인공지능 뉴스",
 		thumb: thumb_15,
 		updated_date: "2023-08-23T06:52:49",
@@ -168,17 +177,6 @@ const recentPosts = ref([
 		created_date: "2023-08-15T06:52:49",
 		writer: "관리자",
 		link:"https://columnist.notion.site/8-2-a14459838f1c45e4847e62fdf17131fc"
-	},
-
-	{
-		title: "8월 1주차 인공지능 뉴스",
-		thumb: thumb_13,
-		updated_date: "2023-08-05T06:52:49",
-		id: 3,
-		content: "???",
-		created_date: "2023-08-05T06:52:49",
-		writer: "관리자",
-		link:"https://mirage-cephalopod-77a.notion.site/8-1-8ba6adae7d9a4c7cb81012f0316f27a7"
 	},
 
 ])

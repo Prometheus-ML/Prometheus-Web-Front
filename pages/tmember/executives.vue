@@ -76,25 +76,25 @@ function navigateToTab(tab) {
 const members = [
   {
     image: t1,
-    position: "프로메테우스 Founder 1, 2기 대표",
+    position: "프로메테우스 Founder, 1·2기 대표",
     name: "정승훈",
     major: "세종대학교 인공지능학과"
   },
 	{
     image: t2,
-    position: "1, 2기 총무",
+    position: "1·2기 총무",
     name: "정회성",
     major: "연세대학교 글로벌융합공학부"
   },
   {
     image: t10,
-    position: "2기 섭외부 차장, 3기 대표",
+    position: "2기 섭외부 차장, 3·4기 대표",
     name: "정승은",
     major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t3,
-    position: "1, 2기 개발부 부장",
+    position: "1·2기 개발부 부장",
     name: "이혁준",
     major: "고려대학교 컴퓨터학과"
   },
@@ -106,7 +106,7 @@ const members = [
   },
 	{
     image: t5,
-    position: "1, 2기 기획부 부장",
+    position: "1·2기 기획부 부장",
     name: "강동우",
     major: "고려대학교 심리학과"
   },
@@ -124,13 +124,13 @@ const members = [
   },
 	{
     image: t8,
-    position: "1, 2기 섭외부 부장",
+    position: "1·2기 섭외부 부장",
     name: "이다솔",
     major: "고려대학교 컴퓨터학과"
   },
 	{
     image: t9,
-    position: "",
+    position: "4기 총무",
     name: "강민수",
     major: "고려대학교 컴퓨터학과"
   }

@@ -94,19 +94,19 @@ const members = [
   },
   {
     image: t21,
-    position: "3기 개발부 차장",
+    position: "3·4기 개발부 차장",
     name: "김도현",
     major: "한양대학교 데이터사이언스학부"
   },
   {
     image: t2,
-    position: "3기 섭외부 부원",
+    position: "3·4기 섭외부 부원",
     name: "김예진",
     major: "이화여자대학교 인공지능학과"
   },
   {
     image: t3,
-    position: "3기 기획부 차장",
+    position: "3기 기획부 차장, 4기 기획부 부장",
     name: "김준석",
     major: "세종대학교 인공지능학과"
   },
@@ -118,7 +118,7 @@ const members = [
   },
   {
     image: t5,
-    position: "3기 개발부 부원",
+    position: "3·4기 개발부 부원",
     name: "모진호",
     major: "상명대학교 지능IOT융합전공"
   },
@@ -130,7 +130,7 @@ const members = [
   },
   {
     image: t7,
-    position: "3기 기획부 부원",
+    position: "3·4기 기획부 부원",
     name: "배아람",
     major: "경희대학교 경영대학 경영학과"
   },
@@ -142,13 +142,13 @@ const members = [
   },
   {
     image: t9,
-    position: "3기 개발부 부원",
+    position: "3·4기 개발부 부원",
     name: "심하민",
     major: "고려대학교 전기전자공학부"
   },
   {
     image: t10,
-    position: "3기 홍보부 차장",
+    position: "3·4기 홍보부 차장",
     name: "안서연",
     major: "세종대학교 디자인이노베이션학과, 만화애니메이션학과 복수전공"
   },
@@ -172,7 +172,7 @@ const members = [
   },
   {
     image: t14,
-    position: "3기 홍보부 부원",
+    position: "3·4기 홍보부 부원",
     name: "임서연",
     major: "이화여자대학교 인공지능학과"
   },
@@ -196,7 +196,7 @@ const members = [
   },
   {
     image: t18,
-    position: "3기 섭외부 차장",
+    position: "3·4기 섭외부 차장",
     name: "진유진",
     major: "숙명여자대학교 IT공학전공"
   },

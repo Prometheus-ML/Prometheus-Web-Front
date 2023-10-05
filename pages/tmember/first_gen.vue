@@ -93,19 +93,19 @@ function navigateToTab(tab) {
 const members = [
   {
     image: t1,
-    position: "프로메테우스 Founder 1, 2기 대표",
+    position: "프로메테우스 Founder 1&2기 대표",
     name: "정승훈",
     major: "세종대학교 인공지능학과"
   },
 	{
     image: t2,
-    position: "1, 2, 3기 총무",
+    position: "1&2&3기 총무",
     name: "정회성",
     major: "연세대학교 글로벌융합공학부"
   },
 	{
     image: t3,
-    position: "1, 2기 개발부 부장",
+    position: "1&2기 개발부 부장",
     name: "이혁준",
     major: "고려대학교 컴퓨터학과"
   },
@@ -129,19 +129,19 @@ const members = [
   },
 	{
     image: t7,
-    position: "1, 2기 섭외부 부장",
+    position: "1&2기 섭외부 부장",
     name: "이다솔",
     major: "고려대학교 컴퓨터학과"
   },
 	{
     image: t8,
-    position: "2기 섭외부 차장, 3기 대표",
+    position: "2기 섭외부 차장, 3&4기 대표",
     name: "정승은",
     major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t9,
-    position: "1, 2기 개발부 부원",
+    position: "1&2기 개발부 부원",
     name: "조동현",
     major: "세종대학교 지능기전공학부"
   },
@@ -177,13 +177,13 @@ const members = [
   },
 	{
     image: t15,
-    position: "1, 2기 기획부 부원",
+    position: "1&2기 기획부 부원",
     name: "김수빈",
     major: "연세대학교 문헌정보학과, 산업공학과"
   },
 	{
     image: t16,
-    position: "1, 2기 기획부 부원",
+    position: "1&2기 기획부 부원",
     name: "김은비",
     major: "한국외국어대학교 컴퓨터전자시스템공학부"
   },
@@ -237,13 +237,13 @@ const members = [
   },
 	{
     image: t25,
-    position: "1, 2기 개발부 부원",
+    position: "1&2기 개발부 부원",
     name: "김선웅",
     major: "한양대학교 인공지능학과 석사과정"
   },
 	{
     image: t26,
-    position: "1, 2기 개발부 부원",
+    position: "1&2기 개발부 부원",
     name: "한재연",
     major: "한양대학교 수학과 / NAVER 취업"
   },

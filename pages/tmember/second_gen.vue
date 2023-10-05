@@ -82,19 +82,19 @@ function navigateToTab(tab) {
 const members = [
   {
     image: t1,
-    position: "2, 3기 홍보부장",
+    position: "2·3·4기 홍보부 부장",
     name: "변가은",
     major: "성균관대학교 건축학과, 데이터사이언스 융합전공"
   },
  	{
     image: t2,
-    position: "2기 개발부 차장, 3기 개발부 부장",
+    position: "2기 개발부 차장, 3·4기 개발부 부장",
     name: "심수민",
     major: "연세대학교 컴퓨터과학과"
   },
 	{
     image: t3,
-    position: "2, 3기 기획부 부원",
+    position: "2·3기 기획부 부원",
     name: "황보률",
     major: "연세대학교 인공지능학과"
   },
@@ -118,25 +118,25 @@ const members = [
   },
 	{
     image: t8,
-    position: "2, 3기 개발부 부원",
+    position: "2·3기 개발부 부원",
     name: "최지웅",
     major: "한국외국어대학교 포르투갈어과"
   },
 	{
     image: t10,
-    position: "2, 3기 개발부 부원",
+    position: "2·3기 개발부 부원",
     name: "배윤호",
     major: "한양대학교 정책학과"
   },
 	{
     image: t11,
-    position: "2, 3기 개발부 부원",
+    position: "2·3기 개발부 부원",
     name: "연유정",
     major: "고려대학교 산업경영공학부"
   },
 	{
     image: t12,
-    position: "2, 3기 개발부 부원",
+    position: "2·3기 개발부 부원",
     name: "김준희",
     major: "숙명여자대학교 컴퓨터과학전공"
   },

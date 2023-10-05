@@ -49,7 +49,19 @@ import thumb_13 from '@/assets/images/thumb/13.jpg';
 import thumb_14 from '@/assets/images/thumb/14.jpeg';
 import thumb_15 from '@/assets/images/thumb/15.jpg';
 import thumb_16 from '@/assets/images/thumb/16.jpg';
+import thumb_17 from '@/assets/images/thumb/17.jpg';
+	
 const postList = ref([
+	{
+		title: "10월 1주차 인공지능 뉴스",
+		thumb: thumb_17,
+		updated_date: "2023-10-03T06:52:49",
+		id: 6,
+		content: "???",
+		created_date: "2023-10-03T06:52:49",
+		writer: "관리자",
+		link:"https://columnist.notion.site/10-6c63e5842a484508a1a405407456f09e"
+	},
 	{
 		title: "8월 3주차 인공지능 뉴스",
 		thumb: thumb_15,
@@ -105,7 +117,7 @@ const postList = ref([
 		title: "킹슬리벤처스 후원 ‘프로메테우스 스타트업 해커톤 2023’ 성황리에 마무리",
 		thumb: thumb_16,
 		updated_date: "2023-02-28T06:52:49",
-		id: 1,
+		id: 7,
 		content: "???",
 		created_date: "2023-02-28T06:52:49",
 		writer: "킹슬리벤처스",
