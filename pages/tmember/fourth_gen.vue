@@ -50,6 +50,7 @@ import blank from "@/assets/images/member/blank.jpeg";
 import t2 from "@/assets/images/member/4_002.jpg";
 import t3 from "@/assets/images/member/4_003.jpg";
 import t4 from "@/assets/images/member/4_004.jpg";
+import t5 from "@/assets/images/member/4_005.jpg";
 import t6 from "@/assets/images/member/4_006.jpg";
 import t7 from "@/assets/images/member/4_007.jpg";
 import t8 from "@/assets/images/member/4_008.jpg";
@@ -114,10 +115,10 @@ const members = [
 		major: "국민대학교 소프트웨어학부"
 	},
 	{
-		image: blank,
+		image: t5,
 		position: "",
 		name: "김이준",
-		major: ""
+		major: "숭실대학교 신소재공학과"
 	},
 	{
 		image: t6,
