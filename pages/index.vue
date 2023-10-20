@@ -123,8 +123,33 @@
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/codeit.png" />
       </div>
     </div>
+		<div>
+			<div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
+				<div class="relative bg-white p-4 w-[70%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
+					<!-- 팝업 내용 -->
+					<button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+					<carousel ref="popup" class="my-3" :items-to-show="1" :autoplay="3000">
+						<!-- v-for 디렉티브를 사용하여 이미지 슬라이드 동적 생성 -->
+						<slide v-for="(image, index) in popupImages" :key="index">
+							<!-- 이미지 클래스 변경 -->
+							<img :src="image" :alt="image.alt" class="w-full h-auto" />
+						</slide>
+						<template #addons>
+							<div class="flex justify-center items-center gap-3">
+								<pagination />
+							</div>
+						</template>
+					</carousel>
+				</div>
+			</div>
+		</div>
+	</div>
 
-     </div>
+
 </template>
 
 
@@ -143,10 +168,15 @@ import thumb_6 from '@/assets/images/thumb/6.png';
 import thumb_14 from '@/assets/images/thumb/14.jpeg';
 import thumb_15 from '@/assets/images/thumb/15.jpg';
 import thumb_17 from '@/assets/images/thumb/17.jpg';
-
+import c_1 from '@/assets/images/codeit/0.jpg';
+	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-
+	
+const popupImages = ref([
+  c_1
+]);
+	
 const recentPosts = ref([
 {
 		title: "10월 1주차 인공지능 뉴스",
@@ -329,6 +359,12 @@ function projectCarouselPrev() {
 function projectCarouselNext() {
   projectCarousel.value.next()
 }
+const popup = ref(null);
+const popupVisible = ref(true);
+
+const closePopup = () => {
+	popupVisible.value = false;
+};
 
 // onMounted(()=>{
 //   getRecentPosts();
