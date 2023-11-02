@@ -31,5 +31,11 @@
     "pinia": "2.0.28",
     "postcss-custom-properties": "^13.2.1",
     "vue3-carousel": "^0.3.1"
-  }
+  },
+  "name": "Front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Prometheus-ML/Prometheus-Web-Front.git",
+  "author": "kongms002 <'kongms002>",
+  "license": "MIT"
 }

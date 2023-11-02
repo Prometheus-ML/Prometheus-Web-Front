@@ -31,26 +31,17 @@ export default defineStore('auth',  () => {
 		}
 	};
 	
-	async function checkAuth() {
+	async function verify() {
 		try {
 			const accessToken = getAccessToken()
-			const URL = `${import.meta.env.VITE_API_URL}/auth/checkAuth`
+			console.log(accessToken)
+			const URL = `${import.meta.env.VITE_API_URL}/auth/verify`
 			const response = await $fetch(URL, {
 				method: 'POST',
-				body : { accessToken : accessToken},
-				credentials : 'include',
+				body : { access_token : accessToken },
 			})
-			user.value = response.username
+			user.value = response;
 			console.log(user.value)
-			if(response.isValid) {
-				//
-			} else {
-				if(response.newAccessToken)
-					setAccessToken(response.newAccessToken)
-				else {
-					logout()
-				}
-			}
 		} catch(error) {
 			console.log(error)
 		}
@@ -59,5 +50,5 @@ export default defineStore('auth',  () => {
 	
 
 	
-  return { user, deleteAccessToken, getAccessToken, setAccessToken, checkAuth, logout }
+  return { user, deleteAccessToken, getAccessToken, setAccessToken, verify, logout }
 })

@@ -7,7 +7,7 @@
 <script setup>
 onMounted( async () => {
   const authStore = useAuthStore();
-  await authStore.checkAuth();
+  await authStore.verify();
 })
 </script>
 
