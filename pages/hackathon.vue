@@ -2,26 +2,16 @@
   <div class="container mx-auto pt-40 pb-24">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">해커톤</p>
-      <p class="font-medium text-gray-600 text-xl mb-5">준비중입니다 (일정:1월 말)</p>
     </div>
 
-   	<div class="flex justify-center items-center p-6 text-2xl">
-			<div class="flex flex-wrap md:gap-3 text-base md:text-xl justify-center">
-				<div
-					v-for="(tab, index) in tabs"
-					:key="index"
-					:class="{
-						'font-bold': activeTab === tab.key,
-						'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
-						'border-b-2 border-black': activeTab === tab.key,
-					}"
-					@click="setActiveTab(tab.key)"
-					class="mr-5 cursor-pointer flex items-center"
-				>
-					<span class="mx-auto">{{ tab.name }}</span>
-				</div>
-			</div>
-		</div>
+    <div class="flex justify-center items-center p-6 text-2xl relative">
+      <div class="flex  justify-center transform mx-auto bg-red-100 w-full py-16 mb-32">
+        <p class="text-align-center text-red-800">12월에 공개 예정</p>
+      </div>
+      <div class="flex flex-wrap md:gap-3 text-base md:text-xl justify-center">
+        <!-- 탭 코드가 여기에 올 것입니다. -->
+      </div>
+    </div>
 
   </div>
 </template>
