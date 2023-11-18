@@ -1,4 +1,5 @@
 <template>
+  <Popup></Popup>
 	<div class="relative h-screen w-screen mb-10 lg:mb-20">
 		<img src="@/assets/images/main.jpeg" alt="" class="object-cover w-full h-full grayscale">
 		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -22,7 +23,7 @@
       <p class="font-medium text-lg md:text-2xl text-red-700 uppercase mb-2.5">WE ARE</p>
       <p class="font-bold leading-snug sm:text-xl md:text-4xl mb-10 md:text-5xl">협업과 도전으로<br>이루어지는 활동들</p>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div v-for="(section, index) in intro" :key="index">
           <div class="rounded-lg relative h-[200px] lg:h-[500px] bg-center bg-cover" 
 							 :style="{ backgroundImage : `url(${section.img})`}" 
@@ -42,7 +43,7 @@
 										transition: 'opacity 0.5s ease, transform 0.5s ease',
 										transform: section.hover ? 'translateY(-1.5rem)' : 'none'
 									}"
-								 class="whitespace-normal text-center text-sm lg:text-lg">{{ section.desc }}</p>
+								 class="whitespace-normal text-sm lg:text-lg">{{ section.desc }}</p>
             </div>
           </div>
         </div>
@@ -156,6 +157,7 @@ import { useAuth } from "@/store";
 import studyImage from "@/assets/images/study.jpeg"
 import hackathonImage from "@/assets/images/hackathon.jpg"
 import tutoringImage from "@/assets/images/tutoring.jpg"
+import seminarImage from "@/assets/images/seminar.jpg"
 import thumb_1 from '@/assets/images/thumb/1.png';
 import thumb_2 from '@/assets/images/thumb/2.png';
 import thumb_3 from '@/assets/images/thumb/3.png';
@@ -307,14 +309,21 @@ const intro = ref([
     summary: "hackathon",
     img: hackathonImage,
     title: "해커톤",
-    desc: "프로메테우스는 인공지능 가치 창출 동아리로서 매년 초 'Prometheus X StartUp Hackathon'을 개최합니다. 인공지능의 활용을 함께 고민하고 소통하여 미래 사회에 힘이 되고자합니다.",
+    desc: "프로메테우스는 인공지능 가치 창출 동아리로서 매년 초 'Prometheus AI Hackathon'을 개최합니다. 인공지능의 활용을 함께 고민하고 소통하여 미래 사회에 힘이 되고자합니다.",
 		hover: false,
   },
   {
     summary: "tutoring",
     img: tutoringImage,
-    title: "외부 튜터링",
+    title: "교육 봉사",
     desc: "프로메테우스는 청소년들에게도 좋은 영향력을 주고 싶습니다. 고등학생들에게 프로그래밍, 인공지능이라는 좋은 도구를 가르쳐 학생들이 꿈꾸는 무언가에 도전하게 하고 싶습니다.",
+		hover: false,
+  },
+  {
+    summary: "seminar",
+    img: seminarImage,
+    title: "정기 세미나",
+    desc: "프로메테우스는 정기적으로 세미나를 통해 프로젝트 현황 발표를 합니다.",
 		hover: false,
   }
 ])
