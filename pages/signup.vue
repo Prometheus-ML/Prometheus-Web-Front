@@ -113,7 +113,6 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-const registerKey = ref('');
 const username = ref('');
 const password = ref('');
 const confirmPassword = ref('');

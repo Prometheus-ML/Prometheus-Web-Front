@@ -34,59 +34,37 @@
             v-for="nav in navList"
             :key="nav.path"
           >
-            <nuxt-link v-if="!nav.subNav" :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-110 duration-200">{{
+            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
             }}</nuxt-link>
-						<div v-if="nav.subNav" @mouseenter="nav.subNavOpen = true" @mouseleave="nav.subNavOpen = false "
-							class="relative block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-110 duration-200"
-						>
-							<a>
-								{{ nav.name }}
-							</a>
-							<div
-								v-if="nav.subNavOpen"
-								@mouseenter="nav.subNavOpen = true"
-								@mouseleave="nav.subNavOpen = false"
-								class="absolute border right-0 w-32 font-normal rounded-lg z-100 bg-white"
-							>
-								<div v-for="nav in nav.subNav"
-										 :key="nav.path"
-								>
-									<div class="py-2">
-										<nuxt-link :to="nav.path" class="block px-3 py-2 text-sm">{{ nav.name }}</nuxt-link>
-									</div>
-								</div>
-							</div>
-						</div>
-						
           </li>
-          <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-						<button @click="profileMenuOpen = !profileMenuOpen">
-							{{ user }}
-						</button>
-						<div
-							id="profileMenu"
-							v-show="profileMenuOpen"
-							@mouseenter="profileMenuOpen = true"
-							@mouseleave="profileMenuOpen = false"
-							class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
-						>
-							<div class="py-2">
-								<nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
-							</div>
-							<div class="py-2">
-								<nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
-							</div>
-							<hr>
-							<div class="py-2">
-								<button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
-							</div>
-						</div>
-					</div>
-					<div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-						<nuxt-link to="/login">로그인</nuxt-link>
-					</div> -->
         </ul>
+      </div>
+      <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+        <button @click="profileMenuOpen = !profileMenuOpen">
+          {{ user.username }}
+        </button>
+        <div
+          id="profileMenu"
+          v-show="profileMenuOpen"
+          @mouseenter="profileMenuOpen = true"
+          @mouseleave="profileMenuOpen = false"
+          class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
+        >
+          <div class="py-2">
+            <nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
+          </div>
+          <div class="py-2">
+            <nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
+          </div>
+          <hr>
+          <div class="py-2">
+            <button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
+          </div>
+        </div>
+      </div>
+      <div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+        <nuxt-link to="/signin">로그인</nuxt-link>
       </div>
     </div>
   </nav>
@@ -98,67 +76,26 @@ import { storeToRefs } from "pinia";
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
 
-
+	
 const profileMenuOpen = ref(false)
-const navList = ref([
+const navList = [
   {
-    path: "/",
-    name: "홈",
-		subNav: null,
-		subNavOpen: false
-  },
-  {
-    path: "/tmember",
+    path: "/about",
     name: "소개",
-		subNav: [
-			{
-				path: "/tmember",
-				name: "동아리",
-			},
-			{
-				path: "/tmember/executives",
-				name: "멤버",
-			}
-		],
-		subNavOpen: false
   },
   {
-    path: "/tproject",
+    path: "/project",
     name: "프로젝트",
-		subNav: null,
-		subNavOpen: false
   },
   {
-    path: "/tblog",
+    path: "/blog",
     name: "블로그",
-		subNav: [
-			{
-				path: "/tblog",
-				name: "소식",
-			},
-			{
-				path: "/sponsor",
-				name: "후원사",
-			},
-		],
-		subNavOpen: false
   },
   {
     path: "/hackathon",
     name: "해커톤",
-		subNav: null,
-		subNavOpen: false
   },
-	// {
-	// path: "/hackathon",
-	// name: "해커톤",
-	// },
-	// {
-	// path: "/support",
-	// name: "후원",
-	// }
-])
-
+]
 let background = ref(false)
 let fold = ref(true)
 
@@ -186,7 +123,7 @@ onBeforeMount(async () => {
 </script>
 
 <style>
-/* .router-link-active {
+.router-link-active {
   color: #b91c1c;
-} */
+}
 </style>

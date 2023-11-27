@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto pt-40 pb-24">
+    <Error :errorMessage="postErr" v-if="postErr" />
     <div class="mb-14">
       <p class="pb-3 font-medium text-gray-600">
         <span class="mr-3">{{ post?.created_date?.substring(0, 10) }}</span>
@@ -34,6 +35,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 
+
 import 'prismjs/themes/prism.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 
@@ -45,11 +47,23 @@ const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
 
 const viewer = ref()
+const post = ref()
+const postErr = ref()
 
-const {data: post, error: postErr} = await useApi(`/post/${id}`, {
-  method: 'GET',
-})
 
+const getPost = async () => {
+  await $fetch(`${import.meta.env.VITE_API_URL}/post/${useRoute().params.id}`, {
+    method: 'GET',
+  	credentials: 'include',
+  })
+  .then((result) => {
+    post.value = result;
+  })
+  .catch((error) => {
+		if(error.status == 400) postErr.value="글이 존재하지 않습니다."
+    else postErr.value="권한이 없습니다."
+  })
+}
 
 async function deletePost() {
   try {
@@ -63,7 +77,11 @@ async function deletePost() {
 }
 
 onMounted(async () => {
-	viewer.value = await useViewer(post.value.content)
+	try {
+    await getPost();
+    viewer.value = await useViewer(post.value.content)
+  } catch {
+  }
 })
 
 </script>

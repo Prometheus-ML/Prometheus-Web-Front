@@ -7,11 +7,11 @@
 		
 		<div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
 			<nuxt-link v-for="post in postList" :key="post.id" :to="'/blog/view/' + post.id" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
-				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: 'url(' + useImage(post?.thumb) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
+				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
 				<div class="p-4 w-2/3">
 					<p class="truncate overflow-hidden font-bold text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
 					<p class="truncate font-light text-base overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
-					<p class="font-light text-base mb-2"> by {{ post?.writer }}</p>
+					<p class="font-light text-base mb-2"> by {{ post?.writer.username }}</p>
 				</div>
 			</nuxt-link>
 		</div>
@@ -43,8 +43,9 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+const type = "thumbs"
 
-const {data: postList, error: postErr} = await useApi('/post/show_all_posts', {
+const {data: postList, error: postErr} = await useApi('/post/', {
   method: 'GET',
 })
 
@@ -62,6 +63,6 @@ const {data: postList, error: postErr} = await useApi('/post/show_all_posts', {
 // }];
 
 const authStore = useAuthStore();
-const { user } = storeToRefs(authStore)
+const { user } = storeToRefs(authStore);
 </script>
 

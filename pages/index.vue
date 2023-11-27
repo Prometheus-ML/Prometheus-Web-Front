@@ -45,32 +45,30 @@
       <p class="font-medium text-lg md:text-2xl text-red-700 uppercase mb-2.5">WE ARE</p>
       <p class="font-bold leading-snug sm:text-xl md:text-4xl mb-10 md:text-5xl">협업과 도전으로<br>이루어지는 활동들</p>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div class="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div v-for="(section, index) in intro" :key="index">
           <div class="rounded-lg relative h-[200px] lg:h-[500px] bg-center bg-cover" 
 							 :style="{ backgroundImage : `url(${section.img})`}" 
 							 @mouseenter="section.hover = true"
 							 @mouseleave="section.hover = false">
-            <div class="rounded-lg absolute w-full h-full z-0 backdrop-grayscale bg-black/60 p-5 sm:p-10 text-white flex flex-col" :class="{ 'backdrop-blur': section.hover }">
+            <div class="rounded-lg absolute w-full h-full z-0 backdrop-grayscale bg-black/60 p-5 sm:p-10 text-white flex flex-col">
               <p class="text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
-								 :style="{
-										transform: section.hover ? 'scale(1.25)' : 'none',
-										width: section.hover ? '20px' : '100%',
-										transition: 'width 0.5s ease, transform 0.6s ease'
-									}"
 							>{{ section.title }}</p>
-              <p :style="{
+              <!-- <p :style="{
 										opacity: section.hover ? 1 : 0,
 										pointerEvents: section.hover ? 'auto' : 'none',
 										transition: 'opacity 0.5s ease, transform 0.5s ease',
 										transform: section.hover ? 'translateY(-1.5rem)' : 'none'
 									}"
-								 class="whitespace-normal text-sm lg:text-lg">{{ section.desc }}</p>
+								 class="whitespace-normal text-sm lg:text-lg">{{ section.desc }}</p> -->
             </div>
           </div>
         </div>
       </div>
-			
+      <nuxt-link to="/about" class="block text-center font-medium text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
+      더 알아보기
+      <font-awesome-icon icon="fa-solid fa-angle-right" />
+    </nuxt-link>
     </div>
   </div>
 
@@ -99,7 +97,7 @@
       </template>
     </carousel>
 
-    <nuxt-link to="/tproject" class="block text-center font-medium text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
+    <nuxt-link to="/project" class="block text-center font-medium text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
       더 알아보기
       <font-awesome-icon icon="fa-solid fa-angle-right" />
     </nuxt-link>
@@ -119,7 +117,7 @@
         </a>
       </div>
 
-      <nuxt-link to="/tblog" class="block text-center font-medium text-sm md:text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
+      <nuxt-link to="/blog" class="block text-center font-medium text-sm md:text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
         더 알아보기
         <font-awesome-icon icon="fa-solid fa-angle-right" />
       </nuxt-link>

@@ -25,55 +25,121 @@
     <!-- 멤버 리스트 -->
 		<div>
 			<div class="p-8">
-				<ul class="flex flex-wrap justify-center gap-9">
-					<li v-for="(member, index) in filteredMembers" :key="index" class="w-24 md:w-64 text-center">
-						<div class="relative">
-							<div
-								class="w-24 h-24 md:w-64 md:h-80 mb-1 rounded flex items-center justify-center"
-								:style="{ backgroundImage: 'url(' + useImage(member?.image) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
-								@mouseenter="member.hover = true"
-								@mouseleave="member.hover = false"
-								@click="toggleMember(member.id)"
-							>
-								<!-- Additional information div displayed on hover -->
-								<div v-if="member.hover || activeMember === member.id" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
-									<div class="w-32 h-32 md:w-64 md:h-80 p-2 overflow-y-auto">
-										<p class="text-lg md:text-2xl font-bold text-white mb-1">{{ member.name }}</p>
-										<p class="text-xs md:text-base mb-3 text-gray-50">{{ member.education }}</p>
-
-										<!-- Positions ordered list -->
-										<hr v-if="member.positions.length > 0" class="mb-2">
-										<ol class="text-xs md:text-base font-light text-white mb-2">
-											<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
-										</ol>
-
-										<!-- History ordered list -->
-										<hr v-if="member.history.length > 0" class="mb-2">
-										<ol class="text-xs md:text-base mb-2 font-light text-white">
-											<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
-										</ol>
+					<ul class="flex flex-wrap justify-center gap-9">
+							<li v-for="(member, index) in filteredMembers" :key="index" class="w-24 md:w-64 text-center">
+									<div class="relative">
+											<div
+													class="w-24 h-24 md:w-64 md:h-80 mb-1 rounded flex items-center justify-center"
+													:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+													@mouseenter="member.hover = true"
+													@mouseleave="member.hover = false"
+											>
+													<!-- Additional information div displayed on hover -->
+													<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
+															<div class="w-32 h-32 md:w-64 md:h-80 p-2 overflow-y-auto">
+																	<p class="text-lg md:text-2xl font-bold text-white mb-1">{{ member.name }}</p>
+																	<p class="text-xs md:text-base mb-3 text-gray-50">{{ member.education }}</p>
+																	<!-- Positions ordered list -->
+																	<hr v-if="member.positions.length > 0" class="mb-2">
+																	<ol class="text-xs md:text-base font-light text-white mb-2">
+																			<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
+																	</ol>
+																	<!-- History ordered list -->
+																	<hr v-if="member.history.length > 0" class="mb-2">
+																	<ol class="text-xs md:text-base mb-2 font-light text-white">
+																			<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
+																	</ol>
+															</div>
+															<!-- Trash Icon -->
+															<svg
+																	@click="deleteMember(member.id)"
+																	xmlns="http://www.w3.org/2000/svg"
+																	class="h-6 w-6 text-red-600 absolute top-1 right-1 cursor-pointer"
+																	fill="none"
+																	viewBox="0 0 24 24"
+																	stroke="currentColor"
+															>
+																	<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+															</svg>
+															<!-- Edit Icon and functionality -->
+															<svg
+																	@click="showEditForm(member.id)"
+																	xmlns="http://www.w3.org/2000/svg"
+																	class="h-6 w-6 text-green-400 absolute bottom-1 right-1 cursor-pointer"
+																	fill="none"
+																	viewBox="0 0 24 24"
+																	stroke="currentColor"
+															>
+																	<path
+																			stroke-linecap="round"
+																			stroke-linejoin="round"
+																			stroke-width="2"
+																			d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+																	/>
+																	<path
+																			stroke-linecap="round"
+																			stroke-linejoin="round"
+																			stroke-width="2"
+																			d="M2 18c2.666-1.333 7.333-1.333 10 0m0 0c2.667 1.333 7.333 1.333 10 0m-10 5v-3a4 4 0 118 0v3"
+																	/>
+															</svg>
+													</div>
+											</div>
+											<div class="w-full h-full pb-2 flex items-center justify-center">
+													<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
+											</div>
 									</div>
-									<!-- Trash Icon -->
-									<svg
-										@click="deleteMember(member.id)"
-										xmlns="http://www.w3.org/2000/svg"
-										class="h-6 w-6 text-red-600 absolute top-1 right-1 cursor-pointer"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-									</svg>
-								</div>
-							</div>
-							<div class="w-full h-full pb-2 flex items-center justify-center">
-								<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
-							</div>
-						</div>
-					</li>
-				</ul>
+									<!-- Edit form -->
+									<!-- Add this to your template -->
+									<div v-if="memberEditing" class="mt-2">
+											<!-- Edit form -->
+
+
+											<form @submit.prevent="updateMember(member.id)">
+													<!-- Name input field -->
+													<div class="relative row-span-2 pb-44 rounded basis-80 bg-contain bg-center bg-no-repeat border border-dashed border-4"
+															:style="{ backgroundImage: 'url(' + useImage(editMember?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+													>
+															<div v-if="editMember.image" class="absolute top-0 right-0 flex items-center justify-center w-6 h-6 bg-white rounded-full cursor-pointer text-indigo-600 hover:text-indigo-700" @click="removeImage(editMember)">
+																	X
+															</div>
+															<div v-else class="absolute inset-0 flex items-center justify-center">
+																	<input id="image-upload" type="file" class="hidden" @change="handleImageUpload" />
+																	<label for="image-upload" class="rounded-full cursor-pointer text-indigo-600 hover:bg-indigo-600 hover:text-white">
+																			+
+																	</label>
+															</div>
+													</div>
+
+													<label for="name" class="text-gray-700">Name:</label>
+													<input v-model="editMember.name" type="text" id="name" class="w-full border p-2 mb-2" />
+
+													<!-- Education input field -->
+													<label for="education" class="text-gray-700">Education:</label>
+													<input v-model="editMember.education" type="text" id="education" class="w-full border p-2 mb-2" />
+
+													<!-- Positions input field -->
+													<label for="positions" class="text-gray-700">Positions:</label>
+													<input v-model="editMember.positions" type="text" id="positions" class="w-full border p-2 mb-2" />
+
+													<!-- History input field -->
+													<label for="history" class="text-gray-700">History:</label>
+													<input v-model="editMember.history" type="text" id="history" class="w-full border p-2 mb-2" />
+													<label for="history" class="text-gray-700">Telephone:</label>
+													<input v-model="editMember.tel" type="text" id="tel" class="w-full border p-2 mb-2" />
+													<label for="history" class="text-gray-700">Gen:</label>
+													<input v-model="editMember.gen" type="text" id="gen" class="w-full border p-2 mb-2" />
+													<!-- Submit button -->
+													<button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
+													
+													<!-- Cancel button -->
+													<button @click="memberEditing = false" type="button" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">Cancel</button>
+											</form>
+									</div>
+							</li>
+					</ul>
 			</div>
-		</div>
+	</div>
 
 		<!-- + button to open the member add div -->
     <div class="fixed bottom-10 right-10">
@@ -121,12 +187,12 @@
 				<!-- Generation, Name, Education, Executive -->
 				<div class="grid grid-cols-4 gap-2 mb-5">
 					<div class="relative row-span-2 pb-44 rounded basis-80 bg-contain bg-center bg-no-repeat border border-dashed border-4"
-							 :style="{ backgroundImage: 'url(' + useImage(newMember?.image) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+							 :style="{ backgroundImage: 'url(' + useImage(newMember?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
 					>
 						<div
 								v-if="newMember.image"
 								class="absolute top-0 right-0 flex items-center justify-center w-6 h-6 bg-white rounded-full cursor-pointer text-indigo-600 hover:text-indigo-700"
-								@click="removeImage"
+								@click="removeImage(newMember)"
 						>
 								X
 						</div>
@@ -168,6 +234,15 @@
 							class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 						>
 					</div>
+					<div class="col-span-1">
+						<label for="tel" class="block text-sm font-medium text-gray-700">전화번호</label>
+						<input
+							v-model="newMember.tel"
+							type="text"
+							id="tel"
+							class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+						>
+					</div>
 					<div class="col-span-1 flex items-center">
 						<label for="executive" class="block text-sm font-medium text-gray-700">
 							운영진
@@ -199,12 +274,8 @@
 							v-model="newPosition"
 							type="text"
 							class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pr-8"
+							@keyup.enter="addPosition"
 						>
-						<button
-							@click="addPosition"
-							class="absolute inset-y-0 right-0 rounded-full flex items-center pr-3 cursor-pointer text-indigo-600 hover:text-white hover:bg-indigo-300"
-						> +
-						</button>
 					</div>
 					<div class="flex items-center mt-2">
 						<p
@@ -229,12 +300,8 @@
 							v-model="newHistory"
 							type="text"
 							class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md pr-8"
+							@keyup.enter="addHistory"
 						>
-						<button
-							@click="addHistory"
-							class="absolute inset-y-0 right-0 rounded-full flex items-center pr-3 cursor-pointer text-indigo-600 hover:text-white hover:bg-indigo-300"
-						> +
-						</button>
 					</div>
 					<div class="flex items-center mt-2">
 						<p
@@ -255,7 +322,7 @@
 					@click="addMember"
 					class="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 				>
-					추가
+					완료
 				</button>
 			</div>
 		</div>
@@ -280,7 +347,10 @@ const newHistory = ref(null);
 const newPosition = ref(null);
 const activeTab = ref(null);
 const activeMember = ref(null);
-	
+const editMember = ref({});
+const type = "members"
+const memberEditing = ref(false);
+
 const tabs = [
 	{ key: 0, name: '창립멤버'},
 	{ key: -1, name: '운영진'},
@@ -292,7 +362,7 @@ const tabs = [
 
 const getMembers = async () => {
   try {
-    const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/show_all_members`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/member/show_all_members`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -315,10 +385,9 @@ const addMember = async () => {
 	newMember.value.gen = gens[0];
 	if(!newMember.value.executive) newMember.value.executive=false;
   try {
-    const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/create_member`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/member/create_member`, {
       method: 'POST',
 			body: newMember.value,
-      headers: { 'Content-Type': 'application/json' },
     });
 		newMember.value = {};
 		await getMembers();
@@ -329,9 +398,8 @@ const addMember = async () => {
 
 const deleteMember = async (memberId) => {
   try {
-    const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/delete/${memberId}`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/member/delete/${memberId}`, {
       method: 'DELETE',
-      credentials: 'include',
     });
     await getMembers();
   } catch (error) {
@@ -347,7 +415,7 @@ async function uploadImage(value) {
   const formData = new FormData();
   formData.append('image', value);
 
-  return $api('/image/upload', {
+  return $api(`/image/upload/${type}`, {
     method: 'POST',
     body: formData
   })
@@ -377,9 +445,18 @@ async function handleImageUpload(event) {
   return true
 }
 
-function removeImage() {
-  newMember.value.image = null
+async function removeImage(member) {
+	try {
+		const response = await $api(`${import.meta.env.VITE_API_URL}/image/delete/${type}/${member.image}`, {
+      method: 'DELETE',
+    });
+		await getMembers();
+		editMember.value.image = null
+	}	catch (error) {
+		console.error(error)
+	}
 }
+	
 
 
 const addHistory = () => {
@@ -412,6 +489,35 @@ const setActiveTab = (tab) => {
 function toggleMember(memberId) {
   activeMember.value = activeMember.value === memberId ? null : memberId;
 }
+
+const showEditForm = async (id) => {
+		editMember.value = await $api(`${import.meta.env.VITE_API_URL}/member/${id}`, {
+      method: 'GET',
+    });
+    memberEditing.value = true;
+    // Copy member data to edited properties to prevent direct modification
+};
+
+const updateMember = async (id) => {
+		try {
+			const response = await $api(`${import.meta.env.VITE_API_URL}/member/update/${id}`, {
+				method: 'PUT',
+				body: editMember.value
+			});
+		memberEditing.value = false;
+		editMember.value = {};
+		await getMembers();
+
+		}	catch (error) {
+			console.error(error)
+		}
+    // Use the member id to send the update request
+    // You can access edited properties with member.editedName, member.editedEducation, etc.
+    // Make the API request to update the member with the edited data
+
+    // After a successful update, set editing to false
+    // member.editing = false;
+};
 
 onMounted(async () => {
   await getMembers();
