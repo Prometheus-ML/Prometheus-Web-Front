@@ -56,7 +56,7 @@ const getProjects = async () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
-    projectList.value = result;
+    projectList.value = response;
   } catch (error) {
 		console.error(error)
   }
