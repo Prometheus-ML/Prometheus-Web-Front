@@ -51,15 +51,14 @@ function truncateText(text, maxLength) {
 }
 
 const getProjects = async () => {
-  await $api(`${import.meta.env.VITE_API_URL}/project`, {
-    method: 'GET',
-  })
-  .then((result) => {
+  try {
+    const result = await $api(`${import.meta.env.VITE_API_URL}/project`, {
+      method: 'GET',
+    })
     projectList.value = result;
-  })
-  .catch((error) => {
-		projectErr.value = "error.message"
-  })
+  } catch (error) {
+		console.error(error)
+  }
 }
 
 onMounted(async() => {
