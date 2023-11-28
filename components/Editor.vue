@@ -90,7 +90,7 @@
         v-model="formData.member"
         type="text"
         class="border rounded w-full py-2 px-3 mb-3" 
-        placeholder="앱스토어 링크를 입력해주세요"
+        placeholder="멤버를 입력해주세요"
         required>
 
     </div>
