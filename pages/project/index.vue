@@ -52,10 +52,10 @@ function truncateText(text, maxLength) {
 
 const getProjects = async () => {
   try {
-    const result = await $fetch(`${import.meta.env.VITE_API_URL}/project`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/project`, {
       method: 'GET',
-      credentials: "include",
-    })
+      headers: { 'Content-Type': 'application/json' },
+    });
     projectList.value = result;
   } catch (error) {
 		console.error(error)
