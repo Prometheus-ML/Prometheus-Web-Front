@@ -96,7 +96,7 @@
       <input 
         v-if="project"
         v-model="formData.gen"
-        type="text"
+        type="number"
         class="border rounded w-full py-2 px-3 mb-3" 
         placeholder="기수를 입력해주세요"
         required>
