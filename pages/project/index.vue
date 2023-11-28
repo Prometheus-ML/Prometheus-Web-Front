@@ -51,7 +51,7 @@ function truncateText(text, maxLength) {
 }
 
 const getProjects = async () => {
-  await $fetch(`${import.meta.env.VITE_API_URL}/project`, {
+  await $api(`${import.meta.env.VITE_API_URL}/project`, {
     method: 'GET',
   })
   .then((result) => {
