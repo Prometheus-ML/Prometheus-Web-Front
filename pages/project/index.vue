@@ -54,6 +54,7 @@ const getProjects = async () => {
   try {
     const result = await $fetch(`${import.meta.env.VITE_API_URL}/project`, {
       method: 'GET',
+      credentials: "include",
     })
     projectList.value = result;
   } catch (error) {
