@@ -315,7 +315,7 @@ async function getRecentPosts() {
     method: "GET",
   })
     .then((result) => {
-      recentPosts.value = result.slice(0, 4);
+      recentPosts.value = result.slice(0, 3);
       console.log(result);
     })
     .catch((result) => {});
