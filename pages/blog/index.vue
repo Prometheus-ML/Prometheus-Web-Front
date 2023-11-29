@@ -6,25 +6,25 @@
     </div>
 		
 		<div class="mb-4 space-x-4 relative">
-			<div class="absolute left-0 top-9 w-full h-0.5 bg-rose-700"></div>
+			<div class="absolute left-0 top-8 md:top-9 w-full h-0.5 bg-rose-700"></div>
 			<button
 				@click="changeTab('news')"
 				:class="{ 'bg-rose-700': currentTab === 'news', 'font-bold text-white': currentTab === 'news' }"
-				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
-				뉴스
+				AI 뉴스
 			</button>
 			<button
 				@click="changeTab('articles')"
 				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
-				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
-				기사
+				외부 기사
 			</button>
 			<button
 				@click="changeTab('reviews')"
 				:class="{ 'bg-rose-700': currentTab === 'reviews', 'font-bold text-white': currentTab === 'reviews' }"
-				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				활동 후기
 			</button>
@@ -91,7 +91,7 @@ const changeTab = (tab) => {
 
 const filteredPosts = computed(() => {
   // Filter posts based on the current tab
-  return postList.value.filter(post => post.type == currentTab.value).slice(0, 4);
+  return postList.value.filter(post => post.type == currentTab.value);
 });
 
 const authStore = useAuthStore();

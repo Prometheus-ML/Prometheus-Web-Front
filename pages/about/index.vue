@@ -5,14 +5,7 @@
         <!-- Original icon image -->
         <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="absolute z-10 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
 
-        <img alt="New Image" src="@/assets/images/about.png" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg" />
-
-				<!-- New text layer -->
-				<div class="flex items-center justify-center text-white absolute top-0 left-0 w-full h-full">
-					<div class="text-3xl font-bold font-sans text-center">
-						❝먼저 생각하는 사람, <br />가치있는 도전❞
-					</div>
-				</div>
+        <img alt="New Image" src="@/assets/images/about.png" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg opacity-70" />
       </div>
     </div>
 

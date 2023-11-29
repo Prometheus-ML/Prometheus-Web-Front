@@ -1,33 +1,10 @@
 <template>
-  <div v-if="popup" class="fixed inset-0 flex items-center justify-center z-50">
-    <!-- Popup Container -->
-    <div class="absolute top-1/4 left-1/4 md:left-1/4 lg:w-1/4 w-[40%] bg-white border rounded p-8">
-      <!-- Close Button -->
-      <button @click="closePopup" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-
-      <!-- Popup Content -->
-      <div>
-        <img src="@/assets/images/codeit/11.png" class="object-cover mb-4">
-
-        <!-- 다시 보지 않기 체크박스 -->
-        <label class="flex items-center space-x-2">
-          <input @click="closeEverPopup" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600">
-          <span class="text-gray-700">다시 보지 않기</span>
-        </label>
-      </div>
+	<div class="relative w-screen mb-10 lg:mb-20">
+		<img src="@/assets/images/main.png" alt="" class="object-cover w-full">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <p class="font-bold text-center text-4xl md:text-7xl mb-2 text-white transition-opacity duration-500 ease-in">PROMETHEUS</p>
+      <p class="text-xl text-center text-white transition-opacity duration-500 ease-in">대학생 인공지능 단체</p>
     </div>
-  </div>
-
-	<div class="relative h-screen w-screen mb-10 lg:mb-20">
-		<img src="@/assets/images/main.jpeg" alt="" class="object-cover w-full h-full grayscale">
-		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-			<p class="font-bold text-center text-4xl md:text-7xl mb-5 md:mb-14 text-white">PROMETHEUS</p>
-			
-		</div>
 		<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer" @click="scrollDown">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" class="w-6 h-6 animate-bounce">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -111,8 +88,8 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10 md:mb-20">
         <a :href="post.link" v-for="post in recentPosts" :key="post.id">
-          <div class="drop-shadow-md rounded-lg pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
-          <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p>
+          <div class="drop-shadow-md rounded-lg border pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+          <!-- <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p> -->
           <!-- <p class="text-sm md:text-base"> by {{ post?.writer }}</p> -->
         </a>
       </div>
@@ -184,59 +161,13 @@ import thumb_3 from '@/assets/images/thumb/3.png';
 import thumb_4 from '@/assets/images/thumb/4.png';
 import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
-import thumb_14 from '@/assets/images/thumb/14.jpeg';
-import thumb_15 from '@/assets/images/thumb/15.jpg';
-import thumb_17 from '@/assets/images/thumb/17.jpg';
 // import c_1 from '@/assets/images/codeit/0.jpg';
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 	
-const popup = ref(true);
-
-function closePopup() {
-  popup.value = false;
-}
-
-function closeEverPopup() {
-  window.localStorage.setItem('popup', true);
-  popup.value = false;
-}
-
 	
-const recentPosts = ref([
-{
-		title: "10월 1주차 인공지능 뉴스",
-		thumb: thumb_17,
-		updated_date: "2023-10-03T06:52:49",
-		id: 6,
-		content: "???",
-		created_date: "2023-10-03T06:52:49",
-		writer: "관리자",
-		link:"https://columnist.notion.site/10-6c63e5842a484508a1a405407456f09e"
-	},
-	{
-		title: "8월 3주차 인공지능 뉴스",
-		thumb: thumb_15,
-		updated_date: "2023-08-23T06:52:49",
-		id: 5,
-		content: "???",
-		created_date: "2023-08-23T06:52:49",
-		writer: "관리자",
-		link:"https://columnist.notion.site/8-3-33f951eb95204172a61bf9f59d42d1b3"
-	},
-	{
-		title: "8월 2주차 인공지능 뉴스",
-		thumb: thumb_14,
-		updated_date: "2023-08-15T06:52:49",
-		id: 4,
-		content: "???",
-		created_date: "2023-08-15T06:52:49",
-		writer: "관리자",
-		link:"https://columnist.notion.site/8-2-a14459838f1c45e4847e62fdf17131fc"
-	},
-
-])
+const recentPosts = ref([])
 	
 const recentProjects = ref([
   {
@@ -376,15 +307,15 @@ function scrollDown() {
 		window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 }
 	
-// function getRecentPosts() {
-//   $fetch(`${import.meta.env.VITE_API_URL}/post/show_all_posts`, {
-//     method: "GET",
-//   })
-//     .then((result) => {
-//       recentPosts.value = result.slice(0, 4);
-//     })
-//     .catch((result) => {});
-// }
+async function getRecentPosts() {
+  await $fetch(`${import.meta.env.VITE_API_URL}/post/get_posts`, {
+    method: "GET",
+  })
+    .then((result) => {
+      recentPosts.value = result.slice(0, 4);
+    })
+    .catch((result) => {});
+}
 
 function projectCarouselPrev() {
   projectCarousel.value.prev()
@@ -400,8 +331,9 @@ function projectCarouselNext() {
 // 	popupVisible.value = false;
 // };
 
-onMounted(()=>{
-  if (window.localStorage.getItem('popup')) popup.value = false;
+onMounted(async ()=>{
+  if (await window.localStorage.getItem('popup')) popup.value = false;
+  await getRecentPosts();
 })
 
 </script>
@@ -413,6 +345,15 @@ onMounted(()=>{
 
 html, body {
   overflow-x: hidden;
+}
+
+#test-fade-enter-active,
+#test-fade-leave-active {
+  opacity: 0;
+}
+
+#test-fade-enter, #test-fade-leave-to /* .nav-fade-leave-active in <2.1.8 */ {
+  opacity: 1;
 }
 
 </style>

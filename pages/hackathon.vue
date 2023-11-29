@@ -1,19 +1,13 @@
 <template>
-  <div class="container mx-auto pt-40 pb-24">
-    <div class="mb-14">
-      <p class="font-bold text-4xl md:text-5xl mb-5">참여자 페이지</p>
+  <div class="relative w-screen h-screen mb-10 lg:mb-20">
+		<img src="@/assets/images/hackathon.png" alt="" class="object-cover w-full">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <p id="test" class="font-bold text-center text-4xl md:text-7xl mb-2 text-white transition-opacity duration-500 ease-in">PROMETHEUS</p>
+      <p class="md:text-4xl text-2xl text-center text-white transition-opacity duration-500 ease-in mb-2">HACKATHON</p>
+      <p class="text-sm text-center text-red-700 transition-opacity duration-500 ease-in">12월 11일 공개 예정</p>
     </div>
 
-    <div class="flex justify-center items-center p-6 text-2xl relative">
-      <div class="flex  justify-center transform mx-auto bg-red-100 w-full py-16 mb-32">
-        <p class="text-align-center text-red-800">12월에 공개 예정</p>
-      </div>
-      <div class="flex flex-wrap md:gap-3 text-base md:text-xl justify-center">
-        <!-- 탭 코드가 여기에 올 것입니다. -->
-      </div>
-    </div>
-
-  </div>
+	</div>
 </template>
 
 <script setup>

@@ -1,11 +1,11 @@
 <template>
   <nav
     class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ '!bg-gray-50': background || !fold }"
+    :class="{ '!bg-gray-50': background || !fold , 'text-white': !background && darkNav !== 'false' }"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <a href="/" class="flex items-center font-bold text-xl text-rose-700">
-        PROMETHEUS
+      <a href="/" class="flex font-sans items-center font-bold text-xl">
+        <span class="text-rose-700">P</span><span :class="{'text-white': !background}">ROMETHEUS</span>
       </a>
       <button
         @click="fold = !fold"
@@ -40,7 +40,7 @@
           </li>
         </ul>
       </div>
-      <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+      <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
         <button @click="profileMenuOpen = !profileMenuOpen">
           {{ user.username }}
         </button>
@@ -65,7 +65,7 @@
       </div>
       <div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
         <nuxt-link to="/signin">로그인</nuxt-link>
-      </div>
+      </div> -->
     </div>
   </nav>
 </template>
@@ -75,29 +75,41 @@ import { storeToRefs } from "pinia";
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
-
 	
 const profileMenuOpen = ref(false)
 const navList = [
   {
     path: "/about",
     name: "소개",
+    dark: "true",
   },
   {
     path: "/project",
     name: "프로젝트",
+    dark: "false",
   },
   {
     path: "/blog",
     name: "블로그",
+    dark: "false",
   },
   {
     path: "/hackathon",
     name: "해커톤",
+    dark: "all",
   },
 ]
 let background = ref(false)
 let fold = ref(true)
+
+const darkNav = ref(false);
+
+onMounted(() => {
+  watch(() => {
+    const currentNav = navList.find(nav => nav.path == useRoute().path);
+    if(currentNav) darkNav.value = currentNav.dark;
+  });
+});
 
 onBeforeMount(async () => {
   document.addEventListener('mouseup', function(e) {
