@@ -5,7 +5,7 @@
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="/" class="flex font-sans items-center font-bold text-xl">
-        <span class="text-rose-700">P</span><span :class="{'text-white': !background}">ROMETHEUS</span>
+        <span class="text-rose-700">P</span><span :class="{'text-white': !background && darkNav !== 'false'}">ROMETHEUS</span>
       </a>
       <button
         @click="fold = !fold"

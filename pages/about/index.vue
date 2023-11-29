@@ -5,7 +5,7 @@
         <!-- Original icon image -->
         <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="absolute z-10 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
 
-        <img alt="New Image" src="@/assets/images/about.png" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg opacity-70" />
+        <img alt="New Image" src="@/assets/images/about.png" class="absolute top-0 left-0 w-full h-full object-cover rounded-lg grayscale opacity-130" />
       </div>
     </div>
 
@@ -82,80 +82,32 @@
 			<div class="mb-48">
   			<p class="font-bold text-4xl md:text-5xl mb-5">부서 소개</p>
 
-				<div class="flex justify-center space-x-8">
+				<div class="flex justify-center">
 					<!-- Box 1: 개발부 -->
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/development.png" class="p-10"/>
+					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
+						<img src="@/assets/images/development.png" class="p-5"/>
 						<p class="text-xl font-medium">개발부</p>
 					</a>
 
 					<!-- Box 2: 기획부 -->
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/plan.png" class="p-10"/>
+					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
+						<img src="@/assets/images/plan.png" class="p-5"/>
 						<p class="text-xl font-medium">기획부</p>
 					</a>
 					<!-- Box 4: 섭외부 -->
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/public_relation.png" class="p-10"/>
+					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
+						<img src="@/assets/images/public_relation.png" class="p-5"/>
 						<p class="text-xl font-medium">섭외부</p>
 					</a>
 					<!-- Box 3: 홍보부 -->
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/promotion.png" class="p-10"/>
+					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
+						<img src="@/assets/images/promotion.png" class="p-5"/>
 						<p class="text-xl font-medium">홍보부</p>
 					</a>
 				</div>
 			</div>
-			
-			<div class="mb-48">
-				<div class="flex">
-					<!-- Contact Section -->
-					<div class="flex-1 mr-8">
-						<p class="font-bold text-2xl md:text-3xl mb-5">Contact</p>
 
-						<div class="flex gap-8">
-							<!-- Box 1: Email -->
-							<div @click="copyToClipboard('prometheus@gmail.com')" class="cursor-pointer flex-1 flex flex-col bg-gray-50 shadow-lg p-6 rounded-lg items-center">
-								<p class="text-lg font-medium mb-2">Gmail</p>
-								<img src="@/assets/gmail.png" class="w-16 h-16  rounded-lg"/>
-							</div>
-
-							<!-- Box 2: Phone -->
-							<a href="https://www.instagram.com/prometheus_ai_/" class="flex-1 flex flex-col bg-gray-50 shadow-lg p-6 rounded-lg items-center">
-								<p class="text-lg font-medium mb-2">Instagram</p>
-								<img src="@/assets/instagram.png" class="w-16 h-16 rounded-lg" />
-							</a>
-
-							<!-- Box 3: Address -->
-							<a href="https://www.kakao.com/prometheus_ai_/" class="flex-1 flex flex-col bg-gray-50 shadow-lg p-6 rounded-lg items-center">
-								<p class="text-lg font-medium mb-2">KakaoTalk</p>
-								<img src="@/assets/kakao.png" class="w-16 h-16  rounded-lg" />
-							</a>
-						</div>
-					</div>
-
-					<!-- Community Section -->
-					<div class="flex-1">
-						<p class="font-bold text-2xl md:text-3xl mb-5">Community</p>
-
-						<div class="flex gap-8">
-							<!-- Box 1: Social Media 1 -->
-							<a href="https://discord.gg/S3WNhcE7Sf" class="flex-1 flex flex-col bg-gray-50 shadow-lg p-6 rounded-lg items-center">
-								<p class="text-lg font-medium mb-2">Discord</p>
-								<img src="@/assets/discord.png" class="w-16 h-16  rounded-lg" />
-							</a>
-
-							<!-- Box 2: Social Media 2 -->
-							<a href="https://github.com/Prometheus-ML" class="flex-1 flex flex-col bg-gray-50 shadow-lg p-6 rounded-lg items-center">
-								<p class="text-lg font-medium mb-2">Github</p>
-								<img src="@/assets/github.png" class="w-16 h-16  rounded-lg" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="mb-48">
+			<div class="mb-32">
 				<p class="font-bold text-4xl md:text-5xl mb-5">후원사</p>
 				<div class="mt-10 grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
 					<img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
