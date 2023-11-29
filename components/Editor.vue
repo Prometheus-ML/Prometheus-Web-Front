@@ -151,7 +151,7 @@ async function uploadImage(value) {
   const formData = new FormData();
   formData.append('image', value);
 
-  return $api(`/image/${type}/upload`, {
+  return $api(`/image/upload/${type}`, {
     method: 'POST',
     body: formData
   })
