@@ -59,7 +59,7 @@
 								@mouseenter="section.hover = true"
 								@mouseleave="section.hover = false">
 							<div class="rounded-lg absolute w-full h-full z-0 backdrop-grayscale bg-black/60 p-5 sm:p-10 text-white flex flex-col" :class="{ 'backdrop-blur': section.hover }">
-								<p class="text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
+								<p class="mt-10 hover:mt-1 text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
 									:style="{
 											transform: section.hover ? 'scale(1.25)' : 'none',
 											width: section.hover ? '20px' : '100%',

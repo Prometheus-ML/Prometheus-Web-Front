@@ -2,7 +2,8 @@
 	<div class="relative w-screen mb-10 lg:mb-20">
 		<img src="@/assets/images/main.png" alt="" class="object-cover w-full">
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <p class="font-bold text-center text-4xl md:text-7xl mb-2 text-white transition-opacity duration-500 ease-in">PROMETHEUS</p>
+      <span class="font-bold text-center text-4xl md:text-7xl mb-2 text-rose-700 transition-opacity duration-500 ease-in">P</span>
+      <span class="font-bold text-center text-4xl md:text-7xl mb-2 text-white transition-opacity duration-500 ease-in">ROMETHEUS</span>
       <p class="text-xl text-center text-white transition-opacity duration-500 ease-in">대학생 인공지능 단체</p>
     </div>
 		<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer" @click="scrollDown">
@@ -24,12 +25,12 @@
 
       <div class="mb-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
         <div v-for="(section, index) in intro" :key="index">
-          <div class="rounded-lg relative h-[200px] lg:h-[500px] bg-center bg-cover" 
+          <div class="rounded-lg relative h-[100px] lg:h-[300px] bg-center bg-cover" 
 							 :style="{ backgroundImage : `url(${section.img})`}" 
 							 @mouseenter="section.hover = true"
 							 @mouseleave="section.hover = false">
             <div class="rounded-lg absolute w-full h-full z-0 backdrop-grayscale bg-black/60 p-5 sm:p-10 text-white flex flex-col">
-              <p class="text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
+              <p class="mt-20 text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
 							>{{ section.title }}</p>
               <!-- <p :style="{
 										opacity: section.hover ? 1 : 0,
@@ -59,7 +60,7 @@
     <carousel ref="projectCarousel" :items-to-show="3" :wrap-around="true" class="mb-10 sm:mb-20 mx-3" :autoplay="3000">
       <slide v-for="project in recentProjects" :key="project.id">
         <div class="w-full mx-2 sm:mx-5 text-left mb-6 sm:mb-8">
-          <div class="drop-shadow-md w-full rounded-lg bg-center bg-cover pb-[60%] sm:pb-[50%] mb-4 sm:mb-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+          <div class="drop-shadow-md w-full rounded-lg bg-center bg-cover pb-[60%] sm:pb-[50%] mb-4 sm:mb-5" :style="{ backgroundImage: `url(${project?.thumb}` , backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
           <p class="font-bold md:text-lg sm:text-xl mb-2">{{ project?.title }}</p>
           <p class="text-base">{{ project?.description }}</p>
         </div>
@@ -88,7 +89,9 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10 md:mb-20">
         <a :href="post.link" v-for="post in recentPosts" :key="post.id">
-          <div class="drop-shadow-md rounded-lg border pb-[55%] bg-cover bg-center bg-no-repeat mb-2 sm:mb-5" :style="{ backgroundImage: `url(${post.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+          <div class="drop-shadow-md rounded-lg border w-full h-40 sm:h-64 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
+            :style="{ backgroundImage: 'url(' + useImage(post?.thumb, postType) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
+          </div>
           <!-- <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p> -->
           <!-- <p class="text-sm md:text-base"> by {{ post?.writer }}</p> -->
         </a>
@@ -168,7 +171,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 	
 	
 const recentPosts = ref([])
-	
+const postType = 'thumbs'
 const recentProjects = ref([
   {
     id: 1,
@@ -313,6 +316,7 @@ async function getRecentPosts() {
   })
     .then((result) => {
       recentPosts.value = result.slice(0, 4);
+      console.log(result);
     })
     .catch((result) => {});
 }
@@ -332,7 +336,6 @@ function projectCarouselNext() {
 // };
 
 onMounted(async ()=>{
-  if (await window.localStorage.getItem('popup')) popup.value = false;
   await getRecentPosts();
 })
 
