@@ -5,13 +5,36 @@
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
     </div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
-			<nuxt-link v-for="post in postList" :key="post.id" :to="'/blog/view/' + post.id" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
-				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
-				<div class="p-4 w-2/3">
-					<p class="truncate overflow-hidden font-bold text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
-					<p class="truncate font-light text-base overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
-					<p class="font-light text-base mb-2"> by {{ post?.writer.username }}</p>
+		<div class="mb-4 space-x-4 relative">
+			<div class="absolute left-0 top-9 w-full h-0.5 bg-rose-700"></div>
+			<button
+				@click="changeTab('news')"
+				:class="{ 'bg-rose-700': currentTab === 'news', 'font-bold text-white': currentTab === 'news' }"
+				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+			>
+				뉴스
+			</button>
+			<button
+				@click="changeTab('articles')"
+				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
+				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+			>
+				기사
+			</button>
+			<button
+				@click="changeTab('reviews')"
+				:class="{ 'bg-rose-700': currentTab === 'reviews', 'font-bold text-white': currentTab === 'reviews' }"
+				class="flex-1 py-2 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg focus:outline-none hover:bg-rose-200 transition duration-300 text-sm relative z-10"
+			>
+				활동 후기
+			</button>
+		</div>
+
+
+    <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
+			<nuxt-link v-for="post in filteredPosts" :key="post.id" :to="'/blog/view/' + post.id" class="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
+					<!-- Thumbnail with overlay -->
+					<div class="pt-[100%] bg-cover bg-center bg-no-repeat hover:opacity-50 hover:bg-gray-500" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}">
 				</div>
 			</nuxt-link>
 		</div>
@@ -45,24 +68,37 @@
 import { storeToRefs } from "pinia";
 const type = "thumbs"
 
-const {data: postList, error: postErr} = await useApi('/post/get_posts', {
-  method: 'GET',
-})
 
-// postList.value = [{
-// 	title: "example1",
-// 	created_date: "2023-07-24",
-// },
-// 					 {
-// 	title: "example2",
-// 	created_date: "2023-07-24",
-// },
-// 					 {
-// 	title: "example3",
-// 	created_date: "2023-07-24",
-// }];
+const postList = ref([])
+
+const getPosts = async () => {
+  try {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/post/get_posts`, {
+      method: 'GET',
+    });
+		console.log(response);
+    postList.value = response;
+  } catch (error) {
+		console.error(error)
+  }
+}
+
+const currentTab = ref('news');
+
+const changeTab = (tab) => {
+  currentTab.value = tab;
+};
+
+const filteredPosts = computed(() => {
+  // Filter posts based on the current tab
+  return postList.value.filter(post => post.type == currentTab.value).slice(0, 4);
+});
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
+
+onMounted(async() => {
+	await getPosts();
+})
 </script>
 

@@ -10,9 +10,11 @@
     </div>
     <div class="pb-7">
       <div class="mb-3" v-show="false" v-html="post?.html"></div>
-      <div class="max-w-screen-md mx-auto mb-5 viewer-container">
-					<div id="viewer" class="rounded"></div>
-				</div>
+      <div class="flex justify-center mb-8">
+        <div class="mx-auto mb-5 viewer-container bg-white rounded p-4">
+          <div id="viewer" class="rounded"></div>
+        </div>
+      </div>
 
       <!-- <ul v-if="post?.tag" class="flex mt-5">
         <li v-for="tag in post?.tag" :key="tag" class="rounded bg-gray-100 text-sm px-3 py-1 mr-2">#{{ tag.name }}</li>
@@ -22,10 +24,10 @@
       <nuxt-link :to="'/blog'" class="bg-white py-2 px-4 border rounded inline-block">
           글목록
       </nuxt-link>
-      <button @click="deletePost" v-if="user?.id == post?.writer.id || user?.grant == 'admin'" class="bg-white py-2 px-4 border rounded inline-block">
+      <button @click="deletePost" v-if="user?.id == post?.writer?.id || user?.grant == 'admin'" class="bg-white py-2 px-4 border rounded inline-block">
           삭제
       </button>
-      <nuxt-link :to="'/blog/edit/'+id" v-if="user?.id == post?.writer.id" class="bg-white py-2 px-4 border rounded inline-block">
+      <nuxt-link :to="'/blog/edit/'+post.id" v-if="user?.id == post?.writer?.id" class="bg-white py-2 px-4 border rounded inline-block">
           수정
       </nuxt-link>
     </div>

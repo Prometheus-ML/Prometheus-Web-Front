@@ -19,7 +19,7 @@
 		
 		<div class="container mx-auto flex-row items-center pt-40 pb-24">
     <!-- 타이틀 -->
-			<div class="mb-32">
+			<div class="mb-48">
 				<p class="font-bold text-4xl md:text-5xl mb-5">동아리 소개</p>
 				<div class="bg-gray-200 w-full h-auto py-5 px-4 rounded-lg">
 					<li>'프로메테우스'는 인공지능으로 가치 있는 도전과 경험을 하고자 '업'에 대한 열정을 지닌 대학생들이 모인 인공지능 가치 창출 동아리입니다.</li>
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 
-			<div class="mb-32">
+			<div class="mb-48">
 				<p class="font-bold text-4xl md:text-5xl mb-5">핵심가치</p>
 
 				<div class="flex justify-center space-x-8 mb-10">
@@ -52,12 +52,12 @@
 					</div>
 				</div>
 
-				<div class="bg-gray-200 w-full h-auto py-5 px-4 rounded-lg items-center">
-					<p class="text-lg font-bold text-center">“프로메테우스는 인공지능을 통한 가치있는 도전을 응원합니다.”</p>
+				<div class="bg-rose-200 w-full h-auto py-5 px-4 rounded-lg items-center">
+					<p class="text-lg text-rose-500 font-bold text-center">“프로메테우스는 인공지능을 통한 가치있는 도전을 응원합니다.”</p>
 				</div>
 			</div>
 
-			<div class="mb-32">
+			<div class="mb-48">
 				<p class="font-bold text-4xl md:text-5xl mb-5">활동 내용</p>
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
 					<div v-for="(section, index) in intro" :key="index">
@@ -86,39 +86,39 @@
 				</div>
 			</div>
 				
-			<div class="mb-32">
+			<div class="mb-48">
   			<p class="font-bold text-4xl md:text-5xl mb-5">부서 소개</p>
 
 				<div class="flex justify-center space-x-8">
 					<!-- Box 1: 개발부 -->
 					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/development.png"/>
-						<p class="text-lg font-medium">개발부</p>
+						<img src="@/assets/images/development.png" class="p-10"/>
+						<p class="text-xl font-medium">개발부</p>
 					</a>
 
 					<!-- Box 2: 기획부 -->
 					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/plan.png"/>
-						<p class="text-lg font-medium">기획부</p>
+						<img src="@/assets/images/plan.png" class="p-10"/>
+						<p class="text-xl font-medium">기획부</p>
 					</a>
 					<!-- Box 4: 섭외부 -->
 					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/public_relation.png"/>
-						<p class="text-lg font-medium">섭외부</p>
+						<img src="@/assets/images/public_relation.png" class="p-10"/>
+						<p class="text-xl font-medium">섭외부</p>
 					</a>
 					<!-- Box 3: 홍보부 -->
 					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-6 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/promotion.png"/>
-						<p class="text-lg font-medium">홍보부</p>
+						<img src="@/assets/images/promotion.png" class="p-10"/>
+						<p class="text-xl font-medium">홍보부</p>
 					</a>
 				</div>
 			</div>
 			
-			<div class="mb-32">
+			<div class="mb-48">
 				<div class="flex">
 					<!-- Contact Section -->
 					<div class="flex-1 mr-8">
-						<p class="font-bold text-4xl md:text-5xl mb-5">Contact</p>
+						<p class="font-bold text-2xl md:text-3xl mb-5">Contact</p>
 
 						<div class="flex gap-8">
 							<!-- Box 1: Email -->
@@ -143,7 +143,7 @@
 
 					<!-- Community Section -->
 					<div class="flex-1">
-						<p class="font-bold text-4xl md:text-5xl mb-5">Community</p>
+						<p class="font-bold text-2xl md:text-3xl mb-5">Community</p>
 
 						<div class="flex gap-8">
 							<!-- Box 1: Social Media 1 -->
@@ -162,78 +162,7 @@
 				</div>
 			</div>
 
-
-			<div class="mb-32">
-				<p class="font-bold text-4xl md:text-5xl mb-5">멤버</p>
-				<!-- 탭 -->
-				<div class="flex justify-center items-center p-6 text-2xl">
-					<div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
-						<div
-							v-for="(tab, index) in tabs"
-							:key="index"
-							:class="{
-								'font-bold': activeTab === tab.key,
-								'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
-								'border-b-2 border-black': activeTab === tab.key,
-							}"
-							@click="setActiveTab(tab.key)"
-							class="mr-5 cursor-pointer flex items-center"
-						>
-							<span class="mx-auto">{{ tab.name }}</span>
-						</div>
-					</div>
-				</div>
-				
-
-				<!-- 멤버 리스트 -->
-				<div>
-					<div class="p-8">
-						<ul class="flex flex-wrap justify-center gap-9">
-							<li v-for="(member, index) in filteredMembers" :key="index" class="w-24 md:w-64 text-center">
-								<div class="relative">
-									<div
-										class="w-24 h-24 md:w-64 md:h-80 mb-1 rounded flex items-center justify-center"
-										:style="{ backgroundImage: 'url(' + useImage(member?.image) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
-										@mouseenter="member.hover = true"
-										@mouseleave="member.hover = false"
-										@click="toggleMember(member.id)"
-									>
-										<!-- Additional information div displayed on hover -->
-										<div v-if="member.hover || activeMember === member.id" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center">
-											<div class="w-24 h-24 md:w-64 md:h-80 p-2 overflow-y-auto">
-												<p class="text-lg md:text-2xl font-bold text-white mb-1">{{ member.name }}</p>
-												<p class="text-xs md:text-base mb-3 text-gray-50">{{ member.education }}</p>
-
-												
-												<!-- Positions ordered list -->
-												<hr v-if="member.positions.length > 0" class="mb-2">
-												<ol class="text-xs md:text-base font-light text-white mb-2">
-													<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
-												</ol>
-												
-												<!-- History ordered list -->
-												<hr v-if="member.history.length > 0" class="mb-2">
-												<ol class="text-xs md:text-base mb-2 font-light text-white">
-													<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
-												</ol>
-
-											</div>
-										</div>
-									</div>
-									<div class="w-full h-full pb-2 flex items-center justify-center">
-										<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
-									</div>
-								</div>
-							</li>
-
-
-						</ul>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="mb-32">
+			<div class="mb-48">
 				<p class="font-bold text-4xl md:text-5xl mb-5">후원사</p>
 				<div class="mt-10 grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
 					<img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
@@ -315,7 +244,7 @@ function copyToClipboard(text) {
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
-    alert('Email address copied to clipboard!');
+    alert('이메일이 복사되었습니다.');
   }
 
 const members = ref([]);
