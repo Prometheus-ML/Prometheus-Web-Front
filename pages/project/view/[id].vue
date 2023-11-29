@@ -161,11 +161,11 @@ const editProject = () => {
 
 async function deleteProject() {
   try {
-    const result = await $api(`/post/delete/${useRoute().params.id}`, {
+    const result = await $api(`/project/delete/${useRoute().params.id}`, {
       method: 'delete'
     })
 
-    useRouter().push({ path: '/blog' })
+    useRouter().push({ path: '/project' })
   } catch (error) {
   }
 }
