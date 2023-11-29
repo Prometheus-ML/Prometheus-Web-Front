@@ -45,7 +45,7 @@
 import { storeToRefs } from "pinia";
 const type = "thumbs"
 
-const {data: postList, error: postErr} = await useApi('/post/', {
+const {data: postList, error: postErr} = await useApi('/post/get_posts', {
   method: 'GET',
 })
 

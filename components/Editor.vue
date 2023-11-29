@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <button v-if="post" @click="toggleType" class="border">버튼 : {{formData.type}}</button>
+    <button v-if="post" @click="toggleType" class="border">글 종류: {{formData.type}}</button>
     <div class="mb-5" v-if="project">
       <p class="text-lg font-bold mb-3">외부 링크</p>
       <input 
@@ -142,6 +142,7 @@ const post = props.post
 const formData = project ? ref(_.cloneDeep(project)) : ref(_.cloneDeep(post))
 const editMode = props.editMode
 const type = "thumbs"
+formData.value.type = news
 
 async function uploadImage(value) {
   if (!value) {

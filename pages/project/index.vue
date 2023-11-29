@@ -9,7 +9,7 @@
         <nuxt-link :to="'/project/view/' + project.id">
           <div class="relative overflow-hidden rounded-t-md h-48">
             <img
-              :src="useImage(project?.thumb)"
+              :src="useImage(project?.thumb, type)"
               alt="Project Thumbnail"
               class="object-cover w-full h-full"
             />
@@ -38,7 +38,7 @@ import { storeToRefs } from "pinia";
 	
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
-
+const type = "thumbs"
 
 const projectList = ref([])
 const projectErr = ref()
