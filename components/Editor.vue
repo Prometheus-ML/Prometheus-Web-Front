@@ -142,7 +142,6 @@ const post = props.post
 const formData = project ? ref(_.cloneDeep(project)) : ref(_.cloneDeep(post))
 const editMode = props.editMode
 const type = "thumbs"
-formData.value.type = news
 
 async function uploadImage(value) {
   if (!value) {
