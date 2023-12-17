@@ -12,7 +12,7 @@
 
     <div class="flex flex-wrap gap-2 container mx-auto text-white">
       <div class="flex mr-4 py-1">
-        <p class="place-self-center mr-3 font-bold">역할</p>
+        <p class="place-self-center mr-3 font-bold">모집상태</p>
         <div class="relative w-32">
           <button @click="toggleDropdown('state')"
             class="relative bg-neutral-800 text-white w-full py-2 focus:outline-none"
@@ -49,7 +49,7 @@
 
    
       <div class="flex  py-1">
-        <p class="place-self-center mr-3 font-bold">모집상태</p>
+        <p class="place-self-center mr-3 font-bold">역할</p>
         <div class="relative w-36">
           <button @click="toggleDropdown('role')"
             class="relative bg-neutral-800 text-white w-full py-2 focus:outline-none"
@@ -95,7 +95,7 @@
     <div class="main container bg-black text-white mx-auto pb-3">
       <div class="grid grid-cols-1 items-start gap-6 w-full">
         <div class="p-1 border-b-2"></div>
-        <div v-for="post in postList"  @click="openPost(post?.id)" :key="post?.id" :to="'/hackathon/post/view/' + post?.id" class="md:mx-10 cursor-pointer bg-neutral-700">
+        <div v-for="post in filteredPosts"  @click="openPost(post?.id)" :key="post?.id" :to="'/hackathon/post/view/' + post?.id" class="md:mx-10 cursor-pointer bg-neutral-700">
             <!-- Thumbnail with overlay -->
             <div class="grid grid-cols-4 md:grid-cols-5 py-1 md:py-2">
               <div class="flex flex-col place-items-center px-2 lg:px-4 pt-2 justify-center">

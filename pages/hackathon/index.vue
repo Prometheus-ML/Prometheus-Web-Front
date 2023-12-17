@@ -17,8 +17,8 @@
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
-        <p class="mb-2 md:mb-4 font-light md:font-medium md:text-2xl transition-opacity duration-500 ease-in">가치 있는 도전</p>
-        <p class="mb-3 md:mb-5 font-light text-2xl text-neutral-500 transition-opacity duration-500 ease-in">|</p>
+        <p class="mb-1 md:mb-2 font-light md:font-medium md:text-2xl transition-opacity duration-500 ease-in">가치 있는 도전</p>
+        <p class="mb-1 md:mb-3 font-light text-2xl text-neutral-500 transition-opacity duration-500 ease-in">|</p>
         <p class="text-center mx-20 font-light text-xs md:text-base text-neutral-200 transition-opacity duration-500 ease-in">당신의 창의적인 아이디어로 AI의 무한한 가능성을 탐험하며, 현실을 넘어 새로운 가치를 창출하는 더 나은 미래를 그려보세요.</p>
       </div>
     </div>

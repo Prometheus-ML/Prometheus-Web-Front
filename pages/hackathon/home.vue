@@ -44,8 +44,8 @@
             </div>
             <hr class="p-1 border-t border-neutral-500">
             <div class="grid grid-cols-4 gap-1">
-              <div class="py-3 font-semibold text-base md:text-2xl">특전</div>
-              <div class="py-4 col-span-3 text-sm md:text-xl">예선/본선 진출팀 OpenAI Credit 지원</div>
+              <div class="py-3 font-semibold text-base md:text-2xl">특별상</div>
+              <div class="py-4 col-span-3 text-sm md:text-xl">특별상 및 다양한 상품은 추후 공개 예정입니다.</div>
             </div>
             <hr class="p-1 border-t">
           </div>
@@ -70,7 +70,7 @@
           <div class="grid grid-cols-4 gap-1">
             <div class="py-3 font-semibold text-base md:text-2xl">본선</div>
             <div class="ml-2 py-4 text-sm md:text-xl">02.02(금) - 02.03(토)</div>
-            <div class="ml-2 py-4 col-span-2 font-light text-xs md:text-lg">팁스타운에서 진행</div>
+            <div class="ml-2 py-4 col-span-2 font-light text-xs md:text-lg">오프라인(팁스타운에서 진행)</div>
           </div>
           <hr class="p-1 border-t">
         </div>
@@ -79,12 +79,12 @@
     <div class="pt-24 bg-neutral-800 pb-32">
       <div class="grid grid-cols-5 gap-x-4 container mx-auto">
         <p class="text-xl md:text-4xl font-bold">후원사</p>
-        <div class="rounded-lg col-span-4 my-15 grid grid-cols-3 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
-					<img class="w-full h-full object-cover p-5 bg-neutral-300" src="@/assets/images/sponsor/ncsoft.png" />
-					<img class="w-full h-full object-cover p-5 bg-neutral-300" src="@/assets/images/sponsor/enslpartners.png" />
-					<img class="w-full h-full object-cover p-5 bg-neutral-300" src="@/assets/images/sponsor/line.png" />
-					<img class="w-full h-full object-cover p-5 bg-neutral-300" src="@/assets/images/sponsor/deepnoid.png" />
-					<img class="w-full h-full object-cover p-5 bg-neutral-300" src="@/assets/images/sponsor/intel.png" />
+        <div class="rounded-lg col-span-4 grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
+					<img class="object-contain w-40 h-40 bg-white rounded-2xl" src="@/assets/images/sponsor/ncsoft.png" />
+					<img class="object-contain w-40 h-40 bg-white rounded-2xl" src="@/assets/images/sponsor/enslpartners.png" />
+					<img class="object-contain w-40 h-40 bg-white rounded-2xl" src="@/assets/images/sponsor/line.png" />
+					<img class="object-contain w-40 h-40 bg-white rounded-2xl" src="@/assets/images/sponsor/deepnoid.png" />
+					<img class="object-contain w-40 h-40 bg-white rounded-2xl" src="@/assets/images/sponsor/intel.png" />
 
 				</div>
       </div>
