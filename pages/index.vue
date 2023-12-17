@@ -124,7 +124,7 @@
         <img class="w-32 sm:w-48" src="@/assets/images/sponsor/codeit.png" />
       </div>
     </div>
-		<!-- <div>
+		<div>
 			<div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
 				<div class="relative bg-white p-4 w-[70%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
 					<button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
@@ -144,7 +144,7 @@
 					</carousel>
 				</div>
 			</div>
-		</div> -->
+		</div>
 	</div>
 
 
@@ -164,7 +164,7 @@ import thumb_3 from '@/assets/images/thumb/3.png';
 import thumb_4 from '@/assets/images/thumb/4.png';
 import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
-// import c_1 from '@/assets/images/codeit/0.jpg';
+// import c_1 from '@/assets/images/codeit/12.png';
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
@@ -328,9 +328,10 @@ function projectCarouselPrev() {
 function projectCarouselNext() {
   projectCarousel.value.next()
 }
-// const popup = ref(null);
-// const popupVisible = ref(true);
 
+// const popup = ref();
+// const popupVisible = ref(true);
+// const popupImages = ref([c_1])
 // const closePopup = () => {
 // 	popupVisible.value = false;
 // };

@@ -1,15 +1,16 @@
 <template>
   <nav
-    class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ '!bg-gray-50': background || !fold , 'text-white': !background && darkNav !== 'false' }"
+    class="px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
+    :class="{ '!bg-gray-50': (background || !fold) && darkNav !== 'all', 'border-white border-b !bg-black' : (background || !fold) && darkNav === 'all' }"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="/" class="flex font-sans items-center font-bold text-xl">
-        <span class="text-rose-700">P</span><span :class="{'text-white': !background && darkNav !== 'false'}">ROMETHEUS</span>
+        <span class="text-rose-700">P</span><span :class="{'text-white': (!background && fold) && darkNav !== 'false' || darkNav === 'all'}">ROMETHEUS</span>
       </a>
       <button
         @click="fold = !fold"
         type="button"
+        :class="{ 'text-white' :  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
         class="inline-flex items-center p-2 ml-3 text-base rounded-lg md:hidden"
       >
         <svg
@@ -28,11 +29,12 @@
       </button>
       <div class="w-full md:block md:w-auto" :class="{ hidden: fold }">
         <ul
-          class="flex flex-col md:p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
+          class="flex flex-col md:p-2 mt-2 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
         >
           <li
             v-for="nav in navList"
             :key="nav.path"
+            :class="{'text-white':  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
           >
             <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
@@ -108,6 +110,7 @@ onMounted(() => {
   watch(() => {
     const currentNav = navList.find(nav => nav.path == useRoute().path);
     if(currentNav) darkNav.value = currentNav.dark;
+    else if (useRoute().path == '/') darkNav.value = 'true'
   });
 });
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto pt-40 pb-24">
+  <div class="container mx-auto pt-40">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">블로그</p>
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
