@@ -7,7 +7,7 @@
           <hr class="p-1 border-t">
           <div class="grid grid-cols-4 gap-1">
             <div class="py-3 row-span-3 font-semibold text-base md:text-2xl">주제</div>
-            <div class="py-4 col-span-3 text-sm md:text-xl">시장성을 고려한 인공지능 활용 서비스 개발, Chat GPT를 활용한 서비스 개발</div>
+            <div class="py-4 col-span-3 text-sm md:text-xl">시장성을 고려한 인공지능 활용 서비스 개발</div>
 
           </div>
           <hr class="p-1 border-t border-neutral-500">
