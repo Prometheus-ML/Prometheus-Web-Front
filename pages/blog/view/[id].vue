@@ -1,11 +1,11 @@
 <template>
-  <div class="container overflow-auto mx-auto pt-40 pb-24">
+  <div class="container mx-auto pt-40 pb-24">
     <Error :errorMessage="postErr" v-if="postErr" />
-    <div class="mb-14">
-      <p class="pb-3 font-medium text-gray-600">
+    <div class="mb-14 overflow-auto ">
+      <!-- <p class="pb-3 font-medium text-gray-600">
         <span class="mr-3">{{ post?.created_date?.substring(0, 10) }}</span>
         <span>{{ post?.writer?.name }}</span>
-      </p>
+      </p> -->
       <p class="font-bold text-5xl">{{ post?.title }}</p>
     </div>
     <div class="pb-7">
