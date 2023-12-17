@@ -153,7 +153,7 @@ const postList = ref([
 
 const getPosts = async () => {
   try {
-    const response = await $api(`${import.meta.env.VITE_API_URL}/hackathon/get_posts`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/hackathon/`, {
       method: 'GET',
     });
     postList.value = response;
