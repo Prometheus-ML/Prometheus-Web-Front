@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto pt-40 pb-24">
     <Error :errorMessage="postErr" v-if="postErr" />
-    <div class="mb-14 overflow-auto ">
+    <div class="mb-14 ">
       <!-- <p class="pb-3 font-medium text-gray-600">
         <span class="mr-3">{{ post?.created_date?.substring(0, 10) }}</span>
         <span>{{ post?.writer?.name }}</span>
@@ -10,7 +10,7 @@
     </div>
     <div class="pb-7">
       <div class="mb-3" v-show="false" v-html="post?.html"></div>
-      <div class="flex justify-center mb-8">
+      <div class="overflow-auto flex justify-center mb-8">
         <div class="mx-auto mb-5 viewer-container bg-white rounded p-4">
           <div id="viewer" class=""></div>
         </div>
