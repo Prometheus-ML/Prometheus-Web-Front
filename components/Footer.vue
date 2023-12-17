@@ -36,7 +36,6 @@ const route = ref()
 onMounted(() => {
   watchEffect(() => {
     route.value = useRoute().path
-    console.log(route.value)
   });
 });
 

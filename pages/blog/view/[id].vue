@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto pt-40 pb-24">
+  <div class="container overflow-auto mx-auto pt-40 pb-24">
     <Error :errorMessage="postErr" v-if="postErr" />
     <div class="mb-14">
       <p class="pb-3 font-medium text-gray-600">
@@ -12,10 +12,9 @@
       <div class="mb-3" v-show="false" v-html="post?.html"></div>
       <div class="flex justify-center mb-8">
         <div class="mx-auto mb-5 viewer-container bg-white rounded p-4">
-          <div id="viewer" class="rounded"></div>
+          <div id="viewer" class=""></div>
         </div>
       </div>
-
       <!-- <ul v-if="post?.tag" class="flex mt-5">
         <li v-for="tag in post?.tag" :key="tag" class="rounded bg-gray-100 text-sm px-3 py-1 mr-2">#{{ tag.name }}</li>
       </ul> -->
@@ -49,10 +48,11 @@ const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
 
 const viewer = ref()
-const post = ref()
+
 const postErr = ref()
 
-
+const post= ref()
+  
 const getPost = async () => {
   await $fetch(`${import.meta.env.VITE_API_URL}/post/${useRoute().params.id}`, {
     method: 'GET',
@@ -94,4 +94,6 @@ onMounted(async () => {
   height: auto; /* 이미지 비율을 유지하면서 높이를 자동으로 조절합니다. */
 	margin: auto; /* 이미지를 가로로 중앙에 배치 */
 }
+
+
 </style>
