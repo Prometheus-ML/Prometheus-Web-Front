@@ -1,6 +1,9 @@
 <template>
   <div class="bg-black text-white">
 		<div class="p-5 container mx-auto">
+      <h1 class="mb-2 text-3xl md:text-5xl font-bold">팀빌딩 게시판</h1>
+      <p class="text-xs md:text-lg mb-12 font-light">게시글을 올릴 때 본인의 전화번호로 인증을 받은 후, 게시글의 비밀번호를 설정하세요. 게시글을 삭제하거나 수정할 때 해당 비밀번호가 필요합니다.</p>
+
 			<input
 				v-model="filter"
         type="text"
