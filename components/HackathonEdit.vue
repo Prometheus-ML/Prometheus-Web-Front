@@ -3,7 +3,7 @@
     <Error @remove="errorMessage = null" class="absolute w-[80%] h-[30%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 bg-rose-200 z-10 cursor-pointer opacity-100"  v-if="errorMessage" :errorMessage="errorMessage"/>
     <div class="mb-14 container mx-auto" :class="{'opacity-10' : errorMessage }">
       <div class="p-2 md:grid md:grid-cols-2 gap-1 place-items-center justify-between">
-        <div class="cursor-pointer rounded-full flex items-center text-white mb-2">
+        <div class="cursor-pointer rounded-full flex items-center text-white mt-1">
           <div
             @click="post.done = false"
             :class="{ 'hover:opacity-50 text-neutral-700 bg-neutral-800': post.done, 'bg-rose-500': !post.done }"
@@ -19,12 +19,12 @@
             모집완료
           </div>
         </div>
-        <div class="flex place-items-center">
+        <div class="flex place-items-center mt-1">
           <p class="text-sm md:text-2xl font-bold mr-2">제목</p>
           <input 
             v-model="post.title"
             type="text"
-            class="w-full border rounded text-black bg-netural-500 px-2" 
+            class="w-full border rounded text-black bg-netural-500 py-1 px-2" 
             placeholder="1-20자"
             maxlength="20"
             required
@@ -32,13 +32,13 @@
         </div>
       </div>
 
-      <div class="border-white border-t p-1"></div>
+      <div class="border-white border-b p-1"></div>
       <div class="grid grid-cols-4">
         <!-- 모집 역할 -->
-        <div class="text-sm md:text-2xl font-bold px-1 py-4 col-span-1">
-          <p>모집 역할</p>
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-b justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+          <p class="mb-2">모집 역할</p>
         </div>
-        <div class="flex flex-col grid grid-cols-2 md:grid-cols-3 col-span-3 gap-x-2">
+        <div class="flex flex-col grid grid-cols-2 md:grid-cols-3 mt-2 col-span-3 gap-x-2">
           <div v-for="(role, index) in roles" :key="index" class="mb-2">
             <label class="text-sm md:text-xl font-semibold flex items-center">
               <input
@@ -57,8 +57,8 @@
 
 
         <!-- 모집 인원 -->
-        <div class="text-sm md:text-2xl font-bold px-1 py-4 col-span-1">
-          <p>모집 인원</p>
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+          <p class="mb-2">모집 인원</p>
         </div>
         <div class="col-span-1 my-4 flex flex-row">
           <input 
@@ -73,8 +73,8 @@
         
         <div class="col-span-2 my-4"></div>
         <!-- 연락 방법 -->
-        <div class="text-sm md:text-2xl font-bold px-1 py-4 col-span-1">
-          <p>연락 방법</p>
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+          <p class="mb-2">연락 방법</p>
         </div>
         <input 
           v-model="post.contact"
@@ -85,8 +85,8 @@
           required>
 
         <!-- 상세 내용 -->
-        <div class="text-sm md:text-2xl font-bold px-1 py-4 col-span-1">
-          <p>상세 내용</p>
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-t justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+          <p class="mb-2">상세 내용</p>
         </div>
         <div class="col-span-3 py-4 mb-5">
           <div class="editor-container rounded">
@@ -98,7 +98,7 @@
       <!-- 전화번호 및 인증번호란 -->
       <div class="grid grid-cols-3 md:grid-cols-6 gap-x-2">
         <div class="text-sm md:text-2xl font-bold px-1 py-1 md:col-span-2">
-          <p>전화번호</p>
+          <p class="mb-2">전화번호</p>
         </div>
         <div class="flex flex-col py-1 col-span-2 md:col-span-4">
           <label class="align-items-center relative mb-3">
@@ -116,7 +116,7 @@
          
         </div>
         <div v-if="!editMode" class="text-sm md:text-2xl font-bold px-1 py-1 md:col-span-2">
-          <p>인증번호</p>
+          <p class="mb-2">인증번호</p>
         </div>
         <div v-if="!editMode" class="col-span-2 md:col-span-4">
           <div class="flex flex-col py-1 ">
@@ -136,7 +136,7 @@
         </div>
  
         <div class="text-sm md:text-2xl font-bold px-1 py-1 md:col-span-2">
-          <p>비밀번호</p>
+          <p class="mb-2">비밀번호</p>
         </div>
         <div class="flex flex-col py-1 col-span-2 md:col-span-4">
           <label class="align-items-center relative mb-3">

@@ -21,8 +21,8 @@
       <div class="border-white border-t p-1"></div>
       <div class="grid grid-cols-4">
         <!-- 모집 역할 -->
-        <div class="text-sm md:text-2xl font-bold mb-1 p-4 col-span-1 mr-20 bg-neutral-500 text-center rounded-lg">
-          <p>모집 역할</p>
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+          <p class="mb-2">모집 역할</p>
         </div>
         <div class="col-span-3 flex flex-wrap py-4 flex place-items-start flex-row">
           <div v-for="(value, index) in post?.h_tag" :key="index" class="text-xs md:text-base py-1 px-5 mr-2 mb-1 font-bold rounded-full text-black bg-neutral-400">
@@ -31,20 +31,20 @@
         </div>
 
         <!-- 모집 인원 -->
-        <div class="text-sm md:text-2xl font-bold mb-1 p-4 col-span-1 mr-20 bg-neutral-500 text-center rounded-lg">
-          <p>모집 인원</p>
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+          <p class="mb-2">모집 인원</p>
         </div>
         <p class="col-span-3 py-4">{{ post?.personnel }}</p>
 
         <!-- 연락 방법 -->
-        <div class="text-sm md:text-2xl font-bold mb-1 p-4 col-span-1 mr-20 bg-neutral-500 text-center rounded-lg">
-          <p>연락 방법</p>
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+          <p class="mb-2">연락 방법</p>
         </div>
         <p class="col-span-3 py-4">{{ post?.contact }}</p>
 
         <!-- 상세 내용 -->
-        <div class="text-sm md:text-2xl font-bold mb-1 p-4 col-span-1 mr-20 bg-neutral-500 text-center rounded-lg">
-          <p>상세 내용</p>
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+          <p class="mb-2">상세 내용</p>
         </div>
         <div class="col-span-3 py-4">
           <div class="px-2 viewer-container border border-black rounded bg-white overflow-y-scroll">
