@@ -38,7 +38,7 @@
               </div>
               <div class="mr-2 my-4 col-span-2 md:col-span-1 overflow-hidden rounded-lg text-sm md:text-xl flex flex-col justify-center items-center">
                 <div class="lg:py-4 flex flex-col justify-center text-center text-base font-semibold overflow-hidden h-full w-full bg-neutral-600 p-3">우수상 (2팀)</div>
-                <div class="lg:py-4 flex flex-col justify-center text-center text-base font-semibold bg-white text-black h-full w-full p-3">1,500,000 원</div>
+                <div class="lg:py-4 flex flex-col justify-center text-center text-base font-semibold bg-white text-black h-full w-full p-3">500,000 원</div>
               </div>
 
             </div>
