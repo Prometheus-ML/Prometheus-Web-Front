@@ -35,7 +35,7 @@
       <div class="border-white border-b p-1"></div>
       <div class="grid grid-cols-4">
         <!-- 모집 역할 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded-b justify-center items-center flex my-1 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-b justify-center mr-3 md:mr-5 items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">모집 역할</p>
         </div>
         <div class="flex flex-col grid grid-cols-2 md:grid-cols-3 mt-2 col-span-3 gap-x-2">
@@ -57,7 +57,7 @@
 
 
         <!-- 모집 인원 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center mr-3 md:mr-5 items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">모집 인원</p>
         </div>
         <div class="col-span-1 my-4 flex flex-row">
@@ -73,7 +73,7 @@
         
         <div class="col-span-2 my-4"></div>
         <!-- 연락 방법 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center mr-3 md:mr-5 items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">연락 방법</p>
         </div>
         <input 
@@ -85,13 +85,11 @@
           required>
 
         <!-- 상세 내용 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded-t justify-center items-center flex my-1 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-t justify-center mr-3 md:mr-5 items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">상세 내용</p>
         </div>
         <div class="col-span-3 py-4 mb-5">
-          <div class="editor-container rounded">
-            <div id="editor" class="bg-white"></div>
-          </div>
+          <textarea class="w-full h-32 border rounded p-2 text-black" v-model="post.content" placeholder="상세 정보를 입력하세요."></textarea>
         </div>
       </div>
       <div class="border-white border-t p-1"></div>
@@ -249,7 +247,7 @@ function checkProperties () {
 
 async function save() {
   try {
-    post.value.content = editor?.getMarkdown();
+    
     post.value.tel = tel.value;
     post.value.password = password.value;
     post.value.done = false;
@@ -270,7 +268,7 @@ async function save() {
 
 async function edit() {
   try {
-    post.value.content = editor?.getMarkdown();
+    
     if (!checkProperties()) return;
     post.value.h_tag.sort((a, b) => roles.findIndex(role => role.name === a.name) - roles.findIndex(role => role.name === b.name));
     
@@ -368,19 +366,10 @@ async function verifyCode(codeStr){
 
 
 
-
-onMounted(async () => {
-  if(props.id) {
-    await getPost();
-    editor = await useHackathonEditor(post.value.content)
-  } else {
-    editor = await useHackathonEditor('')
-  }
-})
-
 </script>
 
 <style>
+
 
 
 </style>
