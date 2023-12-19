@@ -35,7 +35,7 @@
       <div class="border-white border-b p-1"></div>
       <div class="grid grid-cols-4">
         <!-- 모집 역할 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded-b justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-b justify-center items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">모집 역할</p>
         </div>
         <div class="flex flex-col grid grid-cols-2 md:grid-cols-3 mt-2 col-span-3 gap-x-2">
@@ -57,7 +57,7 @@
 
 
         <!-- 모집 인원 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">모집 인원</p>
         </div>
         <div class="col-span-1 my-4 flex flex-row">
@@ -73,7 +73,7 @@
         
         <div class="col-span-2 my-4"></div>
         <!-- 연락 방법 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded justify-center items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">연락 방법</p>
         </div>
         <input 
@@ -85,7 +85,7 @@
           required>
 
         <!-- 상세 내용 -->
-        <div class="text-sm md:text-2xl font-bold px-1 rounded-t justify-center items-center flex my-1 bg-neutral-600 mr-5 md:mr-20 py-4 col-span-1">
+        <div class="text-sm md:text-2xl font-bold px-1 rounded-t justify-center items-center flex my-1 py-4 col-span-1">
           <p class="mb-2">상세 내용</p>
         </div>
         <div class="col-span-3 py-4 mb-5">

@@ -21,7 +21,7 @@
       <div class="border-white border-t p-1"></div>
       <div class="grid grid-cols-4">
         <!-- 모집 역할 -->
-        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1">
           <p class="mb-2">모집 역할</p>
         </div>
         <div class="col-span-3 flex flex-wrap py-4 flex place-items-start flex-row">
@@ -31,19 +31,19 @@
         </div>
 
         <!-- 모집 인원 -->
-        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1">
           <p class="mb-2">모집 인원</p>
         </div>
         <p class="col-span-3 py-4">{{ post?.personnel }}</p>
 
         <!-- 연락 방법 -->
-        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1">
           <p class="mb-2">연락 방법</p>
         </div>
         <p class="col-span-3 py-4">{{ post?.contact }}</p>
 
         <!-- 상세 내용 -->
-        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1 mr-5 md:mr-20 bg-neutral-600">
+        <div class="text-sm md:text-2xl font-bold flex justify-center items-center mb-1 p-4 col-span-1">
           <p class="mb-2">상세 내용</p>
         </div>
         <div class="col-span-3 py-4">

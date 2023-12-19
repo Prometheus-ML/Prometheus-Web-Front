@@ -16,12 +16,12 @@
               <div class="flex">
                 <!-- <font-awesome-icon v-if="item.on" class="mr-2 mt-1" icon="fa-solid fa-angle-down" />
                 <font-awesome-icon v-if="!item.on" class="mr-2  mt-1" icon="fa-solid fa-angle-up" /> -->
-                <h3 class="mb-2" :class="{ 'font-semibold': item.on }">{{ item.title }}</h3>
+                <h3 class="mb-2 font-semibold">Q. {{ item.title }}</h3>
  
               </div>
               
                   
-              <p class="text-sm" v-if="item.on">→ {{ item.value }}</p>
+              <p class="text-sm" v-if="item.on">A. {{ item.value }}</p>
             </div>
           </div>
           
