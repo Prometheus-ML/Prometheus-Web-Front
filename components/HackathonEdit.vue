@@ -365,7 +365,11 @@ async function verifyCode(codeStr){
 }
 
 
+onMounted(async () => {
 
+  await getPost();
+  
+})
 </script>
 
 <style>
