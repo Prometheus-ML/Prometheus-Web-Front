@@ -8,7 +8,7 @@
 			<div v-for="project in projectList" :key="project.id" class="w-full rounded-lg border hover:drop-shadow-2xl hover:bg-gray-50">
 				
 					<div class="mb-5 overflow-hidden">
-						<div class="rounded-t-md pb-[60%] p-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
+						<nuxt-link  :to="'/project/view/' + project.id" class="rounded-t-md pb-[60%] p-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></nuxt-link>
 						<div class="h-24 p-4">
 							<p class="font-bold text-sm md:text-base mb-2 line-clamp-1">{{ project.title }}</p>
 							<p class="text-xs md:text-sm line-clamp-2">{{ project.description }}</p>

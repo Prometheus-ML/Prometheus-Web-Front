@@ -119,7 +119,7 @@
         <div v-if="!editMode" class="col-span-2 md:col-span-4">
           <div class="flex flex-col py-1 ">
             <label class="align-items-center relative mb-3">
-              <p v-if="verifyTimer !== -1" class="absolute -bottom-5">남은 시간 [{{ Math.floor(verifyTimer / 60) }} : {{ verifyTimer % 60 }}]</p>
+              <p v-if="verifyTimer !== -1 && !isVerified" class="absolute -bottom-5">남은 시간 [{{ Math.floor(verifyTimer / 60) }} : {{ verifyTimer % 60 }}]</p>
               <input 
                 v-model="code"
                 type="text"

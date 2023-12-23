@@ -218,7 +218,7 @@ function introCarouselNext() {
 const history = ref([
 	{
 		title: "0기",
-		desc: ["프로메테우스를 기획하고 초기 멤버를 모집", "동아리 방향성 모집"],
+		desc: ["프로메테우스를 기획하고 초기 멤버를 모집", "동아리 방향성 선정"],
 		date: "2021. 4. 5."
 	},
 	{
@@ -254,7 +254,7 @@ const history = ref([
 	{
 		title: "4기",
 		desc: [],
-		date: "2023. 3. 5."
+		date: "2023. 9. 2."
 	},
 	{
 		title: "2024 Prometheus AI Hackathon",
