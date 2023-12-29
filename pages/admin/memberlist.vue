@@ -52,7 +52,7 @@
 															</div>
 															<!-- Trash Icon -->
 															<svg
-																	@click="deleteMember(member.id)"
+																	@click="deleteMember(member)"
 																	xmlns="http://www.w3.org/2000/svg"
 																	class="h-6 w-6 text-red-600 absolute top-1 right-1 cursor-pointer"
 																	fill="none"
@@ -396,9 +396,10 @@ const addMember = async () => {
   }
 };
 
-const deleteMember = async (memberId) => {
+const deleteMember = async (member) => {
   try {
-    const response = await $api(`${import.meta.env.VITE_API_URL}/member/delete/${memberId}`, {
+		const response_1 = await removeImage(member);
+    const response_2 = await $api(`${import.meta.env.VITE_API_URL}/member/delete/${member.id}`, {
       method: 'DELETE',
     });
     await getMembers();
