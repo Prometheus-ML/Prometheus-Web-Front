@@ -337,7 +337,7 @@ import blank from '@/assets/images/blank.jpeg';
 	
 const memberMenuOpen = ref(null);
 const searchGen = ref('');
-const gens = [1, 2, 3, 4];
+const gens = [0, 1, 2, 3, 4];
 const members = ref([]);
 const showAddMemberForm = ref(false);
 
