@@ -174,7 +174,7 @@ const isRoleOpen = ref(false)
 const isStateOpen = ref(false)
 
 const stateOptions = ['전체', '모집중', '모집완료']
-const roleOptions = ['전체', '프론트엔드', '백엔드', '디자이너', 'PM', '기타']
+const roleOptions = ['전체', '프론트엔드', '백엔드', '디자이너', 'PM', 'AI', '기타']
 
 const currentState = ref('전체')
 const currentRole = ref('전체')
