@@ -382,7 +382,6 @@ const filteredMembers = computed(() => {
 
 
 const addMember = async () => {
-	if(!newMember.value.executive) newMember.value.executive=false;
   try {
     const response = await $api(`${import.meta.env.VITE_API_URL}/member/create_member`, {
       method: 'POST',
