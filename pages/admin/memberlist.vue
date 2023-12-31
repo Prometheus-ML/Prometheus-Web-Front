@@ -377,7 +377,7 @@ const filteredMembers = computed(() => {
     return members.value; // Show all members when no generation is selected
   }
 
-  return members.value.filter((member) => member.gen === activeTab.value);
+  return members.value.filter((member) => member.gen === activeTab.value || (member.executive && activeTab.value == -1));
 });
 
 
