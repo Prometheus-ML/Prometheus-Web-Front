@@ -99,7 +99,7 @@
 			</div>
 			<div
 				class="bg-indigo-600 p-3 rounded-full shadow cursor-pointer flex items-center justify-center text-white"
-				@click="showAddMemberForm = true"
+				@click="showAddForm()"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +119,9 @@
 		</div>
 	</div>
 		
-	<div v-if="showAddMemberForm" class ="mt-5 z-60 shadow-2xl rounded-lg fixed top-1/2 md:w-[80%] w-[90%] h-[85%] bg-white left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+	<div v-if="showMemberForm" class ="mt-5 z-60 shadow-2xl rounded-lg fixed top-1/2 md:w-[80%] w-[90%] h-[85%] bg-white left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 		<div class="flex justify-end">
-			<button class="right-0 p-1 text-gray-600 hover:text-gray-800" @click="showAddMemberForm = false">
+			<button class="right-0 p-1 text-gray-600 hover:text-gray-800" @click="showMemberForm = false">
 				<font-awesome-icon icon="fa-solid fa-xmark" />
 			</button>
 		</div>
@@ -139,7 +139,7 @@ import blank from '@/assets/images/blank.jpeg';
 	
 
 const members = ref([]);
-const showAddMemberForm = ref(false);
+const showMemberForm = ref(false);
 
 const newMember = ref({});
 const activeTab = ref(null);
@@ -177,7 +177,7 @@ const filteredMembers = computed(() => {
 });
 
 async function closePost() {
-  showAddMemberForm.value = false;
+  showMemberForm.value = false;
 	newMember.value = {};
 	editMode.value = false;
 	await getMembers();
@@ -216,12 +216,18 @@ function toggleMember(memberId) {
   activeMember.value = activeMember.value === memberId ? null : memberId;
 }
 
+const showAddForm = async () => {
+	editMode.value = false;
+	showMemberForm.value = true;
+	newMember.value = {};
+}
+
 const showEditForm = async (id) => {
 		newMember.value = await $api(`${import.meta.env.VITE_API_URL}/member/${id}`, {
       method: 'GET',
     });
 		editMode.value = true;
-		showAddMemberForm.value = true;
+		showMemberForm.value = true;
 };
 
 onMounted(async () => {
