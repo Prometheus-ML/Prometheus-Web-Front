@@ -169,7 +169,7 @@ const getMembers = async () => {
 };
 
 const filteredMembers = computed(() => {
-  if (activeTab.value == null) {
+  if (activeTab.value === null) {
     return members.value; 
   }
 
