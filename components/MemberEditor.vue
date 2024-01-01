@@ -179,6 +179,8 @@ const type = "members"
 const imageStack = ref([])
 
 const addMember = async () => {
+  if (!formData.value.executive) formData.value.executive = false;
+  if (!formData.value.tel) formData.value.tel = '00000000000';
   try {
     const response = await $api(`${import.meta.env.VITE_API_URL}/member/create_member`, {
       method: 'POST',
