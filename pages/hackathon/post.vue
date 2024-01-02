@@ -183,6 +183,7 @@ const visiblePost = ref()
 const viewMode = ref('view')
 const newPost = ref()
 const totalPages = ref(1)
+const filteredPosts = ref([])
 
 // Toggle Dropdown
 const toggleDropdown = (dropdown) => {
@@ -228,7 +229,12 @@ function openNewPost() {
 const postsPerPage = 4;
 const currentPage = ref(1);
 
-const filteredPosts = computed(() => {
+watch([currentState, currentRole, filter], () => {
+  // This function will be called whenever currentState, currentRole, or filter changes.
+  updateFilteredPosts();
+});
+
+function updateFilteredPosts() {
   const lowercaseFilter = filter.value ? filter.value.toLowerCase() : '';
 
   let filtered = postList.value.filter(post => {
@@ -242,8 +248,8 @@ const filteredPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   totalPages.value = Math.ceil(filtered.length / postsPerPage);
-  return filtered.slice(startIndex, endIndex);
-});
+  filteredPosts.value = filtered.slice(startIndex, endIndex);
+}
 
 
 
