@@ -237,6 +237,8 @@ const filteredPosts = computed(() => {
     const isKeywordMatch = !lowercaseFilter || post.title.toLowerCase().includes(lowercaseFilter);
     return isStateMatch && isRoleMatch && isKeywordMatch;
   });
+
+  currentPage.value = 1;
   const startIndex = (currentPage.value - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   totalPages.value = Math.ceil(filtered.length / postsPerPage);
