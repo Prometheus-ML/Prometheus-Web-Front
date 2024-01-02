@@ -99,6 +99,95 @@
 				</div>
 			</div>
 
+			<div class="mb-48">
+				<div class="flex justify-center items-center p-6 text-2xl">
+					<div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
+						<div
+							v-for="(tab, index) in tabs"
+							:key="index"
+							:class="{
+								'font-bold': activeTab === tab.key,
+								'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
+								'border-b-2 border-black': activeTab === tab.key,
+							}"
+							@click="setActiveTab(tab.key)"
+							class="mr-5 cursor-pointer flex items-center"
+						>
+							<span class="mx-auto">{{ tab.name }}</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="p-8">
+						<ul class="flex flex-wrap justify-center gap-9">
+								<li v-for="(member, index) in filteredMembers" :key="index" class="w-16 md:w-32 text-center">
+										<div class="relative">
+												<div
+														class="w-16 h-16 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
+														:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+														@mouseenter="member.hover = true"
+														@mouseleave="member.hover = false"
+												>
+														<!-- Additional information div displayed on hover -->
+														<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
+																<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
+																		<p class="text-lg md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
+																		<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
+																		<!-- Positions ordered list -->
+																		<hr v-if="member.positions.length > 0" class="mb-2">
+																		<ol class="text-xs font-light text-white mb-2">
+																				<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
+																		</ol>
+																		<!-- History ordered list -->
+																		<hr v-if="member.history.length > 0" class="mb-2">
+																		<ol class="text-xs mb-2 font-light text-white">
+																				<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
+																		</ol>
+																</div>
+																<!-- Trash Icon -->
+																<svg
+																		@click="deleteMember(member)"
+																		xmlns="http://www.w3.org/2000/svg"
+																		class="h-6 w-6 text-red-600 absolute top-1 right-1 cursor-pointer"
+																		fill="none"
+																		viewBox="0 0 24 24"
+																		stroke="currentColor"
+																>
+																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+																</svg>
+																<!-- Edit Icon and functionality -->
+																<svg
+																		@click="showEditForm(member.id)"
+																		xmlns="http://www.w3.org/2000/svg"
+																		class="h-6 w-6 text-green-400 absolute bottom-1 right-1 cursor-pointer"
+																		fill="none"
+																		viewBox="0 0 24 24"
+																		stroke="currentColor"
+																>
+																		<path
+																				stroke-linecap="round"
+																				stroke-linejoin="round"
+																				stroke-width="2"
+																				d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+																		/>
+																		<path
+																				stroke-linecap="round"
+																				stroke-linejoin="round"
+																				stroke-width="2"
+																				d="M2 18c2.666-1.333 7.333-1.333 10 0m0 0c2.667 1.333 7.333 1.333 10 0m-10 5v-3a4 4 0 118 0v3"
+																		/>
+																</svg>
+														</div>
+												</div>
+												<div class="w-full h-full pb-2 flex items-center justify-center">
+														<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
+												</div>
+										</div>
+								</li>
+						</ul>
+				</div>
+			</div>
+
 			<!-- <div class="mb-48">
   			<p class="text-center font-semibold text-3xl mb-2">부서 소개</p>
 				<p class="text-center font-normal text-lg text-neutral-700 mb-5">우리 동아리 부서들을 소개할게요~</p>

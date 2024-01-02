@@ -95,7 +95,7 @@
       
     </div>
 
-    <div class="main container bg-black text-white mx-auto pb-3">
+    <div class="main container bg-black text-white mx-auto pb-3" :style="{ 'min-height': '80vh' }">
       <div class="grid grid-cols-1 items-start gap-6 w-full">
         <div class="p-1 border-b-2"></div>
         <div v-for="post in filteredPosts"  @click="openPost(post?.id)" :key="post?.id" :to="'/hackathon/post/view/' + post?.id" class="md:mx-10 cursor-pointer bg-neutral-700">
@@ -123,17 +123,17 @@
               </div>
             </div>
         </div>
-
-        <div class="flex justify-center items-center mt-4">
-          <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1" class="mr-2 px-3 py-2 text-white rounded-lg transition-colors duration-300 focus:outline-none">
-            <font-awesome-icon :class="{'text-black' : currentPage === 1}" icon="fa-solid fa-angle-left" />
-          </button>
-          <span class="text-white">{{ currentPage }}</span>
-          <button @click="goToPage(currentPage + 1)" :disabled="totalPages === 0 || currentPage === totalPages" class="ml-2 px-3 py-2 text-white rounded-lg transition-colors duration-300 focus:outline-none">
-            <font-awesome-icon :class="{'text-black' : totalPages === 0 || currentPage === totalPages}"  icon="fa-solid fa-angle-right" />
-          </button>
-        </div>
 		  </div>
+    </div>
+
+    <div class="flex justify-center items-center pb-16">
+      <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1" class="mr-2 px-3 py-2 text-white rounded-lg transition-colors duration-300 focus:outline-none">
+        <font-awesome-icon :class="{'text-black' : currentPage === 1}" icon="fa-solid fa-angle-left" />
+      </button>
+      <span class="text-white">{{ currentPage }}</span>
+      <button @click="goToPage(currentPage + 1)" :disabled="totalPages === 0 || currentPage === totalPages" class="ml-2 px-3 py-2 text-white rounded-lg transition-colors duration-300 focus:outline-none">
+        <font-awesome-icon :class="{'text-black' : totalPages === 0 || currentPage === totalPages}"  icon="fa-solid fa-angle-right" />
+      </button>
     </div>
 
     <div v-if="visiblePost || newPost === true" class="mt-5 z-60 shadow-2xl rounded-lg fixed top-1/2 md:w-[80%] w-[90%] h-[85%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-700">
@@ -182,7 +182,7 @@ const filter = ref()
 const visiblePost = ref()
 const viewMode = ref('view')
 const newPost = ref()
-
+const totalPages = ref(1)
 
 // Toggle Dropdown
 const toggleDropdown = (dropdown) => {
@@ -225,27 +225,27 @@ function openNewPost() {
   isStateOpen.value = false
 }
 
+const postsPerPage = 4;
+const currentPage = ref(1);
+
 const filteredPosts = computed(() => {
   const lowercaseFilter = filter.value ? filter.value.toLowerCase() : '';
 
-  return postList.value.filter(post => {
+  let filtered = postList.value.filter(post => {
     const isStateMatch = currentState.value === '전체' || post.done === (currentState.value === '모집완료');
     const isRoleMatch = currentRole.value === '전체' || post.h_tag.some(tag => tag.name.includes(currentRole.value));
     const isKeywordMatch = !lowercaseFilter || post.title.toLowerCase().includes(lowercaseFilter);
     return isStateMatch && isRoleMatch && isKeywordMatch;
   });
-});
-
-const postsPerPage = 6;
-const currentPage = ref(1);
-
-const totalPages = computed(() => Math.ceil(filteredPosts.value.length / postsPerPage));
-
-const paginatedPosts = computed(() => {
   const startIndex = (currentPage.value - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
-  return filteredPosts.value.slice(startIndex, endIndex);
+  totalPages.value = Math.ceil(filtered.length / postsPerPage);
+  return filtered.slice(startIndex, endIndex);
 });
+
+
+
+
 
 const goToPage = (page) => {
   if (page >= 1 && page <= totalPages.value) {
