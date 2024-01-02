@@ -183,7 +183,6 @@ const visiblePost = ref()
 const viewMode = ref('view')
 const newPost = ref()
 const totalPages = ref(1)
-const filteredPosts = ref([])
 
 // Toggle Dropdown
 const toggleDropdown = (dropdown) => {
@@ -198,9 +197,11 @@ const toggleDropdown = (dropdown) => {
 const selectOption = (dropdown, value) => {
   if(dropdown === 'state') {
     currentState.value = value;
+    currentPage.value = 1;
     isStateOpen.value = false;
   } else if (dropdown === 'role') {
     currentRole.value = value;
+    currentPage.value = 1;
     isRoleOpen.value = false;
   }
 };
@@ -229,12 +230,7 @@ function openNewPost() {
 const postsPerPage = 4;
 const currentPage = ref(1);
 
-watch([currentState, currentRole, filter], () => {
-  // This function will be called whenever currentState, currentRole, or filter changes.
-  updateFilteredPosts();
-});
-
-function updateFilteredPosts() {
+const filteredPosts = computed(() => {
   const lowercaseFilter = filter.value ? filter.value.toLowerCase() : '';
 
   let filtered = postList.value.filter(post => {
@@ -243,15 +239,16 @@ function updateFilteredPosts() {
     const isKeywordMatch = !lowercaseFilter || post.title.toLowerCase().includes(lowercaseFilter);
     return isStateMatch && isRoleMatch && isKeywordMatch;
   });
-
-  currentPage.value = 1;
+  
   const startIndex = (currentPage.value - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   totalPages.value = Math.ceil(filtered.length / postsPerPage);
-  filteredPosts.value = filtered.slice(startIndex, endIndex);
-}
+  return filtered.slice(startIndex, endIndex);
+});
 
-
+watch(filter, () => {
+  currentPage.value = 1;
+});
 
 
 
@@ -265,7 +262,6 @@ const goToPage = (page) => {
 
 onMounted(async() => {
 	await getPosts();
-  filteredPosts.value = postList.value;
 })
 
 
