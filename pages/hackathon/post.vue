@@ -265,6 +265,7 @@ const goToPage = (page) => {
 
 onMounted(async() => {
 	await getPosts();
+  filteredPosts.value = postList.value;
 })
 
 
