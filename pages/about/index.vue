@@ -216,7 +216,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 	
 
 const currentTab = ref(-1)
-
+const type = "members"
 
 const intro = ref([
   {
