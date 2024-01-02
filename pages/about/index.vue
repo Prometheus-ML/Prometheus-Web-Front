@@ -100,6 +100,9 @@
 			</div>
 
 			<div class="mb-48">
+				<p class="mx-auto text-center text-rose-700 font-light text-xl mb-1">Members</p>
+				<p class="mx-auto text-center font-semibold text-4xl mb-16">멤버</p>
+
 				<div class="flex justify-center items-center p-6 text-2xl">
 					<div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
 						<div
