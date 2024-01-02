@@ -365,26 +365,17 @@ const getMembers = async () => {
 };
 	
 const filteredMembers = computed(() => {
-  if (!activeTab.value) {
-    return members.value; // Show all members when no generation is selected
+  if (activeTab.value === null) {
+    return members.value; 
   }
-	if(activeTab.value == -1) {
-		return members.value.filter((member) => member.executive === true);
-	}
-	
-	return members.value.filter((member) => member.gen === activeTab.value)
-  
+
+  return members.value.filter((member) => member.gen == activeTab.value || (member.executive && activeTab.value === -1));
 });
 
 const setActiveTab = (tab) => {
 	activeTab.value = activeTab.value === tab? null : tab;
 };
 	
-
-
-function toggleMember(memberId) {
-  activeMember.value = activeMember.value === memberId ? null : memberId;
-}
 
 onMounted(async () => {
   await getMembers();
