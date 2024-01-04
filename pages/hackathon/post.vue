@@ -52,7 +52,7 @@
 
    
       <div class="flex  py-1">
-        <p class="place-self-center mr-3 font-bold">역할</p>
+        <p class="place-self-center mr-3 font-bold">모집역할</p>
         <div class="relative w-36">
           <button @click="toggleDropdown('role')"
             class="relative bg-neutral-800 text-white w-full py-2 focus:outline-none"
