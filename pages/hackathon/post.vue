@@ -239,7 +239,18 @@ const filteredPosts = computed(() => {
     const isKeywordMatch = !lowercaseFilter || post.title.toLowerCase().includes(lowercaseFilter);
     return isStateMatch && isRoleMatch && isKeywordMatch;
   });
-  
+
+  filtered.sort((a, b) => {
+    if (a.done === b.done) {
+      // 만약 done 상태가 같으면 기존 순서 유지
+      return 0;
+    } else if (a.done === '모집완료') {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
   const startIndex = (currentPage.value - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   totalPages.value = Math.ceil(filtered.length / postsPerPage);
