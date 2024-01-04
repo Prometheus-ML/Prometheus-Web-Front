@@ -6,7 +6,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width,initial-scale=1.0',
       title: '대학생 인공지능 동아리 프로메테우스',
       meta: [
-        { hid: 'og:image', property: 'og:image', content: "avatars.githubusercontent.com/u/110764229?s=48&v=4" },
+        { hid: 'og:image', property: 'og:image', content: "https://prometheus-ai.net/_nuxt/prometheus.f62993c9.jpg" },
       ],
       link: [
         {
