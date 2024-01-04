@@ -244,7 +244,7 @@ const filteredPosts = computed(() => {
     if (a.done === b.done) {
       // 만약 done 상태가 같으면 기존 순서 유지
       return 0;
-    } else if (a.done === '모집완료') {
+    } else if (a.done === '모집중') {
       return -1;
     } else {
       return 1;
