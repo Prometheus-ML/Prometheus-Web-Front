@@ -245,9 +245,9 @@ const filteredPosts = computed(() => {
       // 만약 done 상태가 같으면 기존 순서 유지
       return 0;
     } else if (a.done === '모집완료') {
-      return 1;
-    } else {
       return -1;
+    } else {
+      return 1;
     }
   });
 
