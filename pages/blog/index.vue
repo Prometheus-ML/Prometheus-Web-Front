@@ -32,12 +32,13 @@
 
 
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
-			<div v-for="post in filteredPosts" :key="post.id" cldivss="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
-					<!-- Thumbnail with overlay -->
-				<a :href="post.url" class="relative cursor-pointer pt-[100%] bg-cover bg-center bg-no-repeat hover:opacity-50 hover:bg-gray-500" alt="Image Not Found" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}">
-					<font-awesome-icon v-if="user" class="text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
-				</a>
+				<div v-for="post in filteredPosts" :key="post.id" class="relative w-full pb-[100%]">
+          <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
+            :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
+					</a>
+					<font-awesome-icon v-if="user" class="cursor-pointer text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
 			</div>
+			
 		</div>
 
 <!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
