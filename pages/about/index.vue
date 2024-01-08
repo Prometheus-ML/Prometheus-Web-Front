@@ -351,7 +351,7 @@ const tabs = [
 	{ key: 4, name: '4기'}
 ];
 
-const activeTab = ref(3);
+const activeTab = ref(4);
 const activeMember = ref(null);
 	
 	

@@ -26,7 +26,7 @@
 
 
     <div class="absolute bottom-12 w-full ">
-      <div class="grid grid-cols-3 justify-between text-gray-500 font-normal">
+      <div class="grid grid-cols-4 justify-between text-gray-500 font-normal">
         <button
           @click="changeTab('home')"
           class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
@@ -48,6 +48,13 @@
         >
           FAQ
         </button>
+        <button
+          @click="changeTab('info')"
+          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
+          :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'info'}"
+        >
+          공지
+        </button>
       </div>
     </div>
   </div>
@@ -58,6 +65,7 @@
 import Home from './home.vue';
 import Post from './post.vue';
 import Faq from './faq.vue'
+import Info from './info.vue'
 
 const currentTab = ref('home');
 const main = ref(null);
@@ -66,6 +74,7 @@ const currentTabComponent = computed(() => {
   if (currentTab.value === 'home') return Home;
   if (currentTab.value === 'post') return Post;
   if (currentTab.value === 'faq') return Faq;
+  if (currentTab.value === 'info') return Info;
 });
 
 const changeTab = (tab) => {
