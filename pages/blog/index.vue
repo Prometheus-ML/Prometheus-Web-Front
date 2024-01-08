@@ -15,7 +15,7 @@
 				AI 뉴스
 			</button>
 			<button
-				@click="changeTab('articles')"
+				@click="changeTab('article')"
 				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
 				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
@@ -32,11 +32,12 @@
 
 
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
-			<a v-for="post in filteredPosts" :href="post.url" :key="post.id" class="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
+			<div v-for="post in filteredPosts" :key="post.id" cldivss="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
 					<!-- Thumbnail with overlay -->
-					<div class="pt-[100%] bg-cover bg-center bg-no-repeat hover:opacity-50 hover:bg-gray-500" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}">
+				<div :href="post.url" class="relative cursor-pointer pt-[100%] bg-cover bg-center bg-no-repeat hover:opacity-50 hover:bg-gray-500" alt="Image Not Found" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}">
+					<font-awesome-icon v-if="user" class="text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
 				</div>
-			</a>
+			</div>
 		</div>
 
 <!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
@@ -76,12 +77,34 @@ const getPosts = async () => {
     const response = await $api(`${import.meta.env.VITE_API_URL}/link/get_links`, {
       method: 'GET',
     });
-		console.log(response);
     postList.value = response;
   } catch (error) {
 		console.error(error)
   }
 }
+
+async function removeImage(link) {
+	try {
+		const response = await $api(`${import.meta.env.VITE_API_URL}/image/delete/${type}/${link.thumb}`, {
+      method: 'DELETE',
+    });
+		await getPosts();
+	}	catch (error) {
+		console.error(error)
+	}
+}
+
+const deletePost = async (link) => {
+  try {
+		await removeImage(link);
+    const response_2 = await $api(`${import.meta.env.VITE_API_URL}/link/delete/${link.id}`, {
+      method: 'DELETE',
+    });
+    await getPosts();
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const currentTab = ref('news');
 
