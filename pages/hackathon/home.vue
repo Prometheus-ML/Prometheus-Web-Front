@@ -56,21 +56,21 @@
         <p class="text-xl md:text-4xl font-bold">대회 일정</p>
         <div class="col-span-4 flex-grow">
           <hr class="p-1 border-t">
-          <div class="grid grid-cols-4 gap-1">
+          <div class="grid grid-cols-3 gap-1">
             <div class="py-3 font-semibold text-base md:text-2xl">지원 기간</div>
-            <div class="ml-2 pt-4 col-span-3 text-sm md:text-xl">12.18(월) - 01.21(일)</div>
+            <div class="ml-2 pt-4 col-span-2 text-sm md:text-xl">12.18(월) - 01.21(일)</div>
           </div>
           <hr class="p-1 border-t  border-neutral-500">
-          <div class="grid grid-cols-4 gap-1">
-            <div class="py-3 font-semibold text-base md:text-2xl">예선</div>
-            <div class="ml-2 py-4 text-sm md:text-xl">01.22(월) - 01.28(일)</div>
-            <div class="ml-2 py-4 font-light text-xs md:text-lg">온라인으로 진행</div>
+          <div class="grid grid-cols-3 gap-1">
+            <div class="py-3 font-semibold text-base md:text-2xl">예선<span class="text-sm md:text-lg"> (온라인) </span></div>
+            <div class="ml-2 py-4 text-sm md:text-lg">01.22(월) - 01.28(일)</div>
+            <div class="ml-2 py-4 font-light text-xs md:text-base">기간 내 기획안 제출</div>
           </div>
           <hr class="p-1 border-t border-neutral-500">
-          <div class="grid grid-cols-4 gap-1">
-            <div class="py-3 font-semibold text-base md:text-2xl">본선</div>
-            <div class="ml-2 py-4 text-sm md:text-xl">02.02(금) - 02.03(토)</div>
-            <div class="ml-2 py-4 col-span-2 font-light text-xs md:text-lg">오프라인 (강남 'TIPSTOWN'에서 진행)</div>
+          <div class="grid grid-cols-3 gap-1">
+            <div class="py-3 font-semibold text-base md:text-2xl">본선<span class="text-sm md:text-lg"> (오프라인)</span></div>
+            <div class="ml-2 py-4 text-sm md:text-lg">02.02(금)<span class="text-xs md:text-sm"> 오전 10시 </span> - 02.03(토) <span class="text-xs md:text-sm"> 오후 6시 </span> </div>
+            <div class="ml-2 py-4 font-light text-xs md:text-base">(위치)서울 강남구 역삼로 165 해성빌딩 팁스타운</div>
           </div>
           <hr class="p-1 border-t">
         </div>
