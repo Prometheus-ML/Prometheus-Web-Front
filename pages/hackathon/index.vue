@@ -29,28 +29,28 @@
       <div class="grid grid-cols-4 justify-between text-gray-500 font-normal">
         <button
           @click="changeTab('home')"
-          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
+          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
           :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'home'}"
         >
           대회 정보
         </button>
         <button
           @click="changeTab('post')"
-          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
+          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
           :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'post'}"
         >
           팀원 찾기
         </button>
         <button
           @click="changeTab('faq')"
-          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
+          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
           :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'faq'}"
         >
           FAQ
         </button>
         <button
           @click="changeTab('info')"
-          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-base md:text-lg flex-grow"
+          class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
           :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'info'}"
         >
           공지
