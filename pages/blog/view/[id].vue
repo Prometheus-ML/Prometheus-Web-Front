@@ -54,7 +54,7 @@ const postErr = ref()
 const post= ref()
   
 const getPost = async () => {
-  await $fetch(`${import.meta.env.VITE_API_URL}/post/${useRoute().params.id}`, {
+  await $api(`${import.meta.env.VITE_API_URL}/post/${useRoute().params.id}`, {
     method: 'GET',
   	credentials: 'include',
   })

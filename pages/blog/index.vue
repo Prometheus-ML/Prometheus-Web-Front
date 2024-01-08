@@ -22,8 +22,8 @@
 				외부 기사
 			</button>
 			<button
-				@click="changeTab('reviews')"
-				:class="{ 'bg-rose-700': currentTab === 'reviews', 'font-bold text-white': currentTab === 'reviews' }"
+				@click="changeTab('blog')"
+				:class="{ 'bg-rose-700': currentTab === 'blog', 'font-bold text-white': currentTab === 'blog' }"
 				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				활동 후기
@@ -32,11 +32,11 @@
 
 
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
-			<nuxt-link v-for="post in filteredPosts" :key="post.id" :to="'/blog/view/' + post.id" class="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
+			<a v-for="post in filteredPosts" :href="post.url" :key="post.id" class="overflow-hidden border-gray-200 rounded-lg border hover:drop-shadow-2xl">
 					<!-- Thumbnail with overlay -->
 					<div class="pt-[100%] bg-cover bg-center bg-no-repeat hover:opacity-50 hover:bg-gray-500" :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}">
 				</div>
-			</nuxt-link>
+			</a>
 		</div>
 
 <!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
@@ -66,14 +66,14 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-const type = "thumbs"
+const type = "links"
 
 
 const postList = ref([])
 
 const getPosts = async () => {
   try {
-    const response = await $api(`${import.meta.env.VITE_API_URL}/post/get_posts`, {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/link/get_links`, {
       method: 'GET',
     });
 		console.log(response);
@@ -91,7 +91,7 @@ const changeTab = (tab) => {
 
 const filteredPosts = computed(() => {
   // Filter posts based on the current tab
-  return postList.value.filter(post => post.type == currentTab.value);
+  return postList.value.filter(post => post.category == currentTab.value);
 });
 
 const authStore = useAuthStore();
