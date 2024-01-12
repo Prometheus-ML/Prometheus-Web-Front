@@ -64,8 +64,6 @@
 							<div class="relative w-6 h-6 rounded-full bg-rose-800">
 								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-white" :class="{ '!bg-yellow-200' : index == 14}"></div>
 							</div>
-							
-							
 						</div>
 
 						
@@ -126,7 +124,7 @@
 								<li v-for="(member, index) in filteredMembers" :key="index" class="w-16 md:w-32 text-center">
 										<div class="relative">
 												<div
-														class="w-16 h-16 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
+														class="w-16 h-20 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
 														:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
 														@mouseenter="member.hover = true"
 														@mouseleave="member.hover = false"

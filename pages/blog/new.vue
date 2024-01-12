@@ -122,7 +122,7 @@ const submitPost = async () => {
       body: formData.value
     })
 
-    for(let i = 0;i<imageStack.value.length;++i){
+    for(let i = 0;i < imageStack.value.length;++i){
       removeImage(imageStack.value[i]);
     }
     console.log('Post submitted successfully:', result.data);
