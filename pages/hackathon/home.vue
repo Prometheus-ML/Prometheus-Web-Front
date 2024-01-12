@@ -77,9 +77,9 @@
       </div>
     </div>
     <div class="pt-24 bg-neutral-800 pb-32">
-      <div class="grid grid-cols-3 gap-x-4 container mx-auto">
+      <div class="grid grid-cols-5 gap-x-4 container mx-auto">
         <p class="text-xl md:text-4xl font-bold">후원사</p>
-        <div class="rounded-lg col-span-4 grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
+        <div class="rounded-lg col-span-4 grid grid-cols-3 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
 					<img class="object-contain w-16 h-16 md:w-40 md:h-40 rounded-2xl" src="@/assets/images/sponsor/ncsoft.png" />
 					<img class="object-contain w-16 h-16 md:w-40 md:h-40 rounded-2xl" src="@/assets/images/sponsor/enslpartners.png" />
 					<img class="object-contain w-16 h-16 md:w-40 md:h-40 rounded-2xl" src="@/assets/images/sponsor/line.png" />
