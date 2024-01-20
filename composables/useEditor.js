@@ -16,8 +16,8 @@ export default async (initialValue) => {
     previewStyle: 'vertical',
     hooks :{
       addImageBlobHook: async (blob, callback) => {
-        const image = await useImageUpload(blob);
-        callback(useImage(image.url), '')
+        const image = await useImageUpload(blob, "posts");
+        callback(useImage(image.url, "posts"), '')
         return false
       }
     }

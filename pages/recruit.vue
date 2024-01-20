@@ -9,14 +9,15 @@
       <div class="flex-1 text-center">
         <p class="font-bold text-2xl mb-9">프로메테우스 4기 가입 신청</p>
         <p class="mb-9">프로메테우스는 대학생 최고의 인공지능 커뮤니티가 되기 위해 함께 성장할 동료를 모집하고 있습니다. <br>도전과 열정이 어울리는 당신이라면 대학생 인공지능 단체 프로메테우스와 함께 해주십시오.</p>
-        <a href="#" class="rounded px-5 py-2 text-lg text-medium bg-red-100 text-red-900">COMING SOON</a> 
+        <a href="https://forms.gle/5QoNgoTt4dUKMV5S6" class="rounded px-5 py-2 text-lg text-medium bg-blue-100 text-blue-900 hover:bg-indigo-200 hover:text-white">지원하기</a> 
       </div> 
     </div>
-
+		
+		
     <div class="text-center mb-14">
       <p class="font-bold text-4xl">모집 개요</p>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-9 mb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-9 mb-20">
       <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">모집 대상</p>
@@ -43,7 +44,7 @@
           </ul>
         </div>
       </div>
-      <div class="w-full bg-slate-100 rounded p-10">
+      <!-- <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-2xl mb-9">기타</p>
           <!-- <p class="font-medium text-xl mb-2">모집 인원</p>
@@ -53,18 +54,18 @@
           <p>9/2(토) (장소 추후 공지 예정)</p>
           <br/>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="text-center mb-14">
       <p class="font-bold text-4xl mb-5">모집 일정</p>
     </div>
-    <div class="grid grid-cols-1 xl:grid-cols-4 gap-9 mb-20">
+    <div class="grid grid-cols-1 xl:grid-cols-5 gap-9 mb-20">
       <div class="w-full bg-slate-100 rounded p-10">
         <div>
           <p class="font-bold text-xl mb-5">모집 기한</p>
           <!-- <p class="mb-2">서류 면접 설명</p> -->
-          <p class="font-medium">8/13(일) ~ 8/22(화)</p>
+          <p class="font-medium">8/13(일) ~ 8/22(화) 23시 59분</p>
         </div>
       </div>
       <div class="w-full bg-slate-100 rounded p-10">
@@ -76,9 +77,9 @@
       </div>
       <div class="w-full bg-slate-100 rounded p-10">
         <div>
-          <p class="font-bold text-xl mb-5">면접 기간</p>
+          <p class="font-bold text-xl mb-5">면접 일정</p>
           <!-- <p class="mb-2">개별 면접 설명</p> -->
-          <p class="font-medium">8/27(일) ~ 8/29(화)</p>
+          <p class="font-medium">8/28(월) ~ 8/30(수)</p>
         </div>
       </div>
       <div class="w-full bg-slate-100 rounded p-10">
@@ -86,6 +87,13 @@
           <p class="font-bold text-xl mb-5">최종 합격자 발표</p>
           <!-- <p class="mb-2">최종 합격자 발표 설명</p> -->
           <p class="font-medium">8/31(목) 18시</p>
+        </div>
+      </div>
+			 <div class="w-full bg-slate-100 rounded p-10">
+        <div>
+          <p class="font-bold text-xl mb-5">대면 OT</p>
+          <!-- <p class="mb-2">최종 합격자 발표 설명</p> -->
+          <p class="font-medium">9/2(토)</p>
         </div>
       </div>
     </div>
@@ -113,37 +121,35 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'RecruitView',
-  components: {},
-  data: () => ({
-    faq: [
-      {
-        "title" : "프로메테우스에 가입하기 위한 조건이 있나요?",
-        "value" : "파이썬 기초 문법을 알고 직접 사용할 수 있는 분들은 모두 지원 가능합니다. 인공지능과 관련된 경험이 없더라도 인공지능에 대한 흥미와 관심이 있는 분, '업'에 대한 열정이 있는분들을 모두 환영합니다."
-      },
-      {
-        "title" : "정기 모임은 어떤 방식으로 진행되나요? (시간과 장소는 어떻게 되나요?)",
-        "value" : [
-				  "매 달(시험기간 제외) 초에 활동 기수 전원이 모여 스터디와 프로젝트의 진행 상황을 발표하고 운영진에서 동아리 공지사항을 전달합니다.",
-          "시험 기간을 제외한 매 달 초 토요일 16:00~18:00에 진행하며 강남 모두의 연구소에서 진행합니다!"
-				]
-      },
-      {
-        "title" : "프로그래밍에 대한 공부가 부족해도 지원할 수 있나요?",
-        "value" : [
-          "인공지능을 공부하기 위해서는 파이썬 코드를 읽고 해석할 수 있어야 합니다. 이론적인 내용을 이해하는데는 큰 문제가 없겠지만 실습할 때 기본적인 파이썬 문법을 일일이 알려드리기는 어렵습니다.",
-          "파이썬 코드를 해석할 수 있고, 인공지능을 공부하면서 파이썬에 대한 공부를 병행할 수 있다면 지원하시면 좋습니다!",
-          
-        ]
-      }
-    ]
-  }),
-  methods: {
-    openFaq(index, value){
-      this.faq[index].on = value
-    }
+<script setup>
+
+	
+	
+const faq = ref([
+  {
+    title: '프로메테우스에 가입하기 위한 조건이 있나요?',
+    value: '파이썬 기초 문법을 알고 직접 사용할 수 있는 분들은 모두 지원 가능합니다. 인공지능과 관련된 경험이 없더라도 인공지능에 대한 흥미와 관심이 있는 분, "업"에 대한 열정이 있는 분들을 모두 환영합니다.',
+		on: false,
   },
-}
+  {
+    title: '정기 모임은 어떤 방식으로 진행되나요? (시간과 장소는 어떻게 되나요?)',
+    value: [
+      '매 달(시험기간 제외) 초에 활동 기수 전원이 모여 스터디와 프로젝트의 진행 상황을 발표하고 운영진에서 동아리 공지사항을 전달합니다.',
+      '시험 기간을 제외한 매 달 초 토요일 16:00~18:00에 진행하며 강남 모두의 연구소에서 진행합니다!',
+    ],
+		on: false,
+  },
+  {
+    title: '프로그래밍에 대한 공부가 부족해도 지원할 수 있나요?',
+    value: [
+      '인공지능을 공부하기 위해서는 파이썬 코드를 읽고 해석할 수 있어야 합니다. 이론적인 내용을 이해하는데는 큰 문제가 없겠지만 실습할 때 기본적인 파이썬 문법을 일일이 알려드리기는 어렵습니다.',
+      '파이썬 코드를 해석할 수 있고, 인공지능을 공부하면서 파이썬에 대한 공부를 병행할 수 있다면 지원하시면 좋습니다!',
+    ],
+		on: false,
+  },
+]);
+
+const openFaq = (index, value) => {
+  faq.value[index].on = value;
+};
 </script>

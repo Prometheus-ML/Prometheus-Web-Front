@@ -28,12 +28,13 @@ const links = [
 
 onMounted(async () => {
 	try {
-		const response = await $fetch(`${import.meta.env.VITE_API_URL}/auth/is_admin`, {
+		const response = await $fetch(`${import.meta.env.VITE_API_URL}/auth/verify`, {
 			method: 'POST',
 			credentials: 'include',
 		})
+    console.log(response.grant)
+    if(response.grant !== "admin" && response.grant !== "master") navigateTo("/")
 	} catch (error) {
-		console.log(error.response._data.detail)
 		navigateTo("/")
 	}
 

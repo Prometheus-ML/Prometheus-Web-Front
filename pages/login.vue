@@ -83,7 +83,7 @@ export default {
 		onMounted(async () => {
 			const authStore = useAuthStore();
 			const { user } = storeToRefs(authStore);
-			await authStore.checkAuth();
+			await authStore.verify();
 			if (user.value !== null) navigateTo("/")
 		})
 	}

@@ -1,19 +1,44 @@
 <template>
-  <div class="container mx-auto pt-40 pb-24">
+  <div class="container mx-auto pt-40">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">블로그</p>
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
     </div>
 		
-		<div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
-			<nuxt-link v-for="post in postList" :key="post.id" :to="'/blog/view/' + post.id" class="flex overflow-hidden rounded-lg border hover:drop-shadow-xl hover:bg-gray-100">
-				<div class="pt-[30%] rounded-l-lg bg-cover bg-center bg-no-repeat overflow-hidden w-1/3" :style="{ backgroundImage: 'url(' + useImage(post?.thumb) + ')', backgroundSize: 'cover', backgroundPosition: 'center'}"></div>
-				<div class="p-4 w-2/3">
-					<p class="truncate overflow-hidden font-bold text-2xl mb-2 line-clamp-1">{{ post?.title }}</p>
-					<p class="truncate font-light text-base overflow-hidden mb-4 line-clamp-1">{{ post?.created_date.substring(0, 10) }}</p>
-					<p class="font-light text-base mb-2"> by {{ post?.writer }}</p>
-				</div>
-			</nuxt-link>
+		<div class="mb-4 space-x-4 relative">
+			<div class="absolute left-0 top-8 md:top-9 w-full h-0.5 bg-rose-700"></div>
+			<button
+				@click="changeTab('news')"
+				:class="{ 'bg-rose-700': currentTab === 'news', 'font-bold text-white': currentTab === 'news' }"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+			>
+				AI 뉴스
+			</button>
+			<button
+				@click="changeTab('article')"
+				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+			>
+				외부 기사
+			</button>
+			<button
+				@click="changeTab('blog')"
+				:class="{ 'bg-rose-700': currentTab === 'blog', 'font-bold text-white': currentTab === 'blog' }"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+			>
+				활동 후기
+			</button>
+		</div>
+
+
+    <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
+				<div v-for="post in filteredPosts" :key="post.id" class="relative w-full pb-[100%]">
+          <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
+            :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
+					</a>
+					<font-awesome-icon v-if="user" class="cursor-pointer text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
+			</div>
+			
 		</div>
 
 <!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
@@ -43,10 +68,55 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+const type = "links"
 
-const {data: postList, error: postErr} = await useApi('/post/show_all_posts', {
-  method: 'GET',
-})
+
+const postList = ref([])
+
+const getPosts = async () => {
+  try {
+    const response = await $api(`${import.meta.env.VITE_API_URL}/link/get_links`, {
+      method: 'GET',
+    });
+    postList.value = response;
+  } catch (error) {
+		console.error(error)
+  }
+}
+
+async function removeImage(link) {
+	try {
+		const response = await $api(`${import.meta.env.VITE_API_URL}/image/delete/${type}/${link.thumb}`, {
+      method: 'DELETE',
+    });
+		await getPosts();
+	}	catch (error) {
+		console.error(error)
+	}
+}
+
+const deletePost = async (link) => {
+  try {
+		await removeImage(link);
+    const response_2 = await $api(`${import.meta.env.VITE_API_URL}/link/delete/${link.id}`, {
+      method: 'DELETE',
+    });
+    await getPosts();
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const currentTab = ref('news');
+
+const changeTab = (tab) => {
+  currentTab.value = tab;
+};
+
+const filteredPosts = computed(() => {
+  // Filter posts based on the current tab
+  return postList.value.filter(post => post.category == currentTab.value);
+});
 
 // postList.value = [{
 // 	title: "example1",
@@ -62,6 +132,10 @@ const {data: postList, error: postErr} = await useApi('/post/show_all_posts', {
 // }];
 
 const authStore = useAuthStore();
-const { user } = storeToRefs(authStore)
+const { user } = storeToRefs(authStore);
+
+onMounted(async() => {
+	await getPosts();
+})
 </script>
 

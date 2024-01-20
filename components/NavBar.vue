@@ -1,15 +1,16 @@
 <template>
   <nav
-    class="border-gray-200 px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ '!bg-gray-50': background || !fold }"
+    class="px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
+    :class="{ '!bg-gray-50': (background || !fold) && darkNav !== 'all', 'border-white border-b !bg-black' : (background || !fold) && darkNav === 'all' }"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <a href="/" class="flex items-center font-bold text-xl text-rose-700">
-        PROMETHEUS
+      <a href="/" class="flex font-sans items-center font-bold text-xl">
+        <span class="text-rose-700">P</span><span :class="{'text-white': (!background && fold) && darkNav !== 'false' || darkNav === 'all'}">ROMETHEUS</span>
       </a>
       <button
         @click="fold = !fold"
         type="button"
+        :class="{ 'text-white' :  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
         class="inline-flex items-center p-2 ml-3 text-base rounded-lg md:hidden"
       >
         <svg
@@ -28,44 +29,45 @@
       </button>
       <div class="w-full md:block md:w-auto" :class="{ hidden: fold }">
         <ul
-          class="flex flex-col md:p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
+          class="flex flex-col md:p-2 mt-2 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
         >
           <li
             v-for="nav in navList"
             :key="nav.path"
+            :class="{'text-white':  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
           >
             <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
             }}</nuxt-link>
           </li>
-          <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-						<button @click="profileMenuOpen = !profileMenuOpen">
-							{{ user }}
-						</button>
-						<div
-							id="profileMenu"
-							v-show="profileMenuOpen"
-							@mouseenter="profileMenuOpen = true"
-							@mouseleave="profileMenuOpen = false"
-							class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
-						>
-							<div class="py-2">
-								<nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
-							</div>
-							<div class="py-2">
-								<nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
-							</div>
-							<hr>
-							<div class="py-2">
-								<button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
-							</div>
-						</div>
-					</div>
-					<div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-						<nuxt-link to="/login">로그인</nuxt-link>
-					</div>
         </ul>
       </div>
+      <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+        <button @click="profileMenuOpen = !profileMenuOpen">
+          {{ user.username }}
+        </button>
+        <div
+          id="profileMenu"
+          v-show="profileMenuOpen"
+          @mouseenter="profileMenuOpen = true"
+          @mouseleave="profileMenuOpen = false"
+          class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
+        >
+          <div class="py-2">
+            <nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
+          </div>
+          <div class="py-2">
+            <nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
+          </div>
+          <hr>
+          <div class="py-2">
+            <button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
+          </div>
+        </div>
+      </div>
+      <div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
+        <nuxt-link to="/signin">로그인</nuxt-link>
+      </div> -->
     </div>
   </nav>
 </template>
@@ -75,41 +77,42 @@ import { storeToRefs } from "pinia";
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
-
 	
 const profileMenuOpen = ref(false)
 const navList = [
   {
-    path: "/",
-    name: "홈",
-  },
-  {
-    path: "/member",
+    path: "/about",
     name: "소개",
+    dark: "true",
   },
   {
     path: "/project",
     name: "프로젝트",
+    dark: "false",
   },
   {
     path: "/blog",
     name: "블로그",
-  },
-  {
-    path: "/recruit",
-    name: "지원하기",
+    dark: "false",
   },
   {
     path: "/hackathon",
     name: "해커톤",
+    dark: "all",
   },
-	{
-    path: "/support",
-    name: "후원",
-  }
 ]
 let background = ref(false)
 let fold = ref(true)
+
+const darkNav = ref(false);
+
+onMounted(() => {
+  watch(() => {
+    const currentNav = navList.find(nav => nav.path == useRoute().path);
+    if(currentNav) darkNav.value = currentNav.dark;
+    else if (useRoute().path == '/') darkNav.value = 'true'
+  });
+});
 
 onBeforeMount(async () => {
   document.addEventListener('mouseup', function(e) {

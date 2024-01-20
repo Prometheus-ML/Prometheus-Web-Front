@@ -1,4 +1,4 @@
-export default (value) => {
+export default (value, type) => {
   if (!value) {
     return;
   }
@@ -6,7 +6,7 @@ export default (value) => {
   const formData = new FormData();
   formData.append('image', value);
 
-  return $api('/image/upload', {
+  return $api(`/image/upload/${type}`, {
     method: 'POST',
     body: formData
   })

@@ -1,68 +1,69 @@
 <template>
-  <div v-if="user" class="container mx-auto pt-16">
-    <div class="text-center mb-8 bg-gray-100 rounded">
-      <h1 class="text-3xl font-bold mb-2">{{ project?.title }}</h1>
-      <p class="text-base text-gray-600 mb-4">{{ project?.description }}</p>
-			<p
-							v-for="(value, index) in project.members"
-							:key="index"
-							class="mr-2 p-1 bg-gray-100 rounded-lg"
-						>{{ value }}</p>
-    </div>
+  <div class="container mx-auto pt-16">
+    <!-- Project Header -->
+    <div class="bg-gray-100 rounded-lg flex flex-col md:flex-row items-center text-center mb-8 px-8 py-4">
+      <!-- Left 2/3 -->
+      <div class="w-full md:w-2/3 text-left md:order-1">
+        <!-- Generation and Tags -->
+        <div class="flex items-center mb-2 p-2">
+          <div class="bg-rose-500 rounded-full text-white text-lg py-1 px-5 font-bold mr-5">{{ project?.gen }}기</div>
+          <div v-for="(value, index) in project.tag" :key="index" class="mr-2 mt-3 px-1 bg-gray-300">
+            {{ value.name }}
+          </div>
+        </div>
+        <!-- Project Title -->
+        <h1 class="text-4xl font-bold mb-4 pr-10">{{ project?.title }}</h1>
+        <!-- Project Description -->
+        <div class="flex items-center mb-4">
+          <p class="font-medium text-lg pr-10">개요</p>
+          <p class="text-lg text-gray-600 mb-6 pr-10">{{ project?.description }}</p>
+        </div>
+        
+        <!-- Project Members -->
+        <div class="flex items-center mb-4">
+          <p class="font-medium text-lg pr-10">참여 멤버</p>
+          <p class="text-base pt-1 text-gray-600">{{ project?.member }}</p>
+        </div>
 
-		
-    <div class="flex flex-col md:flex-row">
-      <div class="w-full pl-8">
-
-        <!-- Add the Viewer component to display the project content -->
-        <div class="max-w-screen-md mx-auto mb-5 viewer-container">
-					<div id="viewer" class="rounded"></div>
-				</div>
+        <!-- External Links -->
+        <div class="flex items-center mb-4">
+          <p class="font-medium text-lg pr-10">외부 링크</p>
+          <div class="flex pt-1 items-center">
+            <a v-if="project?.homepage" :href="project.homepage" class="mr-4">
+              <font-awesome-icon :icon="['fas', 'globe']" />
+            </a>
+            <a v-if="project?.github" :href="project.github" class="mr-4">
+              <font-awesome-icon icon="fa-brands fa-github" />
+            </a>
+            <a v-if="project?.playstore" :href="project.playstore" class="mr-4">
+              <font-awesome-icon :icon="['fab', 'google-play']" />
+            </a>
+            <a v-if="project?.appstore" :href="project.appstore" class="mr-4">
+              <font-awesome-icon :icon="['fab', 'apple']" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Right 1/3 -->
+      <div class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4 md:order-2">
+        <div class="pb-[60%] relative border" :style="{ backgroundImage: 'url(' + useImage(project?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
       </div>
     </div>
-		<div class="container mx-auto pt-16">
-			<!-- Your existing content here -->
-    <!-- <div class="mb-9">
-      <p class="font-medium text-2xl mb-3">외부 링크</p>
-      <div class="mt-3">
-        <a v-if="project.homepage" class="mr-4 text-2xl" :href="{project.homepage}"><font-awesome-icon icon="fa-solid fa-globe" /></a>
-        <a v-if="project.github" class="mr-4 text-2xl" href="project.github"><font-awesome-icon icon="fa-brands fa-github" /></a>
-        <a v-if="project.playstore" class="mr-4 text-2xl" href="project.playstore"><font-awesome-icon icon="fa-brands fa-google-play" /></a>
-        <a v-if="project.appstore" class="mr-4 text-2xl" href="project.appstore"><font-awesome-icon icon="fa-brands fa-app-store" /></a>
-      </div>
-    </div> -->
-			<!-- This is where the project details will be displayed -->
- 	</div>
-		<!-- <div class="flex items-center mb-4">
-							<span class="text-sm text-gray-600 mr-2">참여 멤버: {{ project?.member }}</span>
-						</div>
-						<div class="flex items-center mb-4">
-							<span class="text-sm text-gray-600 mr-2">외부 링크</span>
-							<div class="flex items-center">
-								<a v-if="project?.homepage" :href="project.homepage" class="mr-2">
-									<font-awesome-icon :icon="['fas', 'globe']" />
-								</a>
-								<a v-if="project?.github" :href="project.github" class="mr-2">
-									<font-awesome-icon icon="fa-brands fa-github" />
-								</a>
-								<a v-if="project?.playstore" :href="project.playstore" class="mr-2">
-									<font-awesome-icon :icon="['fab', 'google-play']" />
-								</a>
-								<a v-if="project?.appstore" :href="project.appstore" class="mr-2">
-									<font-awesome-icon :icon="['fab', 'apple']" />
-								</a>
-							</div>
-						</div> -->
-    <!-- Add any other project details or sections here -->
 
+    <div class="mx-auto mb-5 viewer-container bg-white rounded p-4">
+      <div id="viewer" class="rounded"></div>
+    </div>
+
+
+    <!-- Action Buttons -->
     <div v-if="user" class="flex justify-end gap-x-2 mb-5">
       <nuxt-link :to="'/project'" class="bg-white py-2 px-4 border rounded inline-block">
           글목록
       </nuxt-link>
-      <button @click="deleteProject" v-if="user?.id == post?.writer.id || user?.grant == 'admin'" class="bg-white py-2 px-4 border rounded inline-block">
+      <button @click="deleteProject" v-if="user?.id == project?.writer?.id || user?.grant == 'admin'" class="bg-white py-2 px-4 border rounded inline-block">
           삭제
       </button>
-      <nuxt-link :to="'/project/edit/'+project?.id" v-if="user?.id == post?.writer.id || user?.grant == 'admin'" class="bg-white py-2 px-4 border rounded inline-block">
+      <nuxt-link :to="'/project/edit/'+project.id" v-if="user?.id == project?.writer?.id" class="bg-white py-2 px-4 border rounded inline-block">
           수정
       </nuxt-link>
     </div>
@@ -121,7 +122,7 @@ import { storeToRefs } from "pinia";
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore)
-
+const type = "thumbs"
 
 const viewer = ref();
 
@@ -130,12 +131,9 @@ const project = ref([])
 const getProject = async () => {
   await $fetch(`${import.meta.env.VITE_API_URL}/project/${useRoute().params.id}`, {
     method: 'GET',
-  	credentials: 'include',
-
   })
   .then((result) => {
     project.value = result;
-		console.log(result);
   })
   .catch((error) => {
 		navigateTo('/project');
@@ -159,11 +157,11 @@ const editProject = () => {
 
 async function deleteProject() {
   try {
-    const result = await $api(`/post/delete/${useRoute().params.id}`, {
+    const result = await $api(`/project/delete/${useRoute().params.id}`, {
       method: 'delete'
     })
 
-    useRouter().push({ path: '/blog' })
+    useRouter().push({ path: '/project' })
   } catch (error) {
   }
 }
@@ -177,9 +175,8 @@ const formatDate = (date) => {
 };
 	
 onMounted(async () => {
-  await getProject()
-	viewer.value = await useViewer(project.value.content)
-	console.log(project.value);
+  await getProject();
+	viewer.value = await useViewer(project.value.content);
 })
 
 </script>
