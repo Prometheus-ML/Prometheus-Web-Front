@@ -4,7 +4,7 @@
       <div class="flex flex-col container mx-auto">
         <h1 class="mb-2 text-3xl md:text-5xl font-bold">자주 묻는 질문</h1>
         <p class="text-xs md:text-lg mb-8 font-light">아래 사항 중 해당하는 내용이 없다면, '문의하기' 버튼을 눌러주세요.</p>
-        <a class="mx-2 text-center transition-transform transform hover:scale-105 focus:outline-none md:font-semibold px-3 py-1 md:px-5 md:py-2 bg-red-500 rounded text-sm md:text-lg text-base ml-auto mb-4 right-0 cursor-pointer" href="https://open.kakao.com/o/g8KFfgYf">문의하기</a>
+        <a class="mx-2 text-center transition-transform transform hover:scale-105 focus:outline-none md:font-semibold px-3 py-1 md:px-5 md:py-2 bg-red-500 rounded text-sm md:text-lg text-base ml-auto mb-4 right-0 cursor-pointer" href="https://pf.kakao.com/_erQxnG">문의하기</a>
         <div class="grid grid-cols-5 font-semibold" v-for="(category, categoryName) in faq" :key="categoryName">
           <div class="pt-1 border-t col-span-5"></div>
           <div class="mr-2 justify-self-center mt-1 row-span-3">
@@ -12,7 +12,6 @@
           </div>
           <div class="flex flex-col col-span-4 text-base font-light pb-1">
             <div @click="openFaq(categoryName, index)" :class="{'bg-neutral-600 hover:bg-neutral-500 border-b border-black' : item.on, 'hover:bg-neutral-700': !item.on }" class="p-1 cursor-pointer" v-for="(item, index) in category" :key="index">
-
               <div class="flex">
                 <!-- <font-awesome-icon v-if="item.on" class="mr-2 mt-1" icon="fa-solid fa-angle-down" />
                 <font-awesome-icon v-if="!item.on" class="mr-2  mt-1" icon="fa-solid fa-angle-up" /> -->
@@ -96,12 +95,7 @@ const faq = ref({
   "예선" : [
     {
       title: '예선에서는 어떤 기준으로 심사하나요?',
-      value: '예선은 각 팀별로 제출한 기획안을 바탕으로 심사합니다. 자세한 평가 기준은 예선 시작날 공개될 예정입니다.',
-      on: false,
-    },
-    {
-      title: '신청 이후 예선기간에는 팀을 변경하거나 추가할 수 있나요?',
-      value: '팀 신청 이후 예선 기간 중에는 팀원 변경 및 추가가 가능합니다. 그러나 예선 기획안 제출 이후에는 팀원 변동이 불가합니다.',
+      value: '예선은 각 팀별로 제출한 기획안을 바탕으로 심사합니다. 자세한 평가 기준은 공지란을 확인해주세요.',
       on: false,
     },
     {
