@@ -9,16 +9,18 @@
         <p id="writing3" class="md:text-4xl text-2xl mb-10 md:mb-20 transition-opacity duration-500 ease-in"></p>
       </div>
       <div v-if="showButton" class="h-1/3 fade flex flex-col items-center">
-        <p class="text-sm md:text-lg font-light transition-opacity duration-500 ease-in">지원 기간</p>
+        <!-- <p class="text-sm md:text-lg font-light transition-opacity duration-500 ease-in">지원 기간</p>
         <p class="text-xs md:text-sm font-light mb-16 md:mb-32 transition-opacity duration-500 ease-in">12/18(월) ~ 01/21(일)</p>
         <a href="https://forms.gle/pmw1Qxzvr9JzZ7r97" class="font-medium mx-auto rounded bg-red-500 text-white px-4 py-2 mb-4 shadow-inner transition-transform transform hover:scale-110 focus:outline-none">
           지원하기
-        </a>
+        </a> -->
+        <p class="font-semibold text-rose-400 text-xl md:text-2xl mb-12 transition-opacity duration-500 ease-in">예선 종료까지</p>
+        <Countdown deadlineISO="2024-01-29T00:00:00" mainColor="#d4d4d8" secondFlipColor="#f4f4f5" mainFlipBackgroundColor="#292524"  secondFlipBackgroundColor="#57534e" :labels=labels labelColor="#ffffff"  />
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
         <p class="mb-1 md:mb-2 font-light md:font-medium md:text-2xl transition-opacity duration-500 ease-in">가치 있는 도전</p>
-        <p class="mb-1 md:mb-3 font-light text-2xl text-neutral-500 transition-opacity duration-500 ease-in">|</p>
+        <p class="mb-1 md:mb-3 font-light text-2xl transition-opacity duration-500 ease-in">▽</p>
         <p class="text-center mx-20 font-light text-xs md:text-base text-neutral-200 transition-opacity duration-500 ease-in">당신의 창의적인 아이디어로 AI의 무한한 가능성을 탐험하며, 현실을 넘어 새로운 가치를 창출하는 더 나은 미래를 그려보세요.</p>
       </div>
     </div>
@@ -26,7 +28,7 @@
 
 
     <div class="absolute bottom-12 w-full ">
-      <div class="grid grid-cols-4 justify-between text-gray-500 font-normal">
+      <div class="grid grid-cols-3 justify-between text-gray-500 font-normal">
         <button
           @click="changeTab('home')"
           class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
@@ -34,13 +36,13 @@
         >
           대회 정보
         </button>
-        <button
+        <!-- <button
           @click="changeTab('post')"
           class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
           :class="{ 'text-white border-b-2 border-white font-semibold': currentTab === 'post'}"
         >
           팀원 찾기
-        </button>
+        </button> -->
         <button
           @click="changeTab('faq')"
           class="py-2 md:py-4 bg-black duration-300 rounded-t-lg hover:text-white transition duration-300 text-sm md:text-lg flex-grow"
@@ -63,9 +65,10 @@
 
 <script setup>
 import Home from './home.vue';
-import Post from './post.vue';
+// import Post from './post.vue';
 import Faq from './faq.vue'
 import Info from './info.vue'
+// import { Countdown } from 'vue3-flip-countdown';
 
 const currentTab = ref('home');
 const main = ref(null);
@@ -82,8 +85,12 @@ const changeTab = (tab) => {
 };
 
 
-onMounted(async () => {
+let Countdown;
 
+onMounted(async () => {
+  // Import Countdown component when the component is mounted
+  const { Countdown: ImportedCountdown } = await import('vue3-flip-countdown');
+  Countdown = ImportedCountdown;
 });
 
 onBeforeMount(async () => {
@@ -96,6 +103,7 @@ onBeforeMount(async () => {
 
 let currentIndex = 0;
 const showButton = ref(false)
+const labels = {days: 'DAY',hours: 'HOUR',minutes: 'MIN',seconds: 'SEC',}
 
 const startTypingEffect = () => {
   const sentences = ["2024", "PROMETHEUS", "AI HACKATHON"];

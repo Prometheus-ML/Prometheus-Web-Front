@@ -16,7 +16,7 @@
           <img v-if="route === '/hackathon'" src="@/assets/gmail_dark.png" alt="gmail" class="h-9 w-9" />
           <img v-else src="@/assets/gmail.png" alt="gmail" class="h-9 w-9" />
         </a>
-        <a class="mx-3 text-3xl" :class="{ 'text-slate-200': route === '/hackathon' }" href="https://open.kakao.com/o/g8KFfgYf" target="_blank">
+        <a class="mx-3 text-3xl" :class="{ 'text-slate-200': route === '/hackathon' }" href="https://pf.kakao.com/_erQxnG" target="_blank">
           <img v-if="route === '/hackathon'" src="@/assets/kakao_dark.png" alt="kakao" class="h-8 w-8" />
           <img v-else src="@/assets/kakao.png" alt="kakao" class="h-8 w-8" />
         </a>

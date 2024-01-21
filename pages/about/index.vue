@@ -65,11 +65,8 @@
 								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-white" :class="{ '!bg-yellow-200' : index == 14}"></div>
 							</div>
 						</div>
-
-						
 					</div>
 				</div>
-
 			</div>
 
 
@@ -215,6 +212,9 @@ import expoImage from "@/assets/images/expo.png"
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 	
+
+
+
 
 const currentTab = ref(-1)
 const type = "members"
