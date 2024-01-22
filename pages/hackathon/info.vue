@@ -48,7 +48,7 @@
               <span class="text-base md:text-xl">기술 구현</span>
               <span class="font-medium text-sm md:text-lg text-red-400">(35점)</span>
             </div>
-            <div class="py-3 col-span-2 md:col-span-3 font-semibold text-sm md:text-lg border-neutral-600 border-b">- 개발목표 및 개발 내용(방법, 기간 등)의 구체성</div>
+            <div class="py-3 col-span-2 md:col-span-3 font-semibold text-sm md:text-lg border-neutral-600 border-b">- 개발목표 및 개발 내용의 구체성</div>
             <div class="py-3 col-span-2 md:col-span-3 font-semibold text-sm md:text-lg border-neutral-600 border-b">- 제안 아이디어의 구현 가능성</div>
 
           
