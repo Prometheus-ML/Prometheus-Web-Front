@@ -28,6 +28,7 @@
           </div>
           <hr class="p-1 border-t">
           <p class="mb-2 text-xs md:text-base">* 지원 조건을 충족한 팀에 한하여 팀장에게 예선 제출 안내 메일을 01.22(월) 오전 10시에 일괄적으로 발송해드릴 예정입니다. 안내 메일을 받지 못한 팀은 메일(prometheus0513@gmail.com)로 문의 바랍니다.</p>
+          <p class="mb-2 text-xs md:text-base">* 기획안에 넣을 디자인 관련 질문이나, 데이터셋·전처리 관련 질문은 FAQ 게시판을 참고해주시길 바랍니다.</p>
           <p class="mb-12 text-xs md:text-base">* 주의사항: 제출 기한이 지나면 제출 창구가 자동으로 닫힙니다. 이후 어떠한 경우에도 제출이 불가합니다.</p>
 
           <p class="text-xl md:text-2xl font-bold mb-1">예선 평가 방식</p>
@@ -67,6 +68,7 @@
 
           </div>
           <p class="mt-1 mb-24 text-xs md:text-base">* 동점 팀이 발생할 경우, 배점이 높은 항목을 우선하여 순위를 부여합니다.</p>
+      
         </div>
       </div>
     </div>
