@@ -65,7 +65,7 @@ const projectList = ref([
   },
 	{
     id: 3,
-    title: "텍스트로 생성된 이미지의 화풍을 부분별로 자유롭게 바꾸어주는 모델 제작 프로젝트",
+    title: "Multi-modal Style Transfer 프로젝트",
     thumb: thumb_4,
     homepage: null,
     playstore: null,
