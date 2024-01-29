@@ -24,7 +24,7 @@
           <hr class="p-1 border-t border-neutral-500">
           <div class="grid grid-cols-3 gap-1">
             <div class="py-2 font-semibold text-base md:text-2xl">결과 발표</div>
-            <div class="ml-2 col-span-2 py-3 text-sm md:text-lg">01.31(월) <span class="text-xs md:text-sm">오전 11시</span></div>
+            <div class="ml-2 col-span-2 py-3 text-sm md:text-lg">01.31(수) <span class="text-xs md:text-sm">오전 11시</span></div>
           </div>
           <hr class="p-1 border-t">
           <p class="mb-2 text-xs md:text-base">* 지원 조건을 충족한 팀에 한하여 팀장에게 예선 제출 안내 메일을 01.22(월) 오전 10시에 일괄적으로 발송해드릴 예정입니다. 안내 메일을 받지 못한 팀은 메일(prometheus0513@gmail.com)로 문의 바랍니다.</p>
