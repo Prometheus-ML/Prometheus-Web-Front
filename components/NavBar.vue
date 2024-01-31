@@ -105,8 +105,14 @@ let background = ref(false)
 let fold = ref(true)
 
 const darkNav = ref(false);
+const handleScroll = () => {
+	scrollPosition.value = window.scrollY * 0.001;
+}
+
+const scrollPosition = ref(0);
 
 onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
   watch(() => {
     const currentNav = navList.find(nav => nav.path == useRoute().path);
     if(currentNav) darkNav.value = currentNav.dark;

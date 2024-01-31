@@ -5,6 +5,40 @@
       <p class="text-xs md:text-lg font-light">예선, 본선 등 대회 관련 추가 공지가 올라올 예정입니다.</p>
       <div class="p-1 border-b-2"></div>
 		</div>
+    <div class="pt-24 pb-32 bg-neutral-800">
+      <div class="grid grid-cols-5 gap-x-4 container mx-auto">
+        <p class="text-2xl md:text-4xl font-bold mr-3 md:mr-12 row-span-2">예선 결과 및 본선 공지</p>
+        <div class="col-span-4 flex-grow">
+          <p class="text-xl md:text-2xl font-bold mb-1">본선 진출 팀</p>
+          <p class="mb-3 text-sm md:text-lg">2024 Prometheus AI Hackathon에 참여한 모든 분들께 감사드립니다. 본선 진출 팀은 다음과 같습니다.</p>
+          <div class="bg-neutral-900 p-1 gap-x-1 grid grid-cols-2 text-sm md:text-base font-semibold">
+            <div class="text-center grid grid-cols-2">
+              <div class="pb-1">팀명</div>
+              <div class="pb-1">팀장</div>
+            </div>
+            <div class="text-center grid grid-cols-2">
+              <div class="pb-1">팀명</div>
+              <div class="pb-1">팀장</div>
+            </div>
+            <div v-for="(team, index) in teams" :key="index" class="py-1 text-sm font-light text-center bg-white text-black grid grid-cols-2 border-b gap-1">
+              <div>{{ team.team }}</div>
+              <div>{{ formatLeader(team.leader) }}</div>
+            </div>
+            <div class="py-1 text-sm font-light text-center bg-neutral-100 text-black border-b gap-1">
+              <div class=""></div>
+            </div>
+          </div>
+          <p class="mb-12 text-xs md:text-base">* 표의 순서는 순위와 무관합니다.</p>
+          <p class="mb-12 text-xs md:text-base">* 안내 메일은 일괄적으로 본선 진출팀 팀장에게 보내드릴 예정이니 받지 못한 팀은 메일(prometheus0513@gmail.com)로 문의 바랍니다.</p>
+        </div>
+        <div class="col-span-4 flex-grow">
+          <p class="text-xl md:text-2xl font-bold mb-1">본선 공지</p>
+          <p class="mb-1 text-sm md:text-lg">- 본선 기간&rpar; 2024.02.02 오전 10시 ~ 2024.02.03 오후 6시</p>
+          <p class="mb-1 text-sm md:text-lg">- 자세한 본선 공지 메일은 본선 진출팀 팀장에게 01.31(수) 오후 8시에 일괄적으로 보내드릴 예정이니 확인바랍니다.</p> 
+          <p class="mb-12 text-xs md:text-base">* 팀원의 본선 진출 여부를 01.31(수) 안으로 보내주셔야 합니다. 팀 구성원이 모두 참여하지 못할 시 본선 참여 자격이 무효화됩니다.</p>
+        </div>
+      </div>
+    </div>
     <div class="pt-24 pb-32">
       <div class="grid grid-cols-5 gap-x-4 container mx-auto">
         <p class="text-2xl md:text-4xl font-bold mr-3 md:mr-12">예선 공지</p>
@@ -99,3 +133,84 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const teams = [
+  {
+    team: "크레이저스",
+    leader: "전원준",
+  },
+  {
+    team: "일리",
+    leader: "김주호",
+  },
+  {
+    team: "TeamOTK",
+    leader: "박채린",
+  },
+  {
+    team: "커브",
+    leader: "안수빈",
+  },
+  {
+    team: "I Luv Book",
+    leader: "이진",
+  },
+  {
+    team: "4K",
+    leader: "오윤진",
+  },
+  {
+    team: "sprroch",
+    leader: "송하은",
+  },
+  {
+    team: "파이로",
+    leader: "김유빈",
+  },
+  {
+    team: "Plant-DID",
+    leader: "이소윤",
+  },
+  {
+    team: "KBJJ",
+    leader: "박선화",
+  },
+  {
+    team: "피알오",
+    leader: "장혜린",
+  },
+  {
+    team: "마이톡콘",
+    leader: "신은주",
+  },
+  {
+    team: "kodex",
+    leader: "이승아",
+  },
+  {
+    team: "BIS",
+    leader: "김종민",
+  },
+  {
+    team: "의티우스",
+    leader: "이선희",
+  },
+  {
+    team: "사이토키닌",
+    leader: "강준서",
+  },
+  {
+    team: "CookieLearn",
+    leader: "홍경찬",
+  },
+]
+
+// 중간 글자를 0으로 바꾸는 함수
+const formatLeader = (leader) => {
+  const middleIndex = Math.floor(leader.length / 2);
+  return leader.substring(0, middleIndex) + '○' + leader.substring(middleIndex + 1);
+};
+
+
+</script>

@@ -15,7 +15,7 @@
           지원하기
         </a> -->
         <p class="font-semibold text-xl md:text-2xl mb-12 transition-opacity duration-500 ease-in">본선 시작까지</p>
-        <Countdown deadlineISO="2024-02-02T09:00:00" mainColor="#d4d4d8" secondFlipColor="#f4f4f5" mainFlipBackgroundColor="#292524"  secondFlipBackgroundColor="#57534e" :labels=labels labelColor="#ffffff"  />
+        <Countdown deadlineISO="2024-02-02T10:00:00" mainColor="#d4d4d8" secondFlipColor="#f4f4f5" mainFlipBackgroundColor="#292524"  secondFlipBackgroundColor="#57534e" :labels=labels labelColor="#ffffff"  />
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
