@@ -35,7 +35,7 @@
           <p class="text-xl md:text-2xl font-bold mb-1">본선 공지</p>
           <p class="mb-1 text-sm md:text-lg">- 본선 기간&rpar; 2024.02.02 오전 10시 ~ 2024.02.03 오후 6시</p>
           <p class="mb-1 text-sm md:text-lg">- 자세한 본선 공지 메일은 본선 진출팀 팀장에게 01.31(수) 오후 8시에 일괄적으로 보내드릴 예정이니 확인바랍니다.</p> 
-          <p class="mb-12 text-xs md:text-base">* 팀원의 본선 진출 여부를 01.31(수) 안으로 보내주셔야 합니다. 팀 구성원이 모두 참여하지 못할 시 본선 참여 자격이 무효화됩니다.</p>
+          <p class="mb-12 text-xs md:text-base">* 팀원의 본선 진출 여부를 01.31(수) 안으로 안내 메일 회신을 통해 답장해주셔야 합니다. 팀 구성원이 모두 참여하지 못할 시 본선 참여 자격이 무효화됩니다.</p>
         </div>
       </div>
     </div>
