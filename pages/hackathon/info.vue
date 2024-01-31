@@ -7,10 +7,10 @@
 		</div>
     <div class="pt-24 pb-32 bg-neutral-800">
       <div class="grid grid-cols-5 gap-x-4 container mx-auto">
-        <p class="text-2xl md:text-4xl font-bold mr-3 md:mr-12 row-span-2">예선 결과 및 본선 공지</p>
+        <p class="text-2xl md:text-4xl font-bold mr-3 md:mr-12 row-span-2">예선 발표</p>
         <div class="col-span-4 flex-grow">
           <p class="text-xl md:text-2xl font-bold mb-1">본선 진출 팀</p>
-          <p class="mb-3 text-sm md:text-lg">2024 Prometheus AI Hackathon에 참여한 모든 분들께 감사드립니다. 본선은 총 488명(96팀)의 참가자가 참여하였고, 그 중 17팀이 선발되었습니다. <br> 본선 진출 팀은 다음과 같습니다.</p>
+          <p class="mb-3 text-sm md:text-lg">2024 Prometheus AI Hackathon에 참여한 모든 분들께 감사드립니다. 본선은 총 488명(96팀)의 참가자가 참여하였고, 그 중 17팀이 선발되었습니다. 본선 진출 팀은 다음과 같습니다.</p>
           <div class="bg-neutral-900 p-1 gap-x-1 grid grid-cols-2 text-sm md:text-base font-semibold">
             <div class="text-center grid grid-cols-2">
               <div class="pb-1">팀명</div>
@@ -20,7 +20,7 @@
               <div class="pb-1">팀명</div>
               <div class="pb-1">팀장</div>
             </div>
-            <div v-for="(team, index) in teams" :key="index" class="py-1 text-sm font-light text-center bg-white text-black grid grid-cols-2 border-b gap-1">
+            <div v-for="(team, index) in teams" :key="index" class="py-1 text-xs md:text-sm font-light text-center bg-white text-black grid grid-cols-2 border-b gap-1">
               <div>{{ team.team }}</div>
               <div>{{ formatLeader(team.leader) }}</div>
             </div>
