@@ -28,7 +28,7 @@
               <div class=""></div>
             </div>
           </div>
-          <p class="mb-12 text-xs md:text-base">* 표의 순서는 순위와 무관합니다.</p>
+          <p class="mb-2 text-xs md:text-base">* 표의 순서는 순위와 무관합니다.</p>
           <p class="mb-12 text-xs md:text-base">* 안내 메일은 일괄적으로 본선 진출팀 팀장에게 보내드릴 예정이니 받지 못한 팀은 메일(prometheus0513@gmail.com)로 문의 바랍니다.</p>
         </div>
         <div class="col-span-4 flex-grow">
