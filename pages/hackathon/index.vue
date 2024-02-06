@@ -8,14 +8,34 @@
         <p id="writing2" class="font-bold text-4xl md:text-7xl mb-2 transition-ospanacity duration-500 ease-in"></p>
         <p id="writing3" class="md:text-4xl text-2xl mb-10 md:mb-20 transition-opacity duration-500 ease-in"></p>
       </div>
-      <div v-if="showButton" class="h-1/3 fade flex flex-col items-center">
-        <!-- <p class="text-sm md:text-lg font-light transition-opacity duration-500 ease-in">지원 기간</p>
-        <p class="text-xs md:text-sm font-light mb-16 md:mb-32 transition-opacity duration-500 ease-in">12/18(월) ~ 01/21(일)</p>
-        <a href="https://forms.gle/pmw1Qxzvr9JzZ7r97" class="font-medium mx-auto rounded bg-red-500 text-white px-4 py-2 mb-4 shadow-inner transition-transform transform hover:scale-110 focus:outline-none">
-          지원하기
-        </a> -->
-        <p class="font-semibold text-xl md:text-2xl mb-12 transition-opacity duration-500 ease-in">본선 시작까지</p>
-        <Countdown deadlineISO="2024-02-02T10:00:00" mainColor="#d4d4d8" secondFlipColor="#f4f4f5" mainFlipBackgroundColor="#292524"  secondFlipBackgroundColor="#57534e" :labels=labels labelColor="#ffffff"  />
+      <div v-if="showButton" class="h-1/3 mb-5 md:mb-12 fade flex flex-col items-center">
+        <p class="md:text-lg text-xl mb-2 md:mb-4 transition-opacity duration-500 ease-in">해커톤이 종료되었습니다.</p>
+        <p class="md:text-xl text-2xl font-semibold mb-5 md:mb-10 transition-opacity duration-500 ease-in">축하드립니다!</p>
+        <carousel  ref="introCarousel" :items-to-show="1" :wrap-around="true" class="w-1/2 mb-10 sm:mb-20" :autoplay="2000">
+          <slide v-for="(section, index) in intro" :key="index">
+            <div>
+              <font-awesome-icon class="text-lg md:text-xl" :icon="['fas', 'crown']" :style="{ color: section.color }"/>
+              <div class="text-3xl md:text-5xl font-bold py-3 rounded-lg">{{ section.label }}</div>
+              <div class="text-xl md:text-3xl font-semibold py-3 rounded-lg">[ {{ section.name }} ]</div>
+              <div class="text-base md:text-xl p-1 rounded-lg">{{ section.team }}</div>
+              <div class="text-xs md:text-base font-light p-1 rounded-lg">{{ section.desc }}</div>
+            </div>
+             
+          </slide>
+          <!-- <template #addons>
+            <div class="flex justify-center items-center gap-3">
+              <button @click="prevSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-left" /></button>
+              <pagination />
+              <button @click="nextSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-right" /></button>
+            </div>
+          </template> -->
+
+        </carousel>
+        
+        <div class="absolute inset-0 flex items-center">
+          <div class="absolute left-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="prevSlide"></div>
+          <div class="absolute right-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="nextSlide"></div>
+        </div>
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
@@ -64,6 +84,9 @@
 </template>
 
 <script setup>
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+
 import Home from './home.vue';
 // import Post from './post.vue';
 import Faq from './faq.vue'
@@ -72,6 +95,54 @@ import Info from './info.vue'
 
 const currentTab = ref('home');
 const main = ref(null);
+
+const intro = ref([
+  {
+    label: "대상",
+    name: "엔슬파트너스상",
+    team: "KBJJ",
+    desc: "고용법률관련 질의응답을 위한 법률 질의응답 챗봇",
+    color: "#fde047"
+  },
+
+  {
+    label: "최우수상",
+    name: "콴다상",
+    team: "I LUV BOOK",
+    desc: "어린이를 위한 창의적인 영어 동화 앱",  
+    color: "#f3f4f6"
+  },
+  {
+    label: "우수상",
+    name: "프로메테우스상",
+    team: "BIS",
+    desc: "AI 기술을 사용하여 무인점포 내 객체와 행위에 대한 자연어캡션을 클라이언트에게 브리핑 해주는 서비스", 
+    color: "#d97706"
+  },
+  {
+    label: "우수상",
+    name: "딥노이드상",
+    team: "사이토키닌",
+    desc: "B2B 컨텐츠 맞춤 생성형 광고 솔루션", 
+    color: "#d97706"
+  },
+])
+
+const introCarousel = ref(null);
+
+function prevSlide() {
+  introCarousel.value.prev();
+}
+
+function nextSlide() {
+  introCarousel.value.next();
+}
+
+
+// const shouldBlur = (index) => {
+//   return index !== 1;
+// };
+
 
 const currentTabComponent = computed(() => {
   if (currentTab.value === 'home') return Home;
@@ -137,8 +208,11 @@ const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
+const initialState = ref(null)
+
 onMounted(() => {
   startTypingEffect();
+  initialState.value = true;
 });
 
 </script>
