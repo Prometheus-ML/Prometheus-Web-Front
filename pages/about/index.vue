@@ -317,12 +317,12 @@ const history = ref([
 		title: "2024 Prometheus AI Hackathon",
 		desc: [],
 		date: "2024. 1. 22. ~ 2024. 2. 3."
-	}
+	},
 	{
 		title: "5기",
 		desc: ["(예정)"],
 		date: "2024. 3. 2."
-	}
+	},
 ])
 
 const fillHistory = () => {
