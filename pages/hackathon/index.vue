@@ -11,25 +11,18 @@
       <div v-if="showButton" class="h-1/3 mb-5 md:mb-12 fade flex flex-col items-center">
         <p class="md:text-lg text-xl mb-2 md:mb-4 transition-opacity duration-500 ease-in">해커톤이 종료되었습니다.</p>
         <p class="md:text-xl text-2xl font-semibold mb-5 md:mb-10 transition-opacity duration-500 ease-in">축하드립니다!</p>
-        <carousel ref="introCarousel" :items-to-show="1" :wrap-around="true" class="items-center absolute w-1/2 mb-10 sm:mb-20" :autoplay="2000">
-          <slide v-for="(section, index) in intro" :key="index">
-            <div>
+        <carousel ref="introCarousel" :items-to-show="1" class="w-1/2 mb-10 sm:mb-20" :autoplay="2000">
+          <slide v-for="(section, index) in intro" :key="index" class="flex flex-row">
+            <div class="w-full">
               <font-awesome-icon class="text-lg md:text-xl" :icon="['fas', 'crown']" :style="{ color: section.color }"/>
               <div class="text-3xl md:text-5xl font-bold py-3 rounded-lg">{{ section.label }}</div>
               <div class="text-lg md:text-2xl font-semibold py-3 rounded-lg">{{ section.name }}</div>
               <div class="text-base md:text-xl p-1 rounded-lg">{{ section.team }} 팀</div>
               <div class="text-xs md:text-base font-light p-1 rounded-lg">{{ section.desc }}</div>
             </div>
-             
           </slide>
-          <template #addons>
-            <!-- <div class="flex justify-center items-center gap-3">
-              <button @click="prevSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-left" /></button>
-              <pagination />
-              <button @click="nextSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-right" /></button>
-            </div> -->
-          </template>
-          
+
+        
         </carousel>
       
       </div>
@@ -93,6 +86,93 @@ const currentTab = ref('home');
 const main = ref(null);
 
 const intro = ref([
+  {
+    label: "대상",
+    name: "엔슬파트너스",
+    team: "KBJJ",
+    desc: "고용법률관련 질의응답을 위한 법률 질의응답 챗봇",
+    color: "#fde047"
+  },
+
+  {
+    label: "최우수상",
+    name: "콴다",
+    team: "I LUV BOOK",
+    desc: "어린이를 위한 창의적인 영어 동화 앱",  
+    color: "#f3f4f6"
+  },
+  {
+    label: "우수상",
+    name: "프로메테우스",
+    team: "BIS",
+    desc: "무인점포 내 객체 탐지 및 행위 브리핑 서비스", 
+    color: "#d97706"
+  },
+  {
+    label: "우수상",
+    name: "딥노이드",
+    team: "사이토키닌",
+    desc: "B2B 컨텐츠 맞춤 생성형 광고 솔루션", 
+    color: "#d97706"
+  },
+  {
+    label: "대상",
+    name: "엔슬파트너스",
+    team: "KBJJ",
+    desc: "고용법률관련 질의응답을 위한 법률 질의응답 챗봇",
+    color: "#fde047"
+  },
+
+  {
+    label: "최우수상",
+    name: "콴다",
+    team: "I LUV BOOK",
+    desc: "어린이를 위한 창의적인 영어 동화 앱",  
+    color: "#f3f4f6"
+  },
+  {
+    label: "우수상",
+    name: "프로메테우스",
+    team: "BIS",
+    desc: "무인점포 내 객체 탐지 및 행위 브리핑 서비스", 
+    color: "#d97706"
+  },
+  {
+    label: "우수상",
+    name: "딥노이드",
+    team: "사이토키닌",
+    desc: "B2B 컨텐츠 맞춤 생성형 광고 솔루션", 
+    color: "#d97706"
+  },
+  {
+    label: "대상",
+    name: "엔슬파트너스",
+    team: "KBJJ",
+    desc: "고용법률관련 질의응답을 위한 법률 질의응답 챗봇",
+    color: "#fde047"
+  },
+
+  {
+    label: "최우수상",
+    name: "콴다",
+    team: "I LUV BOOK",
+    desc: "어린이를 위한 창의적인 영어 동화 앱",  
+    color: "#f3f4f6"
+  },
+  {
+    label: "우수상",
+    name: "프로메테우스",
+    team: "BIS",
+    desc: "무인점포 내 객체 탐지 및 행위 브리핑 서비스", 
+    color: "#d97706"
+  },
+  {
+    label: "우수상",
+    name: "딥노이드",
+    team: "사이토키닌",
+    desc: "B2B 컨텐츠 맞춤 생성형 광고 솔루션", 
+    color: "#d97706"
+  },
   {
     label: "대상",
     name: "엔슬파트너스",
