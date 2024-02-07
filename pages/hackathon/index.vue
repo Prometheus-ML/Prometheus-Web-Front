@@ -11,7 +11,7 @@
       <div v-if="showButton" class="h-1/3 mb-5 md:mb-12 fade flex flex-col items-center">
         <p class="md:text-lg text-xl mb-2 md:mb-4 transition-opacity duration-500 ease-in">해커톤이 종료되었습니다.</p>
         <p class="md:text-xl text-2xl font-semibold mb-5 md:mb-10 transition-opacity duration-500 ease-in">축하드립니다!</p>
-        <carousel  ref="introCarousel" :items-to-show="1" :wrap-around="true" class="w-1/2 mb-10 sm:mb-20" :autoplay="2000">
+        <carousel  ref="introCarousel" :items-to-show="1" :wrap-around="true" class="absolute w-1/2 mb-10 sm:mb-20" :autoplay="2000">
           <slide v-for="(section, index) in intro" :key="index">
             <div>
               <font-awesome-icon class="text-lg md:text-xl" :icon="['fas', 'crown']" :style="{ color: section.color }"/>
@@ -22,20 +22,17 @@
             </div>
              
           </slide>
-          <!-- <template #addons>
+          <template #addons>
             <div class="flex justify-center items-center gap-3">
               <button @click="prevSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-left" /></button>
               <pagination />
               <button @click="nextSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-right" /></button>
             </div>
-          </template> -->
+          </template>
 
         </carousel>
         
-        <div class="absolute inset-0 flex items-center">
-          <div class="absolute left-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="prevSlide"></div>
-          <div class="absolute right-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="nextSlide"></div>
-        </div>
+
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
