@@ -23,16 +23,18 @@
              
           </slide>
           <template #addons>
-            <div class="flex justify-center items-center gap-3">
+            <!-- <div class="flex justify-center items-center gap-3">
               <button @click="prevSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-left" /></button>
               <pagination />
               <button @click="nextSlide"><font-awesome-icon class="cursor-pointer" icon="fa-solid fa-angle-right" /></button>
-            </div>
+            </div> -->
           </template>
-
         </carousel>
         
-
+        <div class="absolute inset-0 flex items-center">
+          <div class="absolute left-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="prevSlide"></div>
+          <div class="absolute right-0 top-0 bottom-0 opacity-20 w-1/3 cursor-pointer" @click="nextSlide"></div>
+        </div>
       </div>
       <div v-if="main && showButton" class="h-1/3 fade-in mb-32 flex flex-col items-center">
         <p class="font-light md:text-2xl  md:font-medium transition-opacity duration-500 ease-in">먼저 생각하는 사람,</p>
