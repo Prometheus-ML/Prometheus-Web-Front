@@ -16,8 +16,8 @@
             <div>
               <font-awesome-icon class="text-lg md:text-xl" :icon="['fas', 'crown']" :style="{ color: section.color }"/>
               <div class="text-3xl md:text-5xl font-bold py-3 rounded-lg">{{ section.label }}</div>
-              <div class="text-xl md:text-3xl font-semibold py-3 rounded-lg">[ {{ section.name }} ]</div>
-              <div class="text-base md:text-xl p-1 rounded-lg">{{ section.team }}</div>
+              <div class="text-lg md:text-2xl font-semibold py-3 rounded-lg">{{ section.name }}</div>
+              <div class="text-base md:text-xl p-1 rounded-lg">Team {{ section.team }}</div>
               <div class="text-xs md:text-base font-light p-1 rounded-lg">{{ section.desc }}</div>
             </div>
              
@@ -98,7 +98,7 @@ const main = ref(null);
 const intro = ref([
   {
     label: "대상",
-    name: "엔슬파트너스상",
+    name: "엔슬파트너스",
     team: "KBJJ",
     desc: "고용법률관련 질의응답을 위한 법률 질의응답 챗봇",
     color: "#fde047"
@@ -106,21 +106,21 @@ const intro = ref([
 
   {
     label: "최우수상",
-    name: "콴다상",
+    name: "콴다",
     team: "I LUV BOOK",
     desc: "어린이를 위한 창의적인 영어 동화 앱",  
     color: "#f3f4f6"
   },
   {
     label: "우수상",
-    name: "프로메테우스상",
+    name: "프로메테우스",
     team: "BIS",
-    desc: "AI 기술을 사용하여 무인점포 내 객체와 행위에 대한 자연어캡션을 클라이언트에게 브리핑 해주는 서비스", 
+    desc: "무인점포 내 객체 탐지 및 행위 브리핑 서비스", 
     color: "#d97706"
   },
   {
     label: "우수상",
-    name: "딥노이드상",
+    name: "딥노이드",
     team: "사이토키닌",
     desc: "B2B 컨텐츠 맞춤 생성형 광고 솔루션", 
     color: "#d97706"
