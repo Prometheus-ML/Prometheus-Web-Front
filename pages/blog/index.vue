@@ -10,21 +10,21 @@
 			<button
 				@click="changeTab('news')"
 				:class="{ 'bg-rose-700': currentTab === 'news', 'font-bold text-white': currentTab === 'news' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				AI 뉴스
 			</button>
 			<button
-				@click="changeTab('article')"
+				@click="changeTab('articles')"
 				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				외부 기사
 			</button>
 			<button
 				@click="changeTab('blog')"
 				:class="{ 'bg-rose-700': currentTab === 'blog', 'font-bold text-white': currentTab === 'blog' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 rounded-t-lg hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
+				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				활동 후기
 			</button>
@@ -78,9 +78,17 @@ const getPosts = async () => {
     const response = await $api(`${import.meta.env.VITE_API_URL}/link/get_links`, {
       method: 'GET',
     });
+
+    // 날짜별로 정렬
+    response.sort((a, b) => {
+      const dateA = new Date(a.created_date);
+      const dateB = new Date(b.created_date);
+      return dateB - dateA; // 내림차순 정렬
+    });
+
     postList.value = response;
   } catch (error) {
-		console.error(error)
+    console.error(error)
   }
 }
 

@@ -5,12 +5,12 @@
       <div class="mx-auto custom h-full">
         <!-- Original icon image -->
 				
-        <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="absolute z-10 ml-2 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
+        <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="border-2 border-white absolute z-10 ml-2 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
 
-				<div class="absolute bg-neutral-500 top-0 left-0 w-full h-full text-center items-center">
+				<div class="absolute bg-neutral-800 top-0 left-0 w-full h-full text-center items-center">
 					<p @mouseenter="playAudio" class="inline-block hover:scale-125 cursor-pointer font-black text-3xl text-white mt-32">TACO!</p>
         	<p class="font-light text-lg text-white mb-9"><span class="font-medium">T</span>hink <span class="font-medium">A</span>head, <span class="font-medium">C</span>hallenge <span class="font-medium">O</span>n!</p>
-        	<p class="font-light text-black text-lg mb-9"><span class="text-rose-700 font-medium">Prometheus</span>의 뜻은 먼저 생각하는 사람, 선구자를 의미합니다. 선구자들의 가치있는 도전을 통해 더 나은 세상을 만들어가고자 합니다.</p>
+        	<p class="font-light text-white text-sm mb-9"><span class="text-rose-700 font-medium text-xl ">Prometheus </span>: 먼저 생각하는 사람, 선구자를 의미합니다. 선구자들의 가치있는 도전을 통해 더 나은 세상을 만들어가고자 합니다.</p>
 				</div>
 				
         <!-- <img alt="New Image" src="@/assets/images/nothumb.png" class="absolute top-0 left-0 w-full h-full object-cover" /> -->
@@ -43,7 +43,7 @@
 					</div>
 				</div> -->
 				<p class="ml-3 text-rose-800 font-semibold text-2xl mb-2">프로메테우스의 비전</p>
-				<div class="bg-neutral-100 mb-32">
+				<div class="rounded bg-neutral-800 mb-32 font-light">
 					<div class="flex items-stretch">
 						<!-- <div class="relative flex-shrink-0 w-1/4 my-2 ml-6">
 							<img class="object-contain " src="@/assets/images/value.png">
@@ -56,7 +56,7 @@
 				</div>
 
 				<p class="ml-3 text-rose-800 font-semibold text-2xl mb-2">프로메테우스 연혁</p>
-				<div class="bg-white rounded-2xl text-black relative flex items-stretch flex-col">
+				<div class="rounded-2xl relative flex items-stretch flex-col">
 					<div class="absolute rounded-t-full rounded-b-full top-1 bottom-1 left-1/2 transform -translate-x-1/2 w-3 bg-rose-800">
 						</div>
 					<div v-for="(item, index) in filledHistory" :key="index" class="relative p-2 grid grid-cols-2">

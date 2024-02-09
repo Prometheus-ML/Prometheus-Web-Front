@@ -5,13 +5,13 @@
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들의 활동을 확인해보세요</p>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
-			<div v-for="project in projectList" :key="project.id" class="w-full rounded-lg border hover:drop-shadow-2xl hover:bg-gray-50">
+			<div v-for="project in projectList" :key="project.id" class="w-full rounded-lg border hover:drop-shadow-2xl hover:bg-neutral-800">
 				
 					<div class="mb-5 overflow-hidden">
 						<div class="rounded-t-md pb-[60%] p-5" :style="{ backgroundImage: `url(${project.thumb})`, backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
-						<div class="h-24 p-4">
-							<p class="font-bold text-sm md:text-base mb-2 line-clamp-1">{{ project.title }}</p>
-							<p class="text-xs md:text-sm line-clamp-2">{{ project.description }}</p>
+						<div class="h-24 p-4 items-center">
+							<p class="font-bold text-sm md:text-base mb-2 line-clamp-1 text-center">{{ project.title }}</p>
+							<!-- <p class="text-xs md:text-sm line-clamp-2">{{ project.description }}</p> -->
 						</div>
 					</div>
 
