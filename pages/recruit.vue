@@ -69,30 +69,30 @@
         <p class="mx-auto text-center font-semibold text-4xl mb-16">5기 활동 계획</p>
         <div class="grid grid-cols-3 gap-5">
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-3xl mb-1">정기세미나</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">정기세미나</p>
             <p>프로메테우스는 프로젝트와 스터디 진행 상황을 정기세미나를 통해 발표합니다.</p>
           </div>
           <div class="relative p-5 bg-neutral-800 rounded-xl text-center">       
-            <p class="font-semibold text-3xl mb-1">내부 해커톤</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">내부 해커톤</p>
             <p>프로메테우스는 동아리 자체적으로 내부 해커톤을 진행합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">             
 
-            <p class="font-semibold text-3xl mb-1">교육봉사</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">교육봉사</p>
             <p>프로메테우스는 중·고등학생을 대상으로 정기 교육봉사를 진행합니다.</p>
           </div>
 
           <div class="p-5 bg-neutral-800 rounded-xl text-center">             
-            <p class="font-semibold text-3xl mb-1">MT·불꽃놀이·뒤풀이</p>
-            <p>프로메테우스는 각종 친목행사를 진행합니다.</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">MT·불꽃놀이·뒤풀이</p>
+            <p>프로메테우스는 각종 친목행사를 진행하며 동아리원들간의 적극적인 네트워킹을 장려합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">           
-            <p class="font-semibold text-3xl mb-1">데모데이</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">데모데이</p>
             <p>프로메테우스는 한 학기동안 진행한 프로젝트에 대한 최종 발표와 프로토타입을 시연합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">           
-            <p class="font-semibold text-3xl mb-1">외부 해커톤</p>
-            <p>프로메테우스는 2025년 겨울에 외부 해커톤을 진행합니다.</p>
+            <p class="font-semibold text-lg md:text-2xl mb-2">외부 해커톤</p>
+            <p>프로메테우스는 매년 겨울에 외부 해커톤을 개최하여 기회의 장을 열고 있습니다.</p>
           </div>
         </div>
       </div>
