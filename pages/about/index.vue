@@ -10,7 +10,7 @@
 				<div class="absolute bg-neutral-500 top-0 left-0 w-full h-full text-center items-center">
 					<p @mouseenter="playAudio" class="inline-block hover:scale-125 cursor-pointer font-black text-3xl text-white mt-32">TACO!</p>
         	<p class="font-light text-lg text-white mb-9"><span class="font-medium">T</span>hink <span class="font-medium">A</span>head, <span class="font-medium">C</span>hallenge <span class="font-medium">O</span>n!</p>
-        	<p class="font-normal text-red-800 text-lg mb-9">Prometheus의 뜻은 먼저 생각하는 사람, 선구자를 의미합니다. 선구자들의 가치있는 도전을 통해 더 나은 세상을 만들어가고자 합니다.</p>
+        	<p class="font-light text-black text-lg mb-9"><span class="text-rose-700 font-medium">Prometheus</span>의 뜻은 먼저 생각하는 사람, 선구자를 의미합니다. 선구자들의 가치있는 도전을 통해 더 나은 세상을 만들어가고자 합니다.</p>
 				</div>
 				
         <!-- <img alt="New Image" src="@/assets/images/nothumb.png" class="absolute top-0 left-0 w-full h-full object-cover" /> -->
