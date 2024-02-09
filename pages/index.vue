@@ -173,16 +173,9 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 const myDiv = ref(null);
 
-const onIntersect = (entry) => {
-  if (entry.isIntersecting) {
-    entry.target.classList.add('fade-in');
-  } else {
-    entry.target.classList.remove('fade-in');
-  }
-};
 
 const recentPosts = ref([])
-const postType = 'thumbs'
+const postType = 'links'
 const recentProjects = ref([
   {
     id: 1,
@@ -326,6 +319,13 @@ async function getRecentPosts() {
     method: "GET",
   })
     .then((result) => {
+      
+      result.sort((a, b) => {
+        const dateA = new Date(a.created_date);
+        const dateB = new Date(b.created_date);
+        return dateB - dateA; // 내림차순 정렬
+      });
+      
       recentPosts.value = result.slice(0, 3);
       console.log(result);
     })
