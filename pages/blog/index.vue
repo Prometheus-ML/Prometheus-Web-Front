@@ -5,7 +5,7 @@
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
     </div>
 		
-		<div class="mb-4 space-x-4 relative">
+		<div class="mb-4 space-x-4 relative pb-32">
 			<div class="absolute left-0 top-8 md:top-9 w-full h-0.5 bg-rose-700"></div>
 			<button
 				@click="changeTab('news')"
