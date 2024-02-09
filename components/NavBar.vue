@@ -1,7 +1,7 @@
 <template>
   <nav
     class="px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ 'border-white border-b !bg-black' : (background || !fold)}"
+    :class="{ 'shadow-2xl shadow-white/30 !bg-black' : (background || !fold)}"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="/" class="flex font-sans items-center font-bold text-xl">
