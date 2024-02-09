@@ -159,9 +159,17 @@ const getPosts = async () => {
     const response = await $api(`${import.meta.env.VITE_API_URL}/hackathon/get_posts`, {
       method: 'GET',
     });
+
+    // 날짜별로 정렬
+    response.sort((a, b) => {
+      const dateA = new Date(a.created_date);
+      const dateB = new Date(b.created_date);
+      return dateB - dateA; // 내림차순 정렬
+    });
+
     postList.value = response;
   } catch (error) {
-		console.error(error)
+    console.error(error)
   }
 }
 

@@ -30,6 +30,7 @@
     "lodash": "^4.17.21",
     "pinia": "2.0.28",
     "postcss-custom-properties": "^13.2.1",
+    "vue-intersect": "^1.1.6",
     "vue3-carousel": "^0.3.1",
     "vue3-click-away": "^1.2.4",
     "vue3-flip-countdown": "^0.1.6"

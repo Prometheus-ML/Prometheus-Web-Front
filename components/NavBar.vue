@@ -1,7 +1,7 @@
 <template>
   <nav
     class="px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ '!bg-gray-50': (background || !fold) && darkNav !== 'all', 'border-white border-b !bg-black' : (background || !fold) && darkNav === 'all' }"
+    :class="{ 'border-white border-b !bg-black' : (background || !fold)}"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <a href="/" class="flex font-sans items-center font-bold text-xl">
@@ -34,7 +34,6 @@
           <li
             v-for="nav in navList"
             :key="nav.path"
-            :class="{'text-white':  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
           >
             <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
@@ -82,23 +81,23 @@ const profileMenuOpen = ref(false)
 const navList = [
   {
     path: "/about",
-    name: "소개",
-    dark: "true",
+    name: "ABOUT US",
   },
   {
     path: "/project",
-    name: "프로젝트",
-    dark: "false",
+    name: "PROJECT",
   },
   {
     path: "/blog",
-    name: "블로그",
-    dark: "false",
+    name: "BLOG",
   },
   {
     path: "/hackathon",
-    name: "해커톤",
-    dark: "all",
+    name: "HACKATHON"
+  },
+  {
+    path: "/recruit",
+    name: "RECRUIT"
   },
 ]
 let background = ref(false)
@@ -146,5 +145,6 @@ onBeforeMount(async () => {
 <style>
 .router-link-active {
   color: #b91c1c;
+  font-weight: 800;
 }
 </style>
