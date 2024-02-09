@@ -86,13 +86,12 @@
           <p class="font-bold leading-snug text-3xl md:text-5xl mb-10">멤버들이 말하는 프로메테우스</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10 md:mb-20">
-          <a :href="post.link" v-for="post in recentPosts" :key="post.id">
-            <div class="drop-shadow-md rounded-lg border w-full h-40 sm:h-64 md:h-80 lg:h-96 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
-              :style="{ backgroundImage: 'url(' + useImage(post?.thumb, postType) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
-            </div>
-            <!-- <p class="font-bold text-lg md:text-xl mb-1">{{ post?.title }}</p> -->
-            <!-- <p class="text-sm md:text-base"> by {{ post?.writer }}</p> -->
-          </a>
+          <div v-for="post in recentPosts" :key="post.id" class="relative w-full pb-[100%]">
+              <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
+                :style="{ backgroundImage: 'url(' + useImage(post?.thumb, postType) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
+              </a>
+              <font-awesome-icon v-if="user" class="cursor-pointer text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
+          </div>
         </div>
 
         <nuxt-link to="/blog" class="block text-center font-medium text-sm md:text-lg text-red-700 hover:-translate-y-0.5 hover:scale-105 duration-200">
@@ -169,9 +168,6 @@ import thumb_6 from '@/assets/images/thumb/6.png';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 	
-
-
-const myDiv = ref(null);
 
 
 const recentPosts = ref([])
@@ -349,7 +345,6 @@ function projectCarouselNext() {
 
 onMounted(async ()=>{
   await getRecentPosts();
-  myDiv.value = true;
 })
 
 </script>
