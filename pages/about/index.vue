@@ -193,7 +193,7 @@
 			<div class="mb-32">
 				<p class="mx-auto text-center text-rose-700 font-light text-xl mb-1">Support</p>
 				<p class="mx-auto text-center font-semibold text-4xl mb-16">후원사</p>
-				<div class="mt-10 grid grid-cols-3 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
+				<div class="mt-10  bg-neutral-800 rounded-2xl py-5 grid grid-cols-3 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
 					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/commoncomputer.png" />
 					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/neuralworkslab.png" />
 					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/aifactory.png" />
