@@ -15,8 +15,8 @@
 				AI 뉴스
 			</button>
 			<button
-				@click="changeTab('articles')"
-				:class="{ 'bg-rose-700': currentTab === 'articles', 'font-bold text-white': currentTab === 'articles' }"
+				@click="changeTab('article')"
+				:class="{ 'bg-rose-700': currentTab === 'article', 'font-bold text-white': currentTab === 'article' }"
 				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
 			>
 				외부 기사
