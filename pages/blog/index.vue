@@ -36,7 +36,6 @@
           <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
             :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
 					</a>
-					<font-awesome-icon v-if="user" class="cursor-pointer text-red-700 absolute top-2 right-2 p-1" icon="fa-solid fa-xmark" @click="deletePost(post)" />
 			</div>
 			
 		</div>

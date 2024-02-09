@@ -171,7 +171,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 
 const recentPosts = ref([])
-const postType = 'links'
+const postType = "links"
 const recentProjects = ref([
   {
     id: 1,
@@ -293,7 +293,6 @@ const intro = ref([
 const projectCarousel = ref(null)
 // const recentPosts = ref(null)
 // const recentProjects = ref(null)
-const recruitDiv = ref(true)
 
 // function getRecentProjects() {
 //   $fetch(`${import.meta.env.VITE_API_URL}/project/show_all_projects`, {
@@ -311,7 +310,7 @@ function scrollDown() {
 }
 	
 async function getRecentPosts() {
-  await $fetch(`${import.meta.env.VITE_API_URL}/post/get_posts`, {
+  await $fetch(`${import.meta.env.VITE_API_URL}/link/get_links`, {
     method: "GET",
   })
     .then((result) => {
