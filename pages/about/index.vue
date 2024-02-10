@@ -8,7 +8,7 @@
         <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="border-2 border-white absolute z-10 ml-2 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
 
 				<div class="absolute bg-neutral-800 top-0 left-0 w-full h-full text-center items-center">
-					<p @mouseenter="playAudio" class="inline-block hover:scale-125 cursor-pointer font-black text-3xl text-white mt-32">TACO!</p>
+					<p class="inline-block hover:scale-125 cursor-pointer font-black text-3xl text-white mt-32">TACO!</p>
         	<p class="font-light text-lg text-white mb-9"><span class="font-medium">T</span>hink <span class="font-medium">A</span>head, <span class="font-medium">C</span>hallenge <span class="font-medium">O</span>n!</p>
         	<p class="font-light text-white text-sm mb-9"><span class="text-rose-700 font-medium text-xl ">Prometheus </span>: 먼저 생각하는 사람, 선구자를 의미합니다. 선구자들의 가치있는 도전을 통해 더 나은 세상을 만들어가고자 합니다.</p>
 				</div>
@@ -43,7 +43,7 @@
 					</div>
 				</div> -->
 				<p class="ml-3 text-rose-800 font-semibold text-2xl mb-2">프로메테우스의 비전</p>
-				<div class="rounded bg-neutral-800 mb-32 font-light">
+				<div class="rounded bg-neutral-800 mb-32 font-light text-sm md:text-base">
 					<div class="flex items-stretch">
 						<!-- <div class="relative flex-shrink-0 w-1/4 my-2 ml-6">
 							<img class="object-contain " src="@/assets/images/value.png">
@@ -81,7 +81,7 @@
 			<div class="relative mb-48">
 				<p class="mx-auto text-center text-rose-700 font-light text-xl mb-1">Activities</p>
 				<p class="mx-auto text-center font-semibold text-4xl mb-16">활동 내용</p>
-				<carousel ref="introCarousel" :items-to-show="4.3" :wrap-around="true" class="mb-5 md:mb-10" :autoplay="3000">
+				<carousel ref="introCarousel" :items-to-show="itemsToShow" :wrap-around="true" class="mb-5 md:mb-10" :autoplay="3000">
 					<slide v-for="(section, index) in intro" :key="index">
 						<div class="mx-2 text-left">
 							<div @click="currentTab = currentTab == -1 ? index : -1;" class="cursor-pointer drop-shadow-md w-full h-full rounded-lg bg-center bg-cover custom-padding" :style="{ backgroundImage: `url(${section?.img}` , backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
@@ -137,7 +137,7 @@
 														<!-- Additional information div displayed on hover -->
 														<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
 																<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
-																		<p class="text-lg md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
+																		<p class="text-base md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
 																		<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
 																		<!-- Positions ordered list -->
 																		<hr v-if="member.positions.length > 0" class="mb-2">
@@ -232,6 +232,24 @@ const playAudio = () => {
 	myAudio.src = Taco; // 음원 파일 설정
 	myAudio.play();
 }
+
+// 반응성을 갖는 변수 정의
+const itemsToShow = ref(3);
+
+// 화면 크기를 감지하여 itemsToShow 값을 업데이트하는 함수
+const updateItemsToShow = () => {
+  // 화면 너비 가져오기
+  const screenWidth = window.innerWidth;
+
+  // 화면 크기에 따라 itemsToShow 값 설정
+  if (screenWidth >= 1024) {
+    itemsToShow.value = 4.2; // 대형 화면 (lg)
+  } else if (screenWidth >= 768) {
+    itemsToShow.value = 2.3; // 중형 화면 (md)
+  } else {
+    itemsToShow.value = 1.2; // 소형 화면 (sm)
+  }
+};
 
 
 const intro = ref([
@@ -400,6 +418,7 @@ const setActiveTab = (tab) => {
 
 onMounted(async () => {
   await getMembers();
+	updateItemsToShow();
 });
 
 </script>

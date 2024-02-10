@@ -41,25 +41,25 @@
         <div class="grid grid-cols-3 gap-5">
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
 
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/>
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/>
               
-            <p class="font-semibold text-3xl mb-1">Beginner</p>
-            <p>인공지능을 처음 접하고, 파이썬에 대한 기초지식이 있는 사람</p>
+            <p class="font-semibold text-lg md:text-3xl mb-1">Beginner</p>
+            <p class="text-xs md:text-base">인공지능을 처음 접하고, 파이썬에 대한 기초지식이 있는 사람</p>
           </div>
 
           <div class="p-5 bg-neutral-800 rounded-xl text-center">
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/>   
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/>      
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/>   
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/>      
 
-            <p class="font-semibold text-3xl mb-1">Junior</p>
-            <p>인공지능에 대한 기초지식이 있고, 프로젝트를 진행해보고 싶은 사람</p>
+            <p class="font-semibold text-lg md:text-3xl mb-1">Junior</p>
+            <p class="text-xs md:text-base" >인공지능에 대한 기초지식이 있고, 프로젝트를 진행해보고 싶은 사람</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center"> 
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/>      
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/> 
-            <font-awesome-icon class="text-rose-500 text-xl md:text-xl" :icon="['fas', 'fire']"/>     
-            <p class="font-semibold text-3xl mb-1">Senior</p>
-            <p>인공지능 프로젝트를 진행해본 적이 있거나, 논문 리딩에 수월한 사람</p>
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/>      
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/> 
+            <font-awesome-icon class="text-rose-500 text-xl md:text-2xl" :icon="['fas', 'fire']"/>     
+            <p class="font-semibold text-lg md:text-3xl mb-1">Senior</p>
+            <p class="text-xs md:text-base">인공지능 프로젝트를 진행해본 적이 있거나, 논문 리딩에 수월한 사람</p>
           </div>
         </div>
       </div>
@@ -67,32 +67,32 @@
       <div class="relative mb-48">
         <p class="mx-auto text-center text-rose-500 font-light text-xl mb-1">Activities</p>
         <p class="mx-auto text-center font-semibold text-4xl mb-16">5기 활동 계획</p>
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-lg md:text-2xl mb-2">정기세미나</p>
-            <p>프로메테우스는 프로젝트와 스터디 진행 상황을 정기세미나를 통해 발표합니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">정기세미나</p>
+            <p class="md:text-base text-xs">프로메테우스는 프로젝트와 스터디 진행 상황을 정기세미나를 통해 발표합니다.</p>
           </div>
           <div class="relative p-5 bg-neutral-800 rounded-xl text-center">       
-            <p class="font-semibold text-lg md:text-2xl mb-2">내부 해커톤</p>
-            <p>프로메테우스는 동아리 자체적으로 내부 해커톤을 진행합니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">내부 해커톤</p>
+            <p class="md:text-base text-xs">프로메테우스는 동아리 자체적으로 내부 해커톤을 진행합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">             
 
-            <p class="font-semibold text-lg md:text-2xl mb-2">교육봉사</p>
-            <p>프로메테우스는 중·고등학생을 대상으로 정기 교육봉사를 진행합니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">교육봉사</p>
+            <p class="md:text-base text-xs">프로메테우스는 중·고등학생을 대상으로 정기 교육봉사를 진행합니다.</p>
           </div>
 
           <div class="p-5 bg-neutral-800 rounded-xl text-center">             
-            <p class="font-semibold text-lg md:text-2xl mb-2">MT·불꽃놀이·뒤풀이</p>
-            <p>프로메테우스는 각종 친목행사를 진행하며 동아리원들간의 적극적인 네트워킹을 장려합니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">친목행사</p>
+            <p class="md:text-base text-xs">프로메테우스는 MT·불꽃놀이·뒤풀이를 진행하며 동아리원들간의 적극적인 네트워킹을 장려합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">           
-            <p class="font-semibold text-lg md:text-2xl mb-2">데모데이</p>
-            <p>프로메테우스는 한 학기동안 진행한 프로젝트에 대한 최종 발표와 프로토타입을 시연합니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">데모데이</p>
+            <p class="md:text-base text-xs">프로메테우스는 한 학기동안 진행한 프로젝트에 대하여 최종 발표와 프로토타입을 시연합니다.</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">           
-            <p class="font-semibold text-lg md:text-2xl mb-2">외부 해커톤</p>
-            <p>프로메테우스는 매년 겨울에 외부 해커톤을 개최하여 기회의 장을 열고 있습니다.</p>
+            <p class="font-semibold text-xl md:text-2xl mb-2">외부 해커톤</p>
+            <p class="md:text-base text-xs" >프로메테우스는 매년 겨울에 외부 해커톤을 개최하여 기회의 장을 열고 있습니다.</p>
           </div>
         </div>
       </div>
@@ -100,31 +100,27 @@
       <div class="relative mb-48">
         <p class="mx-auto text-center text-rose-500 font-light text-xl mb-1">Schedule</p>
         <p class="mx-auto text-center font-semibold text-4xl mb-16">면접 일정</p>
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-5">
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">모집 기간</p>
-            <p>2.11(일)-2.20(화)</p>
+            <p class="font-semibold text-lg md:text-2xl mb-1">모집 기간</p>
+            <p class="text-xs md:text-base">2.11(일)-2.20(화)</p>
           </div>
 
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">면접 대상자 공지</p>
-            <p>2.23(금)</p>
+            <p class="font-semibold text-lg md:text-2xl mb-1">면접 대상자 공지</p>
+            <p class="text-xs md:text-base">2.23(금)</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">면접</p>
-            <p>2.26(월)-2.28(수)</p>
+            <p class="font-semibold text-lg md:text-2xl mb-1">면접</p>
+            <p class="text-xs md:text-base">2.26(월)-2.28(수)</p>
           </div>
           <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">최종 합격자 공지</p>
-            <p>3.1(금)</p>
+            <p class="font-semibold text-lg md:text-2xl mb-1">최종 합격자 공지</p>
+            <p class="text-xs md:text-base">3.1(금)</p>
           </div>
-          <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">5기 OT</p>
-            <p>3.2(토)</p>
-          </div>
-          <div class="p-5 bg-neutral-800 rounded-xl text-center">   
-            <p class="font-semibold text-2xl mb-1">5기 제 1회 정기세미나</p>
-            <p>3.9(토)</p>
+          <div class="p-5 col-span-2 bg-neutral-800 rounded-xl text-center">   
+            <p class="font-semibold text-lg md:text-2xl mb-1">5기 OT</p>
+            <p class="text-xs md:text-base">3.2(토)</p>
           </div>
         </div>
       </div>

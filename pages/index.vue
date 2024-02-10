@@ -31,7 +31,7 @@
                 @mouseenter="section.hover = true"
                 @mouseleave="section.hover = false">
               <div class="rounded-lg absolute w-full h-full z-0 backdrop-grayscale bg-black/60 p-5 sm:p-10 text-white flex flex-col">
-                <p class="mt-20 text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
+                <p class="text-left lg:text-center whitespace-pre font-bold text-lg lg:text-2xl mb-12 lg:mb-20" id="section"
                 >{{ section.title }}</p>
                 <!-- <p :style="{
                       opacity: section.hover ? 1 : 0,
@@ -58,11 +58,11 @@
           <p class="font-bold leading-snug text-4xl md:text-5xl">멤버들의 활동을 확인해보세요</p>
         </div>
       </div>
-      <carousel ref="projectCarousel" :items-to-show="5" :wrap-around="true" class="mb-10 sm:mb-20 mx-3" :autoplay="3000">
+      <carousel ref="projectCarousel" :items-to-show="itemsToShow" :wrap-around="true" class="mb-10 sm:mb-20 mx-3" :autoplay="3000">
         <slide class="relative p-10" v-for="project in recentProjects" :key="project.id">
-          <div class="w-full mx-2 sm:mx-5 text-left mb-6 sm:mb-8">
+          <div class="w-full mx-1 md:mx-4 text-left mb-6 sm:mb-8">
             <div class="drop-shadow-md w-full rounded-lg bg-center bg-cover pb-[60%] sm:pb-[50%] mb-4 sm:mb-5" :style="{ backgroundImage: `url(${project?.thumb}` , backgroundSize: 'cover', backgroundPosition: 'center' }"></div>
-            <p class="font-bold md:text-xs sm:text-xl mb-2 text-center">{{ project?.title }}</p>
+            <p class="font-bold md:text-lg text-xs mb-2 text-center">{{ project?.title }}</p>
             <p class="text-base">{{ project?.description }}</p>
           </div>
         </slide>
@@ -290,6 +290,26 @@ const intro = ref([
   }
 ])
 
+
+// 반응성을 갖는 변수 정의
+const itemsToShow = ref(3);
+
+// 화면 크기를 감지하여 itemsToShow 값을 업데이트하는 함수
+const updateItemsToShow = () => {
+  // 화면 너비 가져오기
+  const screenWidth = window.innerWidth;
+
+  // 화면 크기에 따라 itemsToShow 값 설정
+  if (screenWidth >= 1024) {
+    itemsToShow.value = 5; // 대형 화면 (lg)
+  } else if (screenWidth >= 768) {
+    itemsToShow.value = 4; // 중형 화면 (md)
+  } else {
+    itemsToShow.value = 2; // 소형 화면 (sm)
+  }
+};
+
+
 const projectCarousel = ref(null)
 // const recentPosts = ref(null)
 // const recentProjects = ref(null)
@@ -344,6 +364,7 @@ function projectCarouselNext() {
 
 onMounted(async ()=>{
   await getRecentPosts();
+  updateItemsToShow();
 })
 
 </script>
