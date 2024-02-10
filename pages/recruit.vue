@@ -11,8 +11,8 @@
 
           
           <p class="font-bold text-2xl mb-9">프로메테우스 5기 가입 신청</p>
-          <p>모집 기간이 아닙니다.</p>
-          <!-- <a href="https://forms.gle/5QoNgoTt4dUKMV5S6" class="rounded px-5 py-2 text-base font-medium bg-rose-100 text-rose-900 hover:bg-red-200 hover:text-white">지원하기</a>  -->
+          <!-- <p>모집 기간이 아닙니다.</p> -->
+          <a href="https://forms.gle/ui1BWJ4Niu1fJ3XQ7" class="rounded px-5 py-2 text-base font-medium bg-rose-100 text-rose-900 hover:bg-red-200 hover:text-white">지원하기</a> 
         </div> 
       </div>
       
