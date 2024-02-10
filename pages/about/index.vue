@@ -137,7 +137,7 @@
 														<!-- Additional information div displayed on hover -->
 														<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
 																<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
-																		<p class="text-base md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
+																		<p class="text-sm md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
 																		<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
 																		<!-- Positions ordered list -->
 																		<hr v-if="member.positions.length > 0" class="mb-2">
@@ -194,14 +194,42 @@
 				<p class="mx-auto text-center text-rose-700 font-light text-xl mb-1">Support</p>
 				<p class="mx-auto text-center font-semibold text-4xl mb-16">후원사</p>
 				<div class="mt-10  bg-neutral-800 rounded-2xl py-5 grid grid-cols-3 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/commoncomputer.png" />
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/neuralworkslab.png" />
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/aifactory.png" />
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/kingsleyventures.png" />
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/modulabs.png" />
-					<img class="w-32 sm:w-48 p-5" src="@/assets/images/sponsor/codeit.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/commoncomputer.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/neuralworkslab.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/line.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/aifactory.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/intel.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/qanda.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/kingsleyventures.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/modulabs.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/deepnoid.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/codeit.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/enslpartners.png" />
+					<img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
 				</div>
-
+<!-- <div class="grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/commoncomputer.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/neuralworkslab.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/codeit.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/enslpartners.png" />
+          
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/modulabs.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/aifactory.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/kingsleyventures.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/deepnoid.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/intel.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/qanda.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/line.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
+        </div> -->
 			</div>
 
 		</div>

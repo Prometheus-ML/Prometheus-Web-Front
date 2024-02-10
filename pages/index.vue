@@ -109,16 +109,27 @@
           <p class="font-medium text-base text-gray-300 mb-5">프로메테우스는 다음과 같은 후원사의 도움을 받습니다.</p>
         </div>
         <div class="grid grid-cols-5 gap-3 justify-center justify-items-center items-center px-4 sm:px-8">
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/commoncomputer.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/commoncomputer.png" />
           <div></div>
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/neuralworkslab.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/neuralworkslab.png" />
           <div></div>
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/aifactory.png" />
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/kingsleyventures.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/codeit.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/enslpartners.png" />
+          
           <div></div>
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/modulabs.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/modulabs.png" />
           <div></div>
-          <img class="w-32 sm:w-48" src="@/assets/images/sponsor/codeit.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/aifactory.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/kingsleyventures.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/deepnoid.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/intel.png" />
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/qanda.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/line.png" />
+          <div></div>
+          <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
         </div>
       </div>
       <div>
@@ -146,7 +157,14 @@
 
 
   </div>
-	
+	<div v-if=recruit class="animate-bounce fixed bottom-2 right-2 p-4">
+    <router-link to="/recruit" class="flex items-center bg-red-500 text-white px-4 py-2 rounded-full">
+      <p class="font-semibold text-lg mr-1">5기 모집중</p>
+      <font-awesome-icon class="" icon="fa-solid fa-angle-right" />
+      <font-awesome-icon class="" icon="fa-solid fa-angle-right" />
+    </router-link>
+    <!-- <font-awesome-icon class="text-xs absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer " @click="recruit=false" icon="fa-solid fa-xmark" /> -->
+  </div>
 </template>
 
 
@@ -355,6 +373,7 @@ function projectCarouselNext() {
   projectCarousel.value.next()
 }
 
+const recruit = ref(true);
 // const popup = ref();
 // const popupVisible = ref(true);
 // const popupImages = ref([c_1])
