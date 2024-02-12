@@ -306,7 +306,7 @@ const intro = ref([
     summary: "seminar",
     img: seminarImage,
     title: "정기 세미나",
-    desc: "프로메테우스는 정기적으로 세미나를 통해 프로젝트 현황 발표를 합니다.",
+    desc: "프로메테우스는 매달 한 번씩 정기세미나를 통하여 프로젝트 및 스터디 팀 별 현황을 공유하고 네트워킹을 위한 세미나 등을 진행합니다.",
 		on: false,
   },
 	{
