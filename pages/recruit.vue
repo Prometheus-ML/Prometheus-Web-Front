@@ -89,7 +89,7 @@
 						</div>
 						<div class="absolute py-6 left-1/2 transform -translate-x-1/2 p-3">
 							<div class="relative w-6 h-6 rounded-full bg-neutral-700">
-								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-black" :class="{ '!bg-yellow-200' : index == 16}"></div>
+								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full" :style="{backgroundColor: 'rgb(23, 23, 23)'}"></div>
 							</div>
 						</div>
 					</div>
