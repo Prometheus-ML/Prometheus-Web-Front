@@ -96,7 +96,7 @@
 				</div>
       </div>
 
-      <div class="relative mb-48">
+      <!-- <div class="relative mb-48">
         <p class="mx-auto text-center text-rose-500 font-light text-xl mb-1">FAQ</p>
         <p class="mx-auto text-center font-semibold text-4xl mb-16">자주 묻는 질문</p>
         <div class="grid grid-cols-1 gap-5">
@@ -116,7 +116,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   

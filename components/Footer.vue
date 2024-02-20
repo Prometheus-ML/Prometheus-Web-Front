@@ -9,7 +9,7 @@
         <a class="mx-3 text-3xl" href="https://www.instagram.com/prometheus_ai_/" target="_blank">
           <font-awesome-icon :icon="['fa-brands', 'fa-instagram']" />
         </a>
-        <a class="mx-3 text-3xl" href="https://discord.gg/S3WNhcE7Sf" target="_blank">
+        <a class="mx-3 text-3xl" href="https://discord.gg/JBZEXXTfkE" target="_blank">
           <font-awesome-icon :icon="['fab', 'discord']" />
         </a>
         <a class="mx-3 text-3xl" href="mailto:prometheus0513@gmail.com" target="_blank">
