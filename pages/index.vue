@@ -157,14 +157,13 @@
 
 
   </div>
-	<div v-if=recruit class="animate-bounce fixed bottom-2 right-2 p-4">
+	<!-- <div v-if=recruit class="animate-bounce fixed bottom-2 right-2 p-4">
     <router-link to="/recruit" class="flex items-center bg-red-500 text-white px-4 py-2 rounded-full">
       <p class="font-semibold text-lg mr-1">5기 모집중</p>
       <font-awesome-icon class="" icon="fa-solid fa-angle-right" />
       <font-awesome-icon class="" icon="fa-solid fa-angle-right" />
     </router-link>
-    <!-- <font-awesome-icon class="text-xs absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer " @click="recruit=false" icon="fa-solid fa-xmark" /> -->
-  </div>
+  </div> -->
 </template>
 
 
@@ -373,7 +372,7 @@ function projectCarouselNext() {
   projectCarousel.value.next()
 }
 
-const recruit = ref(true);
+// const recruit = ref(true);
 // const popup = ref();
 // const popupVisible = ref(true);
 // const popupImages = ref([c_1])
