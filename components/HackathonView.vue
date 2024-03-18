@@ -71,11 +71,9 @@ const props = defineProps({
   editMode: Boolean
 })
 
-
 const viewer = ref()
 const post = ref()
 const postErr = ref()
-
 
 const getPost = async () => {
   try {

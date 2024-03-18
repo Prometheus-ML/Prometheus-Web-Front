@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="text-black">
     <p class="text-lg font-bold mb-3">제목</p>
     <input 
       v-model="formData.title"
@@ -16,7 +16,7 @@
       placeholder="간략한 개요를 입력해주세요"
       required>
 
-    <div id="editor" class="mb-5"></div>
+    <div id="editor" class="mb-5 bg-neutral-100"></div>
 
     <div class="flex gap-7 mb-5 items-center justify-between">
       <div>

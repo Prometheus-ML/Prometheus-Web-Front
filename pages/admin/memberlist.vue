@@ -154,6 +154,7 @@ const tabs = [
   { key: 2, name: '2기'},
   { key: 3, name: '3기'},
 	{ key: 4, name: '4기'},
+	{ key: 5, name: '5기'},
 ];
 
 const getMembers = async () => {

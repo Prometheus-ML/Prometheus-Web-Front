@@ -5,7 +5,7 @@
       <div class="mx-auto custom h-full">
         <!-- Original icon image -->
 				
-        <img alt="PROMETHEUS" src="@/assets/prometheus.jpg" class="border-2 border-white absolute z-10 ml-2 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
+        <img alt="PROMETHEUS" src="@/assets/prometheus.png" class="border-l border-b border-neutral-800 shadow-xl shadow-neutral-300/20 rounded-3xl absolute z-10 ml-2 top-80 shadow-lg rounded-lg object-cover w-32 h-32" />
 
 				<div class="absolute bg-neutral-800 top-0 left-0 w-full h-full text-center items-center">
 					<!-- <p class="inline-block hover:scale-125 cursor-pointer font-black text-3xl text-white mt-32">TACO!</p> -->
@@ -160,35 +160,6 @@
 						</ul>
 				</div>
 			</div>
-
-			<!-- <div class="mb-48">
-  			<p class="text-center font-semibold text-3xl mb-2">부서 소개</p>
-				<p class="text-center font-normal text-lg text-neutral-700 mb-5">우리 동아리 부서들을 소개할게요~</p>
-
-				<div class="flex justify-center">
-
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/development.png" class="p-5"/>
-						<p class="text-xl font-medium">개발부</p>
-					</a>
-
-
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/plan.png" class="p-5"/>
-						<p class="text-xl font-medium">기획부</p>
-					</a>
-
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/public_relation.png" class="p-5"/>
-						<p class="text-xl font-medium">섭외부</p>
-					</a>
-
-					<a href="#" class="flex-1 flex flex-col items-center bg-gray-200 p-10 mx-10 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
-						<img src="@/assets/images/promotion.png" class="p-5"/>
-						<p class="text-xl font-medium">홍보부</p>
-					</a>
-				</div>
-			</div> -->
 
 			<div class="mb-32">
 				<p class="mx-auto text-center text-rose-700 font-light text-xl mb-1">Support</p>
@@ -412,7 +383,8 @@ const tabs = [
   { key: 1, name: '1기'},
   { key: 2, name: '2기'},
   { key: 3, name: '3기'},
-	{ key: 4, name: '4기'}
+	{ key: 4, name: '4기'},
+	{ key: 5, name: '5기'}
 ];
 
 const activeTab = ref(4);
