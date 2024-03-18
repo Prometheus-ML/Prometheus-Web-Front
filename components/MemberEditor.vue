@@ -1,6 +1,6 @@
 <template>
   <!-- Temporary Member Add Div -->
-  <div class="absolute w-[100%] h-[92%]">
+  <div class="text-black absolute w-[100%] h-[92%]">
     
     <h3 class="text-lg font-semibold mb-2">멤버 추가/수정</h3>
     <div @submit.prevent="addMember">
@@ -174,7 +174,7 @@ const props = defineProps({
 const emits = defineEmits(['closePost']);
 const newHistory = ref(null)
 const newPosition = ref(null)
-const gens = [0, 1, 2, 3, 4]
+const gens = [0, 1, 2, 3, 4, 5]
 const type = "members"
 const imageStack = ref([])
 
