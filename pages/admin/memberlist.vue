@@ -233,6 +233,7 @@ const showEditForm = async (id) => {
 
 onMounted(async () => {
   await getMembers();
+	console.log(memberList.value)
 });
 
 </script>
