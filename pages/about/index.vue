@@ -441,9 +441,9 @@ const filteredMembers = computed(() => {
   if (activeTab.value === null) {
 		return members.value;
 	} else if (activeTab.value === -1) {
-		members.value.filter((member) => member.executive);
+		const executiveMembers = members.value.filter((member) => member.executive === true);
 
-    return members.value.sort((a, b) => {
+    return executiveMembers.sort((a, b) => {
       const order = ["5기 대표", "5기 부대표", "5기 총무", "5기 개발부 부장", "5기 기획부 부장", "5기 홍보부 부장", "5기 개발부 차장", "5기 기획부 차장", "5기 홍보부 차장"];
       const getPositionIndex = (member) => order.indexOf(member.positions.slice(-1)[0]);
   		return getPositionIndex(a) - getPositionIndex(b);
