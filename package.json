@@ -27,6 +27,7 @@
     "@toast-ui/editor": "3.2.1",
     "@toast-ui/editor-plugin-code-syntax-highlight": "^3.1.0",
     "@toast-ui/vue-editor": "3.2.2",
+    "hangul-util": "^0.1.4",
     "lodash": "^4.17.21",
     "pinia": "2.0.28",
     "postcss-custom-properties": "^13.2.1",

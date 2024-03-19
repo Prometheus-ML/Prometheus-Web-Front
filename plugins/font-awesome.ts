@@ -16,6 +16,7 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faApple } from '@fortawesome/free-brands-svg-icons'
 import { faGooglePlay } from '@fortawesome/free-brands-svg-icons'
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
 
 import { faUsers } from '@fortawesome/free-solid-svg-icons'
 import { faCrown } from '@fortawesome/free-solid-svg-icons'
@@ -33,7 +34,7 @@ import { faFlaskVial } from '@fortawesome/free-solid-svg-icons'
 config.autoAddCss = false
 library.add(faAngleLeft, faAngleRight, faInstagram, faGithub, faDiscord, faAngleDown, faGlobe, faTwitter, faFacebook, faApple, faGooglePlay, faAngleUp, faXmark)
 library.add(faUsers, faCrown, faSchool, faFire, faPen, faEye, faEyeSlash, faMedal)
-library.add(faScrewdriverWrench, faFlaskVial)
+library.add(faScrewdriverWrench, faFlaskVial, faHouse)
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('font-awesome-icon', FontAwesomeIcon)
 })

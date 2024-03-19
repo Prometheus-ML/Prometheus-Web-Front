@@ -5,30 +5,23 @@
       <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들이 말하는 프로메테우스</p>
     </div>
 		
-		<div class="mb-4 space-x-4 relative">
-			<div class="absolute left-0 top-8 md:top-9 w-full h-0.5 bg-rose-700"></div>
-			<button
-				@click="changeTab('news')"
-				:class="{ 'bg-rose-700': currentTab === 'news', 'font-bold text-white': currentTab === 'news' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
-			>
-				AI 뉴스
-			</button>
-			<button
-				@click="changeTab('article')"
-				:class="{ 'bg-rose-700': currentTab === 'article', 'font-bold text-white': currentTab === 'article' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
-			>
-				외부 기사
-			</button>
-			<button
-				@click="changeTab('blog')"
-				:class="{ 'bg-rose-700': currentTab === 'blog', 'font-bold text-white': currentTab === 'blog' }"
-				class="py-1 px-4 border-b-2 border-rose-700 duration-300 hover:text-white focus:outline-none hover:bg-rose-300 transition duration-300 text-base md:text-lg"
-			>
-				활동 후기
-			</button>
-		</div>
+		<div class="flex justify-center items-center p-6 text-2xl">
+      <div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
+        <div
+          v-for="(tab, index) in tabs"
+          :key="index"
+          :class="{
+            'font-bold': activeTab === tab.key,
+            'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
+            'border-b-2 border-black': activeTab === tab.key,
+          }"
+          @click="setActiveTab(tab.key)"
+          class="mr-5 cursor-pointer flex items-center"
+        >
+          <span class="mx-auto">{{ tab.name }}</span>
+        </div>
+      </div>
+    </div>
 
 
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
@@ -72,6 +65,12 @@
 import { storeToRefs } from "pinia";
 const type = "links"
 
+const tabs = [
+  { key: 'news', name: 'AI NEWS'},
+  { key: 'article', name: '외부기사'}
+];
+
+const activeTab = ref(4);
 
 const postList = ref([
 ])
@@ -120,14 +119,15 @@ const deletePost = async (link) => {
 
 const currentTab = ref('news');
 
-const changeTab = (tab) => {
-  currentTab.value = tab;
-};
 
 const filteredPosts = computed(() => {
   // Filter posts based on the current tab
-  return postList.value.filter(post => post.category == currentTab.value);
+  return postList.value.filter(post => post.category == activeTab.value);
 });
+
+const setActiveTab = (tab) => {
+	activeTab.value = activeTab.value === tab? null : tab;
+};
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);

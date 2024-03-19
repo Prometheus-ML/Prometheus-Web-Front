@@ -124,40 +124,74 @@
 					</div>
 				</div>
 
-				<div class="p-8">
-						<ul class="flex flex-wrap justify-center gap-9">
-								<li v-for="(member, index) in filteredMembers" :key="index" class="w-16 md:w-32 text-center">
-										<div class="relative">
-												<div
-														class="w-16 h-20 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
-														:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
-														@mouseenter="member.hover = true"
-														@mouseleave="member.hover = false"
-												>
-														<!-- Additional information div displayed on hover -->
-														<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
-																<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
-																		<p class="text-sm md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
-																		<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
-																		<!-- Positions ordered list -->
-																		<hr v-if="member.positions.length > 0" class="mb-2">
-																		<ol class="text-xs font-light text-white mb-2">
-																				<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
-																		</ol>
-																		<!-- History ordered list -->
-																		<hr v-if="member.history.length > 0" class="mb-2">
-																		<ol class="text-xs mb-2 font-light text-white">
-																				<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
-																		</ol>
-																</div>
-														</div>
-												</div>
-												<div class="w-full h-full pb-2 flex items-center justify-center">
-														<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
-												</div>
+				<div class="flex justify-center p-8">
+					<ul v-if="activeTab === -1" class="grid grid-cols-3 justify-center gap-8">
+						<li v-for="(member, index) in filteredMembers" :key="index" class="w-16 md:w-32 text-center" >
+							<!-- <div v-if="index == 0 ||index == 4 || index == 6 ||index == 8||index == 10||index == 13" class="w-16 h-20 md:w-32 md:h-40"></div> -->
+							<div class="relative mx-auto"> 
+								<div
+										class="w-16 h-20 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
+										:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+										@mouseenter="member.hover = true"
+										@mouseleave="member.hover = false"
+								>
+									<!-- Additional information div displayed on hover -->
+									<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
+										<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
+											<p class="text-sm md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
+											<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
+											<!-- Positions ordered list -->
+											<hr v-if="member.positions.length > 0" class="mb-2">
+											<ol class="text-xs font-light text-white mb-2">
+												<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
+											</ol>
+											<!-- History ordered list -->
+											<hr v-if="member.history.length > 0" class="mb-2">
+											<ol class="text-xs mb-2 font-light text-white">
+												<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
+											</ol>
 										</div>
-								</li>
-						</ul>
+									</div>
+								</div>
+								<div class="w-full h-full pb-2 flex items-center justify-center">
+										<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul v-else class="flex flex-wrap justify-center gap-9">
+						<li v-for="(member, index) in filteredMembers" :key="index" class="w-16 md:w-32 text-center">
+							<div class="relative">
+								<div
+										class="w-16 h-20 md:w-32 md:h-40 mb-1 rounded flex items-center justify-center"
+										:style="{ backgroundImage: 'url(' + useImage(member?.image, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
+										@mouseenter="member.hover = true"
+										@mouseleave="member.hover = false"
+								>
+									<!-- Additional information div displayed on hover -->
+									<div v-if="member.hover" class="absolute bg-gray-800 opacity-80 top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center overflow-visible">
+										<div class="w-16 h-16 md:w-32 md:h-40 p-2 overflow-y-auto">
+											<p class="text-sm md:text-xl font-bold text-white mb-1">{{ member.name }}</p>
+											<p class="text-xs mb-3 text-gray-50">{{ member.education }}</p>
+											<!-- Positions ordered list -->
+											<hr v-if="member.positions.length > 0" class="mb-2">
+											<ol class="text-xs font-light text-white mb-2">
+												<li v-for="(value, idx) in member.positions" :key="idx">{{ value }}</li>
+											</ol>
+											<!-- History ordered list -->
+											<hr v-if="member.history.length > 0" class="mb-2">
+											<ol class="text-xs mb-2 font-light text-white">
+												<li v-for="(value, idx) in member.history" :key="idx">{{ value }}</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+								<div class="w-full h-full pb-2 flex items-center justify-center">
+										<p class="text-base md:text-xl font-bold">{{ member.name }}</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 
@@ -387,8 +421,7 @@ const tabs = [
 	{ key: 5, name: '5기'}
 ];
 
-const activeTab = ref(4);
-const activeMember = ref(null);
+const activeTab = ref(5);
 	
 	
 const getMembers = async () => {
@@ -404,11 +437,20 @@ const getMembers = async () => {
 };
 	
 const filteredMembers = computed(() => {
+	members.value.sort((a, b) => a.name.localeCompare(b.name));
   if (activeTab.value === null) {
-    return members.value; 
+		return members.value;
+	} else if (activeTab.value === -1) {
+		members.value.filter((member) => member.executive);
+
+    return members.value.sort((a, b) => {
+      const order = ["5기 대표", "5기 부대표", "5기 총무", "5기 개발부 부장", "5기 기획부 부장", "5기 홍보부 부장", "5기 개발부 차장", "5기 기획부 차장", "5기 홍보부 차장"];
+      const getPositionIndex = (member) => order.indexOf(member.positions.slice(-1)[0]);
+  		return getPositionIndex(a) - getPositionIndex(b);
+    });
   }
 
-  return members.value.filter((member) => member.gen == activeTab.value || (member.executive && activeTab.value === -1));
+  return members.value.filter((member) => member.gen == activeTab.value);
 });
 
 const setActiveTab = (tab) => {
