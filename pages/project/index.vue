@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="grid auto-rows-fr grid-cols-1 md:grid-cols-2 mx-4 lg:grid-cols-3 items-start gap-6 mb-5 ">
-      <div v-for="project in projectList" 
+      <div v-for="project in filteredProjects" 
         :style="{ backgroundImage: 'url(' + useImage(project?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }" 
         :key="project.id" 
         @mouseenter="project.hover = true"
@@ -30,14 +30,15 @@
         class="relative bg-rose-100 bg-white w-full h-48 hover:bg-opacity-80 "
       >
         <font-awesome-icon v-if="user" @click="deleteProject(project)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
-        <div v-if="project.hover" class="relative inset-0 p-1 h-full backdrop-blur-sm bg-black/60">
-          <div class="flex flex-row mr-8 p-2">
-            <p class="font-bold text-sm rounded-lg px-2 pb-1 bg-rose-500 text-white mt-auto mr-2">{{ project?.gen }}기</p>
+        <div v-if="project.hover" class="relative inset-0 p-1 h-full backdrop-blur-sm bg-black/30">
+          <div class="flex flex-row mr-10 pt-2 pb-2 ml-2 mb-1">
+            <p v-if="project.gen !== 3" class="font-bold text-sm rounded-lg px-2 pb-1 bg-rose-500 text-white mt-auto mr-2">{{ project?.gen }}기</p>
             <h2 class="font-bold text-xl">{{ project?.title }}</h2>
           </div>
           <div class="flex flex-wrap mr-8 px-1 flex items-center text-xs font-light text-white">
-            <span v-for="(member, index) in project?.tag" class="mx-1" :key="index">
-              #{{ member.name }}
+            <p class="ml-1 mr-2 mb-2 text-sm font-neutral-100 font-semibold break-all">{{ project?.description }}</p>
+            <span v-for="(tag, index) in project?.tag" class="ml-1 mr-2" :key="index">
+              #{{ tag.name }}
             </span>
           </div>
           <div class="absolute top-2 right-0 flex flex-col">
@@ -49,11 +50,10 @@
             </a>
           </div>
           <div class="absolute bottom-2 flex flex-col">
-            <p class="ml-1 mr-4 mb-3 text-sm font-semibold break-all">{{ project?.description }}</p>
-            <div class="mb-2 flex flex-wrap items-center font-semibold member-font text-gray-500">
+            <div class="mb-2 flex flex-wrap items-center font-medium member-font text-gray-500">
               <div v-for="(member, index) in project?.member.split(' ')" class="mr-1" :key="index">
-                <span v-if="index === 0" class="ml-1 px-1 pb-0.5 rounded-lg bg-rose-600 text-white">{{ member }}</span>
-                <span v-else class="px-1 pb-0.5 rounded-lg font-medium bg-neutral-500 text-white" >{{ member }}</span>
+                <span v-if="index === 0" class="ml-1 px-1 pb-0.5 font-semibold rounded-lg bg-rose-600 text-white">{{ member }}</span>
+                <span v-else class="px-1 pb-0.5 rounded-lg  bg-neutral-500 text-white" >{{ member }}</span>
                 <span v-if="index !== project?.member.split(' ').length - 1"> </span>
               </div>
             </div>
@@ -106,7 +106,7 @@ const setActiveTab = (tab) => {
 
 const getProjects = async () => {
   try {
-    const response = await $api(`${import.meta.env.VITE_API_URL}/project/get_projects`, {
+    const response = await $fetch(`${import.meta.env.VITE_API_URL}/project/get_projects`, {
       method: 'GET',
     });
     response.filter(projects => projects.gen === 4);
@@ -140,7 +140,7 @@ const deleteProject = async (project) => {
 };
 
 const filteredProjects = computed(() => {
-  return members.value.filter((member) => member.gen == activeTab.value);
+  return projectList.value.filter((project) => project.gen == activeTab.value);
 });
 
 onMounted(async() => {

@@ -3,7 +3,7 @@
     <div class="container py-7 mx-auto  text-center">
       <!-- Community Section -->
       <div class="mb-2 flex justify-center items-center">
-        <a class="mx-3 text-3xl" href="https://github.com/Prometheus-ML" target="_blank">
+        <a class="mx-3 text-3xl" href="https://github.com/orgs/Prometheus-AI-Project/dashboard" target="_blank">
           <font-awesome-icon icon="fa-brands fa-github" />
         </a>
         <a class="mx-3 text-3xl" href="https://www.instagram.com/prometheus_ai_/" target="_blank">

@@ -70,7 +70,7 @@ const tabs = [
   { key: 'article', name: '외부기사'}
 ];
 
-const activeTab = ref(4);
+const activeTab = ref('news');
 
 const postList = ref([
 ])
@@ -116,8 +116,6 @@ const deletePost = async (link) => {
     console.error(error);
   }
 };
-
-const currentTab = ref('news');
 
 
 const filteredPosts = computed(() => {
