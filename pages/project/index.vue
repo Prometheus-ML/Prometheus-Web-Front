@@ -2,7 +2,7 @@
   <div class="custom mx-auto pt-40 pb-24">
     <div class="mb-14">
       <p class="font-bold text-4xl md:text-5xl mb-5">프로젝트</p>
-      <p class="font-medium text-gray-600 text-xl text-gray-600">멤버들의 활동을 확인해보세요</p>
+      <p class="font-medium text-xl text-rose-700">Projects</p>
     </div>
     <div class="flex justify-center items-center p-6 text-2xl">
       <div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
@@ -27,7 +27,7 @@
         :key="project.id" 
         @mouseenter="project.hover = true"
         @mouseleave="project.hover = false"
-        class="relative bg-rose-100 bg-white w-full h-48 hover:bg-opacity-80 "
+        class="relative bg-white w-full h-48 hover:bg-opacity-80 "
       >
         <font-awesome-icon v-if="user" @click="deleteProject(project)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
         <nuxt-link :to="'/project/edit/' + project.id">

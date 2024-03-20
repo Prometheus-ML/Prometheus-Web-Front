@@ -330,14 +330,6 @@ const intro = ref([
 	}
 ])
 
-function introCarouselPrev() {
-  introCarousel.value.prev()
-}
-
-function introCarouselNext() {
-  introCarousel.value.next()
-}
-
 const history = ref([
 	{
 		title: "0기",
