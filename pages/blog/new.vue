@@ -1,22 +1,22 @@
 <template>
-  <div class="container mx-auto pt-40 pb-24">
+  <div class="container text-white mx-auto pt-40 pb-24">
     <p class="font-bold text-5xl mb-14">게시글 등록</p>
     <!-- <Editor :post="post"/> -->
     <form @submit.prevent="submitPost">
-      <label>Title: <input v-model="formData.title" /></label>
-      <label>Category: <select v-model="formData.category">
+      <label>Title: <input class="bg-neutral-700" v-model="formData.title" /></label>
+      <label>Category: <select class="bg-neutral-700" v-model="formData.category">
         <option>news</option>
         <option>article</option>
         <option>blog</option>
       </select>
       </label>
-      <label>URL: <input v-model="formData.url" /></label>
+      <label>URL: <input class="bg-neutral-700" v-model="formData.url" /></label>
       <div class="relative row-span-2 pb-44 rounded basis-80 bg-contain bg-center bg-no-repeat border border-dashed border-4"
               :style="{ backgroundImage: 'url(' + useImage(formData?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }"
         >
         <div
             v-if="formData?.thumb"
-            class="absolute top-0 right-0 flex items-center justify-center w-6 h-6 bg-white rounded-full cursor-pointer text-indigo-600 hover:text-indigo-700"
+            class="absolute top-0 right-0 flex items-center justify-center w-6 h-6 rounded-full cursor-pointer text-indigo-600 hover:text-indigo-700"
             @click="addImageStack(formData?.thumb)"
         >
           <font-awesome-icon icon="fa-solid fa-xmark" />
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <button type="submit">Submit</button>
+      <button class="hover:opacity-70 rounded bg-rose-700" type="submit">Submit</button>
     </form>
 
   </div>

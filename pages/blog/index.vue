@@ -26,7 +26,12 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
 				<div v-for="post in filteredPosts" :key="post.id" class="relative w-full pb-[100%]">
-					<font-awesome-icon v-if="user" @click="deletePost(post)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
+					
+          <font-awesome-icon v-if="user" @click="deletePost(post)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
+          <nuxt-link :to="'/blog/edit/' + post.id">
+            <font-awesome-icon v-if="user" class="absolute bottom-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2" icon="fa-solid fa-pen"/>
+          </nuxt-link>
+
           <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
             :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
 					</a>

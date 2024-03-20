@@ -226,7 +226,7 @@ async function save() {
       body: formData.value
     })
 
-    let forwardUrl = post ? `/blog/view/${result.id}` : `/project/view/${result.id}`
+    let forwardUrl = post ? `/blog/` : `/project/`
     useRouter().push({ path: forwardUrl })
   } catch (error) {
   } 
@@ -242,7 +242,7 @@ async function edit() {
       body: formData.value
     })
 
-    let forwardUrl = post ? `/blog/view/${useRoute().params.id}` : `/project/view/${useRoute().params.id}`
+    let forwardUrl = post ? `/blog/` : `/project/`
     useRouter().push({ path: forwardUrl })
   } catch (error) {
   }

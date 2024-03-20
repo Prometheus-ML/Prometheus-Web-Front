@@ -30,6 +30,9 @@
         class="relative bg-rose-100 bg-white w-full h-48 hover:bg-opacity-80 "
       >
         <font-awesome-icon v-if="user" @click="deleteProject(project)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
+        <nuxt-link :to="'/project/edit/' + project.id">
+          <font-awesome-icon v-if="user" class="absolute bottom-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2" icon="fa-solid fa-pen"/>
+        </nuxt-link>
         <div v-if="project.hover" class="relative inset-0 p-1 h-full backdrop-blur-sm bg-black/30">
           <div class="flex flex-row mr-10 pt-2 pb-2 ml-2 mb-1">
             <p v-if="project.gen !== 3" class="font-bold text-sm rounded-lg px-2 pb-1 bg-rose-500 text-white mt-auto mr-2">{{ project?.gen }}기</p>
