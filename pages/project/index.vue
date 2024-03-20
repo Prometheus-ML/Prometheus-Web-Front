@@ -49,7 +49,7 @@
               <font-awesome-icon icon="fa-solid fa-house" />
             </a>
           </div>
-          <div class="absolute bottom-2 flex flex-col">
+          <div v-if="project.member" class="absolute bottom-2 flex flex-col">
             <div class="mb-2 flex flex-wrap items-center font-medium member-font text-gray-500">
               <div v-for="(member, index) in project?.member.split(' ')" class="mr-1" :key="index">
                 <span v-if="index === 0" class="ml-1 px-1 pb-0.5 font-semibold rounded-lg bg-rose-600 text-white">{{ member }}</span>
