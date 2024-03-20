@@ -36,10 +36,10 @@
         <div v-if="project.hover" class="relative inset-0 p-1 h-full backdrop-blur-sm bg-black/30">
           <div class="flex flex-row mr-10 pt-2 pb-2 ml-2 mb-1">
             <p v-if="project.gen !== 3" class="font-bold text-sm rounded-lg px-2 pb-1 bg-rose-500 text-white mt-auto mr-2">{{ project?.gen }}기</p>
-            <h2 class="font-bold text-xl">{{ project?.title }}</h2>
+            <h2 class="font-bold text-xl break-all">{{ project?.title }}</h2>
           </div>
-          <div class="flex flex-wrap mr-8 px-1 flex items-center text-xs font-light text-white">
-            <p class="ml-1 mr-2 mb-2 text-sm font-neutral-100 font-semibold break-all">{{ project?.description }}</p>
+          <p class="ml-2 mr-8 mb-2 text-sm font-neutral-100 font-semibold break-all">{{ project?.description }}</p>
+          <div class="flex flex-wrap mr-10 px-1 flex items-center text-xs font-light text-white">
             <span v-for="(tag, index) in project?.tag" class="ml-1 mr-2" :key="index">
               #{{ tag.name }}
             </span>
@@ -53,11 +53,10 @@
             </a>
           </div>
           <div v-if="project.member" class="absolute bottom-2 flex flex-col">
-            <div class="mb-2 flex flex-wrap items-center font-medium member-font text-gray-500">
-              <div v-for="(member, index) in project?.member.split(' ')" class="mr-1" :key="index">
+            <div class="flex flex-wrap items-center font-medium member-font text-gray-500">
+              <div v-for="(member, index) in project?.member.split(' ')" class="mr-1 mb-2" :key="index">
                 <span v-if="index === 0" class="ml-1 px-1 pb-0.5 font-semibold rounded-lg bg-rose-600 text-white">{{ member }}</span>
-                <span v-else class="px-1 pb-0.5 rounded-lg  bg-neutral-500 text-white" >{{ member }}</span>
-                <span v-if="index !== project?.member.split(' ').length - 1"> </span>
+                <span v-else class="px-1 pb-0.5 rounded-lg bg-neutral-500 text-white" >{{ member }}</span>
               </div>
             </div>
           </div>
@@ -154,7 +153,7 @@ onMounted(async() => {
 
 <style scoped>
 .custom {
-  max-width: 960px;
+  max-width: 1080px;
 }
 
 .member-font {
