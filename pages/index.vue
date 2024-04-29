@@ -155,6 +155,27 @@
       </div>
     </div>
 
+    <div>
+			<div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
+				<div class="relative bg-white p-4 w-[70%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
+					<button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+					<carousel ref="popup" class="my-3" :items-to-show="1" :autoplay="3000">
+						<slide v-for="(image, index) in popupImages" :key="index">
+							<img :src="image" :alt="image.alt" class="w-full h-auto" />
+						</slide>
+						<template #addons>
+							<div class="flex justify-center items-center gap-3">
+								<pagination />
+							</div>
+						</template>
+					</carousel>
+				</div>
+			</div>
+		</div>
 
   </div>
 	<!-- <div v-if=recruit class="animate-bounce fixed bottom-2 right-2 p-4">
@@ -164,6 +185,7 @@
       <font-awesome-icon class="" icon="fa-solid fa-angle-right" />
     </router-link>
   </div> -->
+
 </template>
 
 
@@ -180,7 +202,14 @@ import thumb_3 from '@/assets/images/thumb/3.png';
 import thumb_4 from '@/assets/images/thumb/4.png';
 import thumb_5 from '@/assets/images/thumb/5.png';
 import thumb_6 from '@/assets/images/thumb/6.png';
-// import c_1 from '@/assets/images/codeit/12.png';
+import c_1 from '@/assets/images/codeit/1.png';
+import c_2 from '@/assets/images/codeit/2.png';
+import c_3 from '@/assets/images/codeit/3.png';
+import c_4 from '@/assets/images/codeit/4.png';
+import c_5 from '@/assets/images/codeit/5.png';
+import c_6 from '@/assets/images/codeit/6.png';
+import c_7 from '@/assets/images/codeit/7.png';
+import c_8 from '@/assets/images/codeit/8.png';
 	
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
@@ -372,13 +401,13 @@ function projectCarouselNext() {
   projectCarousel.value.next()
 }
 
-// const recruit = ref(true);
-// const popup = ref();
-// const popupVisible = ref(true);
-// const popupImages = ref([c_1])
-// const closePopup = () => {
-// 	popupVisible.value = false;
-// };
+const recruit = ref(true);
+const popup = ref();
+const popupVisible = ref(true);
+const popupImages = ref([c_1, c_2, c_3, c_4, c_5, c_6, c_7, c_8])
+const closePopup = () => {
+	popupVisible.value = false;
+};
 
 onMounted(async ()=>{
   await getRecentPosts();
