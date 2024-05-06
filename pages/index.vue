@@ -132,7 +132,7 @@
           <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
         </div>
       </div>
-      <div>
+      <!-- <div>
         <div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
           <div class="relative bg-white p-4 w-[70%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
             <button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
@@ -152,7 +152,7 @@
             </carousel>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- <div>
