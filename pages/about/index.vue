@@ -70,7 +70,7 @@
 						</div>
 						<div v-if="index % 2 == 0" class="absolute left-1/2 transform -translate-x-1/2 p-3">
 							<div class="relative w-6 h-6 rounded-full bg-rose-800">
-								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-white" :class="{ '!bg-yellow-200' : index == 16}"></div>
+								<div class="absolute left-1/2 top-1/2 -translate-y-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-white" :class="{ '!bg-yellow-200' : index == 20}"></div>
 							</div>
 						</div>
 					</div>
@@ -378,9 +378,15 @@ const history = ref([
 	},
 	{
 		title: "5기",
-		desc: ["(예정)"],
+		desc: [""],
 		date: "2024. 3. 2."
 	},
+	{
+		title: "교육봉사",
+		desc: ["(예정)"],
+		date: "2024. 7. 6. ~"
+	},
+
 ])
 
 const fillHistory = () => {
