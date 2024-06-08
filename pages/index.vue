@@ -135,7 +135,7 @@
       
       <div>
         <div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
-          <div class="relative bg-white p-4 w-[70%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
+          <div class="relative bg-white p-4 left-[35%] top-[20%] w-[46%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
             <button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -151,7 +151,9 @@
                 </div>
               </template>
             </carousel>
+            <button class="right-2 bottom-3 text-xs absolute rounded-lg text-black" @click="disablePopupForOneDay">하루동안 보지 않기</button>
           </div>
+          
         </div>
       </div>
 
@@ -383,7 +385,6 @@ function projectCarouselNext() {
   projectCarousel.value.next()
 }
 
-const recruit = ref(true);
 const popup = ref();
 const popupVisible = ref(true);
 const popupImages = ref([c_1, c_2, c_3, c_4, c_5, c_6, c_7, c_8, c_9, c_10])
@@ -391,9 +392,30 @@ const closePopup = () => {
 	popupVisible.value = false;
 };
 
+
+const checkPopupStatus = async () => {
+  const popupStatus = localStorage.getItem('popupStatus');
+  if (popupStatus) {
+    const { expiry } = JSON.parse(popupStatus);
+    if (new Date().getTime() < expiry) {
+      console.log(expiry);
+      popupVisible.value = false;
+    }
+  }
+};
+
+const disablePopupForOneDay = () => {
+  const oneDay = 24 * 60 * 60 * 1000; 
+  const oneSecond = 1;
+  const expiry = new Date().getTime() + oneDay;
+  localStorage.setItem('popupStatus', JSON.stringify({ expiry }));
+  popupVisible.value = false;
+};
+
 onMounted(async ()=>{
   await getRecentPosts();
   updateItemsToShow();
+  await checkPopupStatus();
 })
 
 </script>
