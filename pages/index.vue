@@ -132,7 +132,7 @@
           <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
         </div>
       </div>
-      <div class="absolute bottom-4 z-50 right-4 p-2 rounded-lg animate-bounce bg-rose-500 font-semibold">
+      <div class="fixed bottom-4 z-50 right-4 p-2 rounded-lg animate-bounce bg-rose-500 font-semibold">
         <nuxt-link to="/recruit" class="">6기 지원하기</nuxt-link>
       </div>
       <!-- <div>
