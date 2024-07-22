@@ -4,11 +4,9 @@
       <img class="absolute w-full h-full bottom-16" src="@/assets/images/recruit.png" />
       <div class="absolute top-1/4 mb-14 w-full justify-center text-center">
         <p class="font-black text-4xl md:text-6xl mb-5">PROMETHEUS</p>
-        <p class="my-20 font-semibold text-gray-600 text-xl md:text-3xl text-neutral-200">프로메테우스 5기 모집</p>
+        <p class="my-20 font-semibold text-gray-600 text-xl md:text-3xl text-neutral-200">프로메테우스 6기 모집</p>
 
-        <p class="font-light text-base mb-2">모집이 종료되었습니다.</p>
-        <p class="font-semibold">경쟁률 10:1</p>
-        <!-- <a href="https://forms.gle/ui1BWJ4Niu1fJ3XQ7" class="shadow-lg shadow-white/30 rounded-full px-8 py-2 text-lg md:text-xl font-semibold bg-white hover:opacity-80 text-black">지원하기</a>  -->
+        <a href="https://forms.gle/896Y2jUYHRoQd4ZE7" class="shadow-lg shadow-white/30 rounded-full px-8 py-2 text-lg md:text-xl font-semibold bg-white hover:opacity-80 text-black">지원하기</a> 
 
       </div>
     </div>
@@ -149,7 +147,7 @@ const activities = [
   },
   {
     title: "외부 해커톤",
-    description: "프로메테우스는 매년 겨울, 외부 참가자들에게 기회의 장을 제공하기 위해 외부 해커톤을 개최합니다."
+    description: "프로메테우스는 비정기적으로 외부 참가자들에게 기회의 장을 제공하기 위해 외부 해커톤을 개최합니다."
   }
 ];	
 	
@@ -182,11 +180,11 @@ const openFaq = (index, value) => {
 };
 
 const schedule = [
-  { title: "모집 기간", date: "2.11(일)-2.20(화)" },
-  { title: "면접 대상자 공지", date: "2.23(금)" },
-  { title: "면접", date: "2.26(월)-2.28(수)" },
-  { title: "최종 합격자 공지", date: "3.1(금)" },
-  { title: "5기 OT", date: "3.2(토)" }
+  { title: "모집 기간", date: "7.22(월)-7.31(수)" },
+  { title: "면접 대상자 공지", date: "8.2(화)" },
+  { title: "면접", date: "8.4(일)-8.6(화)" },
+  { title: "최종 합격자 공지", date: "8.9(금)" },
+  { title: "5기 OT", date: "8.31(토)" }
 ];
 </script>
 
