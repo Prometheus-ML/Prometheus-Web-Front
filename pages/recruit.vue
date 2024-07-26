@@ -5,7 +5,7 @@
       <div class="absolute top-1/4 mb-14 w-full justify-center text-center">
         <p class="font-black text-4xl md:text-6xl mb-5">PROMETHEUS</p>
         <p class="my-20 font-semibold text-gray-600 text-xl md:text-3xl text-neutral-200">프로메테우스 6기 모집</p>
-
+        <p class="pb-20">5기 경쟁률 약 10:1</p>
         <a href="https://forms.gle/896Y2jUYHRoQd4ZE7" class="shadow-lg shadow-white/30 rounded-full px-8 py-2 text-lg md:text-xl font-semibold bg-white hover:opacity-80 text-black">지원하기</a> 
 
       </div>

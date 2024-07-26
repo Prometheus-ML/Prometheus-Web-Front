@@ -132,9 +132,7 @@
           <img class="w-32 sm:w-48 h-16 sm:h-32 object-contain" src="@/assets/images/sponsor/ncsoft.png" />
         </div>
       </div>
-      <div class="fixed bottom-4 z-50 right-4 p-2 rounded-lg animate-bounce bg-rose-500 font-semibold">
-        <nuxt-link to="/recruit" class="">6기 지원하기</nuxt-link>
-      </div>
+      
       <!-- <div>
         <div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
           <div class="relative bg-white p-4 left-[35%] top-[20%] w-[46%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
