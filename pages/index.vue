@@ -133,7 +133,7 @@
         </div>
       </div>
       
-      <!-- <div>
+      <div>
         <div v-if="popupVisible" class="fixed inset-0 flex items-center justify-center z-50">
           <div class="relative bg-white p-4 left-[35%] top-[20%] w-[46%] md:w-[25%] mx-auto rounded-lg shadow-lg mt-24">
             <button @click="closePopup" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 cursor-pointer">
@@ -155,7 +155,7 @@
           </div>
           
         </div>
-      </div> -->
+      </div>
 
     </div>
 
@@ -191,9 +191,7 @@ import c_4 from '@/assets/images/codeit/4.png';
 import c_5 from '@/assets/images/codeit/5.png';
 import c_6 from '@/assets/images/codeit/6.png';
 import c_7 from '@/assets/images/codeit/7.png';
-import c_8 from '@/assets/images/codeit/8.png';
-import c_9 from '@/assets/images/codeit/9.png';
-import c_10 from '@/assets/images/codeit/10.png';
+
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
@@ -387,7 +385,7 @@ function projectCarouselNext() {
 
 const popup = ref();
 const popupVisible = ref(true);
-const popupImages = ref([c_1, c_2, c_3, c_4, c_5, c_6, c_7, c_8, c_9, c_10])
+const popupImages = ref([c_1, c_2, c_3, c_4, c_5, c_6, c_7])
 const closePopup = () => {
 	popupVisible.value = false;
 };

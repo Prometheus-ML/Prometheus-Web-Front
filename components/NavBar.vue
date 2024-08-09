@@ -41,9 +41,7 @@
           </li>
         </ul>
       </div>
-      <div v-if="$route.path !== '/recruit'" class="fixed z-50 -bottom-2 right-4 p-2 pt-1 rounded-lg animate-bounce bg-rose-500 font-semibold">
-        <nuxt-link to="/recruit" class="">6기 지원하기</nuxt-link>
-      </div>
+
       <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
         <button @click="profileMenuOpen = !profileMenuOpen">
           {{ user.username }}
