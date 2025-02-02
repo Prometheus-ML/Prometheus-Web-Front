@@ -1,5 +1,4 @@
 export default defineNuxtConfig({
-
   app: {
     head: {
       charset: 'utf-8',
@@ -24,9 +23,13 @@ export default defineNuxtConfig({
       ]
     },
   },
+
   css: [
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    '@/assets/css/main.css',
+    'vue-slick-carousel/dist/vue-slick-carousel.css'
   ],
+
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
@@ -36,8 +39,11 @@ export default defineNuxtConfig({
       '@fortawesome/vue-fontawesome'
     ]
   },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
   ],
+
+  compatibilityDate: '2025-01-16',
 });

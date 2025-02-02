@@ -1,14 +1,12 @@
-const ID_TOKEN_KEY = "accessToken"
-
-export const getToken = () => {
-  return window.localStorage.getItem(ID_TOKEN_KEY)
+export const getToken = (ID_TOKEN_KEY) => {
+  return window.localStorage.getItem(ID_TOKEN_KEY) || null
 }
 
-export const saveToken = token => {
+export const saveToken = (ID_TOKEN_KEY, token) => {
   window.localStorage.setItem(ID_TOKEN_KEY, token)
 }
 
-export const destroyToken = () => {
+export const destroyToken = (ID_TOKEN_KEY) => {
   window.localStorage.removeItem(ID_TOKEN_KEY)
 }
 

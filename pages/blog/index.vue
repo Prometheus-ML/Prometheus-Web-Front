@@ -1,136 +1,265 @@
 <template>
-  <div class="container mx-auto pt-40  pb-32">
-    <div class="mb-14">
-      <p class="font-bold text-4xl md:text-5xl mb-5">블로그</p>
-      <p class="font-medium text-xl text-rose-700">Posts</p>
-    </div>
-		
-		<div class="flex justify-center items-center p-6 text-2xl">
-      <div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
-        <div
-          v-for="(tab, index) in tabs"
-          :key="index"
-          :class="{
-            'font-bold': activeTab === tab.key,
-            'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
-            'border-b-2 border-black': activeTab === tab.key,
-          }"
-          @click="setActiveTab(tab.key)"
-          class="mr-5 cursor-pointer flex items-center"
+  <div class="relative pb-32">
+    <img
+      class="absolute inset-0 w-full h-full object-full "
+      src="@/assets/design/main6.png"
+      alt="Background"
+
+    />
+    <div class="w-[70vw] min-h-screen mx-auto pt-40">
+      <div class="mb-4 flex flex-col text-center">
+        <p class="font-medium prometheus text-xl lg:text-2xl text-rose-700">Posts</p>
+        <p class="font-bold text-3xl lg:text-4xl mb-12">블로그</p>
+        <p class="font-medium text-sm lg:text-lg">Today's AI Main News</p>
+      </div>
+      
+      <div class="flex flex-row items-center justify-center mb-[10vh]">
+        <font-awesome-icon
+          @click="prev"
+          class="p-2 md:p-10 z-50 text-white cursor-pointer text-lg md:text-2xl duration-100 hover:opacity-80 hover:scale-110"
+          :icon="['fas', 'angle-left']"
+        />
+        <Carousel
+          class="w-[70vw] lg:w-[30vw] shadow-lg shadow-white/20 rounded-xl" ref="carouselRef" v-model="currentSlide"
+          :autoplay="2000" 
+          :items-to-show="1"
+          :wrap-around="true" 
         >
-          <span class="mx-auto">{{ tab.name }}</span>
+          
+          <Slide
+            v-for="(link, index) in postList"
+            :key="index"
+            class="flex h-[30vh] md:h-[40vh] justify-center overflow-hidden items-center relative" 
+          >
+            <div class="w-full h-full relative">
+              <img
+                :src="link.link_thumb ? '/api/proxy/image?id=' + link.link_thumb : mainImage"
+                :alt="mainImage"
+                class="w-full h-full object-cover rounded-xl"
+                @error="handleImageError($event)"
+              />
+            </div>
+
+            <div class="absolute top-[10%] text-left text-white left-[5%]">
+              <h3 class="text-2xl font-bold">{{ link?.title }}</h3>
+              <p class="text-justify col-span-3 mt-1 text-lg truncate">{{ link?.description }}</p>
+              <div class="flex mt-2">
+                <span
+                  v-for="(tag, tagIndex) in link.tags"
+                  :key="tagIndex"
+                  class="bg-[#AE2117] bg-red-600 bg-opacity-50 transition-opacity detail font-light text-xs rounded-full px-4 py-[0.5px] mr-1"
+                >
+                  #{{ tag }}
+                </span>
+              </div>
+            </div>
+          </Slide>
+        </Carousel>
+        <font-awesome-icon
+          @click="next"
+          class="p-2 md:p-10 z-50 text-white cursor-pointer text-lg md:text-2xl duration-100 hover:opacity-80 hover:scale-110"
+          :icon="['fas', 'angle-right']"
+        />
+        <!-- <Pagination>
+          <button
+            v-for="(page, index) in 10"
+            :key="index"
+            :class="[
+              'pagination-bullet',
+              { active: index === currentSlide }
+            ]"
+            @click="currentSlide = index"
+          ></button>
+        </Pagination> -->
+      </div>
+
+      <div class="flex flex-col justify-center items-center p-6 z-10">
+        <div class="flex flex-wrap md:gap-12 text-base md:text-xl justify-center">
+          <div
+            v-for="(tab, index) in tabs"
+            :key="index"
+            :class="{
+              'font-semibold': activeTab === tab.key,
+              'text-neutral-400 font-light ': activeTab !== tab.key,
+              'border-b-2 border-black': activeTab === tab.key,
+            }"
+            @click="setActiveTab(tab.key)"
+            class="mr-5 cursor-pointer flex items-center "
+          >
+            <span class="text-xs md:text-base lg:text-xl hover:-translate-y-0.5 hover:scale-105 duration-200 mx-auto z-10">{{ tab.name }}</span>
+          </div>
         </div>
       </div>
-    </div>
 
 
-    <div class="grid grid-cols-2 md:grid-cols-4 items-start gap-6 mb-5">
-				<div v-for="post in filteredPosts" :key="post.id" class="relative w-full pb-[100%]">
-					
-          <font-awesome-icon v-if="user" @click="deletePost(post)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
-          <nuxt-link :to="'/blog/edit/' + post.id">
-            <font-awesome-icon v-if="user" class="absolute bottom-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2" icon="fa-solid fa-pen"/>
-          </nuxt-link>
+      <div class="min-h-[50vh] rounded-xl bg-white bg-opacity-20 backdrop-blur-lg inner-shadow">
+        <div class="p-[5vw] auto-rows-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[20vh] gap-x-2 gap-y-6 mb-5">
+          <div
+            v-for="post in postList"
+            :key="post.id"
+            class="overflow-hidden rounded-lg hover:drop-shadow-xl hover:opacity-50"
+          >
+            <a :href="post.linkURL" class="flex flex-col h-full flex flex-col">
+              <!-- Thumbnail -->
+              <img
+                :src="post.link_thumb ? '/api/proxy/image?id=' + post.link_thumb : mainImage"
+                :alt="mainImage"
+                class="w-full aspect-[3/2] object-cover rounded-t-lg"
+                @error="handleImageError($event)"
+              />
+              
+              <!-- Post Content -->
+              <div class="flex-1 flex flex-col justify-between pt-2 px-4 bg-black/30 h-1/3">
+                <div class="text-left">
+                  <p class="font-semibold truncate text-sm md:text-base lg:text-lg mb-3 line-clamp-2">
+                      {{ post.title }}
+                    </p>
+                  
+                  <div class="flex flex-row pt-2">
+                    <p class="font-light flex-grow text-xs text-neutral-500">
+                      {{ post.meta.date }}
+                    </p>
+                    <p class="font-light text-sm mb-2  text-neutral-500">
+                      {{ post.meta.editor }}
+                    </p>
+                  </div>
+                  
+                </div>
+                
+                <!-- Tags -->
+                <!-- <div v-if="post.tags && post.tags.length" class="mt-3 flex flex-wrap gap-2">
+                  <span
+                    v-for="tag in post.tags"
+                    :key="tag"
+                    class="px-2 py-1 bg-rose-100 text-rose-700 rounded-full text-xs"
+                  >
+                    #{{ tag }}
+                  </span>
+                </div> -->
+              </div>
+            </a>
+          </div>
+        </div>
+        
+      </div>
 
-          <a :href="post.url" class="absolute drop-shadow-md rounded-lg border w-[100%] h-[100%] hover:opacity-70 bg-cover bg-center bg-no-repeat mb-2 sm:mb-5"
-            :style="{ backgroundImage: 'url(' + useImage(post?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }">
-					</a>
-			</div>
-			
-		</div>
+    
 
-<!-- <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 mb-5">
-      <div v-for="post in postList" :key="post.id" class="overflow-hidden flex gap-12 flex-wrap items-center rounded-lg border hover:drop-shadow-xl hover:bg-gray-50">
-        <nuxt-link :to="'/blog/view/' + post.id">
-					<div>
-						<div class="rounded-lg bg-cover bg-center bg-no-repeat w-64 pt-[55%]" :style="{ backgroundImage: 'url(' + useImage(post?.thumb) + ')' }"></div>
-					</div>
-					<div class="flex-1 flex flex-col justify-between py-3 bg-gray-50">
-						<div class="text-left">
-							<p class="font-light text-sm mb-3">{{ post?.writer?.name }}</p>
-							<p class="max-h-16 font-bold text-3xl mb-3">{{ post?.title }}</p>
-							<p class="font-light text-sm">{{ post?.created_date.substring(0, 10) }}</p>
-						</div>
-					</div>
-				</nuxt-link>
+
+      <div class="relative flex justify-end">
+        
+        <nuxt-link :to="'/blog/new'" v-if="user" class="bg-white hover:-translate-y-0.5 hover:scale-105 duration-200 hover:opacity-80 text-black py-1 px-3 border rounded-lg inline-block">
+            글쓰기
+        </nuxt-link>
+        
       </div>
     </div>
- -->
-    <div class="relative flex justify-end">
-			
-      <nuxt-link :to="'/blog/new'" v-if="user" class="bg-white py-2 px-4 border rounded inline-block">
-          글쓰기
-      </nuxt-link>
-			
-    </div>
   </div>
+  
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
-const type = "links"
+import mainImage from '@/assets/design/logo2.png';
+import { Carousel, Slide,Pagination,Navigation } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css'
+
+
+const carouselRef = ref();
+const currentSlide = ref(0);
+
+const next = () => {
+  if (carouselRef.value) {
+    carouselRef.value.next();
+  }
+};
+
+const prev = () => {
+  if (carouselRef.value) {
+    carouselRef.value.prev();
+  }
+};
 
 const tabs = [
-  { key: 'news', name: 'AI NEWS'},
-  { key: 'article', name: '외부기사'}
+  { key: '00', name: 'INSTAGRAM'},
+  { key: '01', name: 'AI NEWS'},
+  { key: '02', name: 'TISTORY'},
+  { key: '05', name: 'EXTERNAL'},
 ];
 
-const activeTab = ref('news');
+// const recentLinks = ref([
+//   {
+//     id: 1,
+//     title: 'Awesome Vue Resources',
+//     description: 'A collection of awesome Vue.js resources.',
+    
+//     linkURL: 'https://awesome-vue.com',
+//     tags: ['Vue', 'Resources']
+//   },
+//   {
+//     id: 2,
+//     title: 'TailwindCSS Docs',
+//     description: 'Official documentation for TailwindCSS.',
+//     linkURL: 'https://tailwindcss.com/docs',
+    
+//     tags: ['CSS', 'TailwindCSS']
+//   },
+//   {
+//     id: 3,
+//     title: 'Awesome Vue Resources',
+//     description: 'A collection of awesome Vue.js resources.',
+    
+//     linkURL: 'https://awesome-vue.com',
+//     tags: ['Vue', 'Resources']
+//   },
+//   {
+//     id: 4,
+//     title: 'TailwindCSS Docs',
+//     description: 'Official documentation for TailwindCSS.',
+//     linkURL: 'https://tailwindcss.com/docs',
+    
+//     tags: ['CSS', 'TailwindCSS']
+//   },
+// ]);
+
+
+
+const activeTab = ref('05');
 
 const postList = ref([
 ])
 
 const getPosts = async () => {
+  if (!activeTab.value) return; // activeTab이 null이면 요청하지 않음
+
   try {
-    const response = await $api(`${import.meta.env.VITE_API_URL}/link/get_links`, {
+    const response = await $api(`/link/get_links/${activeTab.value}`, {
       method: 'GET',
     });
 
-    // 날짜별로 정렬
-    response.sort((a, b) => {
-      const dateA = new Date(a.created_date);
-      const dateB = new Date(b.created_date);
-      return dateB - dateA; // 내림차순 정렬
-    });
-
     postList.value = response;
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-async function removeImage(link) {
-	try {
-		const response = await $api(`${import.meta.env.VITE_API_URL}/image/delete/${type}/${link.thumb}`, {
-      method: 'DELETE',
-    });
-		await getPosts();
-	}	catch (error) {
-		console.error(error)
-	}
-}
-
-const deletePost = async (link) => {
-  try {
-		await removeImage(link);
-    const response_2 = await $api(`${import.meta.env.VITE_API_URL}/link/delete/${link.id}`, {
-      method: 'DELETE',
-    });
-    await getPosts();
   } catch (error) {
     console.error(error);
   }
 };
 
+const handleImageError = (event) => {
+  event.target.src = mainImage; // 기본 이미지로 대체
+};
 
-const filteredPosts = computed(() => {
-  // Filter posts based on the current tab
-  return postList.value.filter(post => post.category == activeTab.value);
-});
 
 const setActiveTab = (tab) => {
 	activeTab.value = activeTab.value === tab? null : tab;
 };
+
+watch(activeTab, async (newTab) => {
+  // activeTab 값이 변경되면 호출
+  if (newTab) {
+    await getPosts();
+  } else {
+    postList.value = []; // activeTab이 비활성화되면 빈 배열로 초기화
+  }
+});
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
@@ -140,3 +269,18 @@ onMounted(async() => {
 })
 </script>
 
+<style scoped>
+/* Custom Carousel Slide Item */
+.carousel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+</style>

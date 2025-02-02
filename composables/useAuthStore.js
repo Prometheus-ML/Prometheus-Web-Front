@@ -1,41 +1,68 @@
-import { defineStore } from "pinia";
-import axios from "axios";
+import { defineStore } from 'pinia';
+import { ref, onMounted } from 'vue';
+import { useCookie } from 'nuxt/app'; // Nuxt의 쿠키 관리 기능
 
-export default defineStore("auth", () => {
-  let user = ref(null);
-  let popup = ref(true);
+export const useAuthStore = defineStore('auth', () => {
+  // 상태 변수
+  const user = ref(null);
+  
+  const access_token = useCookie('access_token'); // access_token 쿠키
+  const refresh_token = useCookie('refresh_token'); // refresh_token 쿠키
 
-  async function logout() {
+  // 사용자 검증
+  const verifyUser = async () => {
     try {
-      const URL = `${import.meta.env.VITE_API_URL}/auth/logout`;
-      const response = await $fetch(URL, {
-        method: "POST",
-        credentials: "include",
+      // 액세스 토큰 검증
+      const response = await $fetch(`${import.meta.env.VITE_API_URL}/auth/verify-access-token`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          Authorization: `Bearer ${access_token.value}`
+        }
       });
-      if (response.message === "Success") {
-        navigateTo("/login");
 
-        user.value = null;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function verify() {
-    try {
-      const URL = `${import.meta.env.VITE_API_URL}/auth/verify`;
-      const response = await $fetch(URL, {
-        method: "POST",
-        credentials: "include",
-      });
+      console.log('Access token verified:', response);
       user.value = response;
-      console.log(user);
-    } catch (error) {
-      if (error.status == 401) console.log(error.status);
-    }
-    return user;
-  }
 
-  return { user, popup, verify, logout };
+    } catch (error) {
+      console.error('Access token verification failed:', error);
+
+      // 리프레시 토큰으로 재발급 시도
+      try {
+        const refreshResponse = await $fetch(`${import.meta.env.VITE_API_URL}/auth/refresh-access-token`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${refresh_token.value}`
+          }
+        });
+
+        // 새 토큰 저장
+        access_token.value = refreshResponse.access_token; // 상태 업데이트
+        refresh_token.value = refreshResponse.refresh_token;
+        user.value = refreshResponse;
+      } catch (refreshError) {
+        console.error('Token refresh failed:', refreshError);
+        logout(); // 실패 시 로그아웃
+      }
+    }
+  };
+
+  // 로그아웃 로직 추후 추가하기.
+  const logout = () => {
+    console.log(access_token.value, refresh_token.value);
+    access_token.value = null;
+    refresh_token.value = null;
+
+    user.value = null;
+    navigateTo('/login'); 
+  };
+
+  return {
+    access_token,
+    refresh_token,
+    user,
+    verifyUser,
+    logout
+  };
 });

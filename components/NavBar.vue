@@ -1,17 +1,16 @@
 <template>
-  <nav
-    class="px-2 sm:px-4 py-2.5 bg-transparent w-full fixed z-50 ease-out transition-all drop-shadow-xl"
-    :class="{ 'shadow-2xl shadow-white/30 !bg-black' : (background || !fold)}"
+  <nav v-if="route !== '/login' && route !== '/register'"
+    class="px-2 sm:px-4 py-3 bg-opacity-70 w-full fixed z-50 ease-out transition-all drop-shadow-xl"
+    :class="{ 'shadow-2xl shadow-white/30 bg-black' : (background || !fold)}"
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-      <a href="/" class="flex font-sans items-center font-bold text-xl">
-        <span class="text-rose-700">P</span><span :class="{'text-white': (!background && fold) && darkNav !== 'false' || darkNav === 'all'}">ROMETHEUS</span>
+      <a href="/" class="flex items-center font-bold text-xl">
+        <span class="prometheus text-rose-700">P</span><span class="prometheus">ROMETHEUS</span>
       </a>
       <button
         @click="fold = !fold"
         type="button"
-        :class="{ 'text-white' :  (!background && fold) && darkNav !== 'false' || darkNav === 'all' }"
-        class="inline-flex items-center p-2 ml-3 text-base rounded-lg md:hidden"
+        class="inline-flex items-center p-2 ml-auto text-base rounded-lg md:hidden"
       >
         <svg
           class="w-6 h-6"
@@ -29,55 +28,72 @@
       </button>
       <div class="w-full md:block md:w-auto" :class="{ hidden: fold }">
         <ul
-          class="flex flex-col md:p-2 mt-2 md:flex-row md:space-x-8 md:mt-0 md:text-base font-medium md:border-0"
+          class="flex flex-col mb-2 md:mb-0 md:p-2 mt-2 md:flex-row md:space-x-6 md:mt-0 md:text-base font-medium md:border-0"
         >
           <li
             v-for="nav in navList"
             :key="nav.path"
           >
-            <nuxt-link :to="nav.path" class="block py-2 pr-4 pl-4 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
+            <nuxt-link @click="fold=true" :to="nav.path" class="prometheus block text-xl md:text-sm lg:text-xl py-2 pr-6 pl-4 hover:opacity-80 md:p-0 hover:-translate-y-0.5 hover:scale-105 duration-200">{{
               nav.name
             }}</nuxt-link>
           </li>
         </ul>
       </div>
-
-      <!-- <div v-if="user" class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-        <button @click="profileMenuOpen = !profileMenuOpen">
-          {{ user.username }}
+      <div v-if="user">
+        <!-- fold 상태에 따른 LOGOUT 버튼 -->
+        <button 
+          v-if="route == '/admin' || route == '/profile'" 
+          @click="authStore.logout(); fold = true;"
+          
+          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#B91C1C] md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
+          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus"> 
+          LOGOUT
         </button>
-        <div
-          id="profileMenu"
-          v-show="profileMenuOpen"
-          @mouseenter="profileMenuOpen = true"
-          @mouseleave="profileMenuOpen = false"
-          class="absolute border right-0 mt-5 w-48 font-normal rounded-lg z-100 bg-white"
-        >
-          <div class="py-2">
-            <nuxt-link to="/profile" class="block px-3 py-2">프로필 관리</nuxt-link>
-          </div>
-          <div class="py-2">
-            <nuxt-link to="/admin" class="block px-3 py-2">관리자 페이지</nuxt-link>
-          </div>
-          <hr>
-          <div class="py-2">
-            <button class="block px-3 py-2" @click="authStore.logout">로그아웃</button>
-          </div>
-        </div>
+
+        <!-- fold 상태에 따른 ADMIN 버튼 -->
+        <button 
+          v-else-if="user.grant === 'admin'" 
+          @click="navigateTo('/admin');fold=true"
+          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#ffffff] text-black md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#ffffff] text-black rounded'"
+          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
+          ADMIN
+        </button>
+
+        <!-- fold 상태에 따른 PROFILE 버튼 -->
+        <button 
+          v-else 
+
+          @click="navigateTo('/profile'); fold=true"
+          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#ffffff] text-black md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
+          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
+          PROFILE
+        </button>
       </div>
-      <div v-else class="block py-2 pr-4 pl-4 md:p-0 relative hover:-translate-y-0.5 hover:scale-105 duration-200">
-        <nuxt-link to="/signin">로그인</nuxt-link>
-      </div> -->
+
+      <!-- 로그인 버튼 (user가 없는 경우) -->
+      <div v-else :class="user ? 'hidden md:block' : 'block'">
+        <button 
+
+          @click="navigateTo('/login'); fold=true"
+          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-3 pl-3 rounded-3xl bg-[#B91C1C] md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
+          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
+          LOGIN
+        </button>
+      </div>
     </div>
   </nav>
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
+import { onMounted, ref, watchEffect } from 'vue';
+import { useAuthStore } from '@/composables/useAuthStore';
 
 const authStore = useAuthStore();
-const { user } = storeToRefs(authStore)
-	
+const { user } = storeToRefs(authStore);
+
+
 const profileMenuOpen = ref(false)
 const navList = [
   {
@@ -89,34 +105,31 @@ const navList = [
     name: "PROJECT",
   },
   {
+    path: "/members",
+    name: "MEMBERS",
+  },
+  {
     path: "/blog",
-    name: "BLOG",
-  },
-  {
-    path: "/hackathon",
-    name: "HACKATHON"
-  },
-  {
-    path: "/recruit",
-    name: "RECRUIT"
+    name: "BLOG"
   },
 ]
 let background = ref(false)
 let fold = ref(true)
 
-const darkNav = ref(false);
+
 const handleScroll = () => {
 	scrollPosition.value = window.scrollY * 0.001;
 }
 
 const scrollPosition = ref(0);
+const showNav = ref(true);
+const route = ref(null);
+
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  watch(() => {
-    const currentNav = navList.find(nav => nav.path == useRoute().path);
-    if(currentNav) darkNav.value = currentNav.dark;
-    else if (useRoute().path == '/') darkNav.value = 'true'
+  watchEffect(() => {
+    route.value = useRoute().path;
   });
 });
 
@@ -141,11 +154,21 @@ onBeforeMount(async () => {
   })
 })
 
+
+
 </script>
 
 <style>
 .router-link-active {
   color: #b91c1c;
   font-weight: 800;
+}
+
+.prometheus {
+  font-family: 'Prometheus', sans-serif;
+}
+
+.selected {
+  color: #b91c1c;
 }
 </style>

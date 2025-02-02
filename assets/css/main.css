@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Prometheus';
+  src: url('/fonts/kimm_bold.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Detail';
+  src: url('/fonts/pretendard.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

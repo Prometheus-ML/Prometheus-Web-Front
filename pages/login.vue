@@ -1,91 +1,78 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
-    <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
-      <div class="bg-white shadow w-full rounded divide-y divide-gray-200">
-        <div class="px-5 py-7">
-          <label class="font-semibold text-sm text-gray-600 pb-1 block"
-            >유저이름</label
-          >
-          <input
-            v-model="username"
-            type="text"
-            class="border rounded px-3 py-2 mt-1 mb-5 text-sm w-full"
-          />
-          <label class="font-semibold text-sm text-gray-600 pb-1 block"
-            >비밀번호</label
-          >
-          <input
+  <div class="text-white bg-black relative h-screen overflow-hidden">
+    <img src="@/assets/design/login.png" alt="login" class="object-cover w-full h-full">
+    <div class="absolute transform -translate-x-1/2 -translate-y-1/2 top-[40%] md:top-[55%] left-[50%] drop-shadow-2xl w-[70%] md:w-[50%] lg:w-[25%] rounded-xl bg-opacity-5 bg-white">
+      <div class="px-7 py-7">
+        <label class="pb-1 block font-normal detail text-2xs md:text-base"
+            >E-mail</label
+        >
+        <input
+        v-model="email"
+        type="text"
+        class="rounded bg-neutral-300 font-normal detail bg-opacity-20 px-3 py-2 mt-1 mb-5 text-sm w-full"
+        />
+        <label class="pb-1 block font-normal text-2xs md:text-base"
+            >Password</label
+        >
+        <input
             v-model="password"
             type="password"
-            class="border rounded px-3 py-2 mt-1 mb-5 text-sm w-full"
-          />
-          <button
-            @click="submitLogin"
-            type="button"
-            class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-          >
-            <span class="inline-block mr-2">로그인</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              class="w-4 h-4 inline-block"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
-        </div>
+            class="rounded bg-neutral-300 font-normal bg-opacity-20 px-3 py-2 mt-1 mb-5 text-sm w-full"
+        />
+        <button
+          @click="submitLogin"
+          type="button"
+          class="transition duration-200 bg-red-600 hover:opacity-70 text-white w-full py-2.5 rounded text-sm shadow-sm hover:shadow-md detail font-normal text-center inline-block mb-3"
+        >
+          <span class="inline-block mr-2 text-2xs md:text-base">Log In</span>
+        </button>
+
+        <!-- 회원가입 링크 -->
+        <p class="detail font-normal flex items-center text-2xs md:text-base mb-4">
+          Not registered?
+          <nuxt-link to="/register" class="text-red-600 hover:underline ml-1">
+            Register
+          </nuxt-link>
+        </p>
       </div>
     </div>
+
   </div>
 </template>
+  
+<script setup>
+import { useAuthStore } from '@/composables/useAuthStore';
 
-<script>
-import {storeToRefs} from 'pinia';	
-	
-export default {
-  name: "LoginView",
-  components: {},
-  data: () => ({
-    username: "",
-    password: "",
-  }),
-  methods: {
-    submitLogin() {
-      $fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-        method: "POST",
-        body: {
-          username: this.username,
-          password: this.password,
-        },
-        credentials: 'include'
-      })
-			.then(async (result) => {
-
-				const authStore = useAuthStore();
-				if(result.message === "Failed") return;
-				authStore.setAccessToken(result.accessToken)
-				await authStore.checkAuth();
-				useRouter().push({ path: "/" });
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-    },
-  },
-	setup() {
-		onMounted(async () => {
-			const authStore = useAuthStore();
-			const { user } = storeToRefs(authStore);
-			await authStore.verify();
-			if (user.value !== null) navigateTo("/")
-		})
-	}
+const authStore = useAuthStore();
+const email = ref("");
+const password = ref("");
+const submitLogin = async () => {
+  try {
+    const response = await $fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+      method: "POST",
+      body: {
+        email: email.value,
+        password: password.value,
+      },
+      credentials: 'include'
+    });
+    authStore.access_token = response.access_token;
+    authStore.refresh_token = response.refresh_token;
+    navigateTo("/");
+  } catch (error) {
+    console.error(error);
+  }
 };
+
+
+onMounted(async () => {
+  if (authStore.user !== null) navigateTo("/");
+})
 </script>
+
+<style scoped>
+
+.detail {
+  font-family: 'Detail', sans-serif;
+}
+</style>

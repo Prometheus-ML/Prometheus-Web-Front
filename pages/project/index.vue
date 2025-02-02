@@ -1,163 +1,225 @@
 <template>
-  <div class="custom mx-auto pt-40 pb-24">
-    <div class="mb-14">
-      <p class="font-bold text-4xl md:text-5xl mb-5">프로젝트</p>
-      <p class="font-medium text-xl text-rose-700">Projects</p>
-    </div>
-    <div class="flex justify-center items-center p-6 text-2xl">
-      <div class="flex flex-wrap md:gap-5 text-base md:text-xl justify-center">
-        <div
-          v-for="(tab, index) in tabs"
-          :key="index"
-          :class="{
-            'font-bold': activeTab === tab.key,
-            'text-gray-500 hover:text-gray-800': activeTab !== tab.key,
-            'border-b-2 border-black': activeTab === tab.key,
-          }"
-          @click="setActiveTab(tab.key)"
-          class="mr-5 cursor-pointer flex items-center"
-        >
-          <span class="mx-auto">{{ tab.name }}</span>
+  <div class="relative pb-32">
+    <img
+      class="absolute inset-0 w-full h-full object-full "
+      src="@/assets/design/main6.png"
+      alt="Background"
+
+    />
+    <div class="w-[70vw] min-h-screen mx-auto pt-40">
+      <div class="mb-14 flex flex-col text-center">
+        <p class="font-medium  text-xl lg:text-2xl prometheus text-rose-700">Projects</p>
+        <p class="font-bold text-3xl lg:text-4xl md:text-5xl mb-5">프로젝트</p>
+      </div>
+      
+    
+      <div class="flex flex-col justify-center items-center p-6 z-10">
+        <div class="flex flex-wrap md:gap-12 text-base md:text-xl justify-center">
+          <div
+            v-for="(tab, index) in tabs"
+            :key="index"
+            :class="{
+              'font-semibold': activeTab === tab.key,
+              'text-neutral-400 font-light ': activeTab !== tab.key,
+              'border-b-2 border-black': activeTab === tab.key,
+            }"
+            @click="setActiveTab(tab.key)"
+            class="mr-5 cursor-pointer flex items-center "
+          >
+            <span class="text-xs md:text-base lg:text-xl hover:-translate-y-0.5 hover:scale-105 duration-200 mx-auto z-10">{{ tab.name }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="grid auto-rows-fr grid-cols-1 md:grid-cols-2 mx-4 lg:grid-cols-3 items-start gap-6 mb-5 ">
-      <div v-for="project in filteredProjects" 
-        :style="{ backgroundImage: 'url(' + useImage(project?.thumb, type) + ')', backgroundSize: 'cover', backgroundPosition: 'center' }" 
-        :key="project.id" 
-        @mouseenter="project.hover = true"
-        @mouseleave="project.hover = false"
-        class="relative bg-white w-full h-48 hover:bg-opacity-80 "
-      >
-        <font-awesome-icon v-if="user" @click="deleteProject(project)" class="absolute top-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2 text-rose-600" icon="fa-solid fa-xmark"/>
-        <nuxt-link :to="'/project/edit/' + project.id">
-          <font-awesome-icon v-if="user" class="absolute bottom-0 right-0 cursor-pointer z-50 mr-1 hover:opacity-70 py-1 px-2" icon="fa-solid fa-pen"/>
-        </nuxt-link>
-        <div v-if="project.hover" class="relative inset-0 p-1 h-full backdrop-blur-sm bg-black/30">
-          <div class="flex flex-row mr-10 pt-2 pb-2 ml-2 mb-1">
-            <p v-if="project.gen !== 3" class="font-bold text-sm rounded-lg px-2 pb-1 bg-rose-500 text-white mt-auto mr-2">{{ project?.gen }}기</p>
-            <h2 class="font-bold text-xl break-all">{{ project?.title }}</h2>
-          </div>
-          <p class="ml-2 mr-8 mb-2 text-sm font-neutral-100 font-semibold break-all">{{ project?.description }}</p>
-          <div class="flex flex-wrap mr-10 px-1 flex items-center text-xs font-light text-white">
-            <span v-for="(tag, index) in project?.tag" class="ml-1 mr-2" :key="index">
-              #{{ tag.name }}
-            </span>
-          </div>
-          <div class="absolute top-2 right-0 flex flex-col">
-            <a v-if="project.github" class="mx-3 text-2xl hover:scale-110 hover:-translate-y-1 hover:opacity-60" :href="project?.github" target="_blank">
-              <font-awesome-icon icon="fa-brands fa-github" />
-            </a>
-            <a v-if="project.homepage" class="mx-3 text-xl hover:scale-110 hover:-translate-y-1 hover:opacity-60" :href="project?.homepage" target="_blank">
-              <font-awesome-icon icon="fa-solid fa-house" />
-            </a>
-          </div>
-          <div v-if="project.member" class="absolute bottom-2 flex flex-col">
-            <div class="flex flex-wrap items-center font-medium member-font text-gray-500">
-              <div v-for="(member, index) in project?.member.split(' ')" class="mr-1 mb-2" :key="index">
-                <span v-if="index === 0" class="ml-1 px-1 pb-0.5 font-semibold rounded-lg bg-rose-600 text-white">{{ member }}</span>
-                <span v-else class="px-1 pb-0.5 rounded-lg bg-neutral-500 text-white" >{{ member }}</span>
+
+
+      <div class="min-h-[50vh] rounded-xl bg-white bg-opacity-20 backdrop-blur-lg inner-shadow">
+        <div class="p-[5vw] auto-rows-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[20vh] gap-x-2 gap-y-6 mb-5">
+          <div
+            v-for="post in postList"
+            :key="post.id"
+            class="overflow-hidden rounded-lg hover:drop-shadow-xl hover:opacity-50"
+          >
+            <a :href="post.linkURL" class="flex flex-col h-full flex flex-col">
+              <!-- Thumbnail -->
+              <img
+                :src="post.link_thumb ? '/api/proxy/image?id=' + post.link_thumb : mainImage"
+                :alt="mainImage"
+                class="w-full aspect-[3/2] object-cover rounded-t-lg"
+                @error="handleImageError($event)"
+              />
+              
+              <!-- Post Content -->
+              <div class="flex-1 flex flex-col justify-between pt-2 px-4 bg-black/30 h-1/3">
+                <div class="text-left">
+                  <p class="font-semibold truncate text-sm md:text-base lg:text-lg mb-3 line-clamp-2">
+                      {{ post.title }}
+                    </p>
+                  
+                  <div class="flex flex-row pt-2">
+                    <p class="font-light flex-grow text-xs text-neutral-500">
+                      {{ post.meta.date }}
+                    </p>
+                    <p class="font-light text-sm mb-2  text-neutral-500">
+                      {{ post.meta.editor }}
+                    </p>
+                  </div>
+                  
+                </div>
+                
+                <!-- Tags -->
+                <!-- <div v-if="post.tags && post.tags.length" class="mt-3 flex flex-wrap gap-2">
+                  <span
+                    v-for="tag in post.tags"
+                    :key="tag"
+                    class="px-2 py-1 bg-rose-100 text-rose-700 rounded-full text-xs"
+                  >
+                    #{{ tag }}
+                  </span>
+                </div> -->
               </div>
-            </div>
+            </a>
           </div>
-          
         </div>
+        
+      </div>
+
+    
+
+
+      <div class="relative flex justify-end">
+        
+        <nuxt-link :to="'/blog/new'" v-if="user" class="bg-white hover:-translate-y-0.5 hover:scale-105 duration-200 hover:opacity-80 text-black py-1 px-3 border rounded-lg inline-block">
+            글쓰기
+        </nuxt-link>
+        
       </div>
     </div>
-
-    <div class="relative flex justify-end">
-      <nuxt-link :to="'/project/new'" v-if="user" class="bg-white py-2 px-4 border rounded inline-block">
-        글쓰기
-      </nuxt-link>
-    </div>
-
-    <!-- Project Popup
-    <div v-if="OpenedProjectIndex != -1" class="fixed inset-0 h-[70%] flex items-center justify-center bg-black bg-opacity-70">
-      <div class="relative">
-        <button @click="closeProjectPopup" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-        <ProjectView :id="OpenedProjectIndex"></ProjectView>
-      </div>
-    </div> -->
   </div>
+  
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { storeToRefs } from "pinia";
+import mainImage from '@/assets/design/logo2.png';
+import { Carousel, Slide,Pagination,Navigation } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css'
 
-const tabs = [
-  { key: 4, name: '4기'},
-  { key: 3, name: '이전기수'}
-];
 
-const activeTab = ref(4);
+const carouselRef = ref();
+const currentSlide = ref(0);
 
-const authStore = useAuthStore();
-const { user } = storeToRefs(authStore);
-
-const type = 'thumbs';
-const projectList = ref([]);
-
-const setActiveTab = (tab) => {
-	activeTab.value = activeTab.value === tab? null : tab;
-};
-
-const getProjects = async () => {
-  try {
-    const response = await $fetch(`${import.meta.env.VITE_API_URL}/project/get_projects`, {
-      method: 'GET',
-    });
-    response.filter(projects => projects.gen === 4);
-    projectList.value = response;
-  } catch (error) {
-    console.error(error)
+const next = () => {
+  if (carouselRef.value) {
+    carouselRef.value.next();
   }
 };
 
-async function removeImage(project) {
-	try {
-		const response = await $api(`${import.meta.env.VITE_API_URL}/image/delete/${type}/${project.thumb}`, {
-      method: 'DELETE',
-    });
-		await getProjects();
-	}	catch (error) {
-		console.error(error)
-	}
-}
+const prev = () => {
+  if (carouselRef.value) {
+    carouselRef.value.prev();
+  }
+};
 
-const deleteProject = async (project) => {
+const tabs = [
+  { key: '06', name: '6기'},
+  { key: '05', name: '5기'},
+  { key: '04', name: '이전기수'},
+];
+
+// const recentLinks = ref([
+//   {
+//     id: 1,
+//     title: 'Awesome Vue Resources',
+//     description: 'A collection of awesome Vue.js resources.',
+    
+//     linkURL: 'https://awesome-vue.com',
+//     tags: ['Vue', 'Resources']
+//   },
+//   {
+//     id: 2,
+//     title: 'TailwindCSS Docs',
+//     description: 'Official documentation for TailwindCSS.',
+//     linkURL: 'https://tailwindcss.com/docs',
+    
+//     tags: ['CSS', 'TailwindCSS']
+//   },
+//   {
+//     id: 3,
+//     title: 'Awesome Vue Resources',
+//     description: 'A collection of awesome Vue.js resources.',
+    
+//     linkURL: 'https://awesome-vue.com',
+//     tags: ['Vue', 'Resources']
+//   },
+//   {
+//     id: 4,
+//     title: 'TailwindCSS Docs',
+//     description: 'Official documentation for TailwindCSS.',
+//     linkURL: 'https://tailwindcss.com/docs',
+    
+//     tags: ['CSS', 'TailwindCSS']
+//   },
+// ]);
+
+
+
+const activeTab = ref('05');
+
+const postList = ref([
+])
+
+const getPosts = async () => {
+  if (!activeTab.value) return; // activeTab이 null이면 요청하지 않음
+
   try {
-		await removeImage(project);
-    const response_2 = await $api(`${import.meta.env.VITE_API_URL}/project/delete/${project.id}`, {
-      method: 'DELETE',
+    const response = await $api(`/link/get_links/${activeTab.value}`, {
+      method: 'GET',
     });
-    await getProjects();
+
+    postList.value = response;
   } catch (error) {
     console.error(error);
   }
 };
 
-const filteredProjects = computed(() => {
-  return projectList.value.filter((project) => project.gen == activeTab.value);
+const handleImageError = (event) => {
+  event.target.src = mainImage; // 기본 이미지로 대체
+};
+
+
+const setActiveTab = (tab) => {
+	activeTab.value = activeTab.value === tab? null : tab;
+};
+
+watch(activeTab, async (newTab) => {
+  // activeTab 값이 변경되면 호출
+  if (newTab) {
+    await getPosts();
+  } else {
+    postList.value = []; // activeTab이 비활성화되면 빈 배열로 초기화
+  }
 });
 
-onMounted(async() => {
-  await getProjects();
-})
+const authStore = useAuthStore();
+const { user } = storeToRefs(authStore);
 
+onMounted(async() => {
+	await getPosts();
+})
 </script>
 
 <style scoped>
-.custom {
-  max-width: 1080px;
+/* Custom Carousel Slide Item */
+.carousel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.member-font {
-  font-size: 0.68rem; 
-  line-height: 0.9rem;
-}
 </style>
