@@ -55,7 +55,7 @@ export const useAuthStore = defineStore('auth', () => {
     refresh_token.value = null;
 
     user.value = null;
-    navigateTo('/login'); 
+
   };
 
   return {
