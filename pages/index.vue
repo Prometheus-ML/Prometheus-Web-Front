@@ -143,7 +143,7 @@
           >
             
             <Slide
-              v-for="(link, index) in postList"
+              v-for="(link, index) in recentLinks"
               :key="index"
               class="flex justify-center w-full h-[50vh] items-center relative" 
             >
@@ -284,10 +284,10 @@ const handleScroll = () => {
   }
 };
 
-const postList = ref([
+const recentLinks = ref([
 ])
 
-const getPosts = async () => {
+const getRecentPosts = async () => {
   
 
   try {
@@ -295,7 +295,7 @@ const getPosts = async () => {
       method: 'GET',
     });
 
-    postList.value = response;
+    recentLinks.value = response;
   } catch (error) {
     console.error(error);
   }
@@ -311,94 +311,59 @@ const scrollToSection = (id) => {
   }
 };
 
-const recentLinks = ref([
-  {
-    id: 1,
-    title: 'Awesome Vue Resources',
-    description: 'A collection of awesome Vue.js resources.',
-    link_thumb: studyImage,
-    linkURL: 'https://awesome-vue.com',
-    tags: ['Vue', 'Resources']
-  },
-  {
-    id: 2,
-    title: 'TailwindCSS Docs',
-    description: 'Official documentation for TailwindCSS.',
-    linkURL: 'https://tailwindcss.com/docs',
-    link_thumb: studyImage,
-    tags: ['CSS', 'TailwindCSS']
-  },
-  {
-    id: 3,
-    title: 'Awesome Vue Resources',
-    description: 'A collection of awesome Vue.js resources.',
-    link_thumb: studyImage,
-    linkURL: 'https://awesome-vue.com',
-    tags: ['Vue', 'Resources']
-  },
-  {
-    id: 4,
-    title: 'TailwindCSS Docs',
-    description: 'Official documentation for TailwindCSS.',
-    linkURL: 'https://tailwindcss.com/docs',
-    link_thumb: studyImage,
-    tags: ['CSS', 'TailwindCSS']
-  },
-]);
-
 const recentProjects = ref([
-  {
-    id: 101,
-    Members: [1, 2, 3],
-    title: 'Project A',
-    description: 'This is the description of Project A.',
-    content: 'html,',
-    github: 'https://github.com/projectA',
-    notion: 'https://notion.so/projectA',
-    project_panel: '/images/projectA_panel.jpg',
-    project_thumb: studyImage,
-    videoURL: 'https://youtube.com/embed/projectA',
-    tags: ['Vue', 'TailwindCSS']
-  },
-  {
-    id: 102,
-    Members: [4, 5, 6],
-    title: 'Project B',
-    description: 'This is the description of Project B.',
-    content: 'html,',
-    github: 'https://github.com/projectB',
-    notion: 'https://notion.so/projectB',
-    project_panel: '/images/projectB_panel.jpg',
-    project_thumb: studyImage,
-    videoURL: 'https://youtube.com/embed/projectB',
-    tags: ['React', 'CSS']
-  },
-  {
-    id: 103,
-    Members: [1, 2, 3],
-    title: 'Project A',
-    description: 'This is the description of Project C.',
-    content: 'html,',
-    github: 'https://github.com/projectA',
-    notion: 'https://notion.so/projectA',
-    project_panel: '/images/projectA_panel.jpg',
-    project_thumb: studyImage,
-    videoURL: 'https://youtube.com/embed/projectA',
-    tags: ['Vue', 'TailwindCSS']
-  },
-  {
-    id: 104,
-    Members: [4, 5, 6],
-    title: 'Project B',
-    description: 'This is the description of Project D. This is the description of Project D. This is the description of Project D.',
-    content: 'html,',
-    github: 'https://github.com/projectB',
-    notion: 'https://notion.so/projectB',
-    project_panel: '/images/projectB_panel.jpg',
-    project_thumb: studyImage,
-    videoURL: 'https://youtube.com/embed/projectB',
-    tags: ['React', 'CSS']
-  },
+  // {
+  //   id: 101,
+  //   Members: [1, 2, 3],
+  //   title: 'Project A',
+  //   description: 'This is the description of Project A.',
+  //   content: 'html,',
+  //   github: 'https://github.com/projectA',
+  //   notion: 'https://notion.so/projectA',
+  //   project_panel: '/images/projectA_panel.jpg',
+  //   project_thumb: studyImage,
+  //   videoURL: 'https://youtube.com/embed/projectA',
+  //   tags: ['Vue', 'TailwindCSS']
+  // },
+  // {
+  //   id: 102,
+  //   Members: [4, 5, 6],
+  //   title: 'Project B',
+  //   description: 'This is the description of Project B.',
+  //   content: 'html,',
+  //   github: 'https://github.com/projectB',
+  //   notion: 'https://notion.so/projectB',
+  //   project_panel: '/images/projectB_panel.jpg',
+  //   project_thumb: studyImage,
+  //   videoURL: 'https://youtube.com/embed/projectB',
+  //   tags: ['React', 'CSS']
+  // },
+  // {
+  //   id: 103,
+  //   Members: [1, 2, 3],
+  //   title: 'Project A',
+  //   description: 'This is the description of Project C.',
+  //   content: 'html,',
+  //   github: 'https://github.com/projectA',
+  //   notion: 'https://notion.so/projectA',
+  //   project_panel: '/images/projectA_panel.jpg',
+  //   project_thumb: studyImage,
+  //   videoURL: 'https://youtube.com/embed/projectA',
+  //   tags: ['Vue', 'TailwindCSS']
+  // },
+  // {
+  //   id: 104,
+  //   Members: [4, 5, 6],
+  //   title: 'Project B',
+  //   description: 'This is the description of Project D. This is the description of Project D. This is the description of Project D.',
+  //   content: 'html,',
+  //   github: 'https://github.com/projectB',
+  //   notion: 'https://notion.so/projectB',
+  //   project_panel: '/images/projectB_panel.jpg',
+  //   project_thumb: studyImage,
+  //   videoURL: 'https://youtube.com/embed/projectB',
+  //   tags: ['React', 'CSS']
+  // },
 ]);
 
 const intro = ref([  
@@ -492,7 +457,7 @@ const handleImageError = (event) => {
 onMounted(async ()=>{
   // await getRecentPosts();
   updateItemsToShow();
-  await getPosts();
+  await getRecentPosts();
   window.addEventListener('scroll', handleScroll);
 })
 
