@@ -102,59 +102,7 @@ const activeTab = ref(6);
 	
 const tempMembers = ref(
 	[
-  {
-    "image": "1uXbajX-yUUv-BXF1wjXLdGVX0zIMolC9",
-    "gen": -1,
-    "name": "관리자",
-    "major": "jinhomo03@gmail.c omjinhomo03@gmail.comjinh omo03@gmail.com",
-    "github": null,
-    "position": null,
-		"executive": true
-  },
-  {
-    "image": null,
-    "gen": 2,
-    "name": "test",
-    "major": "test3@gmail.com",
-    "github": null,
-    "position": [],
-		"executive": true
-  },
-  {
-    "image": null,
-    "gen": 2,
-    "name": "test5",
-    "major": "testtest@notion.com",
-    "github": null,
-    "position": [
-      "나는",
-      "그냥",
-      "테스트"
-    ],
-		"executive": true
-  },
-  {
-    "image": "string",
-    "gen": 0,
-    "name": "모진호",
-    "major": "mjhsun2003@gmail.com",
-    "github": "jinhomo03@gmail.com",
-    "position": [
-      "개발차장"
-    ],
-		"executive": true
-  },
-  {
-    "image": null,
-    "gen": 5,
-    "name": "TEST2",
-    "major": "test2@gmail.com",
-    "github": null,
-    "position": [
-      "사람"
-    ],
-		"executive": true
-  }
+  
 ]
 );
 
