@@ -40,8 +40,8 @@
           </li>
         </ul>
       </div>
-      <div v-if="user">
-        <!-- fold 상태에 따른 LOGOUT 버튼 -->
+      <!-- <div v-if="user">
+        
         <button 
           v-if="route == '/admin' || route == '/profile'" 
           @click="authStore.logout(); fold = true;"
@@ -51,7 +51,7 @@
           LOGOUT
         </button>
 
-        <!-- fold 상태에 따른 ADMIN 버튼 -->
+       
         <button 
           v-else-if="user.grant === 'admin'" 
           @click="navigateTo('/admin');fold=true"
@@ -60,7 +60,7 @@
           ADMIN
         </button>
 
-        <!-- fold 상태에 따른 PROFILE 버튼 -->
+    
         <button 
           v-else 
 
@@ -71,7 +71,6 @@
         </button>
       </div>
 
-      <!-- 로그인 버튼 (user가 없는 경우) -->
       <div v-else :class="user ? 'hidden md:block' : 'block'">
         <button 
 
@@ -80,7 +79,7 @@
           class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
           LOGIN
         </button>
-      </div>
+      </div> -->
     </div>
   </nav>
 </template>
@@ -104,14 +103,14 @@ const navList = [
     path: "/project",
     name: "PROJECT",
   },
-  {
-    path: "/members",
-    name: "MEMBERS",
-  },
-  {
-    path: "/blog",
-    name: "BLOG"
-  },
+  // {
+  //   path: "/members",
+  //   name: "MEMBERS",
+  // },
+  // {
+  //   path: "/blog",
+  //   name: "BLOG"
+  // },
 ]
 let background = ref(false)
 let fold = ref(true)

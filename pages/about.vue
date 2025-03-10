@@ -171,7 +171,7 @@
 					<div class="relative w-[30%] h-60 border-t-2 border-[#5D0A04] flex flex-col">
 						<div class="absolute -top-2 left-2 p-2 rounded-2xl shadow-[0_0_10px_2px_rgba(185,28,28,0.7),_0_0_20px_5px_rgba(185,28,28,0.5)] bg-[#B91C1C]"></div>
 						<div class="mt-5 ml-2">
-							<p class="font-semibold text-base w-[200%] mb-2">2nd Prometheus <br>Demoday(예정)</p>
+							<p class="font-semibold text-base w-[200%] mb-2">2nd Prometheus <br>Demoday</p>
 							<p class="text-xs font-light tracking-tight mb-3">2024. 2. 8</p>
 							
 						</div>
