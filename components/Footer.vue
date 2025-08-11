@@ -38,7 +38,7 @@ const showFoot = ref(true)
 onMounted(() => {
   watchEffect(() => {
     route.value = useRoute().path
-    if(route.value == '/login' || route.value == '/register') {
+    if(route.value == '/auth/login' || route.value == '/register') {
       showFoot.value = false;
     } else {
       showFoot.value = true;

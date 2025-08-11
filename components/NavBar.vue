@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="route !== '/login' && route !== '/register'"
+  <nav v-if="route !== '/auth/login' && route !== '/auth/register'"
     class="px-2 sm:px-4 py-3 bg-opacity-70 w-full fixed z-50 ease-out transition-all drop-shadow-xl"
     :class="{ 'shadow-2xl shadow-white/30 bg-black' : (background || !fold)}"
   >
@@ -40,77 +40,68 @@
           </li>
         </ul>
       </div>
-      <!-- <div v-if="user">
-        
+      <div v-if="user" class="flex items-center space-x-2">
+        <!-- 프로필 버튼 -->
         <button 
-          v-if="route == '/admin' || route == '/profile'" 
+          @click="showMyModal = true; fold = true"
+          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#ffffff] text-black md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#ffffff] text-black rounded'"
+          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
+          PROFILE
+        </button>
+
+        <!-- 로그아웃 버튼 -->
+        <button 
           @click="authStore.logout(); fold = true;"
-          
           :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#B91C1C] md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
           class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus"> 
           LOGOUT
-        </button>
-
-       
-        <button 
-          v-else-if="user.grant === 'admin'" 
-          @click="navigateTo('/admin');fold=true"
-          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#ffffff] text-black md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#ffffff] text-black rounded'"
-          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
-          ADMIN
-        </button>
-
-    
-        <button 
-          v-else 
-
-          @click="navigateTo('/profile'); fold=true"
-          :class="fold ? 'hidden md:block py-2 pr-6 md:pr-4 pl-4 rounded-3xl bg-[#ffffff] text-black md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
-          class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
-          PROFILE
         </button>
       </div>
 
       <div v-else :class="user ? 'hidden md:block' : 'block'">
         <button 
-
-          @click="navigateTo('/login'); fold=true"
+          @click="navigateTo('/auth/login'); fold=true"
           :class="fold ? 'hidden md:block py-2 pr-6 md:pr-3 pl-3 rounded-3xl bg-[#B91C1C] md:px-4 md:py-1' : 'ml-2 py-1 px-2 bg-[#B91C1C] text-white rounded'"
           class="hover:opacity-80 relative hover:-translate-y-0.5 hover:scale-105 duration-200 prometheus">
           LOGIN
         </button>
-      </div> -->
+      </div>
     </div>
   </nav>
+
+  <!-- MyModal 컴포넌트 -->
+  <MyModal 
+    :is-open="showMyModal" 
+    @close="showMyModal = false"
+    @updated="handleProfileUpdated"
+  />
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
 import { onMounted, ref, watchEffect } from 'vue';
-import { useAuthStore } from '@/composables/useAuthStore';
+import { useAuthStore } from '@/composables/useAuth';
+import MyModal from '@/components/MyModal.vue';
 
 const authStore = useAuthStore();
 const { user } = storeToRefs(authStore);
 
 
 const profileMenuOpen = ref(false)
+const showMyModal = ref(false)
 const navList = [
   {
-    path: "/about",
-    name: "ABOUT US",
+    path: "/schedule",
+    name: "SCHEDULE",
   },
   {
-    path: "/project",
-    name: "PROJECT",
+    path: "/members",
+    name: "MEMBERS",
   },
-  // {
-  //   path: "/members",
-  //   name: "MEMBERS",
-  // },
-  // {
-  //   path: "/blog",
-  //   name: "BLOG"
-  // },
+  {
+    path: "/sponsorship",
+    name: "SPONSORSHIP",
+  },
 ]
 let background = ref(false)
 let fold = ref(true)
@@ -152,6 +143,12 @@ onBeforeMount(async () => {
     fold.value = true
   })
 })
+
+// 프로필 업데이트 핸들러
+const handleProfileUpdated = () => {
+  // 프로필이 업데이트되면 필요한 경우 여기서 처리
+  console.log('프로필이 업데이트되었습니다.')
+}
 
 
 

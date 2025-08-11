@@ -6,11 +6,11 @@
 </template>
 
 <script setup>
-import { useAuthStore } from '@/composables/useAuthStore';
+import { useAuthStore } from '@/composables/useAuth';
 
 onMounted( async () => {
   const authStore = useAuthStore();
-  await authStore.verifyUser();
+  await authStore.initialize();
 })
 </script>
 

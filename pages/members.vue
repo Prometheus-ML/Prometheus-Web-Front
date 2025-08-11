@@ -1,92 +1,214 @@
 <template>
-	<div class="text-white bg-black">
+  <div class="min-h-screen bg-gray-50">
+    <!-- 헤더 섹션 -->
+    <div class="bg-white shadow-sm border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900">멤버</h1>
+            <p class="text-gray-600 mt-1">프로메테우스 멤버들과 소통하고 연결하세요</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="text-right">
+              <div class="text-2xl font-bold text-blue-600">{{ totalMembers }}</div>
+              <div class="text-sm text-gray-500">총 멤버</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		<img
-      class="absolute inset-0 w-full h-full object-full "
-      src="@/assets/design/main6.png"
-      alt="Background"
-
-    />
-
-		<div class="w-[70vw] lg:w-[80vw] min-h-screen mx-auto pt-40">
-      <div class="mb-12 flex flex-col text-center">
-        <p class="font-medium prometheus text-xl lg:text-2xl text-rose-700">Members</p>
-        <p class="font-bold text-3xl lg:text-4xl mb-12">멤버</p>
-        <p class="font-light text-sm lg:text-lg">프로메테우스에서는 각기 다른 배경과 관심사를 가진 이들이 함께 모여,<br>인공지능을 통해 새로운 가치를 창출하며, 미래를 향한 도전을 이어가고 있습니다.</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- 필터 탭 -->
+      <div class="mb-8">
+        <div class="flex flex-wrap gap-2">
+          <button
+            v-for="tab in tabs"
+            :key="tab.key"
+            @click="setActiveTab(tab.key)"
+            :class="[
+              activeTab === tab.key
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-gray-50',
+              'px-4 py-2 rounded-md text-sm font-medium border transition-colors'
+            ]"
+          >
+            {{ tab.name }}
+          </button>
+        </div>
       </div>
 
-			<div class="flex justify-center items-center p-6 text-2xl">
-					<div class="flex flex-wrap gap-2 lg:gap-5 mx-auto w-full detail justify-center">
-						<div
-							v-for="(tab, index) in tabs"
-							:key="index"
-							:class="{
-								'font-bold': activeTab === tab.key,
-								'text-neutral-500 hover:text-neutral-800': activeTab !== tab.key,
-								'border-b-2 border-black': activeTab === tab.key,
-							}"
-							@click="setActiveTab(tab.key)"
-							class="mr-4 md:mr-6 cursor-pointer flex items-center"
-						>
-							<span class="text-xs md:text-base lg:text-xl hover:-translate-y-0.5 hover:scale-105 duration-200 mx-auto z-10">{{ tab.name }}</span>
+      <!-- 멤버 그리드 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div
+          v-for="member in filteredMembers"
+          :key="member.id"
+          class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
+        >
+          <!-- 프로필 카드 -->
+          <div class="text-center mb-4">
+            <img
+              :src="member.image ? getImageSrc(member.image, 160) : '/default-avatar.png'"
+              :alt="member.name"
+              class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+              @error="handleImageError"
+            />
+            <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ member.name }}</h3>
+            <p class="text-sm text-gray-600 mb-2">{{ member.major }}</p>
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <span
+                v-if="member.positions && member.positions.length"
+                class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+              >
+                {{ member.positions[0] }}
+              </span>
+              <span
+                v-if="member.gen"
+                class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full"
+              >
+                {{ member.gen }}기
+              </span>
+            </div>
+          </div>
+
+          <!-- 커피챗 버튼 -->
+          <div class="flex items-center justify-center mb-4">
+            <button
+              @click="requestCoffeeChat(member)"
+              class="flex items-center space-x-2 bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition-colors"
+            >
+              <span class="text-lg">☕</span>
+              <span class="text-sm">커피챗 신청</span>
+            </button>
+          </div>
+
+          <!-- 프로젝트 히스토리 -->
+          <div v-if="member.projects && member.projects.length" class="mb-4">
+            <h4 class="text-sm font-medium text-gray-900 mb-2">프로젝트 히스토리</h4>
+            <div class="space-y-2">
+              <div
+                v-for="project in member.projects.slice(0, 3)"
+                :key="project.id"
+                class="text-xs text-gray-600 bg-gray-50 p-2 rounded"
+              >
+                {{ project.title }}
+              </div>
+            </div>
+          </div>
+
+          <!-- 1:1 연결 버튼 -->
+          <div class="flex space-x-2">
+            <button
+              @click="openChat(member)"
+              class="flex-1 bg-blue-600 text-white py-2 px-3 rounded-md text-sm hover:bg-blue-700 transition-colors"
+            >
+              채팅
+            </button>
+            <button
+              @click="viewProfile(member)"
+              class="flex-1 bg-gray-600 text-white py-2 px-3 rounded-md text-sm hover:bg-gray-700 transition-colors"
+            >
+              프로필
+            </button>
+          </div>
 						</div>
 					</div>
 				</div>
 
-				<div class="min-h-[50vh]">
-					<div class="p-[5vw] auto-rows-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5">
-						<div
-							v-for="member in tempMembers"
-							:key="member.id"
-							class="overflow-hidden rounded-lg hover:drop-shadow-xl hover:opacity-50"
-						>
-							<button class="flex flex-col w-full h-full flex flex-col p-[1vw] items-center rounded-xl bg-white bg-opacity-20 backdrop-blur-lg inner-shadow">
-								<!-- Thumbnail -->
-								<img
-									:src="member.image ? '/api/proxy/image?id=' + member.image : mainImage"
-									class="w-[55%] aspect-[1/1] object-cover rounded-full my-2"
-									@error="handleImageError($event)"
-								/>
-								
-							<!-- Post Content -->
-							<div class="flex flex-col items-center pb-3 mx-5">
-								<div>
-									<p class="font-medium truncate text-sm md:text-base lg:text-lg mb-3 line-clamp-2">
-											{{ member.name }}
-										</p>
-									<p class="font-light flex-grow text-xs text-wrap">
-										{{ member.major }}
-									</p>
-									
+    <!-- 커피챗 신청 모달 -->
+    <div v-if="showCoffeeChatModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+      <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div class="mt-3">
+          <h3 class="text-lg font-medium text-gray-900 mb-4">커피챗 신청</h3>
+          <p class="text-sm text-gray-600 mb-6">{{ selectedMember?.name }}님에게 커피챗을 신청합니다</p>
+          
+          <div class="space-y-4">
+            <textarea
+              v-model="coffeeChatMessage"
+              placeholder="메시지를 입력해주세요..."
+              class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              rows="4"
+            ></textarea>
+            
+            <div class="flex space-x-3">
+              <button
+                @click="submitCoffeeChatRequest"
+                class="flex-1 bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition-colors"
+              >
+                신청하기
+              </button>
+              <button
+                @click="closeCoffeeChatModal"
+                class="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+              >
+                취소
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 프로필 상세 모달 -->
+    <div v-if="showProfileModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+      <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div class="mt-3">
+          <div class="text-center mb-6">
+            <img
+              :src="selectedMember?.image ? getImageSrc(selectedMember.image, 192) : '/default-avatar.png'"
+              :alt="selectedMember?.name"
+              class="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ selectedMember?.name }}</h3>
+            <p class="text-gray-600">{{ selectedMember?.major }}</p>
+          </div>
+          
+          <div class="space-y-4">
+            <div v-if="selectedMember?.positions && selectedMember.positions.length">
+              <h4 class="font-medium text-gray-900">직책</h4>
+              <p class="text-gray-600">{{ selectedMember.positions.join(', ') }}</p>
 								</div>
 								
-									<!-- Tags -->
-									<!-- <div v-if="post.tags && post.tags.length" class="mt-3 flex flex-wrap gap-2">
-										<span
-											v-for="tag in post.tags"
-											:key="tag"
-											class="px-2 py-1 bg-rose-100 text-rose-700 rounded-full text-xs"
-										>
-											#{{ tag }}
-										</span>
-									</div> -->
+            <div v-if="selectedMember?.projects && selectedMember.projects.length">
+              <h4 class="font-medium text-gray-900">프로젝트</h4>
+              <div class="space-y-2">
+                <div
+                  v-for="project in selectedMember.projects"
+                  :key="project.id"
+                  class="text-sm text-gray-600 bg-gray-50 p-2 rounded"
+                >
+                  <div class="font-medium">{{ project.title }}</div>
+                  <div class="text-xs text-gray-500">{{ project.description }}</div>
+                </div>
               </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex space-x-3">
+            <button
+              @click="closeProfileModal"
+              class="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
+            >
+              닫기
             </button>
           </div>
         </div>
       </div>
 		</div>
 	</div>
-  
 </template>
 
 <script setup>
-import mainImage from '@/assets/design/logo2.png';
+import { useAuthStore } from '@/composables/useAuth';
+import { storeToRefs } from 'pinia';
+import { useImage } from '@/composables/useImage.js';
 
-const currentTab = ref(6)
-const type = "members"
+const authStore = useAuthStore();
+const { getImageSrc } = useImage();
+const { user } = storeToRefs(authStore);
 
-const members = ref([]);
+// 탭 상태
+const activeTab = ref(6);
 const tabs = [
   { key: 0, name: '창립멤버'},
   { key: -1, name: '운영진'},
@@ -98,14 +220,116 @@ const tabs = [
   { key: 6, name: '6기'}
 ];
 
-const activeTab = ref(6);
-	
-const tempMembers = ref(
-	[
-  
-]
-);
+// 모달 상태
+const showCoffeeChatModal = ref(false);
+const showProfileModal = ref(false);
+const selectedMember = ref(null);
+const coffeeChatMessage = ref('');
 
+// 멤버 데이터
+const members = ref([]);
+
+// 샘플 데이터 (실제 API 호출로 대체)
+const sampleMembers = ref([
+  {
+    id: 1,
+    name: '김지후',
+    major: '컴퓨터공학과',
+    gen: 6,
+    positions: ['대표'],
+    image: null,
+    projects: [
+      { id: 1, title: 'AI 챗봇 개발', description: '자연어 처리 기반 챗봇' },
+      { id: 2, title: '이미지 분류 시스템', description: 'CNN을 활용한 이미지 분류' }
+    ]
+  },
+  {
+    id: 2,
+    name: '이민수',
+    major: '소프트웨어학과',
+    gen: 6,
+    positions: ['부대표'],
+    image: null,
+    projects: [
+      { id: 3, title: '웹 애플리케이션', description: 'React 기반 웹 앱' }
+    ]
+  },
+  {
+    id: 3,
+    name: '박서연',
+    major: '데이터사이언스학과',
+    gen: 5,
+    positions: ['기획부 부장'],
+    image: null,
+    projects: [
+      { id: 4, title: '데이터 분석 프로젝트', description: '머신러닝 기반 예측 모델' }
+    ]
+  }
+]);
+
+// 계산된 속성들
+const totalMembers = computed(() => filteredMembers.value.length);
+
+const filteredMembers = computed(() => {
+  if (activeTab.value === null) {
+    return sampleMembers.value;
+  } else if (activeTab.value === -1) {
+    return sampleMembers.value.filter(member => 
+      member.positions && member.positions.some(pos => 
+        pos.includes('대표') || pos.includes('부장') || pos.includes('차장')
+      )
+    );
+  }
+  return sampleMembers.value.filter(member => member.gen === activeTab.value);
+});
+
+// 메서드들
+const setActiveTab = (tab) => {
+  activeTab.value = activeTab.value === tab ? null : tab;
+};
+
+const handleImageError = (event) => {
+  event.target.src = '/default-avatar.png';
+};
+
+const requestCoffeeChat = (member) => {
+  selectedMember.value = member;
+  showCoffeeChatModal.value = true;
+};
+
+const closeCoffeeChatModal = () => {
+  showCoffeeChatModal.value = false;
+  selectedMember.value = null;
+  coffeeChatMessage.value = '';
+};
+
+const submitCoffeeChatRequest = () => {
+  if (selectedMember.value && coffeeChatMessage.value) {
+    // API 호출 로직 추가
+    console.log('커피챗 신청:', {
+      to: selectedMember.value.name,
+      message: coffeeChatMessage.value
+    });
+  }
+  closeCoffeeChatModal();
+};
+
+const viewProfile = (member) => {
+  selectedMember.value = member;
+  showProfileModal.value = true;
+};
+
+const closeProfileModal = () => {
+  showProfileModal.value = false;
+  selectedMember.value = null;
+};
+
+const openChat = (member) => {
+  // 채팅 기능 구현
+  console.log('채팅 열기:', member.name);
+};
+
+// 실제 API 호출 (주석 처리)
 const getMembers = async () => {
 	try {
 		const response = await $fetch(`${import.meta.env.VITE_API_URL}/member/show_all_members`, {
@@ -117,33 +341,10 @@ const getMembers = async () => {
 		console.error(error);
 	}
 };
-	
-const filteredMembers = computed(() => {
-	members.value.sort((a, b) => a.name.localeCompare(b.name));
-  if (activeTab.value === null) {
-		return members.value;
-	} else if (activeTab.value === -1) {
-		const executiveMembers = members.value.filter((member) => member.executive === true);
-
-    return executiveMembers.sort((a, b) => {
-      const order = ["5기 대표", "5기 부대표", "5기 총무", "5기 개발부 부장", "5기 기획부 부장", "5기 홍보부 부장", "5기 개발부 차장", "5기 기획부 차장", "5기 홍보부 차장"];
-      const getPositionIndex = (member) => order.indexOf(member.positions.slice(-1)[0]);
-  		return getPositionIndex(a) - getPositionIndex(b);
-    });
-  }
-
-  return members.value.filter((member) => member.gen == activeTab.value);
-});
-
-const setActiveTab = (tab) => {
-	activeTab.value = activeTab.value === tab? null : tab;
-};
-	
 
 onMounted(async () => {
-  await getMembers();
+  // await getMembers(); // 실제 API 호출 시 활성화
 });
-
 </script>
 
 

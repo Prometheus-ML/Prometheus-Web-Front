@@ -45,5 +45,14 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
   ],
 
+  runtimeConfig: {
+    // Public keys (exposed to client-side)
+    public: {
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:8000/api/v1',
+      googleClientId: process.env.GOOGLE_CLIENT_ID || '',
+      frontUrl: process.env.FRONT_URL || 'http://localhost:3000',
+    }
+  },
+
   compatibilityDate: '2025-01-16',
 });
