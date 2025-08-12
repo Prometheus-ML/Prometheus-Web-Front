@@ -11,3 +11,70 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/* Global dark theme override */
+:root, html, body {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Ensure default elements follow dark theme */
+body, main, #__nuxt, #__layout {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Force text to white regardless of Tailwind text utilities used */
+.text-black,
+.text-gray-900,
+.text-gray-800,
+.text-gray-700,
+.text-gray-600,
+.text-gray-500,
+.text-gray-400,
+.text-gray-300,
+.text-gray-200,
+.text-gray-100 {
+  color: #fff !important;
+}
+
+/* Make default text inside components white */
+* { color: inherit; }
+
+/* Invert white/light backgrounds to dark */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: #000 !important;
+}
+
+.bg-gray-200,
+.bg-gray-300 {
+  background-color: #111 !important;
+}
+
+/* Borders darker for contrast */
+.border-gray-50,
+.border-gray-100,
+.border-gray-200,
+.border-gray-300 {
+  border-color: #333 !important;
+}
+
+/* Inputs/Textareas/Selects for dark mode */
+input,
+textarea,
+select {
+  background-color: #000;
+  color: #fff;
+  border-color: #333;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Cards/components that relied on white bg */
+.prose { color: #fff !important; }
+.prose a { color: #93c5fd !important; }

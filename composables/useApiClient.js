@@ -197,9 +197,70 @@ export const useApiClient = () => {
     }
   };
 
+  // 프로젝트 API
+  const projectApi = {
+    // 프로젝트 목록 조회
+    getProjects: (params = {}) => {
+      const query = new URLSearchParams();
+      if (params.page) query.append('page', params.page);
+      if (params.size) query.append('size', params.size);
+      if (params.status) query.append('status', params.status);
+      return apiRequest(`/projects/?${query.toString()}`);
+    },
+
+    // 프로젝트 단건 조회
+    getProject: (projectId) => apiRequest(`/projects/${projectId}`),
+
+    // 프로젝트 생성 (Manager 이상)
+    createProject: (projectData) => apiRequest('/projects/', {
+      method: 'POST',
+      body: projectData
+    }),
+
+    // 프로젝트 수정 (Manager 이상 또는 팀장)
+    updateProject: (projectId, projectData) => apiRequest(`/projects/${projectId}`, {
+      method: 'PUT',
+      body: projectData
+    }),
+
+    // 프로젝트 삭제 (Manager 이상)
+    deleteProject: (projectId) => apiRequest(`/projects/${projectId}`, {
+      method: 'DELETE'
+    }),
+
+    // 프로젝트 멤버 목록
+    getProjectMembers: (projectId, params = {}) => {
+      const query = new URLSearchParams();
+      if (params.page) query.append('page', params.page);
+      if (params.size) query.append('size', params.size);
+      return apiRequest(`/projects/${projectId}/members?${query.toString()}`);
+    },
+
+    // 프로젝트 멤버 추가 (Manager 이상)
+    addProjectMember: (projectId, memberData) => apiRequest(`/projects/${projectId}/members`, {
+      method: 'POST',
+      body: memberData
+    }),
+
+    // 프로젝트 멤버 수정 (Manager 이상 또는 팀장; 팀장은 role 변경 불가)
+    updateProjectMember: (projectId, memberId, memberData) => apiRequest(`/projects/${projectId}/members/${memberId}`, {
+      method: 'PUT',
+      body: memberData
+    }),
+
+    // 프로젝트 멤버 삭제 (Manager 이상)
+    removeProjectMember: (projectId, memberId) => apiRequest(`/projects/${projectId}/members/${memberId}`, {
+      method: 'DELETE'
+    }),
+
+    // 특정 멤버 프로젝트 히스토리
+    getMemberHistory: (memberId) => apiRequest(`/projects/member/${memberId}/history`)
+  };
+
   return {
     apiRequest,
     userApi,
-    adminApi
+    adminApi,
+    projectApi
   };
 };
