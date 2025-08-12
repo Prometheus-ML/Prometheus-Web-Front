@@ -30,6 +30,13 @@ export default defineNuxtConfig({
     'vue-slick-carousel/dist/vue-slick-carousel.css'
   ],
 
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
   build: {
     transpile: [
       '@fortawesome/fontawesome-svg-core',
